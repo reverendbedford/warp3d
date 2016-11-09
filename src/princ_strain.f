@@ -18,14 +18,12 @@ c
       subroutine princ_strain( results, nrowd, num )
       implicit integer (a-z)
 #include "param_def"
-#dbl      double precision
-#sgl      real
+      double precision
      &     results(nrowd,*)
 c
 c                    locally allocated
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  temp_strain(nstr), wk(ndim), ev(nstr), evec(ndim,ndim), half
 c
       data  half / 0.5 / 

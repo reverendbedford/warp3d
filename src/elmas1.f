@@ -22,15 +22,13 @@ c
 c                      parameter declarations
 c
       integer ::  span, nnode, totdof
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & volume(*), mel(totdof,*), emass(*)
 c
 c                      locals
 c
       integer :: i, j 
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & scale(mxvl), trace(mxvl), zero, mass_tol
       logical :: local_debug
       data zero, local_debug, mass_tol / 0.0d00, .false., 1.0d-20 /

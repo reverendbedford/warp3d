@@ -24,8 +24,7 @@ c                 parameter declarations
 c
       integer :: nrow_ek  ! set for symmetric or asymmetric
       integer :: ispan
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &   glb_ek_blk(nrow_ek,ispan)
       real    :: props(mxelpr,*)   !  all 3 are same. read-only here
       integer :: iprops(mxelpr,*)
@@ -41,8 +40,7 @@ c
      &           compute_shape, cohes_mirror, dummy_logic,
      &           average, symmetric_assembly
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  xi, eta, zeta, beta_fact, eps_bbar, zero, one, dummy,
      &  temp_ref, d_temp, temp_np1
 c
@@ -228,8 +226,7 @@ c
 c
       integer :: span, nrow_ek
       integer :: i, j
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & local_ek(span,nrow_ek), ek(nrow_ek,span)
 !DIR$ ASSUME_ALIGNED ek:64, local_ek:64     
 c
@@ -319,8 +316,7 @@ c
       subroutine rktstf_zero_vec( vec, nterms )
       implicit none
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   vec(nterms), zero
       integer  nterms
       data zero / 0.0d00 /

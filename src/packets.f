@@ -19,8 +19,7 @@ c
 #include "common.main"
       real dumr
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
       logical found, msg_flag 
 
@@ -58,8 +57,7 @@ c
 #include "common.main"
       real dumr
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
       logical connected, msg_flag
 c

@@ -25,8 +25,7 @@ c
 c
 c                       local declarations
 c
-#dbl      double precision
-#sgl      real 
+      double precision
      &  forval, dumd
       character name*80, lname*24, stlnam*8, dums*1, curtyp*4
       logical matchs, endcrd, label, scanms, numi, debug
@@ -329,8 +328,7 @@ c
 c
 c                       local declarations
 c
-#dbl      double precision
-#sgl      real 
+      double precision
      &  dumd
       character name*80, lname*8, stlnam*8, dums*1, curtyp*4
       logical matchs, endcrd, true, numr, scanms, debug,

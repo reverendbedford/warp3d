@@ -19,8 +19,7 @@ c
       subroutine star_com
       implicit integer (a-z)             
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &  dumd
       real t1, wcputime, dumr
       external wcputime

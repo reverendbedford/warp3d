@@ -23,8 +23,7 @@ c
       implicit integer (a-z)
 #include "common.main"
       logical do_stresses, geonl, center_output, element
-#dbl      double precision
-#sgl      real
+      double precision
      &   nowtime
 c
 c

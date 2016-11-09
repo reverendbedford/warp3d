@@ -36,8 +36,7 @@ c
 #include "common.main"
       real dumr
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &  dnum, dumd, zero
       logical sbflg1, sbflg2, linlst, lstflg, matchs, integr, endcrd,
      &        true, numd, numr, string, numi, label, msg_flag,
@@ -1445,8 +1444,7 @@ c
       implicit integer (a-z)
       real value, zero, one
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
 #include "param_def"
       data zero, one / 0.0, 1.0 /

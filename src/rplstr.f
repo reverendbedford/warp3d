@@ -108,8 +108,7 @@ c
 c               parameter declarations
 c
       integer :: ngp, nprm, span
-#dbl      double precision ::
-#sgl      real :: 
+      double precision ::
      & ml(mxvl,nprm,*), mg(nprm,ngp,*)
 c
 c               local declarations
@@ -176,8 +175,7 @@ c
 c               parameter declarations
 c
       integer :: ngp, nprm, span
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &     ml(mxvl,nprm,*),mg(nprm,ngp,*)
 c
 c               local declarations
@@ -245,8 +243,7 @@ c
 c               parameter declarations
 c
       integer :: ngp, hist_size, span
-#dbl      double precision
-#sgl      real
+      double precision
      &      local_history(span,hist_size,ngp),
      &      global_history(hist_size,ngp,span)
 c

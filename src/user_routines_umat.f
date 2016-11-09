@@ -394,8 +394,7 @@ c
 c                       parameters
 c
       integer :: nvals
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & statev(*), output_statev(*)
 c
 c                       locals

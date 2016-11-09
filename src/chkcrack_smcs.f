@@ -28,8 +28,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &    dummy, eps_plas, eps_crit, sig_mean, sig_mises, eps_plas_tol,
      &    d_eps_plas, max_d_eps_plas, ddummy1, ddummy2, ddummy3
       logical ldummy, debug, ldummy2

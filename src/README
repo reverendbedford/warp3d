@@ -106,9 +106,8 @@ means that statement is included in all versions but the Linux version.
 
 To handle single vs. double precision, we use statements of the form:
 
-#sgl      real .....
 
-#dbl      double precision ....
+      double precision ....
 
 Whenever the make file needs to compile a new *.f file, it first
 invokes a "filter" program in this directory, e.g., filter_linux.exe

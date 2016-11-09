@@ -19,15 +19,13 @@ c
       subroutine oupri1( span, str, prstr, angles, stress )
       implicit integer (a-z)
 #include "param_def"
-#dbl      double precision
-#sgl      real
+      double precision
      &     str(mxvl,*), prstr(mxvl,*), angles(mxvl,ndim,*)
       logical stress
 c
 c                    locally allocated
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     tstr(nstr,mxvl), wk(ndim,mxvl), ev(nstr,mxvl),
      &     evec(ndim,ndim,mxvl), factor, one, half
       data one, half / 1.0, 0.5 /

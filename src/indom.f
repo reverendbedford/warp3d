@@ -22,16 +22,14 @@ c
 #include "common.main"
       real dumr, qnow, rword, rzero
       character dums*1, ltitle*80
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd, forval, zero
       dimension intlst(mxlsz)                          
       logical sbflg1, sbflg2, stress_flag, strain_flag
       logical matchs, endcrd, numd, realn, true,
      &        label, string, numi, user_def_ct
       equivalence (iword,rword)
-#dbl      data rzero, zero / 0.0, 0.0d0 /
-#sgl      data rzero, zero / 0.0, 0.0   /
+      data rzero, zero / 0.0, 0.0d0 /
 c
 c                       locally allocated
 c

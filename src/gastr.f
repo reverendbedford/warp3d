@@ -21,8 +21,7 @@ c
 c
 c               parameter declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & ml(mxvl,nprm,*), mg(nprm,ngp,*)
 !DIR$ ASSUME_ALIGNED ml:64, mg:64     
 c    

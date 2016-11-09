@@ -48,8 +48,7 @@ c
      &        block, nameok, sbflg1, sbflg2, scanms, delfil,
      &        wrt_nod_lod, write_table
       real dumr, rzero, rsum
-#dbl      double precision
-#sgl      real
+      double precision
      &     dumd, dzero
       character * 1 dums
       common /erflgs/ numnod, numel, fatal, coor, elprop, elinc,
@@ -260,8 +259,7 @@ c
 c                       write out double precision data
 c                         1) global vectors
 c
-#dbl      prec_fact = 2
-#sgl      prec_fact = 1
+      prec_fact = 2
       call wrtbk( fileno, u, prec_fact*nodof )
       call wrtbk( fileno, c, prec_fact*nodof )
       call wrtbk( fileno, ifv, prec_fact*nodof )

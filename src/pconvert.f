@@ -36,8 +36,7 @@ c
 
       integer dumi, dot
       real dumr
-#dbl      double precision
-#sgl      real 
+      double precision
      &   dumd
       character dums
       logical duml, matchs, endcrd, numd, label, integr
@@ -169,8 +168,7 @@ c
 
       integer dumi
       real dumr
-#dbl      double precision
-#sgl      real 
+      double precision
      &   dumd
       character dums
       logical duml, binary_file_was_open, all_packets
@@ -444,8 +442,7 @@ c
       integer ios,dot
       integer dumi
       real dumr
-#dbl      double precision
-#sgl      real 
+      double precision
      &   dumd
       character dums
 c

@@ -31,8 +31,7 @@ c
 c
 c                      parameter declarations
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & due(mxvl,*), deps(mxvl,nstr), gama(mxvl,3,3),
      & nxi(*), neta(*), nzeta(*), vol_block(mxvl,8,*), eps_bbar,
      & b(mxvl,mxedof,*)
@@ -115,15 +114,13 @@ c
 c
 c                      parameter declarations
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & due(mxvl,*), dgstrn(mxvl,nstr), dgstrs(mxvl,*), rot(mxvl,3,3),
      & shape(*), b(mxvl,mxedof,nstr)
 c
 c                      locals
 c
-#dbl      double precision, parameter :: zero = 0.0d00
-#sgl      real, parameter :: zero = 0.0
+      double precision, parameter :: zero = 0.0d00
       logical :: local_debug
       data local_debug / .false. /
 !DIR$ ASSUME_ALIGNED due:64, dgstrn:64, dgstrs:64, rot:64

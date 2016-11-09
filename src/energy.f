@@ -17,8 +17,7 @@ c
       subroutine energy ( step, adapt_result, mdiag )
       implicit integer ( a - z )
 #include "common.main" 
-#dbl      double precision
-#sgl      real
+      double precision
      & k_energy, mdiag(*), total_int_energy, total_pls_energy 
       logical there
       character *80 dums
@@ -106,8 +105,7 @@ c     *                                                              *
 c     ****************************************************************
 c
       subroutine kinetic_energy( mdiag, v, nodof, k_energy )
-#dbl      double precision
-#sgl      real
+      double precision
      &   mdiag(*), v(*), k_energy, zero, half
       data zero, half / 0.0, 0.5 /
 c

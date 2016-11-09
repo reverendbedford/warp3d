@@ -32,8 +32,7 @@ c
       real dumr
       character dums
       logical mf_ratio_change
-#dbl      double precision
-#sgl      real
+      double precision
      &     mf, mf_nm1, d32460, dumd, load_reduce_fact
       real con_stp_factor
       logical local_debug, msg_flag, stpdrv_error

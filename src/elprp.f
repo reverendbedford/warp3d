@@ -50,8 +50,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       logical fgm
       data zero, one
@@ -283,8 +282,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       logical local_debug
       data zero, one, local_debug
@@ -522,8 +520,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       data zero, one
      &    / 0.0, 1.0 /
@@ -755,8 +752,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       data zero, one
      &    / 0.0, 1.0 /
@@ -988,8 +984,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       data zero, one
      &    / 0.0, 1.0 /
@@ -1222,8 +1217,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       data zero, one
      &    / 0.0, 1.0 /
@@ -1457,8 +1451,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       data zero, one
      &    / 0.0, 1.0 /
@@ -1690,8 +1683,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       data zero, one
      &    / 0.0, 1.0 /
@@ -1922,8 +1914,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       data zero, one
      &    / 0.0, 1.0 /
@@ -2156,8 +2147,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       data zero, one
      &    / 0.0, 1.0 /
@@ -2393,8 +2383,7 @@ c
 c
       character dums
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       logical local_debug
       data zero, one, local_debug
@@ -2646,8 +2635,7 @@ c
 c
       character dums
       real  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       logical exponential_type, ppr_type, cavit_type
       data zero, one
@@ -3019,8 +3007,7 @@ c
       character dums
 c
       real e, et, h,  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, dumd
       data zero, one
      &    / 0.0, 1.0 /
@@ -3252,8 +3239,7 @@ c
 c
       character dums
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    dumd,zero
       logical exponential_type, ppr_type, cavit_type
 c
@@ -3478,8 +3464,7 @@ c
 c
       character dums
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    dumd,zero
       logical exponential_type, ppr_type, cavit_type
 c
@@ -3706,8 +3691,7 @@ c                 local variables
 c
       character dums
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &    dumd
       logical local_debug
       data local_debug / .false. /

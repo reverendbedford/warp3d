@@ -102,8 +102,7 @@ c
       integer, allocatable ::  element_list(:)
       logical matchs, true, eject_flag, endcrd
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &     dumd
       character dums
 c

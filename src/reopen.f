@@ -45,8 +45,7 @@ c
      &        read_nod_load, msg_flag, read_table
       real dumr, restart_time, wcputime
       external wcputime
-#dbl      double precision
-#sgl      real
+      double precision
      &     dumd, dzero
       character dums
       common /erflgs/ numnod, numel, fatal, coor, elprop, elinc,
@@ -249,8 +248,7 @@ c
 c                       read double precision vectors
 c
 c
-#dbl      prec_fact = 2
-#sgl      prec_fact = 1
+      prec_fact = 2
       call rdbk( fileno, u, prec_fact*nodof )
       call rdbk( fileno, c, prec_fact*nodof )
       call rdbk( fileno, ifv, prec_fact*nodof )
@@ -892,8 +890,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &    dummy(1)
       integer matl_info(10)
       logical myblk
@@ -1304,8 +1301,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &    dummy(1)
       logical myblk
 c
@@ -1428,8 +1424,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &    dummy(1)
       logical myblk
 c
@@ -1551,8 +1546,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &    model_volume, zero
       logical myblk
       data zero / 0.0 /
@@ -1646,8 +1640,7 @@ c
      &                            rot_blk_list
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, rot_init(9), dummy(1)
       logical geo_non_flg, local_debug
       data local_debug, zero, one / .false., 0.0, 1.0 /
@@ -2002,8 +1995,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero
       data zero / 0.0 /
 c
@@ -2110,8 +2102,7 @@ c
       subroutine ro_zero_vec( vec, isize )
       implicit none
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  vec(*), zero
 c
       integer isize
@@ -2169,8 +2160,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero
       data zero / 0.0 /
 c

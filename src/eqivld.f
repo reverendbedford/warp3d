@@ -59,8 +59,7 @@ c                       multipliers for this step. col. 1 stores accumulated
 c                       pattern multipliers prior to this step (as adjusted
 c                       by any global loading reductions)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  mf, mf_nm1, mf_tot, mf_nm1_tot, mf_ratio, zero,
      &  step_factor, total_factor, dummy
       logical debug, mf_ratio_change, user_mf_ratio_change
@@ -213,8 +212,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  force_factor, temps_factor, warp_incr_loads(*),
      &  warp_incr_temperatures(*), initial_temps(*)
       dimension crdmap(*)
@@ -225,18 +223,15 @@ c        local variables
 c
       character * 8  load_name
       logical forces_set, temps_set
-#dbl      double precision
-#sgl      real
+      double precision
      & zero, ff, time_n, dtime
 
-#dbl      double precision,
-#sgl      real,
+      double precision,
      &       dimension(:,:), allocatable :: incr_values,
      &                                      node_coords
 c
       data zero
-#dbl     & / 0.0d00 /
-#sgl     & / 0.0 /
+     & / 0.0d00 /
 c
 c        set local copies of key variables just in case the user rouitne
 c        decides to change them
@@ -341,13 +336,11 @@ c                     the user specified multipler for the step.
 c                     otherwise, mf = 0.0
 c
       integer ldcond, step
-#dbl      double precision
-#sgl      real
+      double precision
      &  mf
 c
       integer i, num_patt
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero
        data zero / 0.0d00 /
 c
@@ -390,15 +383,13 @@ c
 c
       integer now_step, nonlinear_loading, num_loading_conds,
      &        iout, nodof, cstmap(*)
-#dbl      double precision
-#sgl      real
+      double precision
      &  mf, mf_nm1, mf_tot, mf_nm1_tot, mf_ratio, cnstrn_in(*)
       real user_cnstrn_stp_factors(*)
       logical debug, mf_ratio_change
 
       integer ldcond, i, exit_point
-#dbl      double precision
-#sgl      real
+      double precision
      &   zero, one, cfnm1, cfn, con_ratio, toler
       logical  non_zero_mf, non_zero_mf_nm1, all_zero_cons,
      &         loading_patterns_exist
@@ -641,8 +632,7 @@ c
       use main_data, only : dtemp_nodes, node_load_defs
       implicit integer (a-z)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  mf, zero
       logical debug, temperatures
 c
@@ -697,8 +687,7 @@ c
       use main_data, only : node_load_defs
       implicit integer (a-z)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  mf, rload(*)
       integer dstmap(*)
       logical debug
@@ -759,13 +748,11 @@ c
       implicit none
 #include "common.main"
 c
-#dbl      double precision :: rload(*)
-#sgl      real :: rload(*)
+      double precision :: rload(*)
       logical :: debug
 c
       integer :: node, dptr, ndof, i
-#dbl      double precision ::
-#sgl      real :: 
+      double precision ::
      &  ndlod(mxvl,mxndof), zero, trnmte(mxvl,mxedof,mxndof)
       logical :: loads_found, trne(mxvl,mxndel)
       data zero / 0.0d0 /
@@ -853,8 +840,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#sgl      real
-#dbl      double precision
+      double precision
      &     step_factor, total_factor, zero, sum
       character * 12 pattern_names(3)
       real tfacts(3)

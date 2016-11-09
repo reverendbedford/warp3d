@@ -23,8 +23,7 @@ c
       implicit integer (a-z)
 #include "param_def"
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &   ifv(*), sum_ifv, eleifv(span,*), dam_ifv(mxedof,*)
 c
       integer :: bedst(totdof,*), iprops(mxelpr,*),

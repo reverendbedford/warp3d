@@ -30,8 +30,7 @@ c
 c      
 c                       local declarations
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  zero, start_estiff, end_estiff
       double precision, external :: omp_get_wtime
       logical :: local_debug
@@ -156,8 +155,7 @@ c
 c                       local declarations 
 c
 #include "include_tan_ek"
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  zero, lambda(mxvl,3,3) ! on stack
       logical :: local_debug, geo_non_flg, bbar_flg, 
      &           symmetric_assembly, block_is_killable 
@@ -533,8 +531,7 @@ c           local declarations
 c
       integer :: hist_size 
       logical :: local_debug
-#dbl      double precision :: zero
-#sgl      real :: zero
+      double precision :: zero
       data zero, local_debug / 0.0d00, .false. /
 c
 c               1) rotation matrices at integration points for geonl
@@ -614,8 +611,7 @@ c
 c           parameters
 c
        integer :: span, felem
-#dbl      double precision ::  trnmte(mxvl,mxedof,3)
-#sgl      real ::  trnmte(mxvl,mxedof,3)
+      double precision ::  trnmte(mxvl,mxedof,3)
 c
 c
       integer :: nnode, ndof, totdof, j, k, node, jj
@@ -676,8 +672,7 @@ c
 c               parameter declarations
 c
       integer :: ngp, hist_size, span
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & local_hist(span,hist_size,ngp),
      & global_hist(hist_size,ngp,span)
 c
@@ -740,8 +735,7 @@ c
 #include "include_tan_ek"
 c
       integer :: error
-#dbl      double precision :: zero
-#sgl      real :: zero
+      double precision :: zero
       data zero / 0.0d00 /
 c
 c               history data for block allocated in dptstf_blocks
@@ -977,8 +971,7 @@ c
       implicit none
 c
       integer :: n      
-#dbl      double precision :: vec(n), zero
-#sgl      real :: vec(n), zero
+      double precision :: vec(n), zero
       data zero / 0.0d00 /
 !DIR$ ASSUME_ALIGNED vec:64
 c

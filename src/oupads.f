@@ -24,18 +24,15 @@ c
 c
       type :: node_entry
          integer :: count
-#dbl         double precision, dimension(:), pointer :: node_values
-#sgl         real, dimension(:), pointer :: node_values
+         double precision, dimension(:), pointer :: node_values
       end type node_entry
 c
       type (node_entry), dimension (num_struct_nodes) :: nodal_values
-#dbl         double precision, dimension(:), pointer :: snode_values
-#sgl         real, dimension(:), pointer :: snode_values
+         double precision, dimension(:), pointer :: snode_values
 c
 c                        local declarations
 c
-#dbl      double precision
-#sgl      real 
+      double precision
      &   zero
       data zero / 0.0d0 /
 c

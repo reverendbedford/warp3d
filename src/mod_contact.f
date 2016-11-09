@@ -24,8 +24,7 @@ c
 c
       logical, save :: use_contact
 c     
-#dbl      double precision, save ::
-#sgl      real, save ::
+      double precision, save ::
      &	   cplane_vec (3,2,maxcontact),
      &     cshape_norm (3,maxcontact),
      &     cshape_pnt (3,maxcontact),
@@ -35,8 +34,7 @@ c
      &     contact_stiff (maxcontact), 
      &     contact_fric (maxcontact)
 c
-#dbl      double precision, allocatable, save ::
-#sgl      real, allocatable, save ::
+      double precision, allocatable, save ::
      &     contact_force(:)
 c
       end module

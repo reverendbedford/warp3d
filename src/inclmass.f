@@ -74,11 +74,9 @@ c
 c             locals. use pointers to simplify indexing within 
 c             innermost loop.
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &     nfac, one, mel(mxvl,mxedof)
-#dbl      double precision, dimension(:,:), pointer :: emat, mmat
-#sgl      real, dimension(:,:), pointer :: emat, mmat
+      double precision, dimension(:,:), pointer :: emat, mmat
 
      
       logical :: symmetric_assembly

@@ -30,8 +30,7 @@ c
      &        string, matchs_exact
 c
       common/errprm/ erprmd(10),erprmr(10),erprmi(10),erprms
-#dbl      double precision
-#sgl      real
+      double precision
      &  erprmd, dumd
       real erprmr
       character erprms *50
@@ -1122,8 +1121,7 @@ c
      &        string, matchs_exact
 c
       common/errprm/ erprmd(10),erprmr(10),erprmi(10),erprms
-#dbl      double precision
-#sgl      real
+      double precision
      &  erprmd, dumd
       real erprmr
       character erprms *50

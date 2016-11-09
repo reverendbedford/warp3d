@@ -23,8 +23,7 @@ c
       character(len=8) :: dums
       character(len=80) :: filnam, infil
       logical :: ok, nameok, endcrd,label,matchs,string
-#dbl      double precision :: dumd
-#sgl      real :: dumd
+      double precision :: dumd
 c
 c                       if "from terminal" or "from display"
 c                       then set keyboard as input  device

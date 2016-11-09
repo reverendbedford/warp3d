@@ -26,8 +26,7 @@ c
 c           local declarations
 c
       logical not_cut, duml
-#sgl      real
-#dbl      double precision
+      double precision
      &     new_plast_strain, two, dum1, dumd2, dumd3, dumd4,
      &     dumd5, dumd6, dumd7
       character * 1 dums

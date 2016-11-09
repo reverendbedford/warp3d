@@ -31,8 +31,7 @@ c
       common /erflgs/ numnod, numel, fatal, coor, elprop, elinc,
      &                constr, block
       real dumr, fgm_mark
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd, one
       data one, fgm_mark / 1.0, -99.0 /
       data local_debug / .false. /
@@ -1441,8 +1440,7 @@ c
       character dums*10
       logical local_debug, true
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd, tcurve_value(max_seg_curves), strain_1, strain_2,
      &   tol_strain
       data local_debug, tol_strain / .false., 1.0e-05 /
@@ -2519,8 +2517,7 @@ c
       subroutine inmat_err_message( ierrno, errstrng, nchars )
       implicit integer (a-z)
       common/errprm/ erprmd(10),erprmr(10),erprmi(10),erprms
-#dbl      double precision
-#sgl      real
+      double precision
      &   erprmd, dparam
       real erprmr, rparam
       character *50 erprms
@@ -2627,8 +2624,7 @@ c
      &         ltrue, lfalse, local_exp1_type, local_ppr_type,
      &         local_linear_type, local_fgm_type, local_cavit_type
       real  dumr, rword, value, fgm_mark, rtrue, rfalse
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
       equivalence (lfalse, rfalse), (rtrue, ltrue)
       character *1 dums
@@ -3477,12 +3473,10 @@ c
 c
       integer :: iout
       real :: matprp(*)
-#dbl      double precision
-#sgl      real
+      double precision
      &   alph, beta, ln, lt, m, n, Gn, Gt, Tn_m, Tt_m, dn, dt, one
       data one
-#sgl     &    / 1.0 /
-#dbl     &    / 1.0d00 /
+     &    / 1.0d00 /
 c
       alph   = matprp(96)
       beta   = matprp(97)

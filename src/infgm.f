@@ -19,8 +19,7 @@ c
      &                     fgm_node_values_cols
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      & dumd
       real dumr, young_mod, poisson_ratio, alpha, vol_fract_ductile, 
      &     rho, tan_e, n_power, yld_pt, zero
@@ -29,8 +28,7 @@ c
       logical matchs, matchs_exact, endcrd, true, numr,
      &        prop_flags(fgm_node_values_cols)
       dimension intlst(mxlsz)
-#dbl      data zero / 0.d0 /
-#sgl      data zero / 0.0 /
+      data zero / 0.d0 /
 c
       if ( .not. fgm_node_values_defined )  call mem_allocate( 20 )
 c
@@ -249,8 +247,7 @@ c
 #include "common.main"
       real dumr, young_mod, poisson_ratio, alpha, vol_fract_ductile,
      &     rho, tan_e, yld_pt, n_power, zero
-#dbl      double precision
-#sgl      real
+      double precision
      &     dumd
       logical prop_flags(*)
       character dums

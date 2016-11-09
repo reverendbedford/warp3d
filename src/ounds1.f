@@ -26,8 +26,7 @@ c
 c
 c                       local declarations
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &     temstr(mxvl,mxoupr,mxndel), lg(mxgp), zero,
      &     dum_vec(1), rngpts, xi, eta, zeta
       integer :: idumvec(1), num_vals, shift, elnod, tetpt, j, k, i 

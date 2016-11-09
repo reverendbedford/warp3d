@@ -14,8 +14,7 @@ c     ****************************************************************
 c
       subroutine vol_avg ( vol, volume, span, mxvl )  
       implicit integer ( a-z )
-#dbl      double precision
-#sgl      real
+      double precision
      & vol(mxvl,8,*), volume(*), voli, one
       data one / 1.0d0 /
 !DIR$ ASSUME_ALIGNED vol:64, volume:64

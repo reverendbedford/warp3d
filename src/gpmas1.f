@@ -25,8 +25,7 @@ c                       parameter declarations
 c
       integer :: span, felem, type, order, gpn, nnode,
      &                 totdof, iout
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  volume(*), mel(totdof,*), rho(*), emass(*), rho_fgm_flags(*),
      &  ce_block(mxvl,*), rho_block(mxndel,*)
       logical :: fgm_props, axisymm_elem, implemented_elem
@@ -34,8 +33,7 @@ c
 c                       locals
 c
       integer :: i, j
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &   shape(mxndel), radius(mxvl), dummy(mxvl,3,3),
      &   jac(mxvl,ndim,ndim),  gama(mxvl,ndim,ndim),
      &   xi, eta ,zeta, wfactor, dj(mxvl),
@@ -159,8 +157,7 @@ c
 c               parameter declarations
 c
       integer :: elem_type, totdof, nnode, mxvl, span
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &         radius(*), 
      &         shape(*), 
      &         dj(*), 
@@ -173,8 +170,7 @@ c
 c               local variables 
 c
       integer :: i,j
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &         two, 
      &         half, 
      &         pi, 
@@ -318,13 +314,11 @@ c
       subroutine get_radius( rad, nnode, span, n, ce, mxvl )
       implicit none
       integer :: nnode, span, mxvl
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &         rad(*), n(*), ce(mxvl,*)
 c
       integer i,j
-#dbl      double precision
-#sgl      real
+      double precision
      &         zero
       data zero / 0.0d00 /
 c
@@ -381,8 +375,7 @@ c
 c                  parameters
 c
       integer elem_type, nstr, mxvl, span
-#dbl      double precision
-#sgl      real
+      double precision
      &         rad(*),
      &         cep(mxvl,nstr,*)
 c
@@ -390,8 +383,7 @@ c                   local variables
 c
       integer i, row
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &         scalar
 c
 c                    the element type determines the scalar

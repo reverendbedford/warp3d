@@ -17,8 +17,7 @@ c
      &                       volume, span, mxvl ) 
       implicit integer ( a-z )
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  in_jacob(mxvl,3,*), dj(*), vol(mxvl,8,*),
      &  nxi(*), neta(*), nzeta(*), volume(*), a, b, c, d
 !DIR$ ASSUME_ALIGNED in_jacob:64, dj:64, vol:64, nxi:64, neta:64

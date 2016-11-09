@@ -25,15 +25,13 @@ c
       implicit integer (a-z)
 #include "param_def"
       logical do_stresses, geonl
-#dbl      double precision
-#sgl      real
+      double precision
      &       nowtime
 c
 c                       local declarations
 c 
       character * 8 cmname
-#dbl      double precision
-#sgl      real
+      double precision
      &       zero, qn(mxvl,nstr,nstr), small_number, dword, 
      &       umat_props(50),
      &       time, umat_statev(500), umat_stress(6), mat_vals(3)
@@ -42,8 +40,7 @@ c
       dimension iword(2), info(10)
       equivalence ( iword, dword )
       data zero, small_number, local_debug / 0.0, 1.0e-10, .false. /
-#dbl      double precision
-#sgl      real
+      double precision
      &       root3
       data root3 / 1.7320508075 /
 c
@@ -316,16 +313,14 @@ c            convert vector strain to strain tensor form, rotate,
 c            convert back to vector
 c      
       integer span
-#dbl      double precision
-#sgl      real
+      double precision
      &      R(mxvl,3,3), spatial_strain(mxvl,6), 
      &      material_strain(mxvl,6)       
 c
 c            local with work arrays
 c     
       integer i
-#dbl      double precision
-#sgl      real
+      double precision
      &   rt(mxvl,3,3), t(mxvl,3,3), d(mxvl,3,3), Deps(mxvl,3,3),
      &   half, two
 c      

@@ -31,8 +31,7 @@ c
 c                       local declarations
 c
       real :: dumr
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &   dumd
       character :: dums
       logical :: outyp, ouflg, ounod, wide, eform,

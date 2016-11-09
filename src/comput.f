@@ -19,8 +19,7 @@ c
       implicit integer (a-z)
 #include "common.main"
       real dumr
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &   dumd, zero
       character :: dums
       character*80 :: name

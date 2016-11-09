@@ -28,8 +28,7 @@ c             local declarations
 c
       character*8 strlbl(30), hedtyp*30
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &     dumd
       character dums
       logical  bbar_flg, geo_non_flg, long_out_flg,

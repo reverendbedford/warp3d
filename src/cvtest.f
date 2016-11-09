@@ -24,8 +24,7 @@ c
       use stiffness_data, only : d_lagrange_forces
       use main_data, only : diverge_check_strict
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      & magdu1, mgload, adapt_load_fact, res_max
       logical cnverg, mducom, trcsol, diverging_flag
 #include "common.main" 
@@ -33,13 +32,11 @@ c
 c                       locals
 c
       integer, parameter :: num_local_flags = 15
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  testvl(mxcvtests), ratio(mxcvtests), absval, zero, 
      &  hundred, avg_force,
      &  term_count, sum, val_1, val_2, val_3, resforce
-#dbl      double precision, save ::
-#sgl      real, save  ::
+      double precision, save ::
      &  norm_resids_for_checking(50)
       logical local_flags(num_local_flags), have_mpc_equations
       data zero, hundred / 0.0d00, 100.0d00 /                   
@@ -349,8 +346,7 @@ c                        parameters
 c     
       integer :: step, iter, out,  res_max_node_dof, res_max_node,
      &           max_tests
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & magdu1, magdp, testvl(*), ratio(*), adapt_load_fact,
      & res_max, avg_force
       logical :: convrg(*), local_flags(*),

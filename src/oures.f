@@ -22,8 +22,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &    eres(mxvl,mxndof), zero, trnmte(mxvl,mxedof,mxndof)
       logical newhed, trne(mxvl,mxndel)
       character*8 doflbl(mxndof)

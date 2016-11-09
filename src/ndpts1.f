@@ -11,8 +11,7 @@ c
 c
       subroutine ndpts1( fnodes, nfnode, fcoor, etype, enode,
      &                   xi, eta, zeta )
-#dbl      implicit double precision (a-h,o-z)
-#sgl      implicit real  (a-h,o-z)
+      implicit double precision (a-h,o-z)
 c
 c
 c              fill the fcoor table for element etype,

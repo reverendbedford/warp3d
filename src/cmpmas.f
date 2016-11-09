@@ -33,12 +33,10 @@ c
 #include "common.main"
 c
 c              locals
-#dbl      double precision, 
-#sgl      real,
+      double precision, 
      &     allocatable, dimension(:,:) :: mel
 c     
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &     zero, totvol, ce_block(mxvl,mxecor), rho_block(mxndel,mxvl)
       logical :: fgm_props
       data zero, three / 0.0d00, 3.0d00 /

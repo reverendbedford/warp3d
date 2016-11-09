@@ -107,8 +107,7 @@ c
       integer step, iter, span, felem, gpn, iout, mxvl,
      1        numthreads, now_thread, c_type
 c
-#dbl      double precision
-#sgl      real
+      double precision
      1 intfprps(mxvl,*), trac_n(mxvl,*), delrlds(mxvl,*),
      2 trac_n1(mxvl,*), reladis(mxvl,*),
      3 history(span,15), history1(span,15),
@@ -359,8 +358,7 @@ c
 c                   locally defined
 c
       integer i, history_length, info_vector(10)
-#dbl      double precision
-#sgl      real
+      double precision
      & half, zero, one, three, e, tol, forty, initial,
      & beta, ds1, ds2, dn, tn_n1, dn_n1, tshear,
      & intfmat(mxvl,3), ppr_support(mxvl,30),
@@ -663,8 +661,7 @@ c             variables declared here are local to this routine.
 c      
       logical :: here_debug, debug_set_props
 c
-#dbl      double precision ::  l_nr, a_now, third, one, dword
-#sgl      real ::              l_nr, a_now, third, one, dword
+      double precision ::  l_nr, a_now, third, one, dword
       integer :: iword(2)
       equivalence (dword, iword)
 c 
@@ -812,16 +809,14 @@ c             parameters
 c
       integer :: mxvl, iout, span, felem, gpn
       logical :: here_debug, ok
-#dbl      double precision ::  intfprps(mxvl,*)
-#sgl      real ::  intfprps(mxvl,*)
+      double precision ::  intfprps(mxvl,*)
 c 
       type( props_for_cavit), dimension(:) :: bcp(mxvl)
 c
 c             locals
 c
       integer :: i
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & pi, one_eighty, zero, one, three, four, psi, x, half,
      & onept5, user_input_n_power, two
 c      
@@ -969,8 +964,7 @@ c
 c             locals
 c
 
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & pi, one_eighty, zero, one, three, four, psi, x, half,
      & onept5
       integer :: i, gb_no, abs_elem
@@ -1182,8 +1176,7 @@ c
 c             parameter declarations
 c
       integer :: step, iter, span, iout, mxvl, felem, gpn, history_len
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      1 trac_n(mxvl,*), delrlds(mxvl,*), intfprps(mxvl,*),
      2 trac_n1(mxvl,*), reladis(mxvl,*), history(span,history_len),
      3 history1(span,history_len), time_n, dtime,
@@ -1199,8 +1192,7 @@ c             local variables
 c
       integer :: i, abs_elem, iter_count, iword(2), old_state,
      &           new_state, current_state, ielem
-#dbl      double precision ::
-#sgl      real :
+      double precision ::
      & dword, zero, three, one, toler, six, 
      & half, four, two, third, onept5,
      & top_surf_mean_stress, top_surf_mean_eps,
@@ -1219,8 +1211,7 @@ c
 c
       equivalence ( iword, dword )     
 c
-#dbl      double precision, external :: mm04_cavit_mises
-#sgl      real, external :: mm04_cavit_mises
+      double precision, external :: mm04_cavit_mises
 c
       logical :: elem_killed(mxvl), local_debug, converged, 
      & nucleation_active, debug_span_loop, compute_solid_local,
@@ -1498,8 +1489,7 @@ c
 c
 c             locals
 c
-#dbl      double precision ::
-#sgl      real :
+      double precision ::
      & work(6), rotate(3,3)
 c
       work(1:6) = half * ( sig_top(1:6) + sig_bott(1:6) )
@@ -1559,8 +1549,7 @@ c    ****************************************************************
 c
       subroutine mm04_cavit_std_update
       implicit none
-#dbl      double precision, parameter ::
-#sgl      real, parameter ::
+      double precision, parameter ::
      & local_tol_a_0 = 0.90d0
 c
 c             step 1: compute f, then q(f), then c1, c0
@@ -1720,8 +1709,7 @@ c             change per VVNT equations (van der Giessen, van der
 c             Burg, Needleman, and Tvergaard). 
 c             See ORNL/LTR-2014/492 pg 14-15.
 c
-#dbl      double precision ::
-#sgl      real :
+      double precision ::
      &      v1_dot_L, v1_dot_H,
      &      v2_dot_L, v2_dot_H,
      &      v_h_term, beta_signed
@@ -1817,8 +1805,7 @@ c     input params
 c                         = 1 if H (v_dot_H)
 c
 c     local parameters
-#dbl      double precision ::
-#sgl      real :
+      double precision ::
      & f_bar_i, f_bar_j, q_i,dq_i, q_j, dq_j,
      & del, N1, M1, N2, M2,
      & q_min
@@ -1982,19 +1969,16 @@ c    *                                                              *
 c    ****************************************************************
 c
 c
-#dbl      double precision function mm04_cavit_mises( sig )
-#sgl      real function mm04_cavit_mises( sig )
+      double precision function mm04_cavit_mises( sig )
        implicit none
 c
 c             parameters
 c
-#dbl      double precision :: sig(6)
-#sgl      real :: sig(6)
+      double precision :: sig(6)
 c
 c             locals
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & t1, t2, t3, t4, t5, roothalf, six
       data roothalf, six / 0.70710678119d0, 6.0d00 /
 c
@@ -2027,16 +2011,14 @@ c
 c
 c             parameters
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & c_2, c_1, c_0, T_n, delta_c_dot, delta_T, dtime, zero, Sigma_0
       integer :: iout, iter_count
       logical :: converged, local_debug
 c
 c             locals
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & toler, delta_T_old, delta_T_new, f, df, two, f_small
       logical :: test1, test2
       integer :: max_newton, iter
@@ -2192,16 +2174,14 @@ c
       logical lprops(mxelpr,*)  ! same space as props
       integer iprops(mxelpr,*)  ! same space as props
       real matprp(*)            ! note it is single precision !!!
-#dbl      double precision
-#sgl      real
+      double precision
      &    intfprps(mxvl,*), global_to_element_rot(mxvl,3,3)
 c
 c                     locals
 c
       integer i, j, iand, dummy, innum, cavit_loc, start_col, nvalues
       logical is_ppr, local_debug, is_cavit, bad
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero, one, value
       data zero, one / 0.0d00, 1.0d00 /
 c
@@ -2364,16 +2344,14 @@ c
 c
 c                   parameter declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & intfprps(mxvl,*), cohmat(mxvl,3), dis(mxvl,*),
      & history(span,*), history1(span,*)
        logical elem_killed(*)
 c
 c                   locally defined
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & zero, tol, dtol, d_eff_at_peak, beta, dt1, dt2, dn, b2,
      & effdis(mxvl), efftrac(mxvl), e, maxeffdis(mxvl),
      & prior_max_d_eff, d_eff_at_n, peak_intf_stress, comp_multiplier
@@ -2517,16 +2495,14 @@ c
      &             local_debug, iout, mxvl )
       implicit none
       integer :: i, span, mxvl, iout
-#dbl      double precision
-#sgl      real
+      double precision
      &        ppr_support(mxvl,*), del(mxvl,*), trac_n1(mxvl,*),
      &        history(span,*), history1(span,*)
       logical :: elem_killed(*), local_debug
 c
 c               local definitions
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &        Gam_n, Gam_t, Tn_m, Tt_m, dn, dt, alph, beta, m, n,
      &        dGtn, dGnt, dnb, dtb,
      &        deln, delt, deln_max, delt_max, Tn, Tt, dTn, zero, tol,
@@ -2694,14 +2670,12 @@ c
       subroutine mm04_init_ppr( span, intfprps, ppr_support,
      &                          elem_killed, iout, mxvl )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &      intfprps(mxvl,*), ppr_support(mxvl,*)
       logical elem_killed(*)
       integer :: i, span, mxvl, iout
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &      Gn, Gt, Tn_m, Tt_m, alph, beta, ln, lt, m, n, dn, dt,
      &      dnb, dtb, Gam_n, Gam_t, dGnt, dGtn, zero, one,
      &      comp_multiplier
@@ -2808,11 +2782,9 @@ c
      &                               iout )
       implicit none
       integer :: itr, iout
-#dbl      double precision
-#sgl      real
+      double precision
      &        Gam_n, dn, m, alph, dGnt, dnb, fx, dfx
-#dbl      double precision
-#sgl      real
+      double precision
      &        half, tol, one
       data half, tol, one / 0.5d00, 1.0d-08, 1.0d00 /
 c
@@ -2935,13 +2907,11 @@ c
 c                       parameters
 c
       integer :: nrow_states, itype, num_states
-#dbl      double precision :: elem_states_output(nrow_states,*)
-#sgl      real  :: elem_states_output(nrow_states,*)
+      double precision :: elem_states_output(nrow_states,*)
 c
 c                       locals
 c
-#dbl      double precision, 
-#sgl      real,
+      double precision, 
      & allocatable :: history_dump(:,:,:), one_elem_states(:)
       integer :: relem, elnum, hist_size, blockno, cohesive_elem
       logical :: do_a_block, cohesive_type
@@ -3040,8 +3010,7 @@ c
 c                       locals
 c
       integer :: ipt   
-#dbl      double precision :: 
-#sgl      real :
+      double precision :: 
      & N_ratio, a_ratio, b_ratio, V_ratio, lambda_4, a_b_ratio,
      & a_bar, b_bar, a_L_ratio, T_n, T_nmax, T_shear, T_shr_max
 c
@@ -3170,15 +3139,13 @@ c
       implicit none
 c
       integer :: iout      
-#dbl      double precision :: 
-#sgl      real :
+      double precision :: 
      & rotate(3,3), gsig(6), tn_solid
       logical ::   debug
 c
 c                       locals
 c
-#dbl      double precision :: 
-#sgl      real :
+      double precision :: 
      & nx, ny, nz, tx, ty, tz, tn   
 c
 c      global(1,1) = gsig(1)   !  comments for reference to ordering
@@ -3240,8 +3207,7 @@ c
      b        bott_surf_elems(span), top_solid_matl(span),
      c        bott_solid_matl(span)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      a reladis(mxvl,*), history(span,*),
      b history1(span,*), cep(mxvl,6,6),
      c intfprps(mxvl,*), time_n, dtime,
@@ -3420,8 +3386,7 @@ c
 c                   locally defined
 c
       integer i, info_vector(20), history_length
-#dbl      double precision
-#sgl      real
+      double precision
      & zero, e, tol, three, initial,
      & intfmat(mxvl,3,3), ppr_support(mxvl,20), one,
      & top_surf_mean_stress, top_surf_mean_eps,
@@ -3667,16 +3632,14 @@ c
 c
 c                   parameter declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & intfprps(mxvl,*), tanmat(mxvl,3,3), dis(mxvl,*),
      & history(span,*), history1(span,*)
        logical local_debug, elem_killed(*)
 c
 c                   locally defined
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & zero, tol, dtol, one, t11, t12, t13, t21, t22, t23, t31, t32,
      & t33, effdis(mxvl), efftrac, e, maxeffdis(mxvl),
      & dtd1, dtd2, dtd3, b2, b4, eff3,
@@ -3858,14 +3821,12 @@ c
      &                      local_debug, felem, iout, mxvl )
       implicit none
       integer :: i, span, mxvl, felem, iout
-#dbl      double precision
-#sgl      real
+      double precision
      &        ppr_support(mxvl,*), del(mxvl,*), tanmat(mxvl,3,3),
      &        history(span,*), history1(span,*)
       logical elem_killed(*), local_debug
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &        Gam_n, Gam_t, Tn_m, Tt_m, dn, dt, alph, beta, m, n,
      &        dGtn, dGnt, dnb, dtb, comp_multiplier,
      &        deln, delt, deln_max, delt_max, Dnn, Dnt, Dtn, Dtt, Tt,
@@ -4100,15 +4061,13 @@ c
 c
       integer step, cohes_type, span, mxvl, nstr, gpn, felem, iout
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & cep(mxvl,6,6), intfprps(mxvl,*), time_n, dtime
 c
 c                   locally defined. some are automatic arrays
 c
       integer :: i
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & zero, e, beta, one, ppr_support(mxvl,20)
       logical :: elem_killed(mxvl), local_debug
 c
@@ -4330,14 +4289,12 @@ c
       implicit none
 c
       integer :: i, span, mxvl, nstr, iout
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &         cep(mxvl,6,6), intfprps(mxvl,*),
      &         ppr_support(mxvl,20)
       logical :: elem_killed(*)
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  Dnn, Dtt, Gam_n, Gam_t, dn, dt, m, n, alph, beta, dGtn, dGnt,
      &  zero, one, two
       data zero,one,two / 0.0d00, 1.0d00, 2.0d00 /
@@ -4399,16 +4356,14 @@ c
 c             parameters
 c
       integer :: span, mxvl, nstr, iout, gpn, felem
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & cep(mxvl,6,6), dtime, intfprps(mxvl,*)
 c     
 c             locals
 c
       integer :: i, abs_elem
       logical :: here_debug, debug_set_props
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & three, one, half, four, stiff_shear, stiff_normal, f_0, q  
 c
       type( props_for_cavit), dimension(:) :: bcp(mxvl)

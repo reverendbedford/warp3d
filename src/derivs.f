@@ -17,8 +17,7 @@ c
 c
       subroutine derivs( etype, xi, eta, zeta, nxi, neta, nzeta )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &     xi, eta, zeta, nxi(*), neta(*), nzeta(*)
       integer etype
 c
@@ -151,13 +150,11 @@ c
 c
       subroutine deriv1(r,s,t,nr,ns,nt)
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      &     nr(*),ns(*),nt(*),rp1,rm1,sp1,sm1,tp1,tm1,rps,rms,spt,smt,
      &     r,s,t,one,half,fourth,eighth
 c
-#sgl      data one,half,fourth,eighth /1.0,0.5,0.25,0.125/
-#dbl      data one,half,fourth,eighth /1.0d0,0.5d0,0.25d0,0.125d0/
+      data one,half,fourth,eighth /1.0d0,0.5d0,0.25d0,0.125d0/
 c
       rp1 = one+r
       rm1 = one-r
@@ -254,14 +251,11 @@ c
 c
       subroutine deriv2( xi, eta, zeta, nxi, neta, nzeta )
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      & xi,eta,zeta,nxi(*),neta(*),nzeta(*),xp,ep,zp,xm,em,zm
-#dbl      double precision
-#sgl      real
+      double precision
      &  one, one25
-#sgl      data one, one25 / 1.0, 0.125 /
-#dbl      data one, one25 / 1.0d0, 0.125d0 /
+      data one, one25 / 1.0d0, 0.125d0 /
 c
 c                       set basic parameters
 c
@@ -318,13 +312,11 @@ c
 c
       subroutine deriv3(r,s,t,nr,ns,nt)
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      &     nr(*),ns(*),nt(*),rp1,rm1,sp1,sm1,tp1,tm1,spt,smt,
      &     r,s,t,one,half,fourth,eighth
 c
-#sgl      data one,half,fourth,eighth /1.0,0.5,0.25,0.125/
-#dbl      data one,half,fourth,eighth /1.0d0,0.5d0,0.25d0,0.125d0/
+      data one,half,fourth,eighth /1.0d0,0.5d0,0.25d0,0.125d0/
 
       rp1 = one + r
       rm1 = one - r
@@ -393,13 +385,11 @@ c
 c
       subroutine deriv4(r,s,t,nr,ns,nt)
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      &     nr(*),ns(*),nt(*),rp1,rm1,sp1,sm1,tp1,tm1,rpt,rmt,spt,smt,
      &     r,s,t,one,half,fourth,eighth
 c
-#sgl      data one,half,fourth,eighth /1.0,0.5,0.25,0.125/
-#dbl      data one,half,fourth,eighth /1.0d0,0.5d0,0.25d0,0.125d0/
+      data one,half,fourth,eighth /1.0d0,0.5d0,0.25d0,0.125d0/
 c
       rp1 = one + r
       rm1 = one - r
@@ -479,13 +469,11 @@ c
 c
       subroutine deriv5(r,s,t,nr,ns,nt)
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      &     nr(*),ns(*),nt(*),rp1,rm1,sp1,sm1,tp1,tm1,
      &     r,s,t,one,half,fourth,eighth
 c
-#sgl      data one,half,fourth,eighth /1.0,0.5,0.25,0.125/
-#dbl      data one,half,fourth,eighth /1.0d0,0.5d0,0.25d0,0.125d0/
+      data one,half,fourth,eighth /1.0d0,0.5d0,0.25d0,0.125d0/
 c
       rp1 = one+r
       rm1 = one-r
@@ -586,19 +574,16 @@ c       integration point coordinate set.
 c
       subroutine deriv6( s2, s3, s4, qs2, qs3, qs4 )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &         s2, s3, s4, qs2(*), qs3(*), qs4(*)
 c
 c           s1 = fourth tetrahedron natural coordinate, used here
 c                to keep the simplicity of the functions below
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, one, four, s1
 c
-#dbl      zero = 0.0d0; one  = 1.0d0; four = 4.0d0
-#sgl      zero = 0.0; one  = 1.0; four = 4.0
+      zero = 0.0d0; one  = 1.0d0; four = 4.0d0
       s1 = one - s2 - s3 - s4
 c
 c           evaluate the shape function derivatives with respect to the
@@ -712,16 +697,13 @@ c        (where numnode = 8 for the 8-node quadrilateral element)
 c
       subroutine deriv9( s1, s2, qs1, qs2 )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &         s1, s2, qs1(*), qs2(*)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &         one, two, four
 c
-#dbl      one  = 1.0d0; two  = 2.0d0; four = 4.0d0
-#sgl      one  = 1.0; two  = 2.0; four = 4.0
+      one  = 1.0d0; two  = 2.0d0; four = 4.0d0
 c
 c         dq_i/ds1, derivatives with respect to s1, the first local
 c         coordinate (or dq_i/dXi with Xi as the first local coordinate)
@@ -812,16 +794,13 @@ c                         element)
 c
       subroutine deriv10( s1, s2, qs1, qs2 )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &         s1, s2, qs1(*), qs2(*)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &         one, two, four
 c
-#dbl      one  = 1.0d0; two = 2.0d0; four = 4.0d0
-#sgl      one  = 1.0; two = 2.0; four = 4.0
+      one  = 1.0d0; two = 2.0d0; four = 4.0d0
 c
 c         dq_i/ds1, derivatives with respect to s1, the first local
 c         coordinate (or dq_i/dXi with Xi as the first local coordinate)
@@ -922,16 +901,13 @@ c       (where numnode = 6 for the 6-node triangle element)
 c
       subroutine deriv11( s1, s2, s3, qs1, qs2 )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &          s1, s2, s3, qs1(*), qs2(*)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &          zero, one, four
 c
-#dbl      zero = 0.0d0; one = 1.0d0;  four = 4.0d0
-#sgl      zero = 0.0; one  = 1.0; four = 4.0
+      zero = 0.0d0; one = 1.0d0;  four = 4.0d0
 c
 c          evaluate the shape function derivatives with respect to the
 c          triangle coordinates at the current Gauss point.
@@ -980,14 +956,11 @@ c     ****************************************************************
 c
       subroutine deriv12( xi, eta, nxi, neta )
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      & xi,eta,nxi(*),neta(*),xp,ep,xm,em, zero
-#dbl      double precision
-#sgl      real
+      double precision
      &  one, one4
-#sgl      data one, one4, zero / 1.0, 0.25, 0.0 /
-#dbl      data one, one4, zero / 1.0d0, 0.25d0, 0.0d0 /
+      data one, one4, zero / 1.0d0, 0.25d0, 0.0d0 /
 c
 c            nodes 1-4 are bottom; 5-8 top surface
 c
@@ -1045,15 +1018,12 @@ c       (where numnode=4 for the 4-node tetrahedron element)
 c
       subroutine deriv13( s2, s3, s4, qs2, qs3, qs4 )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &         s2, s3, s4, qs2(*), qs3(*), qs4(*)
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, one, minusone, s1
 c
-#dbl      zero = 0.0d0; one = 1.0d0; minusone = -1.0d0
-#sgl      zero = 0.0; one = 1.0; minusone = -1.0
+      zero = 0.0d0; one = 1.0d0; minusone = -1.0d0
 c
 c           s1 = fourth tetrahedron natural coordinate, used here
 c                to keep the simplicity of the functions below
@@ -1150,16 +1120,13 @@ c       (where num_enodes = 6)
 c
       subroutine deriv14( s1, s2, qs1, qs2 )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &          s1, s2, s3, qs1(*), qs2(*)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &          zero, one
 c
-#dbl      zero = 0.0d0; one  = 1.0d0
-#sgl      zero = 0.0; one  = 1.0
+      zero = 0.0d0; one  = 1.0d0
 c
 c          before differentiating the shape functions,
 c          the dependent coordinate s3 was substituted into the shape
@@ -1242,16 +1209,13 @@ c       (where num_enodes = 12)
 c
       subroutine deriv15( s1, s2, qs1, qs2 )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &          s1, s2, qs1(*), qs2(*)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &          zero, one, four, s3
       data zero, one, four
-#dbl     &  / 0.0d0, 1.0d0, 4.0d0 /
-#sgl     &  / 0.0, 1.0, 4.0 /
+     &  / 0.0d0, 1.0d0, 4.0d0 /
 c
 c          before differentiating the shape functions,
 c          the dependent coordinate s3 was substituted into the shape
@@ -1338,20 +1302,15 @@ c        (where numnode = 4 for the 4-node quadrilateral element)
 c
       subroutine deriv16( s1, s2, qs1, qs2 )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &         s1, s2, qs1(*), qs2(*)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &         one, two, four
 c
-#dbl      one  = 1.0D0
-#dbl      two  = 2.0D0
-#dbl      four = 4.0D0
-#sgl      one  = 1.0
-#sgl      two  = 2.0
-#sgl      four = 4.0
+      one  = 1.0D0
+      two  = 2.0D0
+      four = 4.0D0
 c
 c         dq_i/ds1, derivatives with respect to s1, the first local
 c         coordinate (or dq_i/dXi with Xi as the first local coordinate)

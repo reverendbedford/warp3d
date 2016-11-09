@@ -28,8 +28,7 @@ c
      &        out_packet_now, flat_file, stream_file, 
      &        text_file, compressed 
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &     dumd
       character dums
       dimension intlst(mxlsz)

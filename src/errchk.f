@@ -197,15 +197,13 @@ c
 #include "common.main"
       real dumr, fgm_mark
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
       logical numnod,numel,fatal,coor,elprop,elinc,constr,
      &        block,is_matl_cohesive, is_umat
       common/erflgs/ numnod,numel,fatal,coor,elprop,elinc,constr,block 
       common/errprm/ erprmd(10),erprmr(10),erprmi(10),erprms
-#dbl      double precision
-#sgl      real
+      double precision
      &   erprmd
       real erprmr
       character *50 erprms
@@ -408,8 +406,7 @@ c
 #include "common.main"
       real dumr
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
       logical numnod,numel,fatal,coor,elprop,elinc,constr,block
       common/erflgs/ numnod,numel,fatal,coor,elprop,elinc,constr,block 
@@ -451,8 +448,7 @@ c
 #include "common.main"
       real dumr
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd 
       logical numnod,numel,fatal,coor,elprop,elinc,constr,block
       common/erflgs/ numnod,numel,fatal,coor,elprop,elinc,constr,block 
@@ -504,8 +500,7 @@ c
       integer, allocatable, dimension (:) :: dup_ele
       real dumr, mlt
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd 
       logical numnod,numel,fatal,coor,elprop,elinc,constr,block,
      &        dupnod_msg
@@ -636,8 +631,7 @@ c
 #include "common.main"
       real dumr
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd, zero, d32460
       logical numnod,numel,fatal,coor,elprop,elinc,constr,block
       common/erflgs/ numnod,numel,fatal,coor,elprop,elinc,constr,block 
@@ -782,8 +776,7 @@ c
       logical :: found
       real dumr
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
 c
 c                       at least one convergence test must be defined.
@@ -818,8 +811,7 @@ c
 c
       real dumr, beta_cohesive
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
       logical numnod,numel,fatal,coor,elprop,elinc,constr,block,
      &        cohesive
@@ -995,8 +987,7 @@ c
 #include "common.main"
       real dumr
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd, zero, tenth 
       data zero, tenth / 0.0, 0.1 /
 c
@@ -1149,8 +1140,7 @@ c
 #include "common.main"
       real dumr
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd 
 c
 c
@@ -1193,8 +1183,7 @@ c
 #include "param_def"
       real dumr
       character dums
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd, zero
       data zero /0.0/
 c

@@ -24,8 +24,7 @@ c
       logical debug
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     temp_load_fact, mf, mf_nm1, one, zero
       data one, zero /1.0, 0.0/
 c
@@ -127,8 +126,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     temp_load_fact, mf, mf_nm1, one, step_factor, total_factor
       data one /1.0/
       logical debug
@@ -257,8 +255,7 @@ c
 #include "common.main"
 c
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     mf, mf_nm1, one
       data one / 1.0 /
       logical debug

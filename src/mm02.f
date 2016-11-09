@@ -18,8 +18,7 @@ c
 c
 c                   parameter declarations
 c   
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & e(*), nu(*), sigyld(*), exp(*), stress_n(mxvl,*), 
      & stress_n1(mxvl,*), strain(mxvl,*), history(span,*),
      & history1(span,*)
@@ -27,8 +26,7 @@ c
 c
 c                   locally defined
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & k1, k2(mxvl), l2, pi2, twothd, third, root2, rt23, zero, one,
      & two, half, epsm, e1, e2, e3, epseff(mxvl),
      & epsyld(mxvl), epslim(mxvl), g, c, a, b, 
@@ -258,10 +256,9 @@ c
 c
       logical function mm02es( sigyld, epsyld, nu, exp, epseff, sigeff,
      &                         k2, epsnc, signc, rnc )
-#dbl      implicit double precision ( a-h,o-z)                                
+      implicit double precision ( a-h,o-z)                                
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &   nu, k2
       data  maxitr / 30 /, toler / 0.0001d0 /
       data  twothd, third, one, two, half, zero 
@@ -372,16 +369,14 @@ c
 c
 c             parameter declarations
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & rnc(*), signc(*), k2(*), k1, exp(*), sigyld(*),
      & epseff(*), sigeff(*), nu(*), e(*), strain(mxvl,*), sig(mxvl,*)
       logical :: linear_flags(*)
 c
 c             local declarations
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & one, two, three, half, onefive, six, pt25, twothd, 
      & third, const1, const2, epsv, sigm, upress(mxvl),
      & sigk1, uelask1(mxvl), sncso(mxvl), rncso(mxvl),
@@ -551,13 +546,11 @@ c
 c                       parameters
 c
       integer :: nrow_states, itype, num_states
-#dbl      double precision :: elem_states_output(nrow_states,*)
-#sgl      real  :: elem_states_output(nrow_states,*)
+      double precision :: elem_states_output(nrow_states,*)
 c
 c                       locals
 c
-#dbl      double precision, 
-#sgl      real,
+      double precision, 
      & allocatable :: history_dump(:,:,:), one_elem_states(:)
       integer :: relem, elnum, hist_size, blockno
       logical :: do_a_block
@@ -644,8 +637,7 @@ c
 c                       locals
 c
       integer :: ipt   
-#dbl      double precision :: 
-#sgl      real :
+      double precision :: 
      & nl_flag, sig_eff, eps_eff, ymod, sigyld, epsyld
 c
       nl_flag = zero
@@ -734,16 +726,14 @@ c
 c                   parameter declarations
 c   
       integer :: felem, gpn, span, iout
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & strain_n1(mxvl,*), history(span,*), cep(mxvl,6,6), e(*),
      & nu(*), sigyld(*), exp(*)
 c
 c                   locally defined 
 c
       integer :: nonlin_point, i, j
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & k1, k2(mxvl), epsyld(mxvl), epslim(mxvl), sigeff(mxvl),
      & epseff(mxvl), l2, c1, c2, c3, c4, theta, pi2,
      & root2, zero, one, two, three,
@@ -885,16 +875,14 @@ c
 #include "param_def"
 c
       integer :: span
-#dbl      double precision ::
-#sgl      real ::            
+      double precision ::
      & cep(mxvl,6,6), e(*), nu(*), sigeff(*), epseff(*),
      & strain(mxvl,*), sigyld(*), exp(*), signc(*),
      & rnc(*), k2(*)
       logical ::  nonlinear_flags(*)
 c
       integer :: i 
-#dbl      double precision ::
-#sgl      real ::         
+      double precision ::
      & ev(mxvl), e1(mxvl), e2(mxvl), e3(mxvl),
      & e4(mxvl), e5(mxvl), e6(mxvl), sign(mxvl), radical,
      & stiff, const, g(mxvl), expm1, c1,

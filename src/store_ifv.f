@@ -22,8 +22,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, one
       logical debug
       integer, dimension(:,:), pointer :: edest

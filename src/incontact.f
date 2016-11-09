@@ -22,8 +22,7 @@ c
       logical numd, numi, sbflg1, sbflg2, rate, point_set, norm_set,
      &    matchs
       character *80 name, string, dums *1
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, dot, stiff, fric, point(3,3), mag1, mag2,
      &     tol_val, rate_val(3), depth, dumd, radius, length, 
      &     ten_billion, norm(3)

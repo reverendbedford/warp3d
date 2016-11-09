@@ -47,12 +47,10 @@ c
      &           idummy1(1), idummy2(1)
       integer, external :: omp_get_thread_num
 c
-#sgl      real, allocatable, dimension(:) ::
-#dbl      double precision, allocatable, dimension(:) ::
+      double precision, allocatable, dimension(:) ::
      &  block_energies, block_plastic_work
 c
-#sgl      real ::
-#dbl      double precision ::
+      double precision ::
      & zero, mag, dummy(mxvl,mxedof), start_time, end_time,
      & sum_ifv_threads(max_threads)
 c     
@@ -380,8 +378,7 @@ c
 #include "include_sig_up"
 c
       integer :: blk, iter, step
-#dbl      double precision
-#sgl      real
+      double precision
      &    block_energy, block_plastic_work
       logical material_cut_step
 c
@@ -393,8 +390,7 @@ c
       logical local_debug, geo_non_flg, bbar_flg, tet_elem, tri_elem,
      &            axisymm_elem, cohesive_elem, used_flg
       data zero, local_debug / 0.0d00, .false. /
-#dbl      double precision :: gp_coords(mxvl,3,mxgp)
-#sgl      real :: gp_coords(mxvl,3,mxgp)
+      double precision :: gp_coords(mxvl,3,mxgp)
 c
       span           = elblks(0,blk)
       felem          = elblks(1,blk)
@@ -1272,8 +1268,7 @@ c
      &           step, iter, hist_size
       logical :: geonl
       integer :: belinc(nnode,*), bcdst(totdof,*)
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & ce_0(mxvl,*), ce_mid(mxvl,*), ue(mxvl,*), due(mxvl,*),
      & ce_n(mxvl,*), ce_n1(mxvl,*)
 c
@@ -1281,8 +1276,7 @@ c           local declarations
 c
       integer :: elem_type, surf, k, j, i, matl_no
       logical ::local_debug, update, update_coords, middle_surface
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &   half, zero, one, mag, mags(3), djcoh(mxvl)
       data local_debug, half, zero, one
      &  / .false., 0.5d00, 0.0d00, 1.0d00 /
@@ -1568,8 +1562,7 @@ c
 c               parameter declarations
 c
       integer :: ngp, nprm, span
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & mlocal(mxvl,nprm,*), mglobal(nprm,ngp,*)
 c
       integer :: k, j, i      
@@ -1736,8 +1729,7 @@ c
      &           elem_top, elem_bott, matl_top, ngp_top, ngp_bott,
      &           matl_bott, top_mat_model, bott_mat_model 
       logical :: local_debug
-#dbl      double precision :: 
-#sgl      real ::
+      double precision :: 
      &   zero,
      &   top_stress_n_avg(nstrs), bott_stress_n_avg(nstrs),
      &   top_eps_n_avg(nstr), bott_eps_n_avg(nstr),
@@ -1983,8 +1975,7 @@ c
 c           parameter declarations
 c
       integer :: elem_top, elem_bott, iout, nsize
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  top_local_vals(nsize), bott_local_vals(nsize)
 c
 c           local declarations
@@ -2056,8 +2047,7 @@ c
 c           global declarations
 c
       integer :: solid_elem, ngp_solid
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &    stress_n(nstrs,mxgp), eps_n(nstr,mxgp)
 c
 c           local declarations
@@ -2129,8 +2119,7 @@ c
      &                                in3dmat, nrow, ncol, nz )
       implicit  none
       integer  :: kindex_to_copy, nrow, ncol, nz, i, j
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  outmat(nrow,ncol), in3dmat(nrow,ncol,nz)
 !DIR$ ASSUME_ALIGNED in3dmat:64, outmat:64  
 c
@@ -2160,8 +2149,7 @@ c
       subroutine recstr_make_avg( nrows, ncols, matrix, averages )
       implicit  none
       integer :: nrows, ncols, i, j
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  averages(nrows), matrix(nrows,ncols)
 !DIR$ ASSUME_ALIGNED matrix:64, averages:64      
 c

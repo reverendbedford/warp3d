@@ -43,8 +43,7 @@ c
 c
 c                global variables
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     mult_fact, rload(*)
 c
 c

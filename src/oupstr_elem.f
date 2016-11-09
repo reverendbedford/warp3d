@@ -29,8 +29,7 @@ c
      &            center_output, first_block, last_block, cohesive_elem
 c
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &     zero, elem_results, small_tol
       allocatable elem_results(:,:)
       integer :: elem_out_map(mxelmp)

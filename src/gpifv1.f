@@ -24,8 +24,7 @@ c
 c
 c                       parameter declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  eleifv(nrow_ifv,*), weight, dj(*), element_volumes(*),
      &  b(mxvl,mxedof,*), urcs_blk_n1(mxvl,*)
 c
@@ -33,8 +32,7 @@ c                       local declarations
 c
       logical geonl, bbar
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   qtn1(mxvl,nstr,nstr), cs_blk_n1(mxvl,nstr),
      &   eps_bbar, w, scalar 
 !DIR$ ASSUME_ALIGNED eleifv:64, dj:64, element_volumes:64
@@ -54,8 +52,7 @@ c
 c                       if element is triangle, wedge, tet sacle
 c                       weights to correctly integrate B*sigma. 
 c
-#sgl      scalar = 1.0
-#dbl      scalar = 1.0d00
+      scalar = 1.0d00
       if ( local_work%adjust_const_elem  ) then
         call adjust_scalar_weights( type, scalar )
       end if

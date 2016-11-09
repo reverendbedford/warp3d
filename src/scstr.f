@@ -17,8 +17,7 @@ c
       subroutine scstr( ml, mg, ngp, nprm, span )                       
       implicit integer (a-z)
 #include "param_def"
-#dbl      double precision
-#sgl      real
+      double precision
      &     ml(mxvl,nprm,*),mg(nprm,ngp,*)
 c
 c
@@ -68,8 +67,7 @@ c
       subroutine scstr_history( local_history, global_history,
      &                          ngp, hist_size, span )
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      &      local_history(span,hist_size,ngp),
      &      global_history(hist_size,ngp,span)
 c

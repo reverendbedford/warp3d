@@ -18,8 +18,7 @@ c     ****************************************************************
 c
       subroutine bmod ( b, vol, span, mxvl, eps_stab, mxedof ) 
       implicit integer ( a-z )
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &   b(mxvl,mxedof,*), vol(mxvl,8,*), two, third, eps_stab,
      &   alpha, beta, one,
      &   dummy_1, dummy_2, dummy_3, dummy_4,

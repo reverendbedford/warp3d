@@ -107,8 +107,7 @@ c
 c               parameter declarations
 c
       integer ngp, mxhist, mxngp, hist_size, mxvl, span
-#dbl      double precision
-#sgl      real
+      double precision
      & history_local(mxvl,mxhist,mxngp),
      & history_global(hist_size,ngp,span)
 c

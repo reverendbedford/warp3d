@@ -21,8 +21,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero
       data zero / 0.0 /
 c

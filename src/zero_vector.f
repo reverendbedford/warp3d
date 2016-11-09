@@ -13,8 +13,7 @@ c     *                                                              *
 c     ****************************************************************
 c
       subroutine zero_vector( vec, n )
-#dbl      double precision
-#sgl      real
+      double precision
      &  vec(*), zero
       data zero / 0.0d00 /
 c
@@ -38,8 +37,7 @@ c     *                                                              *
 c     ****************************************************************
 c
       subroutine vec_ops( veca, vecb, vecc, n, opcode )
-#dbl      double precision
-#sgl      real
+      double precision
      &  veca(*), vecb(*), vecc(*), zero, const
       integer opcode
       data zero / 0.0d0/
@@ -112,8 +110,7 @@ c     *                                                              *
 c     ****************************************************************
 c
       subroutine warp3d_sort_float( n, dvec, index_vec )
-#dbl      double precision
-#sgl      real
+      double precision
      &  dvec(*), a
       integer index_vec(*), b
 c

@@ -26,8 +26,7 @@ c
 c                       local declarations
 c
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &   cval, mpfact, edva(mxvl,mxndof), dumd, zero,
      &   trnmte(mxvl,mxedof,mxndof)
       character name*80, iclnam*8, dums, curtyp*1

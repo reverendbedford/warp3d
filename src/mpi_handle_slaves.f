@@ -34,8 +34,7 @@ c
       logical duml, debug, ldum1, ldum2, ldum3, ldum4, ldum5, ldum6,
      &        ldum7, ldum8, ldum9, ldum10
       data debug /.false./
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
       dimension adum1(max_procs), adum2(max_procs), adum3(max_procs),
      &     adum4(max_procs), num_blks(mxnmbl)

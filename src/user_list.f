@@ -191,7 +191,7 @@ c
       use main_data, only : user_lists, crdmap
       implicit integer(a-z)
       logical debug, display_coords
-#dbl      double precision ::
+      double precision ::
 #dgl      real ::
      & coords(*)       
 c      
@@ -469,8 +469,7 @@ c
       implicit integer(a-z)
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   value, xvalue, yvalue, zvalue, tolerance, temp_t, zero,
      &   xcoord, ycoord, zcoord, x_toler, y_toler, z_toler
       logical :: do_display, xdefined, ydefined, zdefined, matchs, 
@@ -653,15 +652,13 @@ c
 c                 arguments
 c
       integer :: crdmap(*), out, nonode
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & tolerance, x_toler, y_toler, z_toler, coords(*) 
       logical :: debug
 c
 c                 locals
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  xcoord, ycoord, zcoord, xmin, xmax, ymin, ymax, 
      &  zmin, zmax
       integer :: position, node
@@ -727,8 +724,7 @@ c
       implicit integer(a-z)
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   tolerance, temp_t, zero,
      &   pt1(3), pt2(3), pt3(3),
      &   radius, flag, axis(3), axis_length, radius_tol,
@@ -1064,8 +1060,7 @@ c
       implicit integer(a-z)
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   tolerance, temp_t, zero, dot,
      &   x_toler, y_toler, z_toler, pt(3),
      &   flag, normvec(3), length, rel_tol,
@@ -1270,8 +1265,7 @@ c
       implicit integer(a-z)
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   tolerance, temp_t, zero,
      &   pt(3), radius, flag, radius_tol, dx, dy, dz, d12
       logical :: do_display, matchs, check,

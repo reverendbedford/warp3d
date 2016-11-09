@@ -63,8 +63,7 @@ c
       logical block
       common/erflgs/ numnod,numel,fatal,coor,elprop,elinc,constr,block
       real rzero
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero, one, fourth, ten_billion,
      &  hundredth, twentyth, thousandth
       integer(4) :: env_length
@@ -413,8 +412,7 @@ c
       crack_growth_type     = 0
       growth_by_kill        = .false.
       growth_by_release     = .false.
-#dbl      porosity_limit    = .20d0
-#sgl      porosity_limit    = .20
+      porosity_limit    = .20d0
       smcs_alpha            = 1.0
       smcs_beta             = 1.5
       max_dam_state         = 5
@@ -780,8 +778,7 @@ c                  argument variables
 c
 c
       integer elem_type
-#dbl      double precision
-#sgl      real
+      double precision
      &         scalar
 c
 c
@@ -790,16 +787,14 @@ c
 c
       logical tet_elem, tri_elem, axisymm_elem
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &         two, half, pi
       data two, half, pi / 2.0, 0.5, 3.14159265358979323846 /
 c
       tet_elem = .false.
       tri_elem = .false.
       axisymm_elem = .false.
-#sgl      scalar = 1.0
-#dbl      scalar = 1.0d00
+      scalar = 1.0d00
 c
 c
 c                    the element type determines the scalar
@@ -816,8 +811,7 @@ c
 c                    tetrahedral elements
 c
       if( tet_elem ) then
-#dbl      scalar = 1.0D0/6.0D0
-#sgl      scalar = 1.0/6.0
+      scalar = 1.0D0/6.0D0
         return
       end if
 c

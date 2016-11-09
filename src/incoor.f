@@ -20,8 +20,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#sgl      real
-#dbl      double precision
+      double precision
      &  x(ndim), xcur, dumd, zero
       real dumr
       character dums

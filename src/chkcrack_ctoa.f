@@ -32,8 +32,7 @@ c
       implicit integer (a-z)
       parameter (max_local_list=300)
 #include "common.main"
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, angle, zero, max_angle, two,
      &     local_angles_list(max_local_list), denom_angle
       dimension local_node_list(max_local_list,3) 
@@ -201,8 +200,7 @@ c
       implicit integer (a-z)
       parameter (max_local_list=200)
 #include "common.main"
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, angle, zero, max_angle, two,
      &     local_angles_list(max_local_list)
       dimension local_master_list(max_local_list)
@@ -409,8 +407,7 @@ c
 c
       character *1 dums
       real dumr
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, dumd
       data d32460 / 32460.0 /
 c
@@ -515,8 +512,7 @@ c
       parameter (max_local_list=200)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, angle, two, one, crit_angle, hundred,
      &     local_killed_angles(max_local_list)
       dimension local_killed_list(max_local_list)
@@ -692,8 +688,7 @@ c
       parameter (max_local_list=200)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, angle, two, one, crit_angle, hundred, dist,
      &     targ_dist, local_killed_angles(max_local_list)
       dimension local_killed_list(max_local_list)
@@ -887,8 +882,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, point_two, point_eight
       data d32460, point_two, point_eight / 32460.0, 0.2, 0.8/
       logical debug
@@ -992,8 +986,7 @@ c
       character *1 dums
       real dumr
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, dumd
       data d32460 / 32460.0/
       logical debug, crack_node, same_front
@@ -1181,8 +1174,7 @@ c
 c
       character *1 dums
       real dumr
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, dumd, zero
       data d32460, zero  / 32460.0, 0.0 /
       logical debug, next_node_found
@@ -1309,8 +1301,7 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
-#sgl      real
-#dbl      double precision
+      double precision
      &     zero
       data zero  / 0.0 /
 c
@@ -1378,8 +1369,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &      angle, dist_x, dist_y, dist_z, plane_dist, pi
       data pi /3.14159/
 c
@@ -1446,8 +1436,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     angle, dist, d_dist, height, pi, zero, factor, d_height,
      &     one_eighty, one, four, ctoa_dist_back, dumd
       data zero, one_eighty, one, four / 0.0, 180.0, 1.0, 4.0/
@@ -1574,8 +1563,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     dist, d_dist, height, zero, factor, d_height,
      &     one_eighty, one, four, ctoa_dist_back, dumd
       data zero, one_eighty, one, four / 0.0, 180.0, 1.0, 4.0/
@@ -1661,8 +1649,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &      height, dist_x, dist_y, dist_z, plane_dist
 c
 c               calculate the distances in the three coordinate
@@ -1728,8 +1715,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460
       data d32460  / 32460.0 /
 c

@@ -21,8 +21,7 @@ c
       use main_data, only : elstor, incmap, crdmap
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
       real dumr
       character dums

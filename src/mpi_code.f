@@ -34,8 +34,7 @@ c
       logical ldum1,ldum2
       character *1 dums
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &     dumd
 c
 c             initialize MPI, find the total number of processors involved
@@ -69,8 +68,7 @@ c             MPI_TYPE_CONTIGUOUS defines MPI_VAL to be equivalent to
 c             either MPI_REAL or MPI_DOUBLE_PRECISION, while MPI_TYPE_COMMIT
 c             officially registers the datatype with the MPI routines.
 c
-#sgl      call MPI_TYPE_CONTIGUOUS(1,MPI_REAL,MPI_VAL,ierr)
-#dbl      call MPI_TYPE_CONTIGUOUS(1,MPI_DOUBLE_PRECISION,MPI_VAL,ierr)
+      call MPI_TYPE_CONTIGUOUS(1,MPI_DOUBLE_PRECISION,MPI_VAL,ierr)
       call MPI_TYPE_COMMIT (MPI_VAL,ierr)
 c
 c             set the logical flags root_processor and slave_processor
@@ -310,8 +308,7 @@ c
       include "mpif.h"
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     vec(*)
 c
 c
@@ -356,8 +353,7 @@ c
 c
       allocatable ::  vec_tmp(:)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     vec(*), vec_tmp, zero
       data zero /0.0/
 c
@@ -386,8 +382,7 @@ c              reduce the vector using the MPI_REDUCE command.  This
 c              reduces the result only to the root processor.
 c
       call MPI_REDUCE (vec_tmp, vec, size,
-#dbl     &     MPI_DOUBLE_PRECISION,
-#sgl     &     MPI_REAL,
+     &     MPI_DOUBLE_PRECISION,
      &    MPI_SUM,0,MPI_COMM_WORLD, ierr)
 c
 c              deallocate temporary vector
@@ -425,8 +420,7 @@ c
 c
       allocatable ::  vec_tmp(:)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     vec(*), vec_tmp, zero
       data zero /0.0/
 c
@@ -455,8 +449,7 @@ c              reduce the vector using the MPI_REDUCE command.  This
 c              reduces the result only to the root processor.
 c
       call MPI_REDUCE (vec_tmp, vec, size,
-#dbl     &     MPI_DOUBLE_PRECISION,
-#sgl     &     MPI_REAL,
+     &     MPI_DOUBLE_PRECISION,
      &    MPI_SUM,0,MPI_COMM_WORLD, ierr)
 c
 c              deallocate temporary vector
@@ -495,8 +488,7 @@ c
 #include "common.main"
 c
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     vec(*), vec_tmp(mxdof), zero
       dimension status (MPI_STATUS_SIZE)
       data zero /0.0/
@@ -642,16 +634,14 @@ c
       implicit integer (a-z)
       include "mpif.h"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     scalar, scalar_tmp
 c
 c
       scalar_tmp = scalar
 c
       call MPI_ALLREDUCE (scalar_tmp, scalar, 1,
-#dbl     &     MPI_DOUBLE_PRECISION,
-#sgl     &     MPI_REAL,
+     &     MPI_DOUBLE_PRECISION,
      &    MPI_SUM, MPI_COMM_WORLD, ierr)
 c
       return
@@ -909,8 +899,7 @@ c
       include "mpif.h"
 #include "common.main"
       dimension status (MPI_STATUS_SIZE)
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, aba_time(2), aba_dtime
       logical local_debug
       data zero / 0.0d00 /
@@ -1033,8 +1022,7 @@ c
       include "mpif.h"
 #include "common.main"
       dimension status (MPI_STATUS_SIZE)
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero
       allocatable element_node_counts(:)
       data zero / 0.0d0 /
@@ -1410,8 +1398,7 @@ c
       implicit integer (a-z)
       include "mpif.h"
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &     mag, zero
       data zero /0.0/
 c
@@ -1463,8 +1450,7 @@ c
       implicit integer (a-z)
       include "mpif.h"
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &     mag, zero
       data zero /0.0/
 c
@@ -1534,8 +1520,7 @@ c
 #include "common.main"
       dimension status (MPI_STATUS_SIZE)
       logical debug, restart, referenced, ldum
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero
       data debug, zero /.false., 0.0/
 c
@@ -1670,8 +1655,7 @@ c
       implicit integer (a-z)
       include "mpif.h"
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, mag
       dimension status (MPI_STATUS_SIZE)
       logical debug
@@ -1881,8 +1865,7 @@ c
       include "mpif.h"
 #include "common.main"
       logical killed_this_time, debug
-#sgl      real
-#dbl      double precision
+      double precision
      &      zero
       data zero, debug /0.0, .false./
 c
@@ -1970,8 +1953,7 @@ c
       include "mpif.h"
 #include "common.main"
       dimension status ( MPI_STATUS_SIZE )
-#dbl      double precision
-#sgl      real
+      double precision
      &     mag, zero
       data zero /0.0/
 c
@@ -2117,8 +2099,7 @@ c
       data sent, debug /.false., .false./
       save sent
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
 c
       if (debug)write (out,'("=> proc ",i3," is doing dist calcs")')myid
@@ -2382,8 +2363,7 @@ c
       subroutine die_gracefully
       implicit integer (a-z)
       include "mpif.h"
-#dbl      double precision
-#sgl      real
+      double precision
      &   aba_time(2), aba_dtime, dbl_val, dt, total_model_time
        real sgl_val
 c
@@ -2459,8 +2439,7 @@ c                       local declarations
 c
       logical local_debug, ldummy
       dimension status(MPI_STATUS_SIZE)
-#dbl      double precision
-#sgl      real
+      double precision
      &    start_move_time, end_move_time
       data local_count / 0 /
 c
@@ -2569,11 +2548,9 @@ c
       logical local_debug, root_has_stress, root_has_strain
       save root_has_stress, root_has_strain
       dimension status(MPI_STATUS_SIZE)
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero
-#sgl      data zero / 0.0 /
-#dbl      data zero / 0.0d00 /
+      data zero / 0.0d00 /
 c
 c                    if there is only one processor, then skip
 c
@@ -2944,8 +2921,7 @@ c
       use j_data
       implicit integer (a-z)
       include "mpif.h"
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero
 #include "common.main"
       logical logical_vec(15), handle_face_loads, debug
@@ -4647,8 +4623,7 @@ c
       subroutine wmpi_reduce_vec ( in, size )
       implicit integer (a-z)              
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     in(*)
 c     
 c     
@@ -4672,8 +4647,7 @@ c
       subroutine wmpi_dotprod ( in )
       implicit integer (a-z)              
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     in 
 c     
 c
@@ -4795,8 +4769,7 @@ c
       subroutine wmpi_do_uexternaldb
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, aba_time(2), aba_dtime
       logical local_debug
       data zero / 0.0d00 /

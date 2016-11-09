@@ -17,8 +17,7 @@ c
 c
       subroutine oulgf( etype, xi, eta, zeta, sf, iorder )
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      &     xi, eta, zeta, sf(*)
 c
       if ( etype .le. 0 .or. etype .gt. 5 ) then
@@ -82,8 +81,7 @@ c
 c
       subroutine oulgr1( r, s, t, lg, ord )
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      &     r,s,t,lg(*),p,q,p3,p6,pq4,p2q2,rmp,rpp,smp,spp,tmp,tpp,
      &     rmq,rpq,smq,spq,tmq,tpq,
      &     p774, eight, four, two, zero, p577, p758
@@ -226,8 +224,7 @@ c
 c
       subroutine oulgr2( r, s, t, lg, ord )
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      &     r,s,t,lg(*),p,p3,rmp,rpp,smp,spp,tmp,tpp,
      &     p557, eight, p795, two
       data p557, eight, p795, two
@@ -311,8 +308,7 @@ c
 c
       subroutine oulgr3( r, s, lg, ord )
       implicit integer (a-z)
-#dbl      double precision
-#sgl      real
+      double precision
      &     r, s, lg(*), p, p2, p4, ppr, pmr, pps, pms, p557, p774,
      &     one, four, eight
       data p557, p774, one, two, four, eight

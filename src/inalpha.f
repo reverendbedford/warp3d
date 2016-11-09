@@ -18,8 +18,7 @@ c
       subroutine inalpha( sbflg1, sbflg2 )
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &   dumd
       real dumr, alphax, alphay, alphaz, alphaxy, alphayz, alphaxz,
      &     zero
@@ -229,8 +228,7 @@ c
       implicit integer (a-z)     
 #include "common.main"
       real dumr, alphax, alphay, alphaz, alphaxy, alphayz, alphaxz
-#dbl      double precision
-#sgl      real
+      double precision
      &     dumd
       character dums
       dimension intlst(*)               

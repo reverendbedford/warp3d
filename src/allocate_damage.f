@@ -26,8 +26,7 @@ c
 c
 c
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, dumd1, dumd2, dumd3, dumd4, dumd5, dumd6,
      &     porosity, plast_strain,
      &     values(20)

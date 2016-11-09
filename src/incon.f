@@ -35,8 +35,7 @@ c
      &         realn, match_exact
       logical, save :: delete_release_cons
       real ::  dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &  dumd, zero, d32460, react
       character dums*1, curtyp *1, dof_names(3)*1
       data dof_names / 'u', 'v', 'w' /
@@ -385,8 +384,7 @@ c
       integer :: sdof
 c
       integer :: cst_ptr, above_ptr      
-#sgl      real :: d32460
-#dbl      double precision :: d32460
+      double precision :: d32460
       data d32460 / 32460.0d00 /
 c
 c             traverse the singly-linked list of constraints in the 
@@ -464,8 +462,7 @@ c
 c
 c                       locally allocated
 c  
-#dbl      double precision
-#sgl      real
+      double precision
      &  convec(mxndof), trans(mxndof,mxndof), tval, cval, dumd, zero,
      &  one, d32460, rlen1, rlen2, rlen3, rottol, t11, t12, t13,
      &  t21, t22, t23, t31, t32, t33 
@@ -989,8 +986,7 @@ c
 c
 c                       locally allocated
 c  
-#dbl      double precision
-#sgl      real
+      double precision
      & convec(mxndof), tval, cval, dumd, zero, proximity_distance,
      & one, d32460, xmin, xmax, ymin, ymax, zmin, zmax, x, y, z,
      & coordtol(3), plane_coord, ctol, coordvec(3)

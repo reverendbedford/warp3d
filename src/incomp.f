@@ -17,8 +17,7 @@ c
       use contact, only : use_contact
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &   zero
       integer, dimension(:), allocatable ::  temp_vec
       logical local_debug

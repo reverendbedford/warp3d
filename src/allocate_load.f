@@ -304,8 +304,7 @@ c
      &          thread_number(size), eload_pist(size)
       real eload_val(size)
       real zero    !  note: single precision
-#dbl      double precision
-#sgl      real
+      double precision
      &     mx, my, mz, norm
       logical debug
       data zero, debug / 0.0, .false. /

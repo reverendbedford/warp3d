@@ -20,8 +20,7 @@ c
       implicit integer (a-z)
       logical stress
 #include "param_def"
-#dbl      double precision
-#sgl      real 
+      double precision
      &  elem_results(nrowd,*)
 c
 c                       copy element results into global

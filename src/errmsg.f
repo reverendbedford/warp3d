@@ -25,8 +25,7 @@ c
       character *(*) sparam
 c
       common/errprm/ erprmd(10),erprmr(10),erprmi(10),erprms
-#dbl      double precision
-#sgl      real
+      double precision
      &   erprmd, dparam, hundred
       real erprmr, rparam
       logical, save :: mess_61, write_msg_255
@@ -3288,8 +3287,7 @@ c
       character *(*) sparam
 c
       common/errprm/ erprmd(10),erprmr(10),erprmi(10),erprms
-#dbl      double precision
-#sgl      real
+      double precision
      &   erprmd, dparam, hundred
       real erprmr, rparam
       logical mess_61

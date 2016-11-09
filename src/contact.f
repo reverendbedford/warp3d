@@ -25,8 +25,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     pen_dist(maxcontact), zero, force, normal(3,maxcontact),
      &     transmat(3,3), dumd
       real dumr
@@ -251,8 +250,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     dumvec(3)
       logical debug, ldum, call_others
       data debug /.false./
@@ -321,8 +319,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     pen_dist(*), zero, curr_coord(3), 
      &     normal(3,*), tmp_coord(3),
      &     dumvec(3), new_dist, curr_normal(3), curr_dist,
@@ -617,8 +614,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     curr_norm(3), new_norm(3), curr_dist, new_dist,
      &     alpha, dot, zero, corr_dist,
      &     tolval, val, plane_norm(3), corr_norm(3), dumd
@@ -687,8 +683,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     pen_dist, curr_coord(3), normal(3)
       logical debug, penetrated
       data debug /.false./
@@ -733,8 +728,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     pen_dist, zero, curr_coord(3), vprime(3), dot1, dot2,
      &     normal(3), mag1, mag2
       logical debug, penetrated
@@ -838,8 +832,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     pen_dist, zero, curr_coord(3), vprime(3), dot, proj_dist,
      &     normal(3), mag, angle, point(3), dumd, dist, radius,
      &     length
@@ -938,8 +931,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     pen_dist, zero, curr_coord(3), vprime(3), 
      &     normal(3), mag, angle, point(3), dumd, dist, radius,
      &     length
@@ -1010,8 +1002,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     normal(3), curr_coord(3), zero
       data zero /0.0/
 c
@@ -1053,8 +1044,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     normal(3)
 c     
       do j = 1, 3
@@ -1085,8 +1075,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     curr_coord(3), vprime(3), normal(3), vec(3), dumd
       logical debug
 c
@@ -1127,8 +1116,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     curr_coord(3), normal(3), dumd
 c
 c                calc vector between node and start point of sphere
@@ -1170,8 +1158,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, one, transmat(3,3),
      &     d32460, dumd, workvec(3), vec1(3), 
      &     vec2(3), dot, tolval, curr_norm(3)
@@ -1387,8 +1374,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, stiff, ek (nrowek, span) , normal(3), transmat(3,3),
      &     mat(3,3), mat2(3,3), nodstf(3,3), elstf(24,24),
      &     curr_coord(3), factor
@@ -1603,8 +1589,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     trans(3,3)
 c
 c            get the nodal transformation matrix.  If status is 1,
@@ -1674,8 +1659,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     trans(mxndof,mxndof), vec(*), newvec(mxndof), zero
       data zero /0.0/
 c
@@ -1710,8 +1694,7 @@ c
       subroutine dot_prod (vec1, vec2, dot)
 c
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     vec1(3), vec2(3), dot, zero
       integer i, j
       data zero /0.0/
@@ -1740,8 +1723,7 @@ c
       subroutine cross_prod (vec1, vec2, vec_out)
 c
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     vec1(3), vec2(3), vec_out(3)
       data zero /0.0/
 c
@@ -1770,8 +1752,7 @@ c
       subroutine normalize (vec, mag)
 c
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     vec(3), zero, mag
       integer i, j
       data zero /0.0/
@@ -1806,8 +1787,7 @@ c
 c
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     curr_coord(3), u_new(3), du_new(3), zero
       data zero /0.0/
 c     

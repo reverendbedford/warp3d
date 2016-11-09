@@ -28,8 +28,7 @@ c
 c
 c             locally allocated arrays
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  dumd, zero, ctoa, two, hundred, def_min_load_fact, temp_dble,
      &  d32460, one
       data one, zero, two, hundred, def_min_load_fact,d32460
@@ -1044,8 +1043,7 @@ c             locally allocated arrays
 c
       character *1 dums
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &  dumd
       logical debug
 c
@@ -1126,8 +1124,7 @@ c             locally allocated arrays
 c
       character *1 dums
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero, plane_tol, max_dist, dumd
       data zero /0.0 /
       allocatable tmp_nodes(:)
@@ -1264,8 +1261,7 @@ c
 c                     local declarations
 c
       logical crack_node, first_node
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero, one, dumd
       real dumr
       character * 1 dums
@@ -1445,8 +1441,7 @@ c
 c
 c                     local declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     oneeighty, dumd, pi
       real dumr
       character *1 dums
@@ -1612,8 +1607,7 @@ c
 #include "common.main"
       dimension scan_master_list(*)
       logical debug
-#dbl      double precision
-#sgl      real
+      double precision
      &  d32460
       data d32460 / 32460.0 /
 c
@@ -1717,8 +1711,7 @@ c
       implicit integer (a-z)
 #include "common.main"
       logical debug, reached_end
-#dbl      double precision
-#sgl      real
+      double precision
      &  dumd, d32460
       real dumr
       character *1, dums
@@ -1798,8 +1791,7 @@ c
       implicit integer (a-z)
 #include "common.main"
       logical debug, reached_end
-#dbl      double precision
-#sgl      real
+      double precision
      &  dumd, d32460
       real dumr
       character *1, dums
@@ -1859,8 +1851,7 @@ c
 #include "common.main"
       logical debug, reached_end, found_new_node
       dimension shared_elems(2)
-#dbl      double precision
-#sgl      real
+      double precision
      &  dumd
       real dumr
       character *1, dums

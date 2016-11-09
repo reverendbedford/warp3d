@@ -25,25 +25,21 @@ c
 c
       type :: node_entry
          integer :: count
-#dbl         double precision, dimension(:), pointer :: node_values
-#sgl         real, dimension(:), pointer :: node_values
+         double precision, dimension(:), pointer :: node_values
       end type node_entry
 c
       type (node_entry), dimension (num_struct_nodes) :: nodal_values
-#dbl         double precision, dimension(:), pointer :: snode_values
-#sgl         real, dimension(:), pointer :: snode_values
+         double precision, dimension(:), pointer :: snode_values
 c
 c                       local declarations
 c
       logical patran_file
       real dum2
-#dbl      character *4 title(80), title1(80)
-#sgl      character *8 title(80), title1(80)
+      character *4 title(80), title1(80)
       character* 80 string, strng1, stepstring*6
       dimension titl(80), titl1(80)
       equivalence (title,titl), (title1,titl1)
-#dbl      double precision :: small_tol, zero
-#sgl      real :: small_tol, zero
+      double precision :: small_tol, zero
       data small_tol, zero / 1.0d-80, 0.0d00 /
 c
       patran_file = oubin .or. ouasc
@@ -104,8 +100,7 @@ c
                write(bnfile) nod, nodal_values(nod)%count,
      &                       (snode_values(i),i=1,num_vals)
            else
-#dbl         write(bnfile) nod, (sngl(snode_values(i)),i=1,num_vals)
-#sgl         write(bnfile) nod, (snode_values(i),i=1,num_vals)
+         write(bnfile) nod, (sngl(snode_values(i)),i=1,num_vals)
            end if
          end do
       end if  

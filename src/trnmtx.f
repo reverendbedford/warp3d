@@ -22,11 +22,9 @@ c
       use main_data, only: asymmetric_assembly
       implicit integer (a-z)
 #include "param_def"
-#dbl      double precision
-#sgl      real
+      double precision
      & mat(nsize,*), trnmte(mxvl,mxedof,*), sums(mxedof,mxndof)
-#dbl        double precision,
-#sgl        real,
+        double precision,
      &      dimension(mxedof,mxedof) :: tmat
       dimension cp(*)
       logical trne(mxvl,*)

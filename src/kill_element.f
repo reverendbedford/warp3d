@@ -28,11 +28,9 @@ c
      &                            urcs_n1_blocks, history_blk_list
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero,word
-#dbl      double precision,
-#sgl      real,
+      double precision,
      &   dimension(:), pointer :: history, urcs_n1, urcs_n
 c
       integer iword(2)
@@ -134,12 +132,10 @@ c
       use elem_block_data, only : urcs_n_blocks, element_vol_blocks
       implicit integer (a-z)
 #include "common.main"
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, sum_internal_energy, sum_plastic_energy,
      &     element_volume, rgp
-#dbl      double precision,
-#sgl      real,
+      double precision,
      &   dimension(:), pointer :: urcs_n
 c
       logical debug, cohesive_elem 

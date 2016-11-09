@@ -1715,8 +1715,7 @@ c
       implicit integer (a-z)
 #include "param_def"
       dimension edst_block(nedof,*), dof_eqn_map(*)
-#dbl      double precision
-#sgl      real
+      double precision
      &   res(*), p(*)
 c
 c                 locally allocated

@@ -27,8 +27,7 @@ c
 c
 c                       local declarations
 c
-#dbl      double precision
-#sgl      real 
+      double precision
      &  forval, mpfact, dumd, body_force(mxndof),
      &  face_force(numfaces,mxndof), press_force(numfaces),
      &  elem_temper, zero,  step_load_factors(mxlc)
@@ -1113,8 +1112,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#dbl      double precision
-#sgl      real 
+      double precision
      &  body_force(*), face_force(numfaces,*),
      &  press_force(*), dumd, elem_temper, one
       logical face_inpflg(numfaces,*), body_inpflg(*),
@@ -1212,8 +1210,7 @@ c
 #include "common.main"
 c
       dimension step_load_list(*), list_of_steps(*)
-#sgl      real step_load_factors(*)  
-#dbl      double precision step_load_factors(*)  
+      double precision step_load_factors(*)  
       logical local_debug
       data local_debug / .false. /        
 c

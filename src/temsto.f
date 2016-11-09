@@ -24,8 +24,7 @@ c
 #include "common.main"
       logical defmat, deftyp, macrointer
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &     dumd
       character dums
       dimension intlst(*)               

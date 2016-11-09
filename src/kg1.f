@@ -24,8 +24,7 @@ c
 c                       parameter declarations
 c
       integer :: span, cp(*), icp(mxutsz,*), nnode, nsz, totdof
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &    gama(mxvl,ndim,*), nxi(*), neta(*), nzeta(*), sig(mxvl,*),
      &    dj(*), ek_full(span,*), ek_symm(span,*), w, vol(mxvl,8,*)
       logical :: bbar
@@ -35,8 +34,7 @@ c
       integer :: j, i, cp1, cp2, cp3, r, c, k, enode,
      &           r1, c1, k1, r2, c2, k2, r3, c3, k3
       logical :: symmetric_assembly
-#dbl      double precision
-#sgl      real
+      double precision
      &    gtg(mxvl,mxnusz), gxi(mxvl,mxndel), 
      &    geta(mxvl,mxndel), gzeta(mxvl,mxndel)
 c

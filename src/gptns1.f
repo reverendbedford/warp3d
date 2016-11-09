@@ -28,15 +28,13 @@ c
       real props(mxelpr,*)
       integer cp(*), icp(mxutsz,*), iprops(mxelpr,*)
 c      
-#dbl      double precision :: glb_ek_blk(*)
-#sgl      real :: glb_ek_blk(*)
+      double precision :: glb_ek_blk(*)
 c
 c                     locals
 c
       integer :: etype, span, felem, utsz, nnode, totdof, mat_type,
      &           iter, int_order, local_iout, nrow_ek 
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & eps_bbar, weight, rad(mxvl), dummy, factors(mxvl), one
       logical include_qbar, geonl, bbar, first, qbar_flag,
      &        temps_to_process, iscp, symmetric_assembly
@@ -457,8 +455,7 @@ c
 c      
 c                     local variables
 c
-#dbl      double precision :: weight, symm_part_cep(6), f
-#sgl      real :: weight, symm_part_cep(6), f
+      double precision :: weight, symm_part_cep(6), f
       logical :: ldebug
       integer :: span, felem, now_blk, ielem, k, i
 !DIR$ ASSUME_ALIGNED symm_part_cep:64
@@ -667,8 +664,7 @@ c
 c      
 c                     local variables
 c
-#dbl      double precision :: weight, symm_part_cep(21), f
-#sgl      real :: weight, symm_part_cep(21), f
+      double precision :: weight, symm_part_cep(21), f
       integer :: span, now_blk, ielem, sloc, k, felem
 !DIR$ ASSUME_ALIGNED symm_part_cep:64
 c      
@@ -754,8 +750,7 @@ c
 c
 c                     local variables
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & weight, symm_part_cep(21), factor
       logical local_debug, debug_now
 !DIR$ ASSUME_ALIGNED symm_part_cep:64
@@ -853,8 +848,7 @@ c                     local variables
 c
       integer :: span, felem, iter, now_blk,
      &           start_loc, k, i, j, eh, sh
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & weight, f, cep(6,6), cep_vec(36), tol
       logical :: local_debug
       equivalence ( cep, cep_vec )
@@ -950,8 +944,7 @@ c                     parameter declarations
 c
 c                     local variables
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & weight
       logical first
 c
@@ -992,8 +985,7 @@ c
 c                       parameter declarations
 c
       integer :: span, mxvl, mxedof, ncol_ek, nstr, totdof
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &   b(mxvl,mxedof,6), ek_full(span,ncol_ek), d(mxvl,6,6),
      &   bd(mxvl,mxedof,6), bt(mxvl,6,totdof)
 c
@@ -1123,8 +1115,7 @@ c                       parameter declarations
 c
       integer :: span, mxvl, mxedof, utsz, nstr, totdof, mxutsz,
      &           icp(mxutsz,*)
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &   b(mxvl,mxedof,*), ek_symm(span,utsz), d(mxvl,nstr,*),
      &   bd(mxvl,mxedof,*), bt(mxvl,nstr,*)
 c
@@ -1239,8 +1230,7 @@ c
      &                   umat_stress_type, is_crys_pls  )
       implicit integer (a-z)
 #include "param_def"
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &     cep(mxvl,nstr,*), qn1(mxvl,nstr,*), tc(mxvl,nstr,nstr),
      &     cs(mxvl,*), half, two, dj(*), w, wf, halfw
       logical :: qbar, is_umat, is_crys_pls
@@ -1475,8 +1465,7 @@ c
 c
 c                       parameter declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   b(mxvl,mxedof,*), ek(totdof*totdof,*), d(mxvl,nstr,*),
      &   bd(mxvl,mxedof,*), bt(mxvl,nstr,*)
       integer icp(mxutsz,*)

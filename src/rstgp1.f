@@ -32,11 +32,9 @@ c
 c
 c                       locally defined variables
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  internal_energy, beta_fact, eps_bbar, plastic_work, zero
-#dbl      double precision,
-#sgl      real,
+      double precision,
      & allocatable :: ddt(:,:), uddt(:,:), qnhalf(:,:,:),
      &                qn1(:,:,:)
 c
@@ -332,8 +330,7 @@ c
 c
 c                       locally defined variables
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  internal_energy, beta_fact, eps_bbar,
      &  uddt(mxvl,nstr), plastic_work, dummy_q(1), dummy_dfn1(1)
 c
@@ -528,8 +525,7 @@ c
       logical :: lprops(mxelpr,*)
       integer :: iprops(mxelpr,*)
       integer :: gpn, iout
-#dbl      double precision ::  uddt_displ(mxvl,nstr)
-#sgl      real ::              uddt_displ(mxvl,nstr)
+      double precision ::  uddt_displ(mxvl,nstr)
 #include "include_sig_up"
 c
 c                       locally defined variables
@@ -538,8 +534,7 @@ c
      &           iter, now_blk, mat_type, number_points, curve_set,
      &           hist_size_for_blk, curve_type, elem_type, i
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  dtime, gp_temps(mxvl), gp_rtemps(mxvl), gp_dtemps(mxvl),
      &  zero,  ddummy(1), gp_alpha, ymfgm, et, uddt_temps(mxvl,nstr),
      &  uddt(mxvl,nstr), cep(mxvl,6,6)
@@ -788,8 +783,7 @@ c
       implicit none
 c
       integer :: k, m, i
-#dbl      double precision :: one, two, e, nu, c1, c2, c3, c4
-#sgl      real :: one, two, e, nu, c1, c2, c3, c4
+      double precision :: one, two, e, nu, c1, c2, c3, c4
       data one, two / 1.0d00, 2.0d00 /
 c
 c              get linear-elastic [D] with potentially temperature
@@ -849,8 +843,7 @@ c     ****************************************************************
 c      
       integer :: span, mxvl
       logical :: killed_status(*)
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  local_cep(mxvl,6,6), stress_n(mxvl,6), stress_np1(mxvl,6),
      &  uddt(mxvl,6), zero
       data zero / 0.0d00 /
@@ -912,8 +905,7 @@ c
       logical :: lprops(mxelpr,*)
       integer :: iprops(mxelpr,*)
       integer :: gpn, iout
-#dbl      double precision ::  uddt_displ(mxvl,nstr)
-#sgl      real ::              uddt_displ(mxvl,nstr)
+      double precision ::  uddt_displ(mxvl,nstr)
 #include "include_sig_up"
 
 c
@@ -923,8 +915,7 @@ c
      &           iter, now_blk, elem_type, mat_type,
      &           hist_size_for_blk, i
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  dtime, gp_temps(mxvl), gp_rtemps(mxvl), gp_dtemps(mxvl),
      &  zero,  gp_alpha, cep(mxvl,6,6), ddtse(mxvl,6), nowtemp
 c
@@ -1108,8 +1099,7 @@ c
       implicit none
 c
       integer :: k, m, i
-#dbl      double precision :: one, two, e, nu, c1, c2, c3, c4
-#sgl      real :: one, two, e, nu, c1, c2, c3, c4
+      double precision :: one, two, e, nu, c1, c2, c3, c4
       data one, two / 1.0d00, 2.0d00 /
 c
 c              get linear-elastic [D] with potentially temperature
@@ -1168,8 +1158,7 @@ c     ****************************************************************
 c      
       integer :: span, mxvl
       logical :: killed_status(*)
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  local_cep(mxvl,6,6), stress_np1(mxvl,6), ddtse(mxvl,6), zero
       data zero / 0.0d00 /
 c
@@ -1228,16 +1217,14 @@ c
       real    props(mxelpr,*)
       logical lprops(mxelpr,*)
       integer iprops(mxelpr,*)
-#dbl      double precision
-#sgl      real
+      double precision
      &  uddt(mxvl,nstr)
 #include "include_sig_up"
 c
 c
 c                       locally defined variables
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  gp_temps(mxvl), gp_rtemps(mxvl), gp_dtemps(mxvl),
      &  ddummy(1), zero, gp_alpha, ddtse(mxvl,6), nowtemp
       logical signal_flag, fgm_enode_props, local_debug,
@@ -1411,14 +1398,12 @@ c
       logical :: lprops(mxelpr,*)
       integer :: iprops(mxelpr,*)
       integer :: gpn, iout
-#dbl      double precision ::  uddt_displ(mxvl,nstr)
-#sgl      real ::              uddt_displ(mxvl,nstr)
+      double precision ::  uddt_displ(mxvl,nstr)
 #include "include_sig_up"
 c
 c                       locally defined variables
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  dtime, internal_energy, beta_fact, eps_bbar, ddt(mxvl,nstr),
      &  q(mxvl,nstr,nstr), stress_n(nstrs,mxvl),
      &  stress_n1(nstrs,mxvl), p_trial(mxvl), q_trial(mxvl), dfn1(mxvl),
@@ -1674,8 +1659,7 @@ c
       implicit none
 c
       integer :: k, m, i
-#dbl      double precision :: one, two, e, nu, c1, c2, c3, c4
-#sgl      real :: one, two
+      double precision :: one, two, e, nu, c1, c2, c3, c4
       data one, two / 1.0d00, 2.0d00 /
 c
 c              get linear-elastic [D] with potentially temperature
@@ -1730,8 +1714,7 @@ c
         integer :: iter, abs_element, relem, ipoint, iout
         logical :: allow_cut, segmental, power_law,
      &             rate_depend_segmental, signal_flag, cut_step
-#sgl        real :: dtime, step_scale_fact
-#dbl        double precision :: dtime, step_scale_fact
+        double precision :: dtime, step_scale_fact
       end type
 c
       type (arguments) ::args
@@ -1925,8 +1908,7 @@ c     ****************************************************************
 c      
       integer :: span, mxvl
       logical :: killed_status(*)
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  local_cep(mxvl,6,6), stress_n(mxvl,6), stress_np1(mxvl,6),
      &  uddt(mxvl,6), zero
       data zero / 0.0d00 /
@@ -1975,8 +1957,7 @@ c
       implicit none
 c      
       integer :: span, nstrs, mxvl
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  stress_n1(nstrs,*), urcs_blk_n1(mxvl,*)
 c
       integer :: k, i
@@ -2007,8 +1988,7 @@ c
       implicit none
 c
       integer ::  span, nstrs, mxvl
-#dbl      double precision :: 
-#sgl      real ::
+      double precision :: 
      &  stress_n(nstrs,*), urcs_blk_n(mxvl,*)
       integer :: k, i     
 !DIR$ ASSUME_ALIGNED stress_n:64, urcs_blk_n:64
@@ -2053,14 +2033,12 @@ c
       real    ::  props(mxelpr,*)   ! all same but readonly
       logical ::  lprops(mxelpr,*)
       integer ::  iprops(mxelpr,*)
-#dbl      double precision :: uddt(mxvl,nstr)
-#sgl      real :: uddt(mxvl,nstr)
+      double precision :: uddt(mxvl,nstr)
 #include "include_sig_up"
 c
 c              locally defined variables
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  time_n, dtime,  cep(mxvl,6,6), ddummy(mxvl), ds1,
      &  ds2, dn, tns1, tns2, tnn, zero  
 c 
@@ -2318,8 +2296,7 @@ c
       logical :: lprops(mxelpr,*)
       integer :: iprops(mxelpr,*)
       integer :: gpn, iout
-#dbl      double precision ::  uddt_displ(mxvl,nstr)
-#sgl      real ::              uddt_displ(mxvl,nstr)
+      double precision ::  uddt_displ(mxvl,nstr)
 #include "include_sig_up"
 c
 c
@@ -2330,8 +2307,7 @@ c
      &           hist_size_for_blk, curve_type, elem_type, i,
      &           matnum
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  gp_temps(mxvl), gp_rtemps(mxvl), gp_dtemps(mxvl),
      &  zero, gp_alpha, dtime, sig_tol, ddummy,
      &  nh_sigma_0_vec(mxvl), nh_q_u_vec(mxvl), nh_b_u_vec(mxvl),
@@ -2683,8 +2659,7 @@ c
       implicit none
 c
       integer :: k, m, i
-#dbl      double precision :: one, two, e, nu, c1, c2, c3, c4
-#sgl      real :: one, two, e, nu, c1, c2, c3, c4
+      double precision :: one, two, e, nu, c1, c2, c3, c4
       data one, two / 1.0d00, 2.0d00 /
 c
 c              get linear-elastic [D] with potentially temperature
@@ -2744,8 +2719,7 @@ c     ****************************************************************
 c      
       integer :: span, mxvl
       logical :: killed_status(*)
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  local_cep(mxvl,6,6), stress_n(mxvl,6), stress_np1(mxvl,6),
      &  uddt(mxvl,6), zero
       data zero / 0.0d00 /
@@ -2808,14 +2782,12 @@ c
       real     :: props(mxelpr,*)   ! all 3 are same but read-only
       logical  :: lprops(mxelpr,*)
       integer  :: iprops(mxelpr,*)
-#dbl      double precision :: uddt_displ(mxvl,nstr)
-#sgl      real             :: uddt_displ(mxvl,nstr)
+      double precision :: uddt_displ(mxvl,nstr)
 #include "include_sig_up"
 c
 c                       locally defined variables
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  gp_temps(mxvl), gp_rtemps(mxvl), gp_dtemps(mxvl),
      &  zero, gp_alpha, dtime, real_npts, uddt_temps(mxvl,nstr),
      &  uddt(mxvl,nstr), cep(mxvl,6,6)
@@ -2988,8 +2960,7 @@ c     ****************************************************************
       implicit none
 c      
       integer :: span, mxvl
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  local_cep(mxvl,6,6), stress_np1(mxvl,6),
      &  uddt(mxvl,6)
 c
@@ -3044,8 +3015,7 @@ c
       logical :: lprops(mxelpr,*)
       integer :: iprops(mxelpr,*)
       integer :: gpn, iout
-#dbl      double precision ::  uddt_displ(mxvl,nstr)
-#sgl      real ::              uddt_displ(mxvl,nstr)
+      double precision ::  uddt_displ(mxvl,nstr)
 #include "include_sig_up"
 c
 c                       locally defined variables
@@ -3054,8 +3024,7 @@ c
      &           iter, now_blk, mat_type, number_points, curve_set,
      &           hist_size_for_blk, curve_type, elem_type, i
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  dtime, gp_temps(mxvl), gp_rtemps(mxvl), gp_dtemps(mxvl),
      &  zero, gp_alpha,  uddt_temps(mxvl,nstr),
      &  uddt(mxvl,nstr), cep(mxvl,6,6)
@@ -3195,8 +3164,7 @@ c
       implicit none
 c
       integer :: k, m, i
-#dbl      double precision :: one, two, e, nu, c1, c2, c3, c4
-#sgl      real :: one, two, e, nu, c1, c2, c3, c4
+      double precision :: one, two, e, nu, c1, c2, c3, c4
       data one, two / 1.0d00, 2.0d00 /
 c
 c              get linear-elastic [D] with potentially temperature
@@ -3256,8 +3224,7 @@ c     ****************************************************************
 c      
       integer :: span, mxvl
       logical :: killed_status(*)
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  local_cep(mxvl,6,6), stress_n(mxvl,6), stress_np1(mxvl,6),
      &  uddt(mxvl,6), zero
       data zero / 0.0d00 /
@@ -3317,15 +3284,13 @@ c
 c
 c                      parameter declarations
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  uddt(mxvl,nstr), qn1(mxvl,nstr,nstr)
 #include "include_sig_up"
 c
 c                       locally defined variables
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  gp_temps(mxvl), gp_rtemps(mxvl), gp_dtemps(mxvl),
      &  zero, one, gp_alpha, ddsddt(6), drplde(6), drpldt,
      &  big, pnewdt, predef(1), dpred(1), time(2), dtime,
@@ -3877,8 +3842,7 @@ c
       logical :: lprops(mxelpr,*)
       integer :: iprops(mxelpr,*)
       integer :: gpn, iout
-#dbl      double precision ::  uddt_displ(mxvl,nstr)
-#sgl      real ::              uddt_displ(mxvl,nstr)
+      double precision ::  uddt_displ(mxvl,nstr)
 #include "include_sig_up"
 c
 c                       locally defined variables
@@ -3887,8 +3851,7 @@ c
      &           iter, now_blk, mat_type, number_points, curve_set,
      &           hist_size_for_blk, curve_type, elem_type, i
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  dtime, gp_temps(mxvl), gp_rtemps(mxvl), gp_dtemps(mxvl),
      &  zero, gp_alpha,  uddt_temps(mxvl,nstr),
      &  uddt(mxvl,nstr), cep(mxvl,6,6), weight, dj(128)
@@ -4026,8 +3989,7 @@ c
       implicit none
 c
       integer :: k, m, i
-#dbl      double precision :: one, two, e, nu, c1, c2, c3, c4
-#sgl      real :: one, two, e, nu, c1, c2, c3, c4
+      double precision :: one, two, e, nu, c1, c2, c3, c4
       data one, two / 1.0d00, 2.0d00 /
 c
 c              get linear-elastic [D] with potentially temperature
@@ -4087,8 +4049,7 @@ c     ****************************************************************
 c      
       integer :: span, mxvl
       logical :: killed_status(*)
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  local_cep(mxvl,6,6), stress_n(mxvl,6), stress_np1(mxvl,6),
      &  uddt(mxvl,6), zero
       data zero / 0.0d00 /
@@ -4152,8 +4113,7 @@ c
       real    :: props(mxelpr,*)   ! all 3 are same but read-only here
       logical :: lprops(mxelpr,*)
       integer :: iprops(mxelpr,*)
-#dbl      double precision :: uddt_displ(mxvl,nstr)
-#sgl      real :: uddt_displ(mxvl,nstr)
+      double precision :: uddt_displ(mxvl,nstr)
 #include "include_sig_up"
 c
 c
@@ -4162,8 +4122,7 @@ c
       integer :: ncrystals, iter, span, felem, step, type, order, 
      &           nnode, hist_size_for_blk, now_blk,
      &           i, j, matnum, k, start_loc, m, n, igp
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  gp_temps(mxvl), gp_rtemps(mxvl), gp_dtemps(mxvl),
      &  zero, one, gp_alpha, dtime, uddt_temps(mxvl,nstr),
      &  uddt(mxvl,nstr), cep(mxvl,6,6), cep_vec(36), tol
@@ -4537,8 +4496,7 @@ c     ****************************************************************
       implicit none
 c      
       integer :: nrows, row, nterms
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  source(nrows,nterms,nterms), dest(nterms)
 c
       integer :: i, j, k
@@ -4576,8 +4534,7 @@ c     ****************************************************************
 c      
       integer :: span, mxvl
       logical :: killed_status(*)
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  local_cep(mxvl,6,6), stress_n(mxvl,6), stress_np1(mxvl,6),
      &  uddt(mxvl,6), zero
       data zero / 0.0d00 /
@@ -4639,16 +4596,14 @@ c
       real    props(mxelpr,*)
       logical lprops(mxelpr,*)
       integer iprops(mxelpr,*)
-#dbl      double precision
-#sgl      real
+      double precision
      &  uddt(mxvl,nstr)
 #include "include_sig_up"
 c
 c
 c                       locally defined variables
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  gp_temps(mxvl), gp_rtemps(mxvl), gp_dtemps(mxvl),
      &  zero, gp_alpha, dtime
 c
@@ -4872,8 +4827,7 @@ c
 c
 c                      parameter declarations
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & deps(mxvl,*), strain_np1(mxvl,*)
 !DIR$ ASSUME_ALIGNED deps:64, strain_np1:64 
 c
@@ -4911,14 +4865,12 @@ c
 c
 c                      parameter declarations
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  gp_coords(mxvl,3), node_coords(mxvl,*)
 c
 c                     locally defined arrays-variables
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  sf(mxndel), xi, eta, zeta, weight, zero
       logical :: local_debug
       data zero, local_debug / 0.0d00, .false. /
@@ -4984,11 +4936,9 @@ c
       subroutine rstgp1_make_symmetric_store( matrix, symm_vector )
       implicit none
       
-#dbl      double precision :: matrix(6,6), symm_vector(21)
-#sgl      real :: matrix(6,6), symm_vector(21)
+      double precision :: matrix(6,6), symm_vector(21)
 c
-#dbl      double precision :: tp(6,6), symm_version(6,6), half
-#sgl      real ::tp(6,6), symm_version(6,6), half
+      double precision :: tp(6,6), symm_version(6,6), half
       integer :: i, j, k, map(6)
       data half / 0.5d00 /
       data map / 1,2,3,4,6,5 /
@@ -5060,8 +5010,7 @@ c
       subroutine rstgp1_a( ndof, nnode, span, ue, due, uenh, uen1,
      &                     mxvl )
       integer :: span
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  ue(mxvl,*), due(mxvl,*), uenh(mxvl,*), uen1(mxvl,*),
      &  half
       data half / 0.5d00 /
@@ -5082,8 +5031,7 @@ c
      &                     gp_energies, gp_plast_work, det_j,
      &                     dfn1, itype )
       integer :: span
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  internal_energy, plastic_work, gp_energies(*),
      &  det_j(*), dfn1(*), gp_plast_work(*)
 !DIR$ ASSUME_ALIGNED gp_energies:64, det_j:64, dfn1:64
@@ -5132,16 +5080,14 @@ c
 c                      parameter declarations
 c
       integer :: mxvl, span, type, nrow_ceps_blk, gpn
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  ceps_blk(nrow_ceps_blk,span,*), deps_blk(mxvl,*), 
      &  stress_n(mxvl,6), stress_np1(mxvl,6)
 c
 c                      locals
 
       integer :: ielem, i, j, k
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & full_cep(mxvl,6,6), zero
       data zero  / 0.0d00 /
 !DIR$ ASSUME_ALIGNED ceps_blk:64, deps_blk:64, stress_n:64        
@@ -5236,8 +5182,7 @@ c
       implicit none
 c
       integer :: span, mxvl, gpn, nrow_ceps_blk 
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  gbl_ceps_blk(nrow_ceps_blk,span,*), local_cep(mxvl,6,6)
 c
       integer i, k, ii, jj

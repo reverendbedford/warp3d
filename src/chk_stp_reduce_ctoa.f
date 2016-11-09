@@ -30,8 +30,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, angle, two, new_load_fact, crit_angle, one, mf, 
      &     mf_nm1, zero, dtemp
       character * 1 dums
@@ -156,8 +155,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, angle, two, new_load_fact, crit_angle, one, mf, 
      &     mf_nm1, zero, dtemp, dtol
       character * 1 dums
@@ -230,8 +228,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     angle, crit_angle, new_load_fact, mf, mf_nm1,
      &     new_angle, load_fact, two, one
       data two, one /2.0, 1.0/
@@ -305,8 +302,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, angle, two, crit_angle, one
       character * 1 dums
       real dumr
@@ -427,8 +423,7 @@ c
       implicit integer (a-z)
 #include "common.main"
 c
-#sgl      real
-#dbl      double precision
+      double precision
      &     d32460, angle, two, crit_angle, one, zero
       character * 1 dums
       real dumr

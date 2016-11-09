@@ -90,7 +90,7 @@ c
      &                    seg_curves_flag, process_temperatures,
      &                    max_exp_front )
 c
-#dbl      implicit double precision ( a-h, o-z )
+      implicit double precision ( a-h, o-z )
 c
 c                    parameter declarations
 c
@@ -101,8 +101,7 @@ c
      &           elem_nod_strains(6,*), iprops(*), e_strain(9,*),
      &           ym_nodes(*), front_coords(3,*), e_iresults(8,8),
      &           cf_tractions(*), crack_curvature(*)
-#sgl      real
-#dbl      double precision
+      double precision
      &  nu_nodes(*), nu_front_node
       real       props(*)
       logical    lprops(*), one_point, geonl, gdebug, temperatures,
@@ -127,8 +126,7 @@ c
      &   du113_aux(8), du211_aux(8), du212_aux(8),
      &   du213_aux(8), du311_aux(8), du312_aux(8),
      &   du313_aux(8), dcijkl_x1(3), sijkl(3), dsijkl_x1(3)
-#sgl      real
-#dbl      double precision
+      double precision
      &  e, nu, jacob, jacobi, nx, ny, nz, kin_energy, lg(28), four,
      &  jterm(8), iterm(8,8), r, t, toler, termu_aux, termv_aux,
      &  termw_aux, gpq
@@ -139,8 +137,7 @@ c
      &         debug_j, qp_node, fgm_alphas
       data  neg_99, fgm_tol / -99.0, 1.0 /
       data zero, half, two, four, eight
-#dbl     & / 0.d0, 0.5d0, 2.d0, 4.0d0, 8.0d0 /
-#sgl     & / 0.0,  0.5,   2.0,  4.0,   8.0   /
+     & / 0.d0, 0.5d0, 2.d0, 4.0d0, 8.0d0 /
 c
 c             set up basic element properties. load all six thermal
 c             expansion coefficients from material associated with
@@ -395,12 +392,10 @@ c
            end do
         end do
         do i = 1, 10
-#sgl       csig(i,ngpts+1) = eaverage(i) / real(ngpts)
-#dbl       csig(i,ngpts+1) = eaverage(i) / dble(ngpts)
+       csig(i,ngpts+1) = eaverage(i) / dble(ngpts)
         end do
         do i = 11, 19
-#sgl       ceps_gp(i,ngpts+1) = eaverage(i) / real(ngpts)
-#dbl       ceps_gp(i,ngpts+1) = eaverage(i) / dble(ngpts)
+       ceps_gp(i,ngpts+1) = eaverage(i) / dble(ngpts)
         end do
       end if
 c
@@ -810,8 +805,7 @@ c
 c
 c          dummy declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &         sf(*), evel(3,*), eaccel(3,*), velocity, x_accel,
      &         y_accel, z_accel, eqvalues(*), q, point_temp,
      &         enode_temps(*), elem_alpha(*), enode_alpha_ij(6,*),
@@ -822,14 +816,12 @@ c
 c
 c          local declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &         x_vel, y_vel, z_vel, gp_temp, avg_temp, gp_alpha,
      &         avg_alpha, zero, compl_tens(3,2), avg_ym, avg_nu
       integer enode, i, j, k
       logical debug
-#dbl      data zero / 0.0d0 /
-#sgl      data zero / 0.0 /
+      data zero / 0.0d0 /
 c
       debug = .false.
 c
@@ -884,8 +876,7 @@ c               values will also be constant over the element, being
 c               the average of nodal values.
 c
       if( linear_displ ) then
-#dbl        point_temp = avg_temp / dble( nnode )
-#sgl        point_temp = avg_temp / real( nnode )
+        point_temp = avg_temp / dble( nnode )
       else
             point_temp = gp_temp
       end if
@@ -896,8 +887,7 @@ c             values for fgm or temperature-dependent alphas.
 c
       if( fgm_alphas .or. seg_curves_flag ) then
          if( linear_displ ) then
-#dbl        elem_alpha(1) = avg_alpha / dble( nnode )
-#sgl        elem_alpha(1) = avg_alpha / real( nnode )
+        elem_alpha(1) = avg_alpha / dble( nnode )
             elem_alpha(2) = elem_alpha(1)
             elem_alpha(3) = elem_alpha(1)
             elem_alpha(4) = zero
@@ -914,20 +904,16 @@ c
       end if
 c
       if( fgm_e .and. linear_displ ) then
-#dbl        point_ym = avg_ym / dble( nnode )
-#sgl        point_ym = avg_ym / real( nnode )
+        point_ym = avg_ym / dble( nnode )
       end if
 c
       if( fgm_nu .and. linear_displ ) then
-#dbl        point_nu = avg_nu / dble( nnode )
-#sgl        point_nu = avg_nu / real( nnode )
+        point_nu = avg_nu / dble( nnode )
       end if
 c
       if( seg_curves_flag .and. linear_displ ) then
-#dbl        point_ym = avg_ym / dble( nnode )
-#sgl        point_ym = avg_ym / real( nnode )
-#dbl        point_nu = avg_nu / dble( nnode )
-#sgl        point_nu = avg_nu / real( nnode )
+        point_ym = avg_ym / dble( nnode )
+        point_nu = avg_nu / dble( nnode )
       end if
 c
 c               return the scalar velocity of point
@@ -972,7 +958,7 @@ c *******************************************************************
 c
       subroutine dielrv( coord, cdispl, cvel, caccel, edispl, evel,
      &                   eaccel, rotate, nnode, iout, debug )
-#dbl      implicit double precision (a-h,o-z)
+      implicit double precision (a-h,o-z)
 c
 c
 c             rotate coordinates, displacements, velocities and
@@ -1065,7 +1051,7 @@ c
 c
       subroutine dielrt ( ptno, rotate, global, crack, id, iout,
      &                    debug )
-#dbl      implicit double precision (a-h,o-z)
+      implicit double precision (a-h,o-z)
       integer ptno, id
       dimension rotate(3,3), global(3,3), crack(3,3), space(3,3)
       logical   debug
@@ -1157,7 +1143,7 @@ c
 c
       subroutine dielcj( dsf, coord, nnode, cjacob, cjinv, det, ierr,
      &                   iout, debug )
-#dbl      implicit double precision (a-h,o-z)
+      implicit double precision (a-h,o-z)
 c
 c
 c              compute the 3 x 3 jacobian, its determinate and
@@ -1166,8 +1152,7 @@ c
 c
       dimension  dsf(20,*), coord(3,1), cjacob(3,3), cjinv(3,3)
       logical  debug
-#dbl      data zero, one / 0.0d0, 1.0d0 /
-#sgl      data zero, one / 0.0, 1.0 /
+      data zero, one / 0.0d0, 1.0d0 /
 c
 c              compute jacobian at the point. use a dot product
 c              support function.
@@ -1243,8 +1228,7 @@ c
      &                   domain_origin, front_order, qp_node,
      &                   crack_curvature, max_exp_front )
       implicit none
-#dbl      double precision
-#sgl      real
+      double precision
      &         qvals(*), coord(3,*), front_coords(3,*),
      &         crack_curvature(*)
       logical debug, front_elem_flag, qp_node
@@ -1256,14 +1240,11 @@ c
 c             local variables
 c
       integer i, j, k, snode, num_qp_nodes
-#dbl      double precision
-#sgl      real
+      double precision
      &         r_max, r, t, rs(nnode), zero, toler, half, p75, node_x,
      &         node_y, node_z, p4
-#dbl      data zero, toler, half, p4, p75 / 0.0d0, 1.0d-5, 0.5d0,
-#dbl     &                                  0.4d0, 0.75d0 /
-#sgl      data zero, toler, half, p4, p75 / 0.0, 1.0e-5, 0.5, 0.4,
-#sgl     &                                  0.75e0 /
+      data zero, toler, half, p4, p75 / 0.0d0, 1.0d-5, 0.5d0,
+     &                                  0.4d0, 0.75d0 /
 c
       qp_node      = .false.
       num_qp_nodes = 0
@@ -1430,17 +1411,14 @@ c
 c
 c           parameter declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  q(6,6), r(3,3)
 c
 c           locals
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & two
-#dbl      data two / 2.0d0 /
-#sgl      data two / 2.0 /
+      data two / 2.0d0 /
 c 
 c       cauchy stress {T} = [q] * (rotated) cauchy stress {t}.
 c       in tensor form:
@@ -1500,8 +1478,7 @@ c
 c
 c                    parameter declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & q(6,6), stress(*), cstress(6), causig(3,3)
 c
 c            {cstress} = [q] * {stress}; 6x1 vectors and 6x6 q
@@ -1554,19 +1531,16 @@ c
 c
 c                    parameter declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & dsf(20,3), jacobi(3,3), edispl(3,*), stress(*)
        logical gdebug, debug
 c
 c                    local declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  dux, dvx, dwx, duy, dvy, dwy, duz, dvz, dwz, zero, nx, ny, nz,
      &  one, det, f(3,3), fi(3,3), pk1(3,3), deti
-#dbl      data zero, one / 0.0d0, 1.0d0 /
-#sgl      data zero, one / 0.0, 1.0 /
+      data zero, one / 0.0d0, 1.0d0 /
 c
 c             for this integration point, compute displacement 
 c             derivatives in global coordinate system
@@ -1712,7 +1686,7 @@ c *******************************************************************
 c
 c
       subroutine dippie( rotate, iout, debug, elem_alpha ) 
-#dbl      implicit double precision (a-h,o-z)
+      implicit double precision (a-h,o-z)
 c
 c                    parameter declarations
 c
@@ -1722,8 +1696,7 @@ c
 c                    local declarations
 c
       dimension  work(3,3), tensor(3,3)
-#sgl      data zero, half / 0.0, 0.5 /
-#dbl      data zero, half / 0.0d0, 0.5d0 /
+      data zero, half / 0.0d0, 0.5d0 /
 c
 c                    the 6 alpha values for thermal expansion define
 c                    a symmetric 3x3 tensor to define initial
@@ -1802,14 +1775,12 @@ c   * support routine:  dot product: non-unit stride                  *
 c   *                                                                 * 
 c   ******************************************************************* 
 c                                            
-#dbl      double precision function dieldp( veca, vecb, nterms, stepa,
-#sgl      real function dieldp( veca, vecb, nterms, stepa,
+      double precision function dieldp( veca, vecb, nterms, stepa,
      &                                  stepb )
-#dbl      implicit double precision (a-h,o-z)
+      implicit double precision (a-h,o-z)
       dimension veca(1), vecb(1)
       integer stepa, stepb
-#sgl      data zero / 0.0 /
-#dbl      data zero / 0.0d0 /
+      data zero / 0.0d0 /
 c                         
       indexa = 1
       indexb = 1
@@ -1859,8 +1830,7 @@ c
 c             dummy variables
 c
       integer ptno, elemno, myid, numprocs, out
-#sgl      real
-#dbl      double precision
+      double precision
      &     weight, evol, jterm(*), dqx, dqy, dqz, dux, dvx,
      &     dwx, dtx, csig(10,*), kin_energy, rho, point_q, dswd_x1,
      &     point_accel_x, point_accel_y, point_accel_z, elem_alpha(*),
@@ -1871,13 +1841,11 @@ c
 c             local variables
 c
       integer i
-#sgl      real
-#dbl      double precision
+      double precision
      &  temp1, temp2, temp3, zero, half
 c
       data  zero, half
-#dbl     &     / 0.0d0, 0.5d0 /
-#sgl     &     / 0.0  , 0.5   /
+     &     / 0.0d0, 0.5d0 /
 c
 c
 c      debug = .true.

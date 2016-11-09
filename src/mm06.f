@@ -71,8 +71,7 @@ c
      &           nstrs, nstr, span, kout, maxnonlocal
       logical :: elem_killed_vec(mxvl), do_nonlocal, 
      &           compute_creep_strains
-#dbl      double precision
-#sgl      real
+      double precision
      &  dtime, block_props(mxvl,10), e_vec(mxvl), nu_vec(mxvl),
      &  n_power_vec(mxvl), rtse(mxvl,nstr), stress_n(mxvl,nstrs),
      &  stress_np1(mxvl,nstrs), dstran(mxvl,nstr),
@@ -83,8 +82,7 @@ c             local variables
 c
       integer :: i, j
       logical :: debug
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero, half, one, two, three, four, five, six, roothalf,
      &  stress(6), statev(10), t_c, ddsdde(6,6),
      &  props(10), nrm_dtime, local_dstran(6), local_rtse(6)
@@ -276,8 +274,7 @@ c
 c             locally defined variables
 c
       integer :: relem
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  dsigma(6), sigma_avg(6), deps_elas(6), emod, nu,
      &  shear_mod, loc_dstran(6)
 c
@@ -356,8 +353,7 @@ c
 c             locally defined variables
 c
       integer :: i
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  sig_mean, sig_mises, n_exp, B, factor, t1, t2, t3, t4, t5
 
 c
@@ -410,8 +406,7 @@ c
 c             parameter definitions
 c
       integer :: noel, npt, kinc, kiter, kout
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & stress(6), rtse(6), statev(*), dtime, dstran(6), props(*)
 c
 c
@@ -425,8 +420,7 @@ c     smisesnp          : von mises stress in present time step t+dt
 c     sstracen          : stress invariant I1
 c     decrnew           : effective strain increment after NR iteration
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      1 re(2), ssdevnt(6), dsndev(6), toler,
      2 ssdevn(6), ssdevnp(6),
      3 one, two, three, six, zero,
@@ -595,15 +589,13 @@ c
 c             parameter definitions
 c
       integer :: noel, npt, kinc, kiter, kout
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & ssdevnt(6), statev(3), dtime, props(3), ddsdde(6,6)
 c
 c             locals
 c
       integer :: j, k
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      1 expon, sigma_e_star, root32, mu, alpha, kmod,
      2 one, two, three, zero, aprime, beta1, beta2, beta,
      3 decrnew, emod, enu, tol_null
@@ -706,8 +698,7 @@ c     ****************************************************************
       subroutine cnst6_linear_elastic( emod, enu, ddsdde, 
      &                                 one, two, zero )
       implicit none
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  ddsdde(6,6), emod, enu, one, two, zero, c1, c2, c3, c4
 c
 c                       linear isotropic elastic matrix.
@@ -748,14 +739,12 @@ c
       subroutine mm06_derivatives( decreq, dtime, n, emod, enu,
      1                             smisest, f1 )
       implicit none
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & smisest, decreq, dtime, emod, enu, f1, n
 c
 c             locally defined variables
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & one, two, three, temp1
       data one, two, three
      & / 1.0d0, 2.0d0, 3.0d0 /
@@ -790,13 +779,11 @@ c
 c                       parameters
 c
       integer :: nrow_states, itype, num_states
-#dbl      double precision :: elem_states_output(nrow_states,*)
-#sgl      real  :: elem_states_output(nrow_states,*)
+      double precision :: elem_states_output(nrow_states,*)
 c
 c                       locals
 c
-#dbl      double precision, 
-#sgl      real,
+      double precision, 
      & allocatable :: history_dump(:,:,:), one_elem_states(:)
       integer :: relem, elnum, hist_size, blockno
       logical :: do_a_block
@@ -882,8 +869,7 @@ c
 c                       locals
 c
       integer :: ipt   
-#dbl      double precision :: 
-#sgl      real ::
+      double precision :: 
      & local_states(3)
 c
       local_states(1:3) = zero
@@ -960,8 +946,7 @@ c
       integer ::  gpn, mxvl, span, iout
 c
 c     
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & stress(mxvl,*), elestr(mxvl,*), history(mxvl,*)
 c
 c               description of parameters
@@ -1041,8 +1026,7 @@ c
 c             parameter definitions
 c
       integer :: span, felem, gpn, iter, kout, mxvl, nstr
-#dbl      double precision
-#sgl      real
+      double precision
      &  weight, dtime, e_vec(mxvl), nu_vec(mxvl),
      &  n_power_vec(mxvl), rtse(mxvl,nstr), block_props(mxvl,*),
      &  history_np1(span,*), cep(mxvl,6,6), det_jac_block(mxvl)
@@ -1051,8 +1035,7 @@ c             local variables
 c
       integer :: i, j, k
       logical :: debug 
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero, one, two, three, four, five, six, roothalf,
      &  statev(10), t_c, stress(6), local_d_mat(6,6),
      &  props(10), nrm_dtime, local_rtse(6), B

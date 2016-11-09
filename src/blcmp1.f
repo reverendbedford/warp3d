@@ -20,15 +20,13 @@ c
 c                       parameter declarations
 c 
       integer :: span, nnode      
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  b(mxvl,mxedof,*), gama(mxvl,ndim,*), nxi(*), neta(*), nzeta(*)
 c
 c                       locals
 c      
       integer :: j, i, bpos1, bpos2 
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  btemp(mxvl,mxndel,ndim), zero  ! on stack
       data zero / 0.0d0 /
 !DIR$ ASSUME_ALIGNED b:64, gama:64, nxi:64, neta:64, nzeta:64  
@@ -117,8 +115,7 @@ c
 c                       parameter declarations
 c  
       integer :: span, etype, nnode     
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  b(mxvl,mxedof,*), rot(mxvl,ndim,*), shape(*), sh(mxndel)
 c
       integer :: i, j, bpos1, bpos2     
@@ -267,16 +264,14 @@ c
 c                       parameter declarations
 c       
       integer :: span, etype, nnode
-#dbl      double precision :: 
-#sgl      real ::
+      double precision :: 
      &  b(mxvl,mxedof,*), gama(mxvl,ndim,*), nxi(*), neta(*),
      &  nzeta(*), shape(*), ce(mxvl,*), radius(*)
 c
 c                       locals
 c       
       integer :: i, j, row, col, bpos1, bpos2
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &  btemp(mxvl,mxndel,ndim), zero ! on stack
       logical ::  local_debug, axisym
       data zero, local_debug / 0.0d0, .false. /

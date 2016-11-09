@@ -28,8 +28,7 @@ c
 c
 c                    locals
 c
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      &      xi, eta, zeta, zero, temp_ref, d_temp, temp_np1
       logical :: geonl, bbar, local_debug, adaptive_flag, adaptive,
      &           segmental, cohesive_elem, linear_displ, 
@@ -663,8 +662,7 @@ c
 c
 c                    local declarations
       real dumr
-#dbl      double precision
-#sgl      real
+      double precision
      &      dumd
 c
 c                  determine if the material stress-strain properties
@@ -721,8 +719,7 @@ c
       logical  temperatures, temps_node_to_process,
      &         temperatures_ref
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  dtemps_node_blk(mxvl,*), temps_node_blk(mxvl,*),
      &  temps_ref_node_blk(mxvl,*)
 c
@@ -730,8 +727,7 @@ c                    local
 c
       logical do_average
       integer i, enode
-#dbl      double precision
-#sgl      real
+      double precision
      & sum1(span), sum2(span), sum3(span), avg1, avg2, avg3, zero,
      & fnnodel
        data zero / 0.0d0 /
@@ -822,16 +818,14 @@ c
 c                    parameter declarations
 c
       integer nnode, mxndel, mxvl, num_props, span
-#dbl      double precision
-#sgl      real
+      double precision
      &  enode_mat_props(mxndel,mxvl,num_props)
 c
 c                    local
 c
       integer enode, elem, prop
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & sum(span), avg, zero
 c
       data zero / 0.d0 /
@@ -1925,14 +1919,12 @@ c
 c
 c                      parameter declarations
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  node_coords(mxvl,*), lengths(*)
 c
 c                     locally defined arrays-variables
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &  zero, one, half, rnlengths, xa, xb,
      &  ya, yb, za, zb, local_sums(mxvl), scale_factor
       logical local_debug, brick, tet, wedge, linear

@@ -28,15 +28,13 @@ c
 c                  parameters
 c
       integer span, felem, nnode, etype
-#dbl      double precision
-#sgl      real
+      double precision
      & ce(mxvl,mxecor), bigR(mxvl,3,3)
 c
 c                   local data
 c
       integer i, j, imxvl, ispan, innode
-#dbl      double precision
-#sgl      real
+      double precision
      & x21,y21,z21, x31,y31,z31, d1, d2, d3, a2, b2, c2,
      & a3, b3, c3, x1, y1, z1,
      & zero, third, e123_to_ref(3,3),
@@ -252,8 +250,7 @@ c
 c                  parameter declarations
 c
       integer mxvl, span, nnode
-#dbl      double precision
-#sgl      real
+      double precision
      & var(mxvl,*), rvar(mxvl,*), rot(mxvl,3,3)
 c
 c                  local declarations
@@ -311,15 +308,13 @@ c                  parameters
 c
       integer etype, mxvl, span, nnode, action
 c
-#dbl      double precision
-#sgl      real
+      double precision
      & coords(mxvl,*), nzeta(*), neta(*), nxi(*), jac(mxvl,3,3), dj(*)
 c
 c                  locals
 c
       integer i, j
-#dbl      double precision
-#sgl      real
+      double precision
      & zero, j1, j2, j3
 c
       data zero / 0.0d0 /
@@ -432,15 +427,13 @@ c              parameters
 c
       implicit none
       integer span, mxvl, mxecor, surf, nnode, totdof
-#sgl      real
-#dbl      double precision
+      double precision
      &    ce_upd(mxvl,mxecor), ce(mxvl,mxecor), dj(mxvl)
 c
 c              locals. one automatic array.
 c
       integer i, j, k, shift, xb, xt, yb, yt, zb, zt
-#sgl      real
-#dbl      double precision
+      double precision
      &  ce_refsurf(span,mxecor), zero, half
       data zero, half / 0.0d0, 0.5d0 /
       logical local_debug
@@ -650,8 +643,7 @@ c
 c                  parameters
 c
       integer span, mxvl, totdof, nnode
-#dbl      double precision
-#sgl      real
+      double precision
      & ce(mxvl,*)
 c
 c                  locals
@@ -702,22 +694,19 @@ c
       implicit none
 c
       integer span, mxvl, felem, mxndel, nnode, etype
-#sgl      real
-#dbl      double precision
+      double precision
      &    coords(mxvl,*), dj(mxvl)
 c
 c              locally defined
 c
       integer  solid_type
       logical  inter_quad_8, inter_tri_6, inter_tri_12
-#sgl      real
-#dbl      double precision
+      double precision
      &    zero, half, third
 c
 c             automatic arrays
 c
-#sgl      real
-#dbl      double precision
+      double precision
      & nzeta(mxndel), neta(mxndel), nxi(mxndel), jac(mxvl,3,3)
        data zero, half, third / 0.0d0, 0.5d0, 0.333333333333333333d0 /
 c
@@ -794,14 +783,12 @@ c
       implicit none
 c
       integer etype
-#dbl      double precision
-#sgl      real
+      double precision
      &     s1, s2, zeta, qs1(*), qs2(*), qzeta(*)
 c
 c             local variables
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     s3, zero, half, one
       data zero, half, one /0.0d0, 0.5d0, 1.0d0/
 c
@@ -891,14 +878,12 @@ c
       implicit none
 c
       integer etype
-#dbl      double precision
-#sgl      real
+      double precision
      &     s1, s2, zeta, qs1(*), qs2(*), qzeta(*)
 c
 c             local variables
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &     s3, zero, half, one, four
       data zero, half, one, four /0.0d0, 0.5d0, 1.0d0, 4.0d0/
 c
@@ -982,14 +967,12 @@ c
       implicit none
 c
       integer etype, span, mxvl, felem, nnode, iout
-#dbl      double precision
-#sgl      real
+      double precision
      & ce(mxvl,*)
 c
 c                 local data. some are automatic arrays.
 c
-#sgl      real
-#dbl      double precision
+      double precision
      & xb(nnode), yb(nnode), zb(nnode), xt(nnode), yt(nnode),
      & zt(nnode), dxbt, dybt, dzbt, lbt,
      & x(nnode), y(nnode), z(nnode), xm, ym, zm, dx, dy, dz, dmid,
@@ -1160,14 +1143,12 @@ c
       implicit none
 c
       integer etype, span, mxvl, felem, nnode, iout
-#dbl      double precision
-#sgl      real
+      double precision
      & ce(mxvl,*)
 c
 c                 local data. some are automatic arrays.
 c
-#sgl      real
-#dbl      double precision
+      double precision
      & xb(nnode), yb(nnode), zb(nnode), xt(nnode), yt(nnode),
      & zt(nnode), dxbt, dybt, dzbt, lbt,
      & x(nnode), y(nnode), z(nnode), dx41, dy41, dz41,

@@ -23,8 +23,7 @@ c
       implicit integer (a-z)
 #include "common.main"
       logical do_stresses, geonl, long, nodpts, center_output
-#dbl      double precision
-#sgl      real
+      double precision
      &   nowtime
 
 c
@@ -117,8 +116,7 @@ c
 c
 c             locals also visible by contains
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &    zero,  avgs(mxoupr)
       logical local_debug, exp_model, ppr_model
       integer kout
@@ -227,8 +225,7 @@ c
 c
 c             locals (see also contains main)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   t1, t2, tn, ts, gamma, gamma_ur, n_bar, a_bar, b_bar,
      &   v_bar, criticality, max_Tn, max_Dn, omega, lambda_4,
      &   a_over_l_nr
@@ -330,8 +327,7 @@ c
 c
 c             locals (see also contains main)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   t1, t2, tn, ts, gamma, gamma_ur
 c
       if( local_debug ) write(kout,9020)
@@ -401,8 +397,7 @@ c
 c
 c             locals (see also contains main)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   d1, d2, dn, ds
 c
       if( local_debug ) write(kout,9020)
@@ -465,8 +460,7 @@ c
 c
 c             locals (see also contains main)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   d1, d2, dn, ds, dn_limit, ds_limit,
      &   ratio_normal, ratio_shear, dn_at_peak, ds_at_peak
 c
@@ -547,8 +541,7 @@ c
 c
 c             locals (see also contains main)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   deff_peak, beta, d1, d2, dn, ds, deff,
      &   normalized_deff
 c
@@ -621,8 +614,7 @@ c
 c
 c             locals (see also contains main)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   t1, t2, tn, gamma, gamma_ur,
      &   teff, teff_peak, beta,ts, normalized_teff
 c
@@ -702,8 +694,7 @@ c
 c
 c             locals (see also contains main)
 c
-#dbl      double precision
-#sgl      real
+      double precision
      &   tn_peak, ts_peak, t1, t2, tn, gamma,
      &   gamma_ur, ts
 c

@@ -51,17 +51,14 @@ c
 c              parameter declarations
 c                
       logical kill_now, debug
-#dbl      double precision
-#sgl      real
+      double precision
      &     porosity, sig_mean, sig_mises
-#dbl      double precision,
-#sgl      real,
+      double precision,
      &  dimension(:), pointer :: history, urcs_n
 c
 c              local declarations
 c                
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, 
      &     third, six, iroot2,
      &     sig_xx, sig_yy, sig_zz, 
@@ -119,8 +116,7 @@ c
 c          final average values over element. check average porosity
 c          against user specified limit (in module damage_data)
 c    
-#sgl       fpngp = real( ngp )
-#dbl       fpngp = dble( ngp )
+       fpngp = dble( ngp )
       porosity = porosity / fpngp
       sig_mean  = sig_mean * third / fpngp
       sig_mises = sig_mises / fpngp
@@ -187,17 +183,14 @@ c
 c              parameter declarations
 c                
       logical kill_now, debug
-#dbl      double precision
-#sgl      real
+      double precision
      &     porosity, sig_mean, sig_mises, ext_spacing, ext_shape
-#dbl      double precision,
-#sgl      real,
+      double precision,
      &  dimension(:), pointer :: history, urcs_n
 c
 c              local declarations
 c                
-#dbl      double precision
-#sgl      real
+      double precision
      &     zero, coalesce_count, one, half,
      &     third, six, iroot2,
      &     sig_xx, sig_yy, sig_zz, 
@@ -274,8 +267,7 @@ c
 c          final average values over element. check number of points
 c          on coalesence surface to set kill flag
 c    
-#sgl       fpngp = real( ngp )
-#dbl       fpngp = dble( ngp )
+       fpngp = dble( ngp )
       porosity    = porosity / fpngp
       sig_mean    = sig_mean * third / fpngp
       sig_mises   = sig_mises / fpngp
@@ -323,13 +315,11 @@ c
 c
 c
      
-#dbl      double precision
-#sgl      real
+      double precision
      &     porosity, orig_porosity, zero, ebarp, sigma_bar, d_poros,
      &     max_d_poros, fpngp, ddum1, ddum2, sig_mean, sig_mises,
      &     ext_shape, ext_spacing
-#dbl      double precision,
-#sgl      real,
+      double precision,
      &  dimension(:), pointer :: history
       logical ldummy, debug, all_killed, lmises(num_print_list), 
      &                                   lmean(num_print_list),

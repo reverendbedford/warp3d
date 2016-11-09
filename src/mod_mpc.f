@@ -219,8 +219,7 @@ c
 c
       real, allocatable, dimension (:) :: multi_list
 c
-#dbl      double precision, 
-#sgl      real,
+      double precision, 
      &            allocatable,
      &            dimension (:) :: dep_coef, dep_rhs
 c

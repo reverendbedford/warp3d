@@ -39,8 +39,7 @@ c
       logical   trn_e_flags(*), trn_e_block, trne(mxvl,*),
      &          geonl, trn(*), cohesive_elem,
      &          middle_surface
-#dbl      double precision
-#sgl      real
+      double precision
      & ce(mxvl,*), trnmte(mxvl,mxedof,*), ue(mxvl,*), due(mxvl,*),
      & ce_orig(mxvl,mxecor), djcoh(mxvl), zero
       data zero / 0.0 /

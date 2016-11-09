@@ -24,8 +24,7 @@ c
 c              parameter declarations
 c
       integer :: span, felem, type, order, ngp, nnode, totdof
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & mel(totdof,*), beta_fact, totvol, ce_block(mxvl,*),
      & rho_block(mxndel,*)
       real :: props(mxelpr,*)
@@ -35,8 +34,7 @@ c
 c              locally allocated
 c
       integer :: i, j, gpn, iout
-#dbl      double precision ::
-#sgl      real ::
+      double precision ::
      & rho(mxvl), volume(mxvl), zero, one, emass(mxvl),
      & rho_fgm_flags(mxvl)
        data zero, one / 0.d0, 1.d0 /
