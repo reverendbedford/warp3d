@@ -32,7 +32,7 @@ fi
 #           set executable file name for OpenMP + MKL sparse solver
 #           version of warp3d
 #
-warp3d_exe="$WARP3D_HOME/run_linux_em64t/warp3d.omp"
+warp3d_exe="$WARP3D_HOME/bin/warp3d.omp"
 #
 #           set LD_LIBRARY_PATH. Examine the ordering...
 #
