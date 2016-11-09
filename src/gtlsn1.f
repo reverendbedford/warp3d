@@ -27,7 +27,7 @@ c
      &                   due, deps, gama, nxi, neta,
      &                   nzeta, vol_block, bbar, eps_bbar, b )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -111,7 +111,7 @@ c
       subroutine gtlsn2( span, nnode, due, dgstrn, dgstrs, rot, shape, 
      &                   etype, gpn, felem, iout )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c

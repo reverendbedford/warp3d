@@ -21,7 +21,7 @@ c
       use damage_data, only : release_type
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &     zero, one

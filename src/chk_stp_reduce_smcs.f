@@ -19,7 +19,7 @@ c
       use elem_extinct_data, only : old_plast_strain
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical debug
 c
 c

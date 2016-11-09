@@ -20,7 +20,7 @@ c
       use contact, only : contact_cause, maxcontact, contact_force
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &  zero

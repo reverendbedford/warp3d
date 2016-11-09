@@ -16,7 +16,7 @@ c
 c           
       subroutine scstr( ml, mg, ngp, nprm, span )                       
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 #dbl      double precision
 #sgl      real
      &     ml(mxvl,nprm,*),mg(nprm,ngp,*)

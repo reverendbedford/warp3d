@@ -31,7 +31,7 @@ c
 c
       implicit integer (a-z)
 c      
-$add common.main
+#include "common.main"
 
 #dbl      double precision ::
 #sgl      real ::

@@ -21,7 +21,7 @@ c
      &                      inverse_dof_map
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &    eres(mxvl,mxndof), zero, trnmte(mxvl,mxedof,mxndof)

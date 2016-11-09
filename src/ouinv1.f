@@ -17,7 +17,7 @@ c
 c
       subroutine ouinv1( span, str, inv, stress )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 #dbl      double precision
 #sgl      real
      &     str(mxvl,*), inv(mxvl,*)

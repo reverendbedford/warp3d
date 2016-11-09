@@ -20,7 +20,7 @@ c
      &                      temper_nodes_ref, temperatures_ref,
      &                      inverse_incidences
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical sbflg1, sbflg2
 c
 c                       local declarations

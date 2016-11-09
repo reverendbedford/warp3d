@@ -19,7 +19,7 @@ c
 c
       use main_data, only : trn, trnmat, inverse_incidences
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical oubin, ouasc,  flat_file, stream_file, 
      &        text_file, compressed 
 c

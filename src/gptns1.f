@@ -19,8 +19,8 @@ c
       use main_data, only: asymmetric_assembly
       use elem_block_data, only : global_cep_blocks => cep_blocks
       implicit none
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                     parameter declarations
 c
@@ -316,8 +316,8 @@ c
       subroutine drive_01_cnst( gpn, iout, local_work )
 c
       implicit none
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                     parameter declarations
 c
@@ -367,8 +367,8 @@ c
       subroutine drive_02_cnst( gpn, iout, local_work )
 c
       implicit none
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                     parameter declarations
 c
@@ -418,8 +418,8 @@ c
       subroutine drive_03_cnst( gpn, iout, local_work )
 c
       implicit none
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                     parameter declarations
 c
@@ -448,8 +448,8 @@ c
       use main_data, only : matprp, lmtprp
       use elem_block_data, only : gbl_cep_blocks => cep_blocks
       implicit none
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                     parameter declarations
 c
@@ -527,8 +527,8 @@ c
       subroutine drive_05_cnst( gpn, iout, local_work )
 c
       implicit none
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                     parameter declarations
 c
@@ -580,8 +580,8 @@ c
       subroutine drive_06_cnst( gpn, iout, local_work )
 c
       implicit none
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                     parameter declarations
 c
@@ -606,8 +606,8 @@ c
       subroutine drive_07_cnst( gpn, iout, local_work )
 c
       implicit none
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                     parameter declarations
 c
@@ -658,8 +658,8 @@ c
 c
       use elem_block_data, only : gbl_cep_blocks => cep_blocks
       implicit none
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                     parameter declarations
 c
@@ -749,8 +749,8 @@ c
 c
       use elem_block_data, only : gbl_cep_blocks => cep_blocks
       implicit integer (a-z)
-$add param_def
-$add include_tan_ek  ! has local_work definition
+#include "param_def"
+#include "include_tan_ek"  ! has local_work definition
 c
 c                     local variables
 c
@@ -842,11 +842,11 @@ c
       use mm10_defs, only : indexes_common, index_crys_hist 
 c      
       implicit none
-$add param_def
+#include "param_def"
 c
 c                     parameter declarations
 c
-$add include_tan_ek
+#include "include_tan_ek"
       integer :: gpn, iout
 c
 c                     local variables
@@ -943,8 +943,8 @@ c
 c
       use main_data, only : matprp, lmtprp
       implicit integer (a-z)
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                     parameter declarations
 c
@@ -1238,7 +1238,7 @@ c
       subroutine ctran1( span, cep, qn1, cs, qbar, dj, w, is_umat,
      &                   umat_stress_type, is_crys_pls  )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 #dbl      double precision ::
 #sgl      real ::
      &     cep(mxvl,nstr,*), qn1(mxvl,nstr,*), tc(mxvl,nstr,nstr),

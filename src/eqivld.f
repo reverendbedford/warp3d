@@ -33,7 +33,7 @@ c
      &                      temper_nodes_ref
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c
 c          step       - load step number for which loads are required
@@ -211,7 +211,7 @@ c
      &  warp_incr_loads, warp_incr_temperatures, crdmap,
      &  user_mf_ratio_change, user_file_name, debug )
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -757,7 +757,7 @@ c
       use main_data, only : trn, trnmat, inverse_incidences
 c
       implicit none
-$add common.main
+#include "common.main"
 c
 #dbl      double precision :: rload(*)
 #sgl      real :: rload(*)
@@ -852,7 +852,7 @@ c
      &                       packet_file_no
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #sgl      real
 #dbl      double precision
      &     step_factor, total_factor, zero, sum

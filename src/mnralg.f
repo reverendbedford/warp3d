@@ -41,7 +41,7 @@ c
      &                            i_lagrange_forces
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision ::
 #sgl      real ::
      &  mf, mf_nm1, dt_original
@@ -1249,7 +1249,7 @@ c
      &                            rot_blk_list
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &    dummy(1)
@@ -1332,7 +1332,7 @@ c
      &                            urcs_blk_list, nonlocal_flags,
      &                            nonlocal_data_n, nonlocal_data_n1
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                      lcoal values
 c
@@ -1432,7 +1432,7 @@ c
 c
       subroutine abort_job
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       call iodevn( idummy, iout, dummy, 1 )
       write(out,9000)
@@ -1599,7 +1599,7 @@ c
       use main_data, only : dtemp_nodes, dtemp_elems
       use adaptive_steps, only : adapt_temper_fact ! set in adapt_check
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1709,7 +1709,7 @@ c
       use main_data, only : release_cons_table, dload
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c           local variables
 c

@@ -38,7 +38,7 @@ c
       use mm10_constants
 c
       implicit none
-$add include_sig_up
+#include "include_sig_up"
 c
 c                 parameter definitions
 c
@@ -373,7 +373,7 @@ c
       use mm10_constants
 c
       implicit none
-$add include_sig_up
+#include "include_sig_up"
 c
       type(crystal_props) :: cc_props
       integer :: isw, s_type1, n_hard, h_type, allocate_status
@@ -593,7 +593,7 @@ c
       use mm10_constants
       implicit none
 c      
-$add common.main
+#include "common.main"
       integer :: size_data(*), local_el, matnum, ncrystals
 c
 c        size_data(1)  :  no. of words of history data for each
@@ -1501,7 +1501,7 @@ c
      &                            now_elem, span, hist_size )
       use mm10_constants
       implicit none
-$add param_def 
+#include "param_def" 
 c
 c                 parameter definitions
 c
@@ -1762,7 +1762,7 @@ c
       use mm10_defs
       use mm10_constants
       implicit none
-$add include_sig_up
+#include "include_sig_up"
       integer :: atype, aconv
       logical :: debug
       type(crystal_properties) :: inc_props

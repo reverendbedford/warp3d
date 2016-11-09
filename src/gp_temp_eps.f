@@ -22,7 +22,7 @@ c
      &       temper_increment, temps_node_to_process,
      &       temperatures_ref, temps_ref_node_blk, gp_rtemps  )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -136,7 +136,7 @@ c
       subroutine gp_temp_eps( span, deps, alpha_n1, gp_dtemps,
      &                        gp_temps, gp_rtemps, alpha_n  )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c

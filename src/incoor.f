@@ -19,7 +19,7 @@ c
       use main_data, only : crdmap
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #sgl      real
 #dbl      double precision
      &  x(ndim), xcur, dumd, zero

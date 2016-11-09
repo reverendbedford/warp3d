@@ -17,7 +17,7 @@ c
       subroutine intab( sbflg1, sbflg2, tabnum, path )
       use main_data, only : tables
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameter declarations
 c            
@@ -235,7 +235,7 @@ c
       subroutine do_table_allo( tabnum, nrows, ncols, fill )
       use main_data, only : tables
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       real rzero
       double precision dzero
@@ -321,7 +321,7 @@ c
       subroutine table_piston( tabnum, nrows, complete )
       use main_data, only : tables
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameter declarations
 c            
@@ -587,7 +587,7 @@ c
       subroutine dump_table_piston( tabnum, nrows )
       use main_data, only : tables
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       write (*,*) ' ==================='
       write (*,*) '    DUMPING TABLE   '

@@ -21,7 +21,7 @@ c
      &                     output_states_type_opt1,
      &                     output_states_type_opt2
       implicit none
-$add common.main
+#include "common.main"
       logical :: ouflg, oubin, ouasc, ounod, flat_file, stream_file,
      &           text_file, compressed
 c

@@ -19,7 +19,7 @@ c
       use main_data, only : incmap, incid, packet_file_no
       use elblk_data, only : elestr
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical :: wide, eform, prec, newhed, nodpts, newel,
      &           center_output, noheader, out_packet_now
       character(len=8) :: strlbl(*)

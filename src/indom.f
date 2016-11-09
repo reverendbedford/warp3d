@@ -19,7 +19,7 @@ c
       subroutine indom( sbflg1, sbflg2 )
       use j_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       real dumr, qnow, rword, rzero
       character dums*1, ltitle*80
 #dbl      double precision

@@ -17,7 +17,7 @@ c
       subroutine ininc( sbflg1, sbflg2 )
       use main_data, only : incmap, incid
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       real dumr
 #dbl      double precision
 #sgl      real

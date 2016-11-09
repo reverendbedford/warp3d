@@ -16,7 +16,7 @@ c     ****************************************************************
 c
       subroutine energy ( step, adapt_result, mdiag )
       implicit integer ( a - z )
-$add common.main 
+#include "common.main" 
 #dbl      double precision
 #sgl      real
      & k_energy, mdiag(*), total_int_energy, total_pls_energy 

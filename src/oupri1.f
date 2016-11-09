@@ -18,7 +18,7 @@ c
 c
       subroutine oupri1( span, str, prstr, angles, stress )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 #dbl      double precision
 #sgl      real
      &     str(mxvl,*), prstr(mxvl,*), angles(mxvl,ndim,*)

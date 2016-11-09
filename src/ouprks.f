@@ -21,7 +21,7 @@ c
             use elblk_data, only : elestr
 
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical do_stresses, geonl, center_output, element
 #dbl      double precision
 #sgl      real

@@ -311,7 +311,7 @@ c     ****************************************************************
 c
       subroutine getnumcpus( nranks )
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       nranks = 1
       if( use_mpi ) nranks = numrpocs
@@ -332,7 +332,7 @@ c     ****************************************************************
 c
       subroutine getrank( thisrank )
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       thisrank = 0
       if( use_mpi ) thisrank = myid
@@ -353,7 +353,7 @@ c     ****************************************************************
 c
       subroutine getmodelsizes( num_model_nodes, num_model_elements )
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       num_model_nodes    = nonode
       num_model_elements = noelem

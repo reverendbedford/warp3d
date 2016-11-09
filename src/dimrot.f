@@ -10,7 +10,7 @@ c
       use main_data
       use j_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                     parameter declarations
 c

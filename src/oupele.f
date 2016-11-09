@@ -19,7 +19,7 @@ c
       use elblk_data, only : elestr
       implicit integer (a-z)
       logical stress
-$add param_def
+#include "param_def"
 #dbl      double precision
 #sgl      real 
      &  elem_results(nrowd,*)

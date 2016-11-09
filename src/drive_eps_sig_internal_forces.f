@@ -34,7 +34,7 @@ c
       use main_data, only: umat_serial
 c
       implicit none
-$add common.main
+#include "common.main"
 c
       integer :: step, iter
       logical :: material_cut_step
@@ -376,8 +376,8 @@ c
       use damage_data, only : dam_ptr, growth_by_kill
 c
       implicit none
-$add common.main
-$add include_sig_up
+#include "common.main"
+#include "include_sig_up"
 c
       integer :: blk, iter, step
 #dbl      double precision
@@ -677,8 +677,8 @@ c
       use elem_block_data, only: history_blk_list
       implicit none
 
-$add common.main
-$add include_sig_up
+#include "common.main"
+#include "include_sig_up"
 c
       integer :: local_mt, error, span, blk, ngp, hist_size, nlsize
       double precision :: zero
@@ -952,8 +952,8 @@ c
 c
       subroutine recstr_deallocate( local_work )
       implicit none 
-$add common.main
-$add include_sig_up
+#include "common.main"
+#include "include_sig_up"
 c
       integer :: local_mt, error
       logical :: local_debug
@@ -1263,8 +1263,8 @@ c
       use segmental_curves, only : max_seg_points, max_seg_curves
 c
       implicit none
-$add common.main
-$add include_sig_up
+#include "common.main"
+#include "include_sig_up"
 c
 c           parameter declarations
 c
@@ -1563,7 +1563,7 @@ c
 c
       subroutine recstr_gastr( mlocal, mglobal, ngp, nprm, span )
       implicit none 
-$add param_def
+#include "param_def"
 c
 c               parameter declarations
 c
@@ -1627,7 +1627,7 @@ c
       subroutine allocate_ifv( action  )
       use elem_block_data, only:  einfvec_blocks
       implicit none
-$add common.main
+#include "common.main"
 c
       integer :: action
 c
@@ -1725,8 +1725,8 @@ c
       use main_data, only:  nonlocal_analysis
 c
       implicit none
-$add param_def
-$add include_sig_up
+#include "param_def"
+#include "include_sig_up"
 c
       integer :: iprops(mxelpr,*)  ! global element props array
 c
@@ -1943,7 +1943,7 @@ c
      &              top_model, bott_model )
 c
       implicit none
-$add common.main
+#include "common.main"
 c
       integer :: elem_top, elem_bott, top_model, bott_model
 c
@@ -2051,7 +2051,7 @@ c
       use main_data, only: elems_to_blocks
       use elem_block_data, only: urcs_n_blocks, eps_n_blocks
       implicit none
-$add common.main
+#include "common.main"
 c
 c           global declarations
 c

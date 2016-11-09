@@ -28,7 +28,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -154,7 +154,7 @@ c
       subroutine over_CTOA_const ( new_load_fact, mf, mf_nm1, debug )
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -228,7 +228,7 @@ c
       use node_release_data, only : old_angles_at_front
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -303,7 +303,7 @@ c
       use main_data, only : cnstrn
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -425,7 +425,7 @@ c
      &     crkpln_nodes_state, master_lines
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision

@@ -21,7 +21,7 @@ c
      &                   mat_type, center_output, num_short_stress,
      &                   num_short_strain )
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical do_stresses, geonl, long, nodpts, center_output
 #dbl      double precision
 #sgl      real
@@ -110,7 +110,7 @@ c
       use elblk_data, only : elem_hist, urcs_blk_n, ddtse, elestr
 
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical do_stresses, center_output, wide, eform, newel,
      &        prec, noheader, out_packet_now, geo_non_flg
       character*8 strlbl(30), hedtyp*30

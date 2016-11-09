@@ -18,7 +18,7 @@ c
       use main_data, only: fgm_node_values, fgm_node_values_defined,
      &                     fgm_node_values_cols
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      & dumd
@@ -246,7 +246,7 @@ c
       use main_data, only: fgm_node_values, fgm_node_values_defined,
      &                     fgm_node_values_cols
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       real dumr, young_mod, poisson_ratio, alpha, vol_fract_ductile,
      &     rho, tan_e, yld_pt, n_power, zero
 #dbl      double precision
@@ -309,7 +309,7 @@ c
       subroutine infgm_dump
       use main_data, only: fgm_node_values, fgm_node_values_defined
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       real young_mod, poisson_ratio, alpha, vol_fract_ductile, 
      &     rho, tan_e, yld_pt, n_power, zero
 c

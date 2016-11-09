@@ -19,7 +19,7 @@ c
      &                totdof )  
       use main_data, only: asymmetric_assembly
       implicit none
-$add param_def
+#include "param_def"
 c
 c                       parameter declarations
 c

@@ -1164,7 +1164,7 @@ c
       use main_data
 c
       implicit none
-$add common.main
+#include "common.main"
 c
 c     parameter declarations
 c     ----------------------

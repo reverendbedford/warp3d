@@ -46,7 +46,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -279,7 +279,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -518,7 +518,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -751,7 +751,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -984,7 +984,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -1218,7 +1218,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -1453,7 +1453,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -1686,7 +1686,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -1918,7 +1918,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -2152,7 +2152,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -2389,7 +2389,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real e, et, h,  dumr
@@ -2642,7 +2642,7 @@ c
       subroutine elprp12( elem, type )
       use main_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real  dumr
@@ -3014,7 +3014,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
 c
@@ -3248,7 +3248,7 @@ c
       subroutine elprp14( elem, type )
       use main_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real dumr
@@ -3474,7 +3474,7 @@ c
       subroutine elprp15( elem, type )
       use main_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character dums
       real dumr
@@ -3700,7 +3700,7 @@ c
       use main_data
       use segmental_curves
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                 local variables
 c

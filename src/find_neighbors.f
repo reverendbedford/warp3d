@@ -47,7 +47,7 @@ c                   NOTE: we assume 8 nodes per element here!
 c      
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       real dumr
       character *1 dums
 #sgl      real

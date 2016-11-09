@@ -18,7 +18,7 @@ c
 c           
       subroutine rscmp1( span, f, u )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c

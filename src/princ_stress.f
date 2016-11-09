@@ -17,7 +17,7 @@ c     ****************************************************************
 c
       subroutine princ_stress( results, nrowd, num )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 #dbl      double precision
 #sgl      real
      &     results(nrowd,*) 

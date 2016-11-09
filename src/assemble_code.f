@@ -23,7 +23,7 @@ c
      &                                    dof_eqn_map )
       use main_data, only : inverse_incidences
       implicit none
-$add param_def      
+#include "param_def"      
 c
 c                    parameter declarations
 c
@@ -145,7 +145,7 @@ c
       use main_data, only : repeat_incid, inverse_incidences
 c     
       implicit none
-$add param_def      
+#include "param_def"      
 c      
       integer :: srow, neqns, previous_snode, num_non_zero_terms            
       integer :: eqn_node_map(*), edest(mxedof,*), iprops(mxelpr,*),
@@ -533,7 +533,7 @@ c
      &                         k_indexes, k_ptrs, iprops, dcp,
      &                         noelem )
       implicit none
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
@@ -666,7 +666,7 @@ c
       use main_data,       only : elems_to_blocks, repeat_incid,
      &                            inverse_incidences
       implicit none
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
@@ -920,7 +920,7 @@ c
      &  neqns, num_threads, eqn_node_map, dof_eqn_map, k_ptrs,
      &  k_indexes, iprops, k_coeffs )
       implicit none
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
@@ -1001,7 +1001,7 @@ c
       use main_data, only: elems_to_blocks, repeat_incid,
      &                     inverse_incidences
       implicit none 
-$add param_def
+#include "param_def"
 c
 c                 parameter declarations
 c
@@ -1100,7 +1100,7 @@ c     ========
 c
       subroutine assem_a_row_asym_error
       implicit none
-$add common.main
+#include "common.main"
 c
       write(out,9000) 
       write(out,9010) erow, ecol, num_k_indexes, scol
@@ -1156,7 +1156,7 @@ c     ****************************************************************
       use main_data,       only :  elems_to_blocks
 c 
       implicit none   
-$add param_def
+#include "param_def"
 c
       integer :: table(mxedof,*), elem_list(*), list_length,
      &           iprops(mxelpr,*) 

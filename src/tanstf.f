@@ -21,7 +21,7 @@ c
       use main_data,       only : asymmetric_assembly
 c
       implicit none
-$add common.main
+#include "common.main"
 c
 c                       parameter dclarations
 c
@@ -146,7 +146,7 @@ c
       use contact, only : use_contact     
 c
       implicit none
-$add common.main
+#include "common.main"
 c
 c                       parameter declarations
 c
@@ -155,7 +155,7 @@ c
 c
 c                       local declarations 
 c
-$add include_tan_ek
+#include "include_tan_ek"
 #dbl      double precision ::
 #sgl      real ::
      &  zero, lambda(mxvl,3,3) ! on stack
@@ -397,7 +397,7 @@ c
       use main_data, only: asymmetric_assembly
 c
       implicit none
-$add common.main
+#include "common.main"
 c
       integer :: type
       
@@ -520,8 +520,8 @@ c
      &                            history_blk_list
 c
       implicit none
-$add common.main
-$add include_tan_ek
+#include "common.main"
+#include "include_tan_ek"
 c
 c           parameter declarations
 c
@@ -609,7 +609,7 @@ c
       use main_data, only : trnmat, trn, incid, incmap
 c
       implicit none
-$add common.main
+#include "common.main"
 c
 c           parameters
 c
@@ -736,8 +736,8 @@ c
       use segmental_curves, only : max_seg_points, max_seg_curves
       implicit none
 
-$add common.main
-$add include_tan_ek
+#include "common.main"
+#include "include_tan_ek"
 c
       integer :: error
 #dbl      double precision :: zero
@@ -851,8 +851,8 @@ c
 c
       subroutine tanstf_deallocate( local_work )
       implicit none
-$add common.main
-$add include_tan_ek
+#include "common.main"
+#include "include_tan_ek"
 c
       integer :: local_mt, error
       logical :: local_debug

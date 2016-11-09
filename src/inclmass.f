@@ -18,7 +18,7 @@ c
       subroutine inclmass
 c 
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       integer :: blk, now_thread 
 c
@@ -67,7 +67,7 @@ c
       use elem_block_data, only: mass_blocks, estiff_blocks
       use main_data, only: asymmetric_assembly
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       integer :: blk
 c

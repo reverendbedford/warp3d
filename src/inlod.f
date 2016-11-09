@@ -19,7 +19,7 @@ c
      &                      temp_nodlod, node_load_defs,
      &                      tables
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameter declarations
 c            
@@ -1111,7 +1111,7 @@ c
      &     elem_temper, pist_tabn, pist_set )
       use elem_load_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real 
@@ -1209,7 +1209,7 @@ c
      &                                  step_count )
       use main_data, only : step_load_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       dimension step_load_list(*), list_of_steps(*)
 #sgl      real step_load_factors(*)  
@@ -1273,7 +1273,7 @@ c
      &                      next_loddat_col, max_loddat_blks,
      &                      loddat_blocks
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       real node_data(*)
 c
       select case ( opcode )

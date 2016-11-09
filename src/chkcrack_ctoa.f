@@ -31,7 +31,7 @@ c
       use damage_data
       implicit integer (a-z)
       parameter (max_local_list=300)
-$add common.main
+#include "common.main"
 #sgl      real
 #dbl      double precision
      &     d32460, angle, zero, max_angle, two,
@@ -200,7 +200,7 @@ c
 c
       implicit integer (a-z)
       parameter (max_local_list=200)
-$add common.main
+#include "common.main"
 #sgl      real
 #dbl      double precision
      &     d32460, angle, zero, max_angle, two,
@@ -315,7 +315,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical debug, killed_this_time
 c
 c
@@ -405,7 +405,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character *1 dums
       real dumr
@@ -513,7 +513,7 @@ c
 c
       implicit integer (a-z)
       parameter (max_local_list=200)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -690,7 +690,7 @@ c
 c
       implicit integer (a-z)
       parameter (max_local_list=200)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -885,7 +885,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -988,7 +988,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       character *1 dums
       real dumr
 c
@@ -1177,7 +1177,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       character *1 dums
       real dumr
@@ -1308,7 +1308,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #sgl      real
 #dbl      double precision
      &     zero
@@ -1376,7 +1376,7 @@ c
       use main_data, only : crdmap
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -1444,7 +1444,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -1572,7 +1572,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -1659,7 +1659,7 @@ c
       use main_data, only : crdmap
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -1726,7 +1726,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision

@@ -46,7 +46,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c              parameter declarations
 c                
@@ -182,7 +182,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c              parameter declarations
 c                
@@ -319,7 +319,7 @@ c
       use elem_block_data, only : history_blocks, history_blk_list
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c
      

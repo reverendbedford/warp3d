@@ -29,7 +29,7 @@ c
       use damage_data, only : dam_ptr, growth_by_kill
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c           parameter declarations
 c

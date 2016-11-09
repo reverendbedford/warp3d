@@ -24,7 +24,7 @@ c
       subroutine cohes_rot_mat(span, felem, nnode, etype, ce, bigR )
       implicit none
 c
-$add param_def
+#include "param_def"
 c                  parameters
 c
       integer span, felem, nnode, etype

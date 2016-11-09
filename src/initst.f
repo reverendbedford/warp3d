@@ -57,7 +57,7 @@ c
      &                        nangles, srequired
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical promsw,echosw,comsw,atrdsw,eolsw,eofsw,menusw,ptsw,signsw
       logical numel,numnod,sbflg1,sbflg2,fatal,coor,elprop,elinc,constr
       logical block
@@ -861,7 +861,7 @@ c
 c      
       use main_data, only : material_model_names
       implicit none
-$add param_def
+#include "param_def"
 c   
       integer :: nc, m
       character(len=nc) :: material_model_id      

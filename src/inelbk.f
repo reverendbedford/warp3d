@@ -17,7 +17,7 @@ c
 c
       subroutine inelbk(sbflg1,sbflg2)
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       real dumr
 #dbl      double precision dumd
 #sgl      real dumd
@@ -262,7 +262,7 @@ c
       subroutine inelbk_simple_blocking( auto_size, auto_domains,
      &                       auto_num_domains, display )
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical display
 c
 c

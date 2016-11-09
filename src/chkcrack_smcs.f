@@ -26,7 +26,7 @@ c
       use main_data, only : output_packets, packet_file_no 
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real

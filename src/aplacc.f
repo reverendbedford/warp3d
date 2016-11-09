@@ -19,7 +19,7 @@ c
       subroutine aplacc
 c      implicit integer (a-z)
 c      logical trcacc
-c$add common.main
+c#include "common.main"
 c#dbl      double precision
 c#sgl      real
 c     &   zero, one

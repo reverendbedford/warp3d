@@ -34,7 +34,7 @@ c
       use mm10_defs, only : 
      & one_crystal_hist_size, common_hist_size
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c               parameter and local variable declarations
 c
@@ -826,7 +826,7 @@ c
       subroutine rdmass
       use elem_block_data, only: mass_blocks
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical myblk
 c
       allocate( mass_blocks(nelblk),stat=iok )
@@ -891,7 +891,7 @@ c
      &                            cep_blocks, cep_blk_list
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &    dummy(1)
@@ -1073,7 +1073,7 @@ c
      &                            crdmap
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       integer, dimension (:,:), pointer :: cdest
       logical myblk
 c
@@ -1187,7 +1187,7 @@ c
       use main_data,       only : incid, incmap, elems_to_blocks
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       integer, dimension (:,:), pointer :: edest
       logical myblk
@@ -1303,7 +1303,7 @@ c
      &                            eps_blk_list
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &    dummy(1)
@@ -1427,7 +1427,7 @@ c
      &                            urcs_blk_list
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &    dummy(1)
@@ -1550,7 +1550,7 @@ c
       use elem_block_data, only : element_vol_blocks
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &    model_volume, zero
@@ -1645,7 +1645,7 @@ c
       use elem_block_data, only : rot_n_blocks, rot_n1_blocks,
      &                            rot_blk_list
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &    zero, rot_init(9), dummy(1)
@@ -1804,7 +1804,7 @@ c
       use main_data, only : invdst, repeat_incid,
      &                      inverse_incidences, inverse_dof_map
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c
 c            fileno:      = file number to read to recover data
@@ -1945,7 +1945,7 @@ c
       subroutine init_eblock_map
       use main_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 
       if ( allocated( elems_to_blocks ) ) then
            write(out,9900)
@@ -2001,7 +2001,7 @@ c
       use main_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &  zero
@@ -2167,7 +2167,7 @@ c
      &                            nonlocal_data_n1
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -2556,7 +2556,7 @@ c
      &      crystal_input, srequired, nangles, simple_angles,
      &      mc_array, defined_crystal 
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       integer, intent(in) :: fileno
 c
       integer :: nelem

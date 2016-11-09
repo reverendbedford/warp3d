@@ -410,7 +410,7 @@ c
       use segmental_curves, only : sigma_curves, curve_plseps_values
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -469,7 +469,7 @@ c
      &      seg_curves_ym, seg_curves_nu, curve_nu_values
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                parameter declarations
 c
@@ -612,7 +612,7 @@ c
      &          span, felem, elem_type, gpn, nnode,
      &          blk_vec, shape, enode_mat_props, matcol, blk_fgm_flags )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                parameter declarations
 c

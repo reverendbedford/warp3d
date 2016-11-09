@@ -19,7 +19,7 @@ c
       use elblk_data, only : elestr
       implicit integer (a-z)
 c
-$add param_def
+#include "param_def"
       dimension belinc(nnode,*), outmap(*)
 c
       type :: node_entry

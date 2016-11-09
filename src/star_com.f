@@ -18,7 +18,7 @@ c
 c
       subroutine star_com
       implicit integer (a-z)             
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &  dumd

@@ -17,7 +17,7 @@ c
 c
       subroutine elmas1( span, nnode, emass, volume, mel, totdof )    
       implicit none
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c

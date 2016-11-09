@@ -17,7 +17,7 @@ c
 c           
       subroutine gastr( ml, mg, ngp, nprm, span )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c               parameter declarations
 c

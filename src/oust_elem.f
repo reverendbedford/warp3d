@@ -28,7 +28,7 @@ c
 #dbl      double precision
 #sgl      real
      &  elem_values(nrowd,num_vals)
-$add common.main
+#include "common.main"
 c
 c                       local declarations
 c

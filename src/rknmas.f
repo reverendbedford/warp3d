@@ -19,7 +19,7 @@ c
      &                   axisymm_elem, implemented_elem, ce_block,
      &                   rho_block ) 
       implicit none
-$add param_def
+#include "param_def"
 c
 c              parameter declarations
 c

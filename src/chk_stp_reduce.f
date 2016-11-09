@@ -22,7 +22,7 @@ c
       use damage_data
       implicit integer (a-z)
       logical debug
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -125,7 +125,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 #sgl      real
 #dbl      double precision
@@ -254,7 +254,7 @@ c
       subroutine original_step_size ( mf, mf_nm1, step )
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c
 #sgl      real

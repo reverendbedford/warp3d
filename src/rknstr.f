@@ -19,12 +19,12 @@ c
       use mm10_defs, only : indexes_common, index_crys_hist 
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
       real    :: props(mxelpr,mxvl)   ! all 3 the same. read only
       logical :: lprops(mxelpr,mxvl)
       integer :: iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                    locals
 c
@@ -652,14 +652,14 @@ c
 c
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
       real    props(mxelpr,mxvl)
       logical lprops(mxelpr,mxvl)
       integer iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                    local declarations
       real dumr
@@ -885,14 +885,14 @@ c
       use segmental_curves
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
       real props(mxelpr,mxvl)
       logical lprops(mxelpr,mxvl)
       integer iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 !DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
@@ -952,14 +952,14 @@ c
 c
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
       real props(mxelpr,mxvl)
       logical lprops(mxelpr,mxvl)
       integer iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 !DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
@@ -1004,14 +1004,14 @@ c
       use segmental_curves
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
       real    props(mxelpr,mxvl)
       logical lprops(mxelpr,mxvl)
       integer iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                    local
 c
@@ -1102,14 +1102,14 @@ c
       use main_data, only : matprp, lmtprp
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
       real    props(mxelpr,mxvl)
       logical lprops(mxelpr,mxvl)
       integer iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                    local
 c
@@ -1205,14 +1205,14 @@ c
       use main_data, only : matprp, lmtprp
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
       real    ::  props(mxelpr,mxvl)
       logical ::  lprops(mxelpr,mxvl)
       integer ::  iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                    local
 c
@@ -1290,14 +1290,14 @@ c
       use main_data, only : matprp, lmtprp
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
       real    props(mxelpr,mxvl)
       logical lprops(mxelpr,mxvl)
       integer iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                    local
 c
@@ -1355,14 +1355,14 @@ c
       use main_data, only : matprp, lmtprp, dmatprp
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
       real    props(mxelpr,mxvl)
       logical lprops(mxelpr,mxvl)
       integer iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                    local
 c
@@ -1428,14 +1428,14 @@ c
      &                              data_offset
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
       real    props(mxelpr,mxvl)
       logical lprops(mxelpr,mxvl)
       integer iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                    local
 c
@@ -1692,14 +1692,14 @@ c
      &                              mc_array
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                    parameter declarations
 c
       real    props(mxelpr,mxvl)
       logical lprops(mxelpr,mxvl)
       integer iprops(mxelpr,mxvl)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                    local
 c
@@ -1921,7 +1921,7 @@ c
       subroutine characteristic_elem_length(
      &       etype, span, nnodel, node_coords, lengths, iout  )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c

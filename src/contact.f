@@ -23,7 +23,7 @@ c
 c
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -249,7 +249,7 @@ c
 c
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -319,7 +319,7 @@ c
 c
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -615,7 +615,7 @@ c
       use contact
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -685,7 +685,7 @@ c
       use contact
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -731,7 +731,7 @@ c
       use contact
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -836,7 +836,7 @@ c
       use contact
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -936,7 +936,7 @@ c
       use contact
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1008,7 +1008,7 @@ c
       use contact
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1051,7 +1051,7 @@ c
       use contact
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1083,7 +1083,7 @@ c
       use contact
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1125,7 +1125,7 @@ c
 c
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1168,7 +1168,7 @@ c
 c
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1385,7 +1385,7 @@ c
 c
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1601,7 +1601,7 @@ c
 c
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1672,7 +1672,7 @@ c
 c
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1804,7 +1804,7 @@ c
 c
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1866,7 +1866,7 @@ c
       use contact
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 c                update goddamn center point.
 c

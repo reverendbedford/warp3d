@@ -27,7 +27,7 @@ c
       use elem_block_data, only : history_blocks, urcs_n_blocks,
      &                            urcs_n1_blocks, history_blk_list
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &     zero,word
@@ -133,7 +133,7 @@ c
       use main_data, only : elems_to_blocks, cohesive_ele_types
       use elem_block_data, only : urcs_n_blocks, element_vol_blocks
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &     zero, sum_internal_energy, sum_plastic_energy,

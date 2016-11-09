@@ -1262,7 +1262,7 @@ c
 c           declare modules
 c
       implicit none
-$add param_def
+#include "param_def"
 c
 c           declare variables
 c

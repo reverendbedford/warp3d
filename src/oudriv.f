@@ -498,7 +498,7 @@ c
       use main_data, only: output_command_file,
      &                     output_step_bitmap_list
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                      locals
 c

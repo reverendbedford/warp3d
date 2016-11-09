@@ -18,7 +18,7 @@ c
 c
       subroutine errchk( lsn, chkprm, debug1 )
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       logical debug1
 c
       if (lsn .eq. 32) then
@@ -194,7 +194,7 @@ c
       subroutine errchk_2( matnum )
       use main_data, only : matprp, lmtprp
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       real dumr, fgm_mark
       character dums
 #dbl      double precision
@@ -405,7 +405,7 @@ c
       use main_data, only : crdmap
 c
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       real dumr
       character dums
 #dbl      double precision
@@ -448,7 +448,7 @@ c
       subroutine errchk_5( debug1 )
       use main_data, only : elstor
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       real dumr
       character dums
 #dbl      double precision
@@ -500,7 +500,7 @@ c
       subroutine errchk_6
       use main_data, only : incmap, incid
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       integer, allocatable, dimension (:) :: dup_ele
       real dumr, mlt
       character dums
@@ -633,7 +633,7 @@ c
       use main_data, only : trn, trnmat, cnstrn_in, inverse_incidences 
 c
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       real dumr
       character dums
 #dbl      double precision
@@ -715,7 +715,7 @@ c     ****************************************************************
 c
       subroutine errchk_8( chkprm, debug1 )
       implicit none    
-$add common.main
+#include "common.main"
 c
       integer :: i, chkprm, lodnum, step
       logical, external :: scanms 
@@ -778,7 +778,7 @@ c     ****************************************************************
 c
       subroutine errchk_10
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       logical :: found
       real dumr
       character dums
@@ -814,7 +814,7 @@ c
       subroutine errchk_18 (debug1)
       use main_data, only : elstor, incmap, incid
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
 c
       real dumr, beta_cohesive
       character dums
@@ -992,7 +992,7 @@ c
       use damage_data
       implicit integer (a-z)     
 c
-$add common.main
+#include "common.main"
       real dumr
       character dums
 #dbl      double precision
@@ -1146,7 +1146,7 @@ c
       subroutine errchk_23
       use segmental_curves
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       real dumr
       character dums
 #dbl      double precision
@@ -1190,7 +1190,7 @@ c
       use contact, only : use_contact, maxcontact, contact_shape, 
      &                    num_contact
       implicit integer (a-z)     
-$add param_def
+#include "param_def"
       real dumr
       character dums
 #dbl      double precision
@@ -1243,7 +1243,7 @@ c
       use main_data, only: matprp, lmtprp, imatprp, dmatprp, smatprp
       use crystal_data, only: c_array
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       integer, intent(in) :: matnum
       integer, dimension(2) :: chksz
       logical :: valid, exists
@@ -1391,7 +1391,7 @@ c
       subroutine chk_crystal(cnum)
       use crystal_data, only: c_array
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       integer, intent(in) :: cnum
 
       if (c_array(cnum)%elastic_type .ne. 3) then

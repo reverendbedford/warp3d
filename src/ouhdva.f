@@ -26,7 +26,7 @@ c
      &                      inverse_dof_map
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical wide, eform, prec, noheader, react_totals_only,
      &        out_packet_now
       dimension intlst(*)

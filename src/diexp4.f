@@ -12,7 +12,7 @@ c
       use j_data
       use main_data, only : inverse_incidences
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                     parameter declarations
 c
@@ -148,7 +148,7 @@ c
       use j_data
       use main_data, only : inverse_incidences
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                     parameter declarations
 c

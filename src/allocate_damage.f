@@ -22,7 +22,7 @@ c
       use damage_data
       implicit integer (a-z)
 c
-$add common.main  
+#include "common.main"  
 c
 c
 c

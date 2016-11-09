@@ -2178,7 +2178,7 @@ c
      &                      global_to_element_rot )
       implicit none
 c
-$add param_def
+#include "param_def"
 c
 c          need mxvl, mxelpr from the param_def file.
 c          mxvl - max allowable number of elements/block in system
@@ -2930,7 +2930,7 @@ c
       use main_data, only: elems_to_blocks, cohesive_ele_types
 c      
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameters
 c

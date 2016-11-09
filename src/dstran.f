@@ -20,7 +20,7 @@ c
       use main_data, only : trnmat, trn, inverse_incidences
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       real dumr
 #dbl      double precision
 #sgl      real

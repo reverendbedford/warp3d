@@ -19,7 +19,7 @@ c
 c
 c           Declare Modules
 c
-$add param_def
+#include "param_def"
 c
 c           Declare Variables
 c

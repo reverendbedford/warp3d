@@ -16,7 +16,7 @@ c
       use segmental_curves, only : now_blk_relem
 
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c               parameter declarations
 c
@@ -1548,7 +1548,7 @@ c
       use main_data, only: elems_to_blocks
 c      
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameters
 c
@@ -3153,7 +3153,7 @@ c
      &                  stress_trial, history, history1, cep,
      &                  span, iout )
       implicit none
-$add param_def
+#include "param_def"
 c
 c                   parameter declarations
 c 

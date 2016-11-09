@@ -27,7 +27,7 @@ c
       use stiffness_data, only : total_lagrange_forces
 c
       implicit none
-$add common.main
+#include "common.main"
 c
       integer :: node, pgnum, ndof, elem, dva, lsttyp
 #dbl      double precision :: react_sums(*)

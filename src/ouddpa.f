@@ -24,7 +24,7 @@ c
      &                      inverse_incidences, temper_nodes,
      &                      temper_nodes_ref
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical oubin, ouasc, flat_file, stream_file, text_file,
      &        compressed, patran_file
 c
@@ -238,7 +238,7 @@ c     ****************************************************************
       subroutine ouddpa_flat_header( type, quantity, 
      &                               flat_file_number )
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       local declarations
 c

@@ -38,7 +38,7 @@ c
 c
       implicit integer (a-z)
       intrinsic size
-$add common.main
+#include "common.main"
 c
 c               parameter and local variable declarations
 c
@@ -797,7 +797,7 @@ c
      &                            cep_blocks, cep_blk_list
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       data check_data_key / 2147483647 /
 c
 c
@@ -887,7 +887,7 @@ c
       use main_data, only : inverse_incidences, inverse_dof_map
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       data check_data_key / 2147483647 /
 c
       go to ( 100, 200, 300 ) proc_type

@@ -30,7 +30,7 @@ c
      &                            axisymm_ele_types
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c              locals
 #dbl      double precision, 

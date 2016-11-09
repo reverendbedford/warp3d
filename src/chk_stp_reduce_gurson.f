@@ -22,7 +22,7 @@ c
       use elem_extinct_data, only : old_porosity, dam_state
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       logical debug
 c

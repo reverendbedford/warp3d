@@ -17,7 +17,7 @@ c
       use contact
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
       logical numd, numi, sbflg1, sbflg2, rate, point_set, norm_set,
      &    matchs

@@ -18,7 +18,7 @@ c
      &      max_comment_lines, num_comment_lines,
      &      nterms_crystal_list, crystal_list )
       implicit none
-$add param_def
+#include "param_def"
 c
 c                       parameters
 c
@@ -1022,7 +1022,7 @@ c
 c              parameters. history_blk passed to declare alignment
 c
       implicit none
-$add param_def
+#include "param_def"
 #dbl      double precision ::
 #sgl      real ::
      & one_elem_states(num_states), hisblk(hist_size,int_points,span)
@@ -1143,7 +1143,7 @@ c
 c              parameters. history_blk passed to declare alignment
 c
       implicit none
-$add param_def
+#include "param_def"
 #dbl      double precision ::
 #sgl      real ::
      & one_elem_states(num_states), hisblk(hist_size,int_points,span)
@@ -1395,7 +1395,7 @@ c               parameters. history_blk passed so alignment
 c               can be declared
 c
       implicit none
-$add param_def
+#include "param_def"
 #dbl      double precision ::
 #sgl      real ::
      & one_elem_states(num_states), hisblk(hist_size,int_points,span)
@@ -1469,7 +1469,7 @@ c               parameters. history_blk passed so alignment
 c               can be declared
 c
       implicit none
-$add param_def
+#include "param_def"
 #dbl      double precision ::
 #sgl      real ::
      & one_elem_states(num_states), hisblk(hist_size,int_points,span)
@@ -1557,7 +1557,7 @@ c               parameters. history_blk passed so alignment
 c               can be declared
 c
       implicit none
-$add param_def
+#include "param_def"
 #dbl      double precision ::
 #sgl      real ::
      & one_elem_states(num_states), hisblk(hist_size,int_points,span)
@@ -1663,7 +1663,7 @@ c               parameters. history_blk passed so alignment
 c               can be declared
 c
       implicit none
-$add param_def
+#include "param_def"
 #dbl      double precision ::
 #sgl      real ::
      & one_elem_states(num_states), hisblk(hist_size,int_points,span)
@@ -1792,7 +1792,7 @@ c                       parameters. history_blk passed so alignment
 c                       can be declared
 c
       implicit none
-$add param_def
+#include "param_def"
 #dbl      double precision ::
 #sgl      real ::
      & one_elem_states(num_states), hisblk(hist_size,int_points,span)

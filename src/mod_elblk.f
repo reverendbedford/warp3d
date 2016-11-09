@@ -18,7 +18,7 @@ c
       module elblk_data
 c     -----------------
 c
-$add param_def
+#include "param_def"
 c
 c                stresses, strains, histories, etc. for a block
 c

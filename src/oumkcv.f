@@ -18,7 +18,7 @@ c
      &                   num_short_strain )
       use elblk_data, only : elestr
       implicit integer (a-z)
-$add param_def
+#include "param_def"
       logical stress
 c
 c                       local declarations

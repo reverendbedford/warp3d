@@ -18,7 +18,7 @@ c
       use main_data, only : matprp, lmtprp, imatprp, dmatprp,
      &  smatprp, nonlocal_analysis, umat_used, creep_model_used
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical sbflg1, sbflg2
 c
 c                       local declarations
@@ -1430,7 +1430,7 @@ c
       use segmental_curves
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameters
 c
@@ -1874,7 +1874,7 @@ c
       subroutine inmat_inter(matnum)
       use main_data, only : matprp, lmtprp, imatprp, dmatprp, smatprp
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       integer, intent(in) :: matnum
       integer :: dumi, nc
       real :: dumr
@@ -2526,7 +2526,7 @@ c
       character *50 erprms
       character *(*) errstrng
 c
-$add common.main
+#include "common.main"
 c
       select case( ierrno )
 c

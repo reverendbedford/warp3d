@@ -17,7 +17,7 @@ c     ****************************************************************
 c
       subroutine gtmat1( qnhalf, qn1, error, local_work )
       implicit integer (a-z)  
-$add param_def
+#include "param_def"
 c
 c          parameter declarations
 c
@@ -28,7 +28,7 @@ c
 c          local declarations - make allocatable
 c          to reduce stack size
 c
-$add include_sig_up
+#include "include_sig_up"
 #dbl      double precision
 #sgl      real
      & xi, eta, zeta, zero, one
@@ -289,7 +289,7 @@ c
      &                   lambda, nxi, neta, nzeta, ce, nnode )
       implicit integer (a-z)
 c
-$add param_def
+#include "param_def"
 c                   parameters
 c
 #dbl      double precision ::
@@ -494,7 +494,7 @@ c
       subroutine tcomp1( span, theta, nxi, neta, nzeta, gama, ue,
      &                   nnode )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                     parameter declarations
 c
@@ -576,7 +576,7 @@ c
 c
       subroutine fcomp1( span, felem, gpn, f, df, theta, error )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -662,7 +662,7 @@ c
 c
       subroutine rtcmp1(span,f,r)
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 #dbl      double precision
 #sgl      real
      &     f(mxvl,ndim,*),r(mxvl,ndim,*),ui(mxvl,nstr)
@@ -710,7 +710,7 @@ c
 c
       subroutine getrm1( span, q, r, opt )
       implicit none
-$add param_def
+#include "param_def"
 c
 c           parameter declarations
 c
@@ -939,7 +939,7 @@ c
 c
       subroutine irscp1( span, f, ui )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                       parameter declarations
 c
@@ -1012,7 +1012,7 @@ c
 c
       subroutine ivcmp1( span, f, c, cc, iu, iiu, iiiu )
       implicit none
-$add param_def
+#include "param_def"
 c
 c               parameter declarations
 c
@@ -1221,7 +1221,7 @@ c     ****************************************************************
 c
       subroutine evcmp1( span, k, lamda )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                 parameter declarations
 c

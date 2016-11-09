@@ -19,8 +19,8 @@ c
 c
       use segmental_curves, only : max_seg_points, max_seg_curves
       implicit integer (a-z)
-$add param_def 
-$add include_sig_up
+#include "param_def" 
+#include "include_sig_up"
 c
 c                       parameter declarations
 c

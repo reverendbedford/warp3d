@@ -12,7 +12,7 @@ c
       subroutine trwlist( sbflg1, sbflg2 )
       use main_data, only : user_lists, crdmap
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical debug, string, scanms, matchs, do_display,
      &        found, match_exact, matchs_exact, true, display_coords
       character lname*24, name*80
@@ -268,7 +268,7 @@ c
       subroutine ulist_error( message )
       use main_data, only : user_lists
       implicit integer(a-z)
-$add common.main
+#include "common.main"
       character *80 string
 c
       select case( message )
@@ -467,7 +467,7 @@ c
       use main_data, only : user_lists, crdmap
 
       implicit integer(a-z)
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -725,7 +725,7 @@ c
       use main_data, only : user_lists, crdmap
 
       implicit integer(a-z)
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -984,7 +984,7 @@ c             intergerlist
 c
       use main_data, only : user_lists
       implicit integer(a-z)
-$add param_def
+#include "param_def"
       dimension list(*)
       character lname*24, name*80
       logical isstring, scanms, debug
@@ -1062,7 +1062,7 @@ c
       use main_data, only : user_lists, crdmap
 c
       implicit integer(a-z)
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -1268,7 +1268,7 @@ c
       use main_data, only : user_lists, crdmap
 
       implicit integer(a-z)
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real

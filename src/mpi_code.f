@@ -30,7 +30,7 @@ c
       use hypre_parameters
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       logical ldum1,ldum2
       character *1 dums
       real dumr
@@ -136,7 +136,7 @@ c
       use mpi_lnpcg
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       logical debug
       data debug /.false./
       integer :: status(MPI_STATUS_SIZE)
@@ -206,7 +206,7 @@ c
       use mpi_lnpcg
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       logical debug, suspended
       save suspended
       data debug, suspended /.false., .false. /
@@ -268,7 +268,7 @@ c
       subroutine wmpi_alert_slaves ( do_it )
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       logical debug
       data debug / .false. /
 c
@@ -308,7 +308,7 @@ c
       subroutine wmpi_reduce_vec ( vec, size )
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 c
 #dbl      double precision
 #sgl      real
@@ -352,7 +352,7 @@ c
       subroutine wmpi_reduce_vec_std ( vec, size )
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 c
       allocatable ::  vec_tmp(:)
 c
@@ -421,7 +421,7 @@ c
       subroutine wmpi_reduce_vec_log ( vec, size )
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 c
       allocatable ::  vec_tmp(:)
 c
@@ -492,7 +492,7 @@ c
       use mpi_lnpcg
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 c
 c
 #dbl      double precision
@@ -554,7 +554,7 @@ c
       subroutine wmpi_red_intvec ( vec, size )
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 c
       integer, allocatable ::  vec_tmp(:)
 c
@@ -614,7 +614,7 @@ c
       subroutine wmpi_wait
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 c
       call MPI_BARRIER (MPI_COMM_WORLD, ierr)
 c
@@ -780,7 +780,7 @@ c
       subroutine wmpi_send_real ( real_vec, size )
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 c
       real real_vec(*), zero
       real, allocatable :: temp_vec(:,:)
@@ -907,7 +907,7 @@ c
       subroutine wmpi_do_uexternaldb
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       dimension status (MPI_STATUS_SIZE)
 #dbl      double precision
 #sgl      real
@@ -1031,7 +1031,7 @@ c
 c
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       dimension status (MPI_STATUS_SIZE)
 #dbl      double precision
 #sgl      real
@@ -1266,7 +1266,7 @@ c
      &                     cp_unloading, creep_model_used 
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 c
 c         tell slaves we are about to send them data about
 c         the analysis parameters
@@ -1317,7 +1317,7 @@ c
       use main_data, only: trn, trnmat
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 c
 c                   tell slaves we are about to send them data about
 c                   the constraints.  Note that basic data must be sent
@@ -1373,7 +1373,7 @@ c
       subroutine wmpi_send_itern
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 c
 c                   tell slaves we are about to send them data which
 c                   they need during the newtons iterations.  This
@@ -1409,7 +1409,7 @@ c
      &                           adapt_load_fact
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &     mag, zero
@@ -1462,7 +1462,7 @@ c
      &                     eq_node_force_indexes, eq_node_forces
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &     mag, zero
@@ -1531,7 +1531,7 @@ c
       use contact
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       dimension status (MPI_STATUS_SIZE)
       logical debug, restart, referenced, ldum
 #dbl      double precision
@@ -1669,7 +1669,7 @@ c
       use contact
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &     zero, mag
@@ -1813,7 +1813,7 @@ c
 c
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       logical been_here, debug
       save been_here
       data been_here, debug /.false., .false./
@@ -1879,7 +1879,7 @@ c
 c
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       logical killed_this_time, debug
 #sgl      real
 #dbl      double precision
@@ -1968,7 +1968,7 @@ c
 c
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       dimension status ( MPI_STATUS_SIZE )
 #dbl      double precision
 #sgl      real
@@ -2109,7 +2109,7 @@ c
       use elem_block_data, only: edest_blocks
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       logical sent, access_dof(mxdof), open, assign, debug, fail
       dimension size_dof_chunks(mxdof), start_dof_chunks(mxdof),
      &    status(MPI_STATUS_SIZE), blk_ptr(0:max_procs-1)
@@ -2452,7 +2452,7 @@ c
       use main_data, only: asymmetric_assembly
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       character *80 line
 c
 c                       local declarations
@@ -2561,7 +2561,7 @@ c
       use elem_block_data
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       character *80 line
 c
 c                    local declarations
@@ -2780,7 +2780,7 @@ c
      &                     eq_node_forces
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       character *80 line
 c
 c                    local declarations
@@ -2947,7 +2947,7 @@ c
 #dbl      double precision
 #sgl      real
      &  zero
-$add common.main
+#include "common.main"
       logical logical_vec(15), handle_face_loads, debug
       data zero, debug / 0.0, .false. /
 c
@@ -3114,7 +3114,7 @@ c
       subroutine wmpi_send_real_new(vector,length)
             implicit integer (a-z)
             include "mpif.h"
-$add common.main
+#include "common.main"
 c                 Dummy
             real :: vector(*)
             integer :: length
@@ -3150,7 +3150,7 @@ c
      &            mc_array
             implicit integer(a-z)
             include 'mpif.h'
-$add common.main
+#include "common.main"
 c     
             if (myid .eq. 0) then
                   call wmpi_alert_slaves(49)
@@ -3200,7 +3200,7 @@ c
      &            crystal_input, data_offset, print_crystal
             implicit integer(a-z)
             include 'mpif.h'
-$add common.main
+#include "common.main"
             integer :: nelem, mxcry, ierr
             integer, parameter :: count_struct=5
             integer :: blocklens(0:4), indices(0:4), otypes(0:4)
@@ -3319,7 +3319,7 @@ c
      &            simple_angles
             implicit integer (a-z)
             include 'mpif.h'
-$add common.main
+#include "common.main"
 c
             if (myid .eq. 0) then
              call wmpi_alert_slaves(50)
@@ -3352,7 +3352,7 @@ c
       use mpi_lnpcg
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       character *80 line
       integer, allocatable, dimension(:,:) ::  node2proc
       dimension num_private_nodes(0:max_procs-1),
@@ -3720,7 +3720,7 @@ c
       use main_data, only: inverse_incidences
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       character *80 line
       dimension num_private_nodes(0:max_procs-1),
      &     num_own_shared_nodes(0:max_procs-1),
@@ -3874,7 +3874,7 @@ c
       use mpi_lnpcg, only: local_nodes, proc_nodes
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       character *80 line
       dimension num_private_nodes(0:max_procs-1),
      &     num_own_shared_nodes(0:max_procs-1),
@@ -4137,7 +4137,7 @@ c
       use mpi_lnpcg
       implicit integer (a-z)
       include "mpif.h"
-$add common.main
+#include "common.main"
       type (node_owner_type) :: own
 c
       dimension status(MPI_STATUS_SIZE)
@@ -4324,7 +4324,7 @@ c
       subroutine wmpi_print_node_own_all(own)
       use mpi_lnpcg
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       type (node_owner_type) :: own
 c
 c
@@ -4387,7 +4387,7 @@ c
       subroutine wmpi_print_node_own(own, procnum)
       use mpi_lnpcg
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       type (node_owner_type) :: own
 c
 c
@@ -4440,7 +4440,7 @@ c
       subroutine wmpi_copy_own(old, new)
       use mpi_lnpcg
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       type (node_owner_type) :: old, new
 c
 c
@@ -4525,7 +4525,7 @@ c
       subroutine wmpi_chknode ( node, referenced, owned )
       use mpi_lnpcg, only : local_nodes
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical referenced, owned
       include "mpif.h"
 c
@@ -4579,7 +4579,7 @@ c
 c
       subroutine wmpi_init
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c      
       myid = 0
       numprocs = 1
@@ -4606,7 +4606,7 @@ c
 c
       subroutine wmpi_suspend(option)
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c      
       return
       end
@@ -4794,7 +4794,7 @@ c     ****************************************************************
 c     
       subroutine wmpi_do_uexternaldb
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &     zero, aba_time(2), aba_dtime

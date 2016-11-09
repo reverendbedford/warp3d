@@ -15,7 +15,7 @@ c
 c
       subroutine blcmp1( span, b, gama, nxi, neta, nzeta, nnode )
       implicit none
-$add param_def
+#include "param_def"
 c
 c                       parameter declarations
 c 
@@ -112,7 +112,7 @@ c
 c
       subroutine blcmp_cohes( span, b, rot, shape, etype, nnode )
       implicit none
-$add param_def
+#include "param_def"
 c
 c                       parameter declarations
 c  
@@ -262,7 +262,7 @@ c
       subroutine blcmp1_axisymm( span, b, gama, nxi, neta, nzeta,
      &                       shape, ce, radius, etype, nnode )
       implicit none
-$add param_def
+#include "param_def"
 c
 c                       parameter declarations
 c       

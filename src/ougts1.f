@@ -23,7 +23,7 @@ c
       use main_data, only : matprp, lmtprp, dmatprp
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
       logical do_stresses, geonl
 #dbl      double precision
 #sgl      real
@@ -300,7 +300,7 @@ c
       subroutine ou_get_spatial_from_material( span, spatial_strain,
      &                          R, material_strain )
       implicit none
-$add param_def
+#include "param_def"
 c
 c             R        -- 3x3 rotations at int pts from polar
 c                         decompositions F = RU

@@ -19,7 +19,7 @@ c
       subroutine chkcrack( step, iter )
       use damage_data
       implicit integer (a-z) 
-$add common.main
+#include "common.main"
 c
       logical debug
 c
@@ -90,7 +90,7 @@ c
       use main_data, only : output_packets, packet_file_no
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c           
       parameter (max_local_list=200)
       logical debug, blk_killed, killed_this_time, killed_found,
@@ -434,7 +434,7 @@ c
 c
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c              parameter declarations
 c                
@@ -606,7 +606,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       logical debug, local_debug
 #dbl      double precision
@@ -708,7 +708,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       logical debug
 c
@@ -771,7 +771,7 @@ c
       subroutine dam_print( step, iter )
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c           check to make sure crack growth is on and printing is
 c           specified
@@ -816,7 +816,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #sgl      real
 #dbl      double precision
      &     zero
@@ -1013,7 +1013,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical debug, local_debug
 #dbl      double precision
 #sgl      real
@@ -1081,7 +1081,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       chk_killed = .false.
       elem_ptr =  dam_ptr( elem )
@@ -1114,7 +1114,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
       logical status_vec(*), block_killed
 c

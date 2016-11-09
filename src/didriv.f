@@ -54,7 +54,7 @@ c
       use j_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                 local declarations
 c
@@ -459,7 +459,7 @@ c
       subroutine diheadr
       use j_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                 local declarations
 c
@@ -775,7 +775,7 @@ c
      &                  seg_snode_nu, block_seg_curves,
      &                  process_temperatures, front_nodes, domain_origin
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c             dummy arguments
 c
@@ -868,7 +868,7 @@ c
 c      use j_data, only : e_front, nu_front, alpha_front
       use segmental_curves, only: seg_curve_table, seg_curves_type
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c             dummy arguments
 c
@@ -1079,7 +1079,7 @@ c
      &                          snode_alpha_ij )
       use main_data, only : incmap, incid, fgm_node_values
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c             dummy variables
 c
@@ -1142,7 +1142,7 @@ c
      &                               snode_alpha_ij )
       use main_data, only : incmap, incid
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c             dummy variables
 c
@@ -1218,7 +1218,7 @@ c
      &                             seg_curves_ym, seg_curves_nu,
      &                             seg_curves_alpha
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c             dummy variables
 c
@@ -1520,7 +1520,7 @@ c
 c
       implicit integer (a-z)
 c
-$add common.main
+#include "common.main"
 c
 c         dummy variables
 c

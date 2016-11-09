@@ -21,7 +21,7 @@ c
 c
       logical oubin, ouasc, stress, flat_file, stream_file, text_file,
      &       compressed 
-$add common.main
+#include "common.main"
 c
       type :: node_entry
          integer :: count

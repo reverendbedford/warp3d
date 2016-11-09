@@ -20,7 +20,7 @@ c
       implicit integer (a-z)
       logical stress, oubin, ouasc, flat_file, 
      &        stream_file, text_file, compressed
-$add common.main
+#include "common.main"
 c
 c                local declarations
 c

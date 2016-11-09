@@ -85,7 +85,7 @@ c
       use elem_block_data, only: history_blocks, history_blk_list
       use main_data, only: elems_to_blocks
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameters
 c

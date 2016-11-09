@@ -30,7 +30,7 @@ c
       subroutine wmpi_handle_slaves
       implicit integer (a-z)              
       include "mpif.h"
-$add common.main
+#include "common.main"
       logical duml, debug, ldum1, ldum2, ldum3, ldum4, ldum5, ldum6,
      &        ldum7, ldum8, ldum9, ldum10
       data debug /.false./

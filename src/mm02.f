@@ -14,7 +14,7 @@ c
      &                 stress_n, stress_n1, strain, history,
      &                 history1, span, iout, signal_flag )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                   parameter declarations
 c   
@@ -368,7 +368,7 @@ c
      &                   sigyld, epseff, sigeff, nu, e,
      &                   strain, sig, linear_flags, span )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c             parameter declarations
 c
@@ -546,7 +546,7 @@ c
       use main_data, only: elems_to_blocks
 c      
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameters
 c
@@ -729,7 +729,7 @@ c
       subroutine cnst2( felem, gpn, e, nu, sigyld, exp, strain_n1,
      &                  history, cep, span, iout )
       implicit none
-$add param_def
+#include "param_def"
 c
 c                   parameter declarations
 c   
@@ -882,7 +882,7 @@ c
       subroutine cnst2a( cep, e, nu, sigeff, epseff, strain, sigyld, 
      &                   exp, signc, rnc, k2, span, nonlinear_flags )
       implicit none
-$add param_def
+#include "param_def"
 c
       integer :: span
 #dbl      double precision ::

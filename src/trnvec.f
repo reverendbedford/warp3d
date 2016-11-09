@@ -17,7 +17,7 @@ c
 c           
       subroutine trnvec(vec,trnmte,trne,ndof,nnode,bele,switch)
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 #dbl      double precision
 #sgl      real
      & vec(mxvl,*), trnmte(mxvl,mxedof,*), sums(mxndof)
@@ -111,7 +111,7 @@ c
       subroutine trnvecs(vec,trnmte,trne,ndof,nnode,bele,switch,
      &                   nrow_vec)
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 #dbl      double precision
 #sgl      real
      & vec(nrow_vec,*), trnmte(mxvl,mxedof,*), sums(mxndof)

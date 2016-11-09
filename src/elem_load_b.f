@@ -42,7 +42,7 @@ c
       use main_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                global variables
 c
@@ -142,7 +142,7 @@ c
       use main_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c     parameter declarations
 c     ----------------------

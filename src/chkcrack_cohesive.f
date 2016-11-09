@@ -31,7 +31,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c              parameter declarations
 c                
@@ -576,7 +576,7 @@ c
       use main_data, only : output_packets, packet_file_no 
       use damage_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                    declare local variables
 c

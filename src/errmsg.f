@@ -35,7 +35,7 @@ c
       data mess_61, write_msg_255, write_msg_321
      &     / .true., .true., .true. /
 c
-$add common.main
+#include "common.main"
 c
 c                       print the appropriate error message as
 c                       indicated by the input variable errnum
@@ -3297,7 +3297,7 @@ c
       data hundred /100.0/
       data mess_61 / .true. /
 c
-$add common.main
+#include "common.main"
 c
 c                       print the appropriate error message as
 c                       indicated by the input variable errnum

@@ -32,7 +32,7 @@ c
       use damage_data, only : dam_ptr, growth_by_kill
 
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       dimension bedst(totdof,*), bcdst(totdof,*), belinc(nnode,*),
      &          local_cp(*),
      &          local_icp(mxutsz,*)

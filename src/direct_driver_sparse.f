@@ -25,7 +25,7 @@ c
      &                                   distributed_stiffness_used
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                    parameter declarations
 c
@@ -1094,7 +1094,7 @@ c
       logical do_binary
       character *(*) file_name
       dimension dof_eqn_map(*), eqn_node_map(*)
-$add common.main
+#include "common.main"
 c
 c               parameter and local variable declarations
 c
@@ -1219,7 +1219,7 @@ c
       use main_data, only : inverse_incidences, inverse_dof_map
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       data check_data_key / 2147483647 /
 c
       write(fileno) ( inverse_incidences(stnd)%element_count, stnd = 1,
@@ -1260,7 +1260,7 @@ c
       use elem_block_data, only : edest_blocks, estiff_blocks
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       data check_data_key / 2147483647 /
 c
       do blk = 1, nelblk

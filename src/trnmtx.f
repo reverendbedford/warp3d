@@ -21,7 +21,7 @@ c
      &                   bele, nsize )
       use main_data, only: asymmetric_assembly
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 #dbl      double precision
 #sgl      real
      & mat(nsize,*), trnmte(mxvl,mxedof,*), sums(mxedof,mxndof)

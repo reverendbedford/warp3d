@@ -22,7 +22,7 @@ c
      &                         patran_convention  )
       use main_data, only : incmap, incid
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c         parameter declarations
 c
@@ -493,7 +493,7 @@ c
       subroutine ouneut( file_name )
       use main_data, only : incmap, incid, cnstrn_in
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c              parameter declarations
 c

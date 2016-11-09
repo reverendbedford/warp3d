@@ -18,7 +18,7 @@ c
       subroutine infile
       use file_info
       implicit integer (a-z)             
-$add common.main
+#include "common.main"
       real :: dumr
       character(len=8) :: dums
       character(len=80) :: filnam, infil
@@ -111,7 +111,7 @@ c
       subroutine infile_stpdrv_open( file_name )
       use file_info
       implicit integer (a-z)             
-$add common.main
+#include "common.main"
       character*80 file_name
       logical ok
       integer ierror
@@ -160,7 +160,7 @@ c
       subroutine infile_stpdrv_close( file_name )
       use file_info
       implicit integer (a-z)             
-$add common.main
+#include "common.main"
       character*80 file_name
       logical ok, now_open
       integer ierror

@@ -16,7 +16,7 @@ c
      &                            history_blk_list
       use j_data
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                 parameter declarations (none)
 c

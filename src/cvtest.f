@@ -28,7 +28,7 @@ c
 #sgl      real
      & magdu1, mgload, adapt_load_fact, res_max
       logical cnverg, mducom, trcsol, diverging_flag
-$add common.main 
+#include "common.main" 
 c
 c                       locals
 c
@@ -602,7 +602,7 @@ c
       logical function warp3d_batch_message_file_info( bmout )
       use main_data, only :  batch_mess_fname
       implicit none
-$add common.main
+#include "common.main"
 c
       integer :: bmout
 c

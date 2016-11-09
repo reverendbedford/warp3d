@@ -17,8 +17,8 @@ c
      &                   ispan, local_work )
       use main_data, only : matprp, lmtprp, asymmetric_assembly
       implicit none
-$add param_def
-$add include_tan_ek
+#include "param_def"
+#include "include_tan_ek"
 c
 c                 parameter declarations
 c

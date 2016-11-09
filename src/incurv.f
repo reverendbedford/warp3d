@@ -16,7 +16,7 @@ c
       subroutine incurv( sbflg1, sbflg2 )
       use segmental_curves
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                local declarations
 c
@@ -249,7 +249,7 @@ c
       subroutine incurv_temperature( gp_model_flag )
       use segmental_curves
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                paramter declarations
 c
@@ -461,7 +461,7 @@ c
       subroutine incurv_strain_rate
       use segmental_curves
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                local declarations
 c

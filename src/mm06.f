@@ -785,7 +785,7 @@ c
       use main_data, only: elems_to_blocks
 c      
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameters
 c

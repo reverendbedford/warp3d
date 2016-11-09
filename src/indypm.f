@@ -33,7 +33,7 @@ c
      &                                       final_map_type
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       real dumr
       character dums
 #dbl      double precision
@@ -1448,7 +1448,7 @@ c
 #dbl      double precision
 #sgl      real
      &   dumd
-$add param_def
+#include "param_def"
       data zero, one / 0.0, 1.0 /
 c
 c

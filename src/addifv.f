@@ -21,7 +21,7 @@ c
      &                   eleifv, dam_ifv, dam_state, out )
       use damage_data, only : dam_ptr, growth_by_kill
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 #dbl      double precision ::
 #sgl      real ::

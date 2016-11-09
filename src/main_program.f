@@ -19,7 +19,7 @@ c
       use performance_data, only : time_assembly, assembly_total,
      &            ntimes_assembly
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       real t1, wcputime, dumr
       external wcputime
       character*8 stcnam, dums,
@@ -1028,7 +1028,7 @@ c
 c
       subroutine error_count( outdev, clear )
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical already_called, clear
       data already_called / .false. /
       save already_called
@@ -1111,7 +1111,7 @@ c
       use performance_data, only : time_assembly, assembly_total,
      &            ntimes_assembly
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       real t1, wcputime, dumr
       external wcputime
       character*8 stcnam, dums,

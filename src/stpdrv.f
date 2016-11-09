@@ -24,7 +24,7 @@ c
       use damage_data, only : growth_by_kill, growth_by_release
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       dimension stplst(*)
 c
 c              declare all locals here - visible in contains
@@ -416,8 +416,8 @@ c
      &                      divergence_check, diverge_check_strict,
      &                      line_search
       implicit integer (a-z)
-$add common.main
-$add include_usr_parm
+#include "common.main"
+#include "include_usr_parm"
       type(solution_parameters) :: usolution_parms
       type(step_definition) :: next_step_loading
 c

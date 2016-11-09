@@ -19,7 +19,7 @@ c
      &                   num_short_strain )
       use elblk_data, only : elestr ! mxvl,mxoupr,mxoupt
       implicit none
-$add param_def
+#include "param_def"
       integer :: span, elem_type, int_order, num_enode, ngp, 
      &           num_short_stress, num_short_strain
       logical :: do_stresses

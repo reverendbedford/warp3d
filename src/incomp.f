@@ -16,7 +16,7 @@ c
       use main_data, only : incid
       use contact, only : use_contact
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &   zero
@@ -148,7 +148,7 @@ c     ****************************************************************
       use mod_mpc, only : tied_sets_exist, tied_con_mpcs_constructed,
      &                    surface_table, tied_contact_table,
      &                    tied_con_mpc_table
-$add common.main
+#include "common.main"
       integer  err, dimnode, dimcoord, dimelem, meshformat, nnodes,
      &         icol, dumi
       integer, allocatable, dimension (:,:) :: elemcon

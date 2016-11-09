@@ -22,8 +22,8 @@ c
       use segmental_curves, only : max_seg_points, max_seg_curves 
       implicit none
 c      
-$add common.main
-$add include_sig_up
+#include "common.main"
+#include "include_sig_up"
 c
 c                   parameter declarations
 c
@@ -103,7 +103,7 @@ c
 c           
       subroutine rp_gastr( ml, mg, ngp, nprm, span )
       implicit none
-$add param_def
+#include "param_def"
 c
 c               parameter declarations
 c
@@ -171,7 +171,7 @@ c
 c           
       subroutine rp_scstr( ml, mg, ngp, nprm, span )                       
       implicit none
-$add param_def
+#include "param_def"
 c
 c               parameter declarations
 c

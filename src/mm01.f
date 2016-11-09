@@ -27,7 +27,7 @@ c
      &                 deps, history, history1, rtse, dtemps,
      &                 ym_n, nu_n )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c          update the stresses and internal state variables at gauss
 c          point "gpn" for "span" elements in the current block.
@@ -1049,7 +1049,7 @@ c
       use main_data, only: elems_to_blocks
 c      
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameters
 c
@@ -1248,7 +1248,7 @@ c
       subroutine cnst1( span, cep, rtsg, nu, e, kn1, hprime,
      &                  beta, ldt, dstates, felem, iout )
       implicit none
-$add param_def        
+#include "param_def"        
 c
 c                       parameter declarations
 c

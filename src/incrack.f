@@ -20,7 +20,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical sbflg1, sbflg2
       logical matchs, numd, numi, endcrd, matchs_exact
       dimension scan_order_list(mxlsz), scan_kill_order_list(mxlsz),
@@ -1038,7 +1038,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c             locally allocated arrays
 c
@@ -1120,7 +1120,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c             locally allocated arrays
 c
@@ -1254,7 +1254,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                     parameter declarations
 c
@@ -1441,7 +1441,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                     local declarations
 c
@@ -1501,7 +1501,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       dimension scan_order_list(*)
       logical debug
 c
@@ -1553,7 +1553,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       dimension scan_kill_order_list(*)
       logical debug
 c
@@ -1609,7 +1609,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       dimension scan_master_list(*)
       logical debug
 #dbl      double precision
@@ -1669,7 +1669,7 @@ c
 c
       implicit integer(a-z)
 c
-$add common.main
+#include "common.main"
 c
       temp = 0
       if (.not. const_front) goto 9999
@@ -1715,7 +1715,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical debug, reached_end
 #dbl      double precision
 #sgl      real
@@ -1796,7 +1796,7 @@ c
       use node_release_data, only : master_lines
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical debug, reached_end
 #dbl      double precision
 #sgl      real
@@ -1856,7 +1856,7 @@ c
       use damage_data
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       logical debug, reached_end, found_new_node
       dimension shared_elems(2)
 #dbl      double precision
@@ -1971,7 +1971,7 @@ c
       subroutine incrack_errmsg( ierrno )
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
       character*50 string
 c
       select case( ierrno )

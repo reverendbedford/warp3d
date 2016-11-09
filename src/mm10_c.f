@@ -38,7 +38,7 @@ c
 c
 c               locals
 c
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 c
       double precision :: nR, inR, atol, rtol, uB, alpha, ls1, ls2,
@@ -532,7 +532,7 @@ c
       double precision  rjac(ldr,*),rwork(*),rcdwrk(*),qrwork(*)
       double precision  scalex(*)
       integer           icdwrk(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
 
@@ -856,7 +856,7 @@ c
       use mm10_defs
       implicit none
 c      
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
       integer :: n, ldr
       double precision, dimension(n) :: x
@@ -914,7 +914,7 @@ c
       use mm10_defs
       implicit none
 c      
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 c      
       double precision, dimension(n) :: x, fz
@@ -960,7 +960,7 @@ c
       use mm10_defs
       use mm10_constants
       implicit none
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
       double complex, dimension(n) :: x, fz
       integer :: n,j
@@ -1621,7 +1621,7 @@ c-----------------------------------------------------------------------
       double precision  scalex(*)
       double precision  rcdwrk(*),qrwork(*)
       integer           icdwrk(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
       logical stepadj
@@ -1791,7 +1791,7 @@ c            copy lower triangular R to upper triangular
       double precision  scalex(*)
       double precision  rcdwrk(*),qrwork(*)
       integer           icdwrk(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
 c-----------------------------------------------------------------------
@@ -2265,7 +2265,7 @@ c      call mm10_nwsnot(1,ierr,rcond)
       double precision  xc(*)
       double precision  d(*),g(*),xp(n),fp(n),xw(*)
       double precision  scalex(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
       integer priter,iter
@@ -2449,7 +2449,7 @@ c                          downward opening parabola ==> leftmost is solution
       double precision  scalex(*), d(*)
       double precision  xprev(*), xp(n), fp(n)
       double precision  ssd(*), v(*), wa(*), fprev(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
 c-------------------------------------------------------------------------
@@ -2697,7 +2697,7 @@ c        calculate convex combination of ssd and eta*dn with length delta
       double precision  xc(*)
       double precision  d(*),g(*),xp(n),fp(n),xw(*)
       double precision  scalex(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
       integer priter,iter
@@ -2850,7 +2850,7 @@ c            write(*,*) 'lambda', lambda
       double precision  scalex(*), d(*)
       double precision  xprev(*), xp(n), fp(n)
       double precision  ssd(*), v(*), wa(*), fprev(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
 c-------------------------------------------------------------------------
@@ -3117,7 +3117,7 @@ c-----------------------------------------------------------------------
       double precision  scalex(*)
       double precision  rcdwrk(*),qrwork(*)
       integer           icdwrk(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
       logical stepadj
@@ -3290,7 +3290,7 @@ c            copy lower triangular Rjac to upper triangular
       double precision  scalex(*)
       double precision  rcdwrk(*),qrwork(*)
       integer           icdwrk(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
 c-----------------------------------------------------------------------
@@ -3556,7 +3556,7 @@ c           update xc, fc, and fcnorm
       double precision  scalex(*), d(*)
       double precision  xprev(*), xp(n), fp(n)
       double precision  ssd(*), v(*), wa(*), fprev(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
 c-------------------------------------------------------------------------
@@ -3778,7 +3778,7 @@ c        calculate convex combination of ssd and dn with length delta
       double precision  xc(*)
       double precision  d(*),xp(n),fp(n),xw(*)
       double precision  scalex(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
       integer priter,iter
@@ -3862,7 +3862,7 @@ c     evaluate functions and the objective function at xp
       double precision  xc(*)
       double precision  d(*),g(*),xp(n),fp(n),xw(*)
       double precision  scalex(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
       integer priter,iter
@@ -4282,7 +4282,7 @@ c-----------------------------------------------------------------------
       double precision  A(lda,*),xc(*),fc(*)
       double precision  epsm,scalex(*)
       double precision  fz(*),wa(*),xw(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work, solve_work1
 
 c-------------------------------------------------------------------------
@@ -4393,7 +4393,7 @@ c-----------------------------------------------------------------------
       double precision  A(lda,*),xc(*),fc(*)
       double precision  epsm,scalex(*)
       double precision  fz(*),wa(*),xw(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work, solve_work1
 
 c-------------------------------------------------------------------------
@@ -4502,7 +4502,7 @@ c-----------------------------------------------------------------------
       double precision  A(lda,*),xc(*),fc(*)
       double precision  epsm,scalex(*)
       double precision  fz(*),wa(*),xw(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work, solve_work1
 
 c-------------------------------------------------------------------------
@@ -4622,7 +4622,7 @@ c-----------------------------------------------------------------------
       double precision  A(lda,*),xc(*),fc(*)
       double precision  epsm,scalex(*)
       double precision  fz(*),wa(*),xw(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
 c-------------------------------------------------------------------------
@@ -4680,7 +4680,7 @@ c-----------------------------------------------------------------------
       integer ldr,n
       double precision  epsm
       double precision  rjac(ldr,*),fz(*),xc(*),fc(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work, solve_work1
 
 c-------------------------------------------------------------------------
@@ -4748,7 +4748,7 @@ c-----------------------------------------------------------------------
       double precision  epsm
       double precision  rjac(ldr,*),fz(*),xc(*),fc(*)
       double precision  w(*), xstep(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work, solve_work1
 
 c-------------------------------------------------------------------------
@@ -5043,7 +5043,7 @@ c-----------------------------------------------------------------------
       double precision  epsm
       double precision  x(*),f(*),scalex(*),xw(*),w(*),xstep(*)
       double precision  rjac(ldr,*),fq(*)
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
 c-------------------------------------------------------------------------
@@ -5329,7 +5329,7 @@ c-----------------------------------------------------------------------
       use mm10_defs
       integer n
       double precision  x(*),xw(*),scalex(*),f(*),fnorm
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work
 
 c-------------------------------------------------------------------------
@@ -5594,7 +5594,7 @@ c-----------------------------------------------------------------------
 
       use mm10_defs
       implicit none
-$add include_mm10
+#include "include_mm10"
       type(mm10_working_data) :: solve_work, solve_work1
       
       solve_work1 = solve_work

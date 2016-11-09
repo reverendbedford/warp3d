@@ -7,7 +7,7 @@ c
 c              code that includes param_def and or common.main
 c              may then use =>  implicit none if desired
 c
-$add param_def
+#include "param_def"
 c
 c
 c#######################################################################

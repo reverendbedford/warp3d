@@ -19,7 +19,7 @@ c
      &                      release_cons_steps, mdiag, rload
 c
       implicit integer (a-z)      
-$add common.main
+#include "common.main"
 c
 c                       parameters
 c
@@ -380,7 +380,7 @@ c
       use damage_data, only : csttail
 c
       implicit none
-$add common.main
+#include "common.main"
 c
       integer :: sdof
 c
@@ -460,7 +460,7 @@ c
       use damage_data, only : csttail
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       locally allocated
 c  
@@ -980,7 +980,7 @@ c
       use main_data, only : cnstrn, cnstrn_in, crdmap
 c
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                       parameters
 c
@@ -1219,7 +1219,7 @@ c
       subroutine incon_mpcs
       use mod_mpc, only : mpcs_exist, num_user_mpc, user_mpc_table
       use main_data, only : modified_mpcs
-$add common.main
+#include "common.main"
 c
 c              locals 
 c 
@@ -1498,7 +1498,7 @@ c
 c
       subroutine incon_mpcs_store( nterm, const, node, dof, multi )
       use mod_mpc, only : num_user_mpc, user_mpc_table
-$add param_def
+#include "param_def"
 c
 c              parameters
 c             

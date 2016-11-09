@@ -21,14 +21,14 @@ c
       use segmental_curves, only : max_seg_points
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
       real    :: props(mxelpr,*)   ! all 3 are same by read-only
       logical :: lprops(mxelpr,*)
       integer :: iprops(mxelpr,*)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                       locally defined variables
 c
@@ -321,14 +321,14 @@ c
       use segmental_curves, only : max_seg_points, max_seg_curves
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
       real    :: props(mxelpr,*)  ! all 3 are same but read only
       logical :: lprops(mxelpr,*)
       integer :: iprops(mxelpr,*)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                       locally defined variables
 c
@@ -520,7 +520,7 @@ c
       use main_data, only : extrapolated_du, non_zero_imposed_du 
 c
       implicit none
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -530,7 +530,7 @@ c
       integer :: gpn, iout
 #dbl      double precision ::  uddt_displ(mxvl,nstr)
 #sgl      real ::              uddt_displ(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                       locally defined variables
 c
@@ -904,7 +904,7 @@ c
       use main_data, only : extrapolated_du, non_zero_imposed_du 
 c
       implicit none
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -914,7 +914,7 @@ c
       integer :: gpn, iout
 #dbl      double precision ::  uddt_displ(mxvl,nstr)
 #sgl      real ::              uddt_displ(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 
 c
 c                       locally defined variables
@@ -1221,7 +1221,7 @@ c
       use elem_block_data, only : gbl_cep_blocks => cep_blocks
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -1231,7 +1231,7 @@ c
 #dbl      double precision
 #sgl      real
      &  uddt(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c
 c                       locally defined variables
@@ -1403,7 +1403,7 @@ c
       use main_data, only : extrapolated_du, non_zero_imposed_du 
 c
       implicit none
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -1413,7 +1413,7 @@ c
       integer :: gpn, iout
 #dbl      double precision ::  uddt_displ(mxvl,nstr)
 #sgl      real ::              uddt_displ(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                       locally defined variables
 c
@@ -2045,7 +2045,7 @@ c
       use elem_block_data, only  : gbl_cep_blocks => cep_blocks
 c
       implicit none
-$add param_def
+#include "param_def"
 c
 c              parameter declarations
 c
@@ -2055,7 +2055,7 @@ c
       integer ::  iprops(mxelpr,*)
 #dbl      double precision :: uddt(mxvl,nstr)
 #sgl      real :: uddt(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c              locally defined variables
 c
@@ -2310,7 +2310,7 @@ c
       use main_data, only : extrapolated_du, non_zero_imposed_du 
 c
       implicit none
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -2320,7 +2320,7 @@ c
       integer :: gpn, iout
 #dbl      double precision ::  uddt_displ(mxvl,nstr)
 #sgl      real ::              uddt_displ(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c
 c                       locally defined variables
@@ -2801,7 +2801,7 @@ c
      &                            nonlocal_flags, nonlocal_data_n1
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -2810,7 +2810,7 @@ c
       integer  :: iprops(mxelpr,*)
 #dbl      double precision :: uddt_displ(mxvl,nstr)
 #sgl      real             :: uddt_displ(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                       locally defined variables
 c
@@ -3036,7 +3036,7 @@ c
       use main_data, only : extrapolated_du, non_zero_imposed_du
 c
       implicit none
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -3046,7 +3046,7 @@ c
       integer :: gpn, iout
 #dbl      double precision ::  uddt_displ(mxvl,nstr)
 #sgl      real ::              uddt_displ(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                       locally defined variables
 c
@@ -3313,14 +3313,14 @@ c
      &                            gbl_cep_blocks => cep_blocks
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
 #dbl      double precision ::
 #sgl      real ::
      &  uddt(mxvl,nstr), qn1(mxvl,nstr,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                       locally defined variables
 c
@@ -3869,7 +3869,7 @@ c
       use main_data, only : extrapolated_du, non_zero_imposed_du
 c
       implicit none
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -3879,7 +3879,7 @@ c
       integer :: gpn, iout
 #dbl      double precision ::  uddt_displ(mxvl,nstr)
 #sgl      real ::              uddt_displ(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c                       locally defined variables
 c
@@ -4144,7 +4144,7 @@ c
      &                            nonlocal_flags, nonlocal_data_n1
 c
       implicit none
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -4154,7 +4154,7 @@ c
       integer :: iprops(mxelpr,*)
 #dbl      double precision :: uddt_displ(mxvl,nstr)
 #sgl      real :: uddt_displ(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c
 c                       locally defined variables
@@ -4632,7 +4632,7 @@ c
       use elem_block_data, only : gbl_cep_blocks => cep_blocks
 c
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c
@@ -4642,7 +4642,7 @@ c
 #dbl      double precision
 #sgl      real
      &  uddt(mxvl,nstr)
-$add include_sig_up
+#include "include_sig_up"
 c
 c
 c                       locally defined variables
@@ -4733,7 +4733,7 @@ c
       subroutine material_model_info( element_no, block_no, info_type,
      &                                 value )
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 c
 c                      local data
 c
@@ -4907,7 +4907,7 @@ c
      &       gpn, etype, span, int_order,
      &       nnodel, gp_coords, node_coords, iout  )
       implicit integer (a-z)
-$add param_def
+#include "param_def"
 c
 c                      parameter declarations
 c

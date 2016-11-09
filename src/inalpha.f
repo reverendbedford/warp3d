@@ -17,7 +17,7 @@ c
 c
       subroutine inalpha( sbflg1, sbflg2 )
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &   dumd
@@ -227,7 +227,7 @@ c
       subroutine instore_alpha( intlst, lenlst, alphax, alphay, alphaz,
      &                    alphaxy, alphayz, alphaxz )
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       real dumr, alphax, alphay, alphaz, alphaxy, alphayz, alphaxz
 #dbl      double precision
 #sgl      real
@@ -287,7 +287,7 @@ c     ****************************************************************
 c
       subroutine inalpha_dump
       implicit integer (a-z)     
-$add common.main
+#include "common.main"
       real  alphax, alphay, alphaz, alphaxy, alphayz, alphaxz
 c
 c                       for each element

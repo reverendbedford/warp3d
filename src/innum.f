@@ -20,7 +20,7 @@ c
       subroutine innum( sbflg1, sbflg2 )
       use main_data, only : elstor, incmap, crdmap
       implicit integer (a-z)
-$add common.main
+#include "common.main"
 #dbl      double precision
 #sgl      real
      &   dumd
