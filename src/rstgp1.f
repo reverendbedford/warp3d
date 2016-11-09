@@ -45,7 +45,7 @@ c
      &           local_debug, adaptive_flag
 c
       data local_debug, zero / .false., 0.0d00 / 
-@!DIR$ ASSUME_ALIGNED ddt:64, uddt:64, qnhalf:64, qn1:64      
+!DIR$ ASSUME_ALIGNED ddt:64, uddt:64, qnhalf:64, qn1:64      
 c
       internal_energy   = local_work%block_energy
       plastic_work      = local_work%block_plastic_work
@@ -548,7 +548,7 @@ c
      &           temperatures_ref, fgm_enode_props
 c
       data zero / 0.0d0 /
-@!DIR$ ASSUME_ALIGNED uddt_displ:64      
+!DIR$ ASSUME_ALIGNED uddt_displ:64      
 c
 c           vectorized mises plasticity model with constant hardening
 c           modulus. the model supports temperature dependence of
@@ -634,7 +634,7 @@ c
      &            local_work%enode_mat_props, 7,
      &            local_work%fgm_flags(1,7) )
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
           do i = 1, span
             local_work%e_vec(i)  = local_work%e_vec_n(i)
             local_work%nu_vec(i) = local_work%nu_vec_n(i)
@@ -795,7 +795,7 @@ c
 c              get linear-elastic [D] with potentially temperature
 c              dependent properties
 c      
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          if( local_work%killed_status_vec(i) ) cycle
          e  = local_work%e_vec(i)
@@ -856,8 +856,8 @@ c
       data zero / 0.0d00 /
 c
       integer i, k, m
-@!DIR$ ASSUME_ALIGNED local_cep:64, stress_n:64, stress_np1:64
-@!DIR$ ASSUME_ALIGNED uddt:64
+!DIR$ ASSUME_ALIGNED local_cep:64, stress_n:64, stress_np1:64
+!DIR$ ASSUME_ALIGNED uddt:64
 c
 c              for each element in block, update stresses by
 c              [D-elastic] * uddt. uddt contains thermal increment +
@@ -867,7 +867,7 @@ c
 c      
       do k = 1, 6
        do m = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            stress_np1(i,k) = stress_np1(i,k) + 
      &                       local_cep(i,m,k) * uddt(i,m)
@@ -875,7 +875,7 @@ c
        end do
       end do   
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( killed_status(i) ) stress_np1(i,1:6) = zero
       end do
@@ -932,7 +932,7 @@ c
      &           temperatures_ref, fgm_enode_props, signal_flag
 c
       data zero / 0.0d0 /
-@!DIR$ ASSUME_ALIGNED uddt_displ:64      
+!DIR$ ASSUME_ALIGNED uddt_displ:64      
 c
 c          deformation plasticity model. properties are invariant of
 c          temperature and loading rate. properties may vary spatially
@@ -997,7 +997,7 @@ c
      &            local_work%n_power_vec(1), local_work%shape(1,gpn),
      &            local_work%enode_mat_props, 8,
      &            local_work%fgm_flags(1,8) )
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
           do i = 1, span
             gp_alpha  = local_work%alpha_vec(i,1)
             local_work%alpha_vec(i,1)   = gp_alpha
@@ -1115,7 +1115,7 @@ c
 c              get linear-elastic [D] with potentially temperature
 c              dependent properties
 c      
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          if( local_work%killed_status_vec(i) ) cycle
          e  = local_work%e_vec(i)
@@ -1174,7 +1174,7 @@ c
       data zero / 0.0d00 /
 c
       integer i, k, m
-@!DIR$ ASSUME_ALIGNED local_cep:64, ddtse:64, stress_np1:64
+!DIR$ ASSUME_ALIGNED local_cep:64, ddtse:64, stress_np1:64
 c
 c              for each element in block, update stresses by
 c              [D-elastic] * uddt. uddt contains thermal increment +
@@ -1184,7 +1184,7 @@ c
 c      
       do k = 1, 6
        do m = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            stress_np1(i,k) = stress_np1(i,k) + 
      &                       local_cep(i,m,k) * ddtse(i,m)
@@ -1192,7 +1192,7 @@ c
        end do
       end do   
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( killed_status(i) ) stress_np1(i,1:6) = zero
       end do
@@ -1441,7 +1441,7 @@ c
 c
       data zero, trans_factor / 0.0d00, 0.95d00 /
 c
-@!DIR$ ASSUME_ALIGNED uddt_displ:64
+!DIR$ ASSUME_ALIGNED uddt_displ:64
 c
       dtime             = local_work%dt
       internal_energy   = local_work%block_energy
@@ -1681,7 +1681,7 @@ c
 c              get linear-elastic [D] with potentially temperature
 c              dependent properties
 c      
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          if( local_work%killed_status_vec(i) ) cycle
          e  = local_work%e_vec(i)
@@ -1932,8 +1932,8 @@ c
       data zero / 0.0d00 /
 c
       integer i, k, m
-@!DIR$ ASSUME_ALIGNED local_cep:64, stress_n:64, stress_np1:64
-@!DIR$ ASSUME_ALIGNED uddt:64
+!DIR$ ASSUME_ALIGNED local_cep:64, stress_n:64, stress_np1:64
+!DIR$ ASSUME_ALIGNED uddt:64
 c
 c              for each element in block, update stresses by
 c              [D-elastic] * uddt. uddt contains thermal increment +
@@ -1943,7 +1943,7 @@ c
 c      
       do k = 1, 6
        do m = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            stress_np1(i,k) = stress_np1(i,k) + 
      &                       local_cep(i,m,k) * uddt(i,m)
@@ -1951,7 +1951,7 @@ c
        end do
       end do   
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( killed_status(i) ) stress_np1(i,1:6) = zero
       end do
@@ -1980,10 +1980,10 @@ c
      &  stress_n1(nstrs,*), urcs_blk_n1(mxvl,*)
 c
       integer :: k, i
-@!DIR$ ASSUME_ALIGNED stress_n1:64, urcs_blk_n1:64
+!DIR$ ASSUME_ALIGNED stress_n1:64, urcs_blk_n1:64
 c
       do k = 1, nstrs  !  not necessarily = 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            urcs_blk_n1(i,k) = stress_n1(k,i)
          end do
@@ -2011,10 +2011,10 @@ c
 #sgl      real ::
      &  stress_n(nstrs,*), urcs_blk_n(mxvl,*)
       integer :: k, i     
-@!DIR$ ASSUME_ALIGNED stress_n:64, urcs_blk_n:64
+!DIR$ ASSUME_ALIGNED stress_n:64, urcs_blk_n:64
 c
       do k = 1, nstrs    !  not necessarily = 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            stress_n(k,i) = urcs_blk_n(i,k)
          end do
@@ -2071,7 +2071,7 @@ c
      &           temperatures_ref, local_debug
 c     
       data zero / 0.0d00 /
-@!DIR$ ASSUME_ALIGNED uddt:64
+!DIR$ ASSUME_ALIGNED uddt:64
 c
       local_debug       = .false.
       span              = local_work%span
@@ -2343,7 +2343,7 @@ c
      &           cut_step_size_now, fgm_enode_props,
      &           segmental, nonlin_hard, generalized_pl
       data local_debug, zero / .false., 0.0d00 /
-@!DIR$ ASSUME_ALIGNED uddt_displ:64
+!DIR$ ASSUME_ALIGNED uddt_displ:64
 c
 c                  NOTE:  at present, all elements in the block must be
 c                         same cyclic material defined by the user.
@@ -2526,7 +2526,7 @@ c            the nh option could have e, nu and alpha defined as temperature
 c            dependent by the user thru curves (but we really don't show that
 c            option in the manual.
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         nh_sigma_0_vec(i) = local_work%sigyld_vec(i)
         nh_q_u_vec(i)     = matprp(55,matnum)
@@ -2690,7 +2690,7 @@ c
 c              get linear-elastic [D] with potentially temperature
 c              dependent properties
 c      
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          if( local_work%killed_status_vec(i) ) cycle
          e  = local_work%e_vec(i)
@@ -2751,8 +2751,8 @@ c
       data zero / 0.0d00 /
 c
       integer i, k, m
-@!DIR$ ASSUME_ALIGNED local_cep:64, stress_np1:64, uddt:64
-@!DIR$ ASSUME_ALIGNED stress_n:64
+!DIR$ ASSUME_ALIGNED local_cep:64, stress_np1:64, uddt:64
+!DIR$ ASSUME_ALIGNED stress_n:64
 c
 c              for each element in block, update stresses by
 c              [D-elastic] * uddt. uddt contains thermal increment +
@@ -2762,7 +2762,7 @@ c
 c      
       do k = 1, 6
        do m = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            stress_np1(i,k) = stress_np1(i,k) + 
      &                       local_cep(i,m,k) * uddt(i,m)
@@ -2770,7 +2770,7 @@ c
        end do
       end do   
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( killed_status(i) ) stress_np1(i,1:6) = zero
       end do
@@ -2823,9 +2823,9 @@ c
       logical :: signal_flag, local_debug, temperatures,
      &           temperatures_ref, process, compute_creep_strains
       data zero /  0.0d00 /
-@!DIR$ ASSUME_ALIGNED uddt_displ:64, gp_temps:64, gp_rtemps:64
-@!DIR$ ASSUME_ALIGNED gp_dtemps:64, uddt_temps:64, uddt:64
-@!DIR$ ASSUME_ALIGNED cep:64
+!DIR$ ASSUME_ALIGNED uddt_displ:64, gp_temps:64, gp_rtemps:64
+!DIR$ ASSUME_ALIGNED gp_dtemps:64, uddt_temps:64, uddt:64
+!DIR$ ASSUME_ALIGNED cep:64
 c
       dtime             = local_work%dt
       span              = local_work%span
@@ -2933,7 +2933,7 @@ c
       if( local_debug ) write(iout,9010) n      
 c
       if( gpn .eq. 1 ) then  ! zero global values for elements
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
         do i = 1, span
           elem_num = felem + i - 1
           if( nonlocal_flags(elem_num) ) 
@@ -2941,7 +2941,7 @@ c
         end do
       end if
 c      
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span ! add in this gpn nonlocal values
        elem_num = felem + i - 1
        if( nonlocal_flags(elem_num) )   
@@ -2952,7 +2952,7 @@ c
 c
       if( gpn .eq. local_work%num_int_points ) then
          real_npts = dble( local_work%num_int_points )
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
           elem_num = felem + i - 1
           if( nonlocal_flags(elem_num) )  then
@@ -2994,7 +2994,7 @@ c
      &  uddt(mxvl,6)
 c
       integer i, k, m
-@!DIR$ ASSUME_ALIGNED local_cep:64, stress_np1:64, uddt:64
+!DIR$ ASSUME_ALIGNED local_cep:64, stress_np1:64, uddt:64
 c
 c              for each element in block, update stresses by
 c              [D-elastic] * uddt. uddt contains creep increment +
@@ -3003,7 +3003,7 @@ c              nodal displacements
 c
       do k = 1, 6
        do m = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            stress_np1(i,k) = stress_np1(i,k) + 
      &                       local_cep(i,m,k) * uddt(i,m)
@@ -3065,7 +3065,7 @@ c
      &           adaptive_possible, cut_step_size_now
 c
       data zero / 0.0d0 /
-@!DIR$ ASSUME_ALIGNED uddt_displ:64
+!DIR$ ASSUME_ALIGNED uddt_displ:64
 c
       dtime             = local_work%dt
       span              = local_work%span
@@ -3120,7 +3120,7 @@ c
       uddt = uddt_displ + uddt_temps
       cep  = zero
 c      
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
        if( local_work%killed_status_vec(i) ) uddt(i,1:nstr) = zero
       end do
@@ -3202,7 +3202,7 @@ c
 c              get linear-elastic [D] with potentially temperature
 c              dependent properties
 c      
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          if( local_work%killed_status_vec(i) ) cycle
          e  = local_work%e_vec(i)
@@ -3263,7 +3263,7 @@ c
       data zero / 0.0d00 /
 c
       integer i, k, m
-@!DIR$ ASSUME_ALIGNED local_cep:64, stress_n:64, stress_np1:64, uddt:64 
+!DIR$ ASSUME_ALIGNED local_cep:64, stress_n:64, stress_np1:64, uddt:64 
       
 c
 c              for each element in block, update stresses by
@@ -3274,7 +3274,7 @@ c
 c      
       do k = 1, 6
        do m = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            stress_np1(i,k) = stress_np1(i,k) + 
      &                       local_cep(i,m,k) * uddt(i,m)
@@ -3282,7 +3282,7 @@ c
        end do
       end do   
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( killed_status(i) ) stress_np1(i,1:6) = zero
       end do
@@ -3355,7 +3355,7 @@ c
       data identity /1.0d00, 0.0d00, 0.0d00, 0.0d00, 1.0d00,
      &   0.0d00, 0.0d00, 0.0d00, 1.0d00 /
       data map / 1, 2, 3, 4, 6, 5 /
-@!DIR$ ASSUME_ALIGNED uddt:64, qn1:64
+!DIR$ ASSUME_ALIGNED uddt:64, qn1:64
       
 c
 c           1a. pull a few values from work space for block.
@@ -3951,7 +3951,7 @@ c
       uddt = uddt_displ + uddt_temps
       cep  = zero
 c      
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
        if( local_work%killed_status_vec(i) ) uddt(i,1:nstr) = zero
       end do
@@ -4033,7 +4033,7 @@ c
 c              get linear-elastic [D] with potentially temperature
 c              dependent properties
 c      
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          if( local_work%killed_status_vec(i) ) cycle
          e  = local_work%e_vec(i)
@@ -4103,7 +4103,7 @@ c
 c      
       do k = 1, 6
        do m = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            stress_np1(i,k) = stress_np1(i,k) + 
      &                       local_cep(i,m,k) * uddt(i,m)
@@ -4111,7 +4111,7 @@ c
        end do
       end do   
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( killed_status(i) ) stress_np1(i,1:6) = zero
       end do
@@ -4171,7 +4171,7 @@ c
       logical :: signal_flag, local_debug, temperatures,
      &           temperatures_ref, check_D, iter_0_extrapolate_off
       data zero, one / 0.0d0, 1.0d0 /
-@!DIR$ ASSUME_ALIGNED uddt_displ:64 
+!DIR$ ASSUME_ALIGNED uddt_displ:64 
       
 c
       dtime             = local_work%dt
@@ -4234,7 +4234,7 @@ c
        if( gpn .eq. 1 ) then
          local_work%rot_blk_n1 = zero ! full array
          do igp = 1, local_work%num_int_points 
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
            do i = 1, mxvl
              local_work%rot_blk_n1(i,1,igp) = one
              local_work%rot_blk_n1(i,5,igp) = one
@@ -4348,7 +4348,7 @@ c
       if( local_debug ) write(iout,9010) n      
 c
       if( gpn .eq. 1 ) then  ! zero global values for elements
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
         do i = 1, span
           elem_num = felem + i - 1
           if( nonlocal_flags(elem_num) ) 
@@ -4356,7 +4356,7 @@ c
         end do
       end if
 c      
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span ! add in this gpn nonlocal values
        elem_num = felem + i - 1
        if( nonlocal_flags(elem_num) )   
@@ -4367,7 +4367,7 @@ c
 c
       if( gpn .eq. local_work%num_int_points ) then
          real_npts = dble( local_work%num_int_points )
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
           elem_num = felem + i - 1
           if( nonlocal_flags(elem_num) )   
@@ -4542,7 +4542,7 @@ c
      &  source(nrows,nterms,nterms), dest(nterms)
 c
       integer :: i, j, k
-@!DIR$ ASSUME_ALIGNED source:64, dest:64 
+!DIR$ ASSUME_ALIGNED source:64, dest:64 
 c      
       k = 0
 c
@@ -4583,8 +4583,8 @@ c
       data zero / 0.0d00 /
 c
       integer i, k, m
-@!DIR$ ASSUME_ALIGNED local_cep:64, stress_np1:64, uddt:64
-@!DIR$ ASSUME_ALIGNED stress_n:64 
+!DIR$ ASSUME_ALIGNED local_cep:64, stress_np1:64, uddt:64
+!DIR$ ASSUME_ALIGNED stress_n:64 
 c
 c              for each element in block, update stresses by
 c              [D-elastic] * uddt. uddt contains thermal increment +
@@ -4594,7 +4594,7 @@ c
 c      
       do k = 1, 6
        do m = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            stress_np1(i,k) = stress_np1(i,k) + 
      &                       local_cep(i,m,k) * uddt(i,m)
@@ -4602,7 +4602,7 @@ c
        end do
       end do   
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( killed_status(i) ) stress_np1(i,1:6) = zero
       end do
@@ -4875,9 +4875,9 @@ c
 #dbl      double precision ::
 #sgl      real ::
      & deps(mxvl,*), strain_np1(mxvl,*)
-@!DIR$ ASSUME_ALIGNED deps:64, strain_np1:64 
+!DIR$ ASSUME_ALIGNED deps:64, strain_np1:64 
 c
-@!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=###
        do i = 1, span
          strain_np1(i,1) = strain_np1(i,1) + deps(i,1)
          strain_np1(i,2) = strain_np1(i,2) + deps(i,2)
@@ -4922,7 +4922,7 @@ c
      &  sf(mxndel), xi, eta, zeta, weight, zero
       logical :: local_debug
       data zero, local_debug / 0.0d00, .false. /
-@!DIR$ ASSUME_ALIGNED gp_coords:64, node_coords:64, sf:64 
+!DIR$ ASSUME_ALIGNED gp_coords:64, node_coords:64, sf:64 
 c
       if( local_debug ) write(iout,*) '... in gauss_pt_coords'
 c
@@ -4933,7 +4933,7 @@ c
       call getgpts( etype, int_order, gpn, xi, eta, zeta, weight )
       call shapef( etype, xi, eta, zeta, sf(1) )
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          gp_coords(i,1) = zero
          gp_coords(i,2) = zero
@@ -4948,7 +4948,7 @@ c
       ky = nnodel
       kz = ky + nnodel
       do enode = 1, nnodel
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
         do i = 1, span
           gp_coords(i,1) = gp_coords(i,1)  +
      &                      sf(enode) * node_coords(i,enode)
@@ -4992,8 +4992,8 @@ c
       integer :: i, j, k, map(6)
       data half / 0.5d00 /
       data map / 1,2,3,4,6,5 /
-@!DIR$ ASSUME_ALIGNED matrix:64, symm_vector:64, tp:64
-@!DIR$ ASSUME_ALIGNED symm_version:64
+!DIR$ ASSUME_ALIGNED matrix:64, symm_vector:64, tp:64
+!DIR$ ASSUME_ALIGNED symm_version:64
 c
 c         1. compute transpose of 6 x 6 matrix
 c         2. compute symmetrized version
@@ -5065,10 +5065,10 @@ c
      &  ue(mxvl,*), due(mxvl,*), uenh(mxvl,*), uen1(mxvl,*),
      &  half
       data half / 0.5d00 /
-@!DIR$ ASSUME_ALIGNED ue:64, due:64, uenh:64, uen1:64            
+!DIR$ ASSUME_ALIGNED ue:64, due:64, uenh:64, uen1:64            
 c
       do j = 1, ndof*nnode
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
         do i = 1, span
            uenh(i,j) = ue(i,j) + half*due(i,j)
            uen1(i,j) = ue(i,j) + due(i,j)
@@ -5086,11 +5086,11 @@ c
 #sgl      real ::
      &  internal_energy, plastic_work, gp_energies(*),
      &  det_j(*), dfn1(*), gp_plast_work(*)
-@!DIR$ ASSUME_ALIGNED gp_energies:64, det_j:64, dfn1:64
-@!DIR$ ASSUME_ALIGNED gp_plast_work:64 
+!DIR$ ASSUME_ALIGNED gp_energies:64, det_j:64, dfn1:64
+!DIR$ ASSUME_ALIGNED gp_plast_work:64 
 c
       if( itype .ne. 1 ) go to 100
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         internal_energy = internal_energy + gp_energies(i) *
      &                     dfn1(i) * det_j(i)
@@ -5100,7 +5100,7 @@ c
       return
 c
  100  continue
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          internal_energy = internal_energy + gp_energies(i) *
      &                       det_j(i)
@@ -5144,8 +5144,8 @@ c                      locals
 #sgl      real ::
      & full_cep(mxvl,6,6), zero
       data zero  / 0.0d00 /
-@!DIR$ ASSUME_ALIGNED ceps_blk:64, deps_blk:64, stress_n:64        
-@!DIR$ ASSUME_ALIGNED stress_np1:64      
+!DIR$ ASSUME_ALIGNED ceps_blk:64, deps_blk:64, stress_n:64        
+!DIR$ ASSUME_ALIGNED stress_np1:64      
 c
 c              handle solid elements (type = 1) and cohesive elements
 c              (type = 2 ) to let compiler optimize loops.
@@ -5158,7 +5158,7 @@ c
       k = 1
       do i = 1, 6
        do j = 1, i
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do ielem = 1, span
           full_cep(ielem,i,j) = ceps_blk(k,ielem,gpn)
           full_cep(ielem,j,i) = full_cep(ielem,i,j)
@@ -5174,7 +5174,7 @@ c
 c
       do i = 1, 6
        do k = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do ielem = 1, span
            stress_np1(ielem,i) = stress_np1(ielem,i) +
      &         full_cep(ielem,i,k) * deps_blk(ielem,k)
@@ -5190,7 +5190,7 @@ c
       k = 1
       do i = 1, 3
        do j = 1, i
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do ielem = 1, span
           full_cep(ielem,i,j) = ceps_blk(k,ielem,gpn)
           full_cep(ielem,j,i) = full_cep(ielem,i,j)
@@ -5206,7 +5206,7 @@ c
 c
       do i = 1, 3
        do k = 1, 3
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do ielem = 1, span
            stress_np1(ielem,i) =  stress_np1(ielem,i) +
      &         full_cep(ielem,i,k) * deps_blk(ielem,k)
@@ -5241,10 +5241,10 @@ c
      &  gbl_ceps_blk(nrow_ceps_blk,span,*), local_cep(mxvl,6,6)
 c
       integer i, k, ii, jj
-@!DIR$ ASSUME_ALIGNED gbl_ceps_blk:64, local_cep:64         
+!DIR$ ASSUME_ALIGNED gbl_ceps_blk:64, local_cep:64         
 c
       if( nrow_ceps_blk .eq. 21 ) then ! symmetric [D] 6x6
-@!DIR$ LOOP COUNT MAX=### 
+!DIR$ LOOP COUNT MAX=### 
         do i = 1, span
           gbl_ceps_blk(1,i,gpn)  = local_cep(i,1,1)
           gbl_ceps_blk(2,i,gpn)  = local_cep(i,2,1)
@@ -5257,7 +5257,7 @@ c
           gbl_ceps_blk(9,i,gpn)  = local_cep(i,4,3)
           gbl_ceps_blk(10,i,gpn) = local_cep(i,4,4)
        end do
-@!DIR$ LOOP COUNT MAX=###        
+!DIR$ LOOP COUNT MAX=###        
        do i = 1, span   
           gbl_ceps_blk(11,i,gpn) = local_cep(i,5,1)
           gbl_ceps_blk(12,i,gpn) = local_cep(i,5,2)
@@ -5272,7 +5272,7 @@ c
           gbl_ceps_blk(21,i,gpn) = local_cep(i,6,6)
         end do
       elseif( nrow_ceps_blk .eq. 6 ) then ! symmetric [D] 3x3
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
         do i = 1, span
           gbl_ceps_blk(1,i,gpn)  = local_cep(i,1,1)
           gbl_ceps_blk(2,i,gpn)  = local_cep(i,2,1)
@@ -5283,7 +5283,7 @@ c
         end do
       elseif( nrow_ceps_blk .eq. 36 ) then ! non-symmetric [D] 6x6
           k = 1 
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
           do i = 1, span
             do ii = 1, 6
               do jj = 1, 6

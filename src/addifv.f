@@ -30,22 +30,22 @@ c
       integer :: bedst(totdof,*), iprops(mxelpr,*),
      &           dam_state(*)
       logical :: debug
-@!DIR$ ASSUME_ALIGNED ifv:64, eleifv:64, dam_ifv:64
+!DIR$ ASSUME_ALIGNED ifv:64, eleifv:64, dam_ifv:64
 c
       debug = .false.
 c
       if( debug ) write (out,*) '>>>>  inside addifv'
 c
       do j = 1, totdof    
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
 c$OMP ATOMIC UPDATE
             ifv(bedst(j,i)) = ifv(bedst(j,i)) + eleifv(i,j)
          end do
       end do
       do j = 1, totdof    
-@!DIR$ LOOP COUNT MAX=###   
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###   
+!DIR$ IVDEP
          do i = 1, span
             sum_ifv = sum_ifv + abs(eleifv(i,j))
          end do
@@ -80,7 +80,7 @@ c
           call die_abort
       end if
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          element = felem + i - 1
          if( dam_state(dam_ptr(element)) .eq. 0 ) then

@@ -1286,7 +1286,7 @@ c
      &   half, zero, one, mag, mags(3), djcoh(mxvl)
       data local_debug, half, zero, one
      &  / .false., 0.5d00, 0.0d00, 1.0d00 /
-@!DIR$ ASSUME_ALIGNED ce_0:64, ce_N:64, ce_mid:64, ce_n1:64  
+!DIR$ ASSUME_ALIGNED ce_0:64, ce_N:64, ce_mid:64, ce_n1:64  
 
 c
       if( local_debug ) write(out,9100)
@@ -1301,8 +1301,8 @@ c           pull coordinates at t=0 from global input vector.
 c
       k = 1
       do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
          do i = 1, span
             ce_0(i,k)   = c(bcdst(k,i))
             ce_0(i,k+1) = c(bcdst(k+1,i))
@@ -1329,8 +1329,8 @@ c
 c
       if( update_coords ) then
        do  j = 1, totdof
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
           do i = 1, span
             ce_n(i,j)   = ce_0(i,j) + ue(i,j)
             ce_mid(i,j) = ce_0(i,j) + ue(i,j) + half*due(i,j)
@@ -1349,8 +1349,8 @@ c
 c
       if( .not. update_coords ) then
           do  j = 1, totdof
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
             do i = 1, span
               ce_n(i,j)   = ce_0(i,j)
               ce_mid(i,j) = ce_0(i,j)
@@ -1402,8 +1402,8 @@ c
       if( fgm_node_values_defined ) then
         do j = 1,  fgm_node_values_cols
           do i = 1, nnode
-@!DIR$ LOOP COUNT MAX=### 
-@!DIR$ IVDEP 
+!DIR$ LOOP COUNT MAX=### 
+!DIR$ IVDEP 
             do k = 1, span
               local_work%enode_mat_props(i,k,j) =
      &                     fgm_node_values(belinc(i,k),j)
@@ -1455,8 +1455,8 @@ c
 c
 c           vectorized mises plasticty model.
 c
-@!DIR$ LOOP COUNT MAX=### 
-@!DIR$ IVDEP 
+!DIR$ LOOP COUNT MAX=### 
+!DIR$ IVDEP 
         do i = 1, span
            matl_no = iprops(38,felem+i-1)
            local_work%tan_e_vec(i) = matprp(4,matl_no)
@@ -1474,8 +1474,8 @@ c
 c           general mises/gurson model.
 c
         if ( local_debug ) write(out,9950)
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
         do i = 1, span
            matl_no = iprops(38,felem+i-1)
            local_work%tan_e_vec(i) = matprp(4,matl_no)
@@ -1573,7 +1573,7 @@ c
      & mlocal(mxvl,nprm,*), mglobal(nprm,ngp,*)
 c
       integer :: k, j, i      
-@!DIR$ ASSUME_ALIGNED mlocal:64, mglobal:64  
+!DIR$ ASSUME_ALIGNED mlocal:64, mglobal:64  
 c
 c           unroll inner loop for most common number of integration
 c           points (ngp).
@@ -1582,8 +1582,8 @@ c
       if( ngp .ne. 8 ) then
         do k = 1, ngp
          do  j = 1, nprm
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
             do  i = 1, span
                mlocal(i,j,k) = mglobal(j,k,i)
             end do
@@ -1595,8 +1595,8 @@ c
 c                number of integration points = 8, unroll.
 c
       do  j = 1, nprm
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
         do  i = 1, span
             mlocal(i,j,1) = mglobal(j,1,i)
             mlocal(i,j,2) = mglobal(j,2,i)
@@ -2132,7 +2132,7 @@ c
 #dbl      double precision ::
 #sgl      real ::
      &  outmat(nrow,ncol), in3dmat(nrow,ncol,nz)
-@!DIR$ ASSUME_ALIGNED in3dmat:64, outmat:64  
+!DIR$ ASSUME_ALIGNED in3dmat:64, outmat:64  
 c
 c           pull results from k-plane of 3D array into 2D array.
 c           used as it exposes structure of 3D array. compiler
@@ -2163,7 +2163,7 @@ c
 #dbl      double precision ::
 #sgl      real ::
      &  averages(nrows), matrix(nrows,ncols)
-@!DIR$ ASSUME_ALIGNED matrix:64, averages:64      
+!DIR$ ASSUME_ALIGNED matrix:64, averages:64      
 c
 c           compute the average of each row in matrix. averages was
 c           zeroed before entry. compiler should inline this routine.

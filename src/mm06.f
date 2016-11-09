@@ -144,7 +144,7 @@ c
                write(kout,9020) felem+i-1, (dstran(i,j),j=1,6)
            end do
         end if
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
         do i = 1, span
          call cnst6_linear_elastic( e_vec(i), nu_vec(i), 
      &                              ddsdde, one, two, zero )
@@ -155,7 +155,7 @@ c
       end if  
 c      
       if( step .eq. 1 ) then
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do i = 1, span
            history_n(i,1) = zero  ! total creep eff strain
            history_n(i,2) = zero  ! current creep rate
@@ -361,7 +361,7 @@ c
      &  sig_mean, sig_mises, n_exp, B, factor, t1, t2, t3, t4, t5
 
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
 c      
         sig_mean  = ( stress_n(i,1) + stress_n(i,2) + 
@@ -1007,7 +1007,7 @@ c   mat_va11 = c2 = current, effective creep strain rate
 c   mat_va11 = c3 = elastic energy
 c
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
        do i = 1, span
          elestr(i,7)  = stress(i,7) ! energy density using deps -
 c                                     deps_{thermal}

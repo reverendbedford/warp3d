@@ -115,17 +115,17 @@ c
 c               local declarations
 c
       integer :: i, j, k      
-@!DIR$ ASSUME_ALIGNED mg:64, ml:64  
+!DIR$ ASSUME_ALIGNED mg:64, ml:64  
 c    
 c               on current hardware, the manual unroll runs
 c               slower
 c
 c      if( ngp .ne. 8 ) then                            
-@!DIR$ LOOP COUNT MAX=27
+!DIR$ LOOP COUNT MAX=27
         do k = 1, ngp
          do  j = 1, nprm
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
             do i = 1, span
                ml(i,j,k) = mg(j,k,i)
             end do
@@ -183,7 +183,7 @@ c
 c               local declarations
 c
       integer :: i, j, k     
-@!DIR$ ASSUME_ALIGNED mg:64, ml:64  
+!DIR$ ASSUME_ALIGNED mg:64, ml:64  
 c
 c    
 c               on current hardware, the manual unroll runs
@@ -191,11 +191,11 @@ c               slower
 c
 c
 c      if( ngp .ne. 8 ) then
-@!DIR$ LOOP COUNT MAX=27
+!DIR$ LOOP COUNT MAX=27
         do k = 1, ngp
            do j = 1, nprm
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
               do i = 1, span
                  mg(j,k,i) = ml(i,j,k)
               end do
@@ -253,17 +253,17 @@ c
 c               local declarations
 c
       integer :: i, j, k     
-@!DIR$ ASSUME_ALIGNED global_history:64, local_history:64  
+!DIR$ ASSUME_ALIGNED global_history:64, local_history:64  
 c    
 c               on current hardware, the manual unroll runs
 c               slower
 c
 c      if( ngp .ne. 8 ) then
-@!DIR$ LOOP COUNT MAX=27
+!DIR$ LOOP COUNT MAX=27
         do k = 1, ngp
            do j = 1, hist_size
-@!DIR$ LOOP COUNT MAX=### 
-@!DIR$ IVDEP 
+!DIR$ LOOP COUNT MAX=### 
+!DIR$ IVDEP 
               do i = 1, span
                  global_history(j,k,i) = local_history(i,j,k)
               end do

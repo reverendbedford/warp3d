@@ -68,8 +68,8 @@ c
       logical :: debug, gpall, locdebug, mat_debug
       equivalence( tang_avg, tang_avg_vec )
 c
-@!DIR$ ASSUME_ALIGNED history_n:64, history_np1:64, uddt:64
-@!DIR$ ASSUME_ALIGNED gp_temps:64, gp_temp_inc:64, nonlocal_state:64     
+!DIR$ ASSUME_ALIGNED history_n:64, history_np1:64, uddt:64
+!DIR$ ASSUME_ALIGNED gp_temps:64, gp_temp_inc:64, nonlocal_state:64     
 c
       debug = .false.
 c
@@ -658,7 +658,7 @@ c
       double precision,
      &    dimension(props%num_hard,props%num_hard) :: J22, alpha
       double precision :: alpha1
-@!DIR$ ASSUME_ALIGNED Jmat:64
+!DIR$ ASSUME_ALIGNED Jmat:64
 c
       debug    = .false.     ! props%debug
       gpall    = props%gpall ! print iteration norms for all int points
@@ -872,7 +872,7 @@ c
 c                  tau lambdas for geometric hardening
 c                  lattice curvature
 c
-@!DIR$ IVDEP
+!DIR$ IVDEP
           do i = 1, 3
             curv(i,1,1) = n%gradFeinv(i,1,1) - n%gradFeinv(i,1,1)
             curv(i,1,2) = n%gradFeinv(i,1,2) - n%gradFeinv(i,2,1)
@@ -902,7 +902,7 @@ c
 c                  large-strain lambda
 c
            tm(1) = zero; tm(2) = zero; tm(3) = zero
-@!DIR$ IVDEP
+!DIR$ IVDEP
            do i = 1, 3
                tm(i) = tm(i) + half * (
      &           - curv(i,1,2) * cn(3)
@@ -950,7 +950,7 @@ c
       type(crystal_state) :: np1, n
 c
       integer :: sh, eh, len1, len2
-@!DIR$ ASSUME_ALIGNED history:64
+!DIR$ ASSUME_ALIGNED history:64
 
 c
       sh = index_crys_hist(crys_no,1,1)
@@ -1207,7 +1207,7 @@ c
       integer :: info, lwork
       integer, allocatable :: ipivt(:)
       double precision, allocatable :: work(:)
-@!DIR$ ASSUME_ALIGNED a:64 
+!DIR$ ASSUME_ALIGNED a:64 
 c
 c              allocate storage, factor, inverse   
 c
@@ -1246,7 +1246,7 @@ c
 c
       double precision, dimension(3,3), intent(out) :: r
       double precision :: a, b, c, psi, theta, phi
-@!dir$ assume_aligned angles:64, r:64      
+!dir$ assume_aligned angles:64, r:64      
 c
       a = angles(1)
       b = angles(2)
@@ -1315,7 +1315,7 @@ c
       integer :: i, j, info, lwork
       integer, allocatable :: ipiv(:)
       double precision, allocatable :: work(:)
-@!DIR$ ASSUME_ALIGNED a:64      
+!DIR$ ASSUME_ALIGNED a:64      
 c
 c              allocate storage, factor, inverse, convert
 c              symmetric to full storage
@@ -1355,7 +1355,7 @@ c
       double precision, dimension(3,3), intent(in) :: rt
       double precision, dimension(6,6), intent(out) :: rv
 c
-@!DIR$ ASSUME_ALIGNED rt:64, rv:64
+!DIR$ ASSUME_ALIGNED rt:64, rv:64
 c    
       rv(1,1) = rt(1,1)**2
       rv(1,2) = rt(1,2)**2
@@ -1414,7 +1414,7 @@ c
 c      
       double precision, dimension(3,3), intent(in) :: rt
       double precision, dimension(3,3), intent(out) :: rv
-@!DIR$ ASSUME_ALIGNED rt:64, rv:64
+!DIR$ ASSUME_ALIGNED rt:64, rv:64
 c
       rv(1,1) = rt(2,2)*rt(3,3) - rt(2,3)*rt(3,2)
       rv(1,2) = rt(2,1)*rt(3,3) - rt(2,3)*rt(3,1)
@@ -1447,7 +1447,7 @@ c
       double precision, dimension(3,3), intent(in) :: et
       double precision, dimension(6), intent(out) :: ev
 c
-@!DIR$ ASSUME_ALIGNED et:64, ev:64
+!DIR$ ASSUME_ALIGNED et:64, ev:64
 c
       ev(1) = et(1,1)
       ev(2) = et(2,2)
@@ -1475,7 +1475,7 @@ c
 c      
       double precision, dimension(3,3), intent(in) :: wt
       double precision, dimension(3), intent(out) :: wv
-@!DIR$ ASSUME_ALIGNED wt:64, wv:64
+!DIR$ ASSUME_ALIGNED wt:64, wv:64
 c
       wv(1) = wt(2,3)
       wv(2) = wt(1,3)
@@ -1524,7 +1524,7 @@ c
 c
 c                 constants
 c
-@!DIR$ ASSUME_ALIGNED rot_blk:64, Rps:64, gradFes:64, jac:64
+!DIR$ ASSUME_ALIGNED rot_blk:64, Rps:64, gradFes:64, jac:64
 c
 c                get R components and stick in the right place
 c
@@ -1619,7 +1619,7 @@ c
 c
       integer :: i, j
 c
-@!DIR$ ASSUME_ALIGNED Rur:64, dstrain:64         
+!DIR$ ASSUME_ALIGNED Rur:64, dstrain:64         
 c
 c              scalars
 c      
@@ -1703,7 +1703,7 @@ c
       double precision :: history(span,*)
 c
       integer :: sh      
-@!DIR$ ASSUME_ALIGNED history:64
+!DIR$ ASSUME_ALIGNED history:64
 c
       sh  = indexes_common(4,1)
       history(1,sh+0) = zero
@@ -1734,7 +1734,7 @@ c
       double precision :: history(span,*)
 c
       integer :: sh, eh
-@!DIR$ ASSUME_ALIGNED history:64      
+!DIR$ ASSUME_ALIGNED history:64      
 c
       sh  = indexes_common(5,1)
       eh  = indexes_common(5,2)
@@ -2321,7 +2321,7 @@ c
       type(crystal_state) :: n
 c
       integer :: len1, len2
-@!DIR$ ASSUME_ALIGNED history:64, gradfe:64, R:64
+!DIR$ ASSUME_ALIGNED history:64, gradfe:64, R:64
 c
       len1 = props%num_hard
 c
@@ -2421,7 +2421,7 @@ c
       double precision :: history(span,*)
 c      
       integer :: sh, eh
-@!DIR$ ASSUME_ALIGNED history:64      
+!DIR$ ASSUME_ALIGNED history:64      
 c
 c              cep
 c
@@ -2498,7 +2498,7 @@ c
 c
       double precision, parameter :: mult = 0.5d0 
       integer, parameter :: mcuts = 4
-@!DIR$ ASSUME_ALIGNED vec1:64, vec2:64, arr1:64, arr2:64, Jmat:64      
+!DIR$ ASSUME_ALIGNED vec1:64, vec2:64, arr1:64, arr2:64, Jmat:64      
 c
       debug    = props%debug
       gpall    = props%gpall ! true to print iteration norms all GPs
@@ -2741,9 +2741,9 @@ c
      &                               xtol = 0.001d0  
       integer, parameter :: mls = 10, mmin = 1
 c
-@!DIR$ ASSUME_ALIGNED vec1:64, vec2:64, arr1:64, arr2:64
-@!DIR$ ASSUME_ALIGNED ivec1:64, ivec2:64, stress:64, tt:64, J:64
-@!DIR$ ASSUME_ALIGNED trans_J:64, minus_J:64
+!DIR$ ASSUME_ALIGNED vec1:64, vec2:64, arr1:64, arr2:64
+!DIR$ ASSUME_ALIGNED ivec1:64, ivec2:64, stress:64, tt:64, J:64
+!DIR$ ASSUME_ALIGNED trans_J:64, minus_J:64
 c
       locdebug = .false.
       if( locdebug ) write(*,*) "Entering mm10_solve"
@@ -3150,7 +3150,7 @@ c
 c
       double precision :: wbarp(3), wbarp_full(3,3), expw(3,3),
      &                    vec1(max_uhard), vec2(max_uhard), w(3,3)
-@!DIR$ ASSUME_ALIGNED vec1:64, vec2:64     
+!DIR$ ASSUME_ALIGNED vec1:64, vec2:64     
 c
       call mm10_form_wbarp( props, np1, n, vec1, vec2, np1%stress,
      &                      np1%tau_tilde, wbarp )
@@ -3182,7 +3182,7 @@ c
       double precision, dimension(3), intent(in) :: wv
 c
 c      
-@!DIR$ ASSUME_ALIGNED wv:64, wt:64     
+!DIR$ ASSUME_ALIGNED wv:64, wt:64     
 c
       wt(1,1) = zero
       wt(1,2) = wv(3)
@@ -3219,7 +3219,7 @@ c
       double precision, dimension(3,3), intent(out) :: a
       double precision :: alpha
       integer :: i
-@!DIR$ ASSUME_ALIGNED w:64, a:64    
+!DIR$ ASSUME_ALIGNED w:64, a:64    
 c
 c              compute alpha
 c
@@ -3466,7 +3466,7 @@ c
       subroutine mm10_a_mult_type_1( a, b, c )
       implicit none
       double precision :: a(3,3), b(3,3), c(3,3)
-@!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
+!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
 c
 c                     [a] = [b] * [c]
 c
@@ -3490,7 +3490,7 @@ c
       double precision :: a(3,3), b(3,3)
 c
       double precision :: w(3,3)      
-@!DIR$ ASSUME_ALIGNED a:64, b:64, w:64    
+!DIR$ ASSUME_ALIGNED a:64, b:64, w:64    
 c
 c                     [b] = [a] * [b]
 c
@@ -3515,7 +3515,7 @@ c
       implicit none
       double precision :: a(6), b(6,6), c(6)
       integer :: j
-@!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
+!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
 c
 c                     a = [b] * c
 c
@@ -3542,7 +3542,7 @@ c
       implicit none
       double precision :: a(6), b(6,6), c(6), d(6), const
       integer :: j
-@!DIR$ ASSUME_ALIGNED a:64, b:64, c:64, d:64      
+!DIR$ ASSUME_ALIGNED a:64, b:64, c:64, d:64      
 c
 c                     a = [b] * c + const * d
 c
@@ -3572,7 +3572,7 @@ c
       implicit none
       double precision :: a(6), b(6,6), c(6)
       integer :: j
-@!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
+!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
 c
 c                     a = trans( [b] ) * c
 c
@@ -3600,7 +3600,7 @@ c
       subroutine mm10_a_mult_type_3t( a, b, c )
       implicit none
       double precision :: a(3,3), b(3,3), c(3,3)
-@!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
+!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
 c
 c                     [a] = [b] * trans( [c] )
 c
@@ -3624,7 +3624,7 @@ c
       implicit none
       double precision :: a(6,6), b(6), c(6)
       integer :: i, j
-@!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
+!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
 c
 c                    [a] = [a] + b * trans( c )
 c
@@ -3641,7 +3641,7 @@ c
       subroutine mm10_a_mult_type_3( a, b, c )
       implicit none
       double precision :: a(3), b(3,3), c(3)
-@!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
+!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
 c
 c                     a = [b] * c
 c
@@ -3670,7 +3670,7 @@ c
       implicit none
       integer :: nterms
       double precision :: vec(nterms)
-@!DIR$ ASSUME_ALIGNED vec:64       
+!DIR$ ASSUME_ALIGNED vec:64       
 c
       vec = zero
       return
@@ -3694,7 +3694,7 @@ c
 c
       integer :: i, j      
       double precision :: a(6,6), work(6,6)
-@!DIR$ ASSUME_ALIGNED a:64, work(3,3):64      
+!DIR$ ASSUME_ALIGNED a:64, work(3,3):64      
 c
 c                     [a] = ( [a] + trans[a] ) / 2.0
 c
@@ -3725,7 +3725,7 @@ c
       implicit none
       integer :: nterms
       double precision :: a(nterms), b(nterms), c(nterms)
-@!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
+!DIR$ ASSUME_ALIGNED a:64, b:64, c:64      
 c
       a = b
 c
@@ -3755,7 +3755,7 @@ c
       double precision, parameter :: eps = 1.0d-10
       double precision :: det
       double precision, dimension(3,3) :: cofactor
-@!DIR$ ASSUME_ALIGNED a:64, ainv:64
+!DIR$ ASSUME_ALIGNED a:64, ainv:64
 c
       det =    a(1,1)*a(2,2)*a(3,3)  
      1       - a(1,1)*a(2,3)*a(3,2)  

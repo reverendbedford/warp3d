@@ -339,7 +339,7 @@ c
       if( growth_by_kill ) then
         block_is_killable = iand( iprops(30,felem),2 ) .ne. 0
         if( block_is_killable ) then
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
          do relem = 1, span
            element = felem + relem - 1
            if( dam_ptr(element) .eq. 0 ) cycle
@@ -619,7 +619,7 @@ c
 c
 c
       integer :: nnode, ndof, totdof, j, k, node, jj
-@!DIR$ ASSUME_ALIGNED trnmte:64
+!DIR$ ASSUME_ALIGNED trnmte:64
 c
 c           for this block of elements, gather the transformation
 c           matrices (3x3) used to rotate between global and constraint
@@ -637,8 +637,8 @@ c
 c           this code below depends on ndof per node = 3
 c
       do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
        do k = 1, span
          node = incid(incmap(felem+k-1) + j-1)
          if ( .not. trn(node) ) cycle
@@ -682,13 +682,13 @@ c
      & global_hist(hist_size,ngp,span)
 c
       integer :: k, j, i     
-@!DIR$ ASSUME_ALIGNED local_hist:64, global_hist:64
+!DIR$ ASSUME_ALIGNED local_hist:64, global_hist:64
 c
 c      if( ngp .ne. 8 ) then
         do k = 1, ngp
          do  j = 1, hist_size
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
             do  i = 1, span
                local_hist(i,j,k) = global_hist(j,k,i)
             end do
@@ -980,9 +980,9 @@ c
 #dbl      double precision :: vec(n), zero
 #sgl      real :: vec(n), zero
       data zero / 0.0d00 /
-@!DIR$ ASSUME_ALIGNED vec:64
+!DIR$ ASSUME_ALIGNED vec:64
 c
-@!DIR$ IVDEP
+!DIR$ IVDEP
       vec = zero
 c
       return

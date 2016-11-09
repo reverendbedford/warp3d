@@ -52,7 +52,7 @@ c
       debug = .false.
 c
       if( step .eq. 1 ) then
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
        do i = 1, span
          history(i,1:5) = zero
          history1(i,1:5) = zero
@@ -63,7 +63,7 @@ c             get the effective strain for the total strain. check if
 c             we are still on the linear-reponse below the transition
 c             point. set logical linear vs. nonlinear flag for element.
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          epsm = ( strain(i,1) + strain(i,2) + strain(i,3) ) * third
          e1   = strain(i,1) - epsm
@@ -86,7 +86,7 @@ c
       nonlinear_points = .false.
       nonlin_point     = 0
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          if( nonlinear_flags(i) ) then
             nonlinear_points = .true. 
@@ -105,7 +105,7 @@ c
 c
 c             process points still in linear response region
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( nonlinear_flags(i) ) cycle
         g = half * e(i) / ( one + nu(i) )
@@ -138,7 +138,7 @@ c             effective stress requires a local newtion iteration
 c             done by function mm02es. Function is inlined but loop
 c             not vectorized.
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( linear_flags(i) ) cycle 
         k2(i)  = root2 * ( one-k1 ) / exp(i) + one
@@ -151,7 +151,7 @@ c
         rnc(i)   = root2 * ( k1 - l2*k1 + l2*c2 - k2(i) ) * c1
       end do
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
        if( linear_flags(i) ) cycle
        test = mm02es( sigyld(i), epsyld(i), nu(i), exp(i),
@@ -169,7 +169,7 @@ c             yielding message if that option is on.
 c             get strain energy  density
 c
       if( signal .and. signal_flag ) then 
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
        do i = 1, span
         if( nonlinear_flags(i) .and. history(i,1) .eq. zero ) then 
           write(iout,9300) felem+i-1, gpn, sigeff(i)-sigyld(i)*k1
@@ -185,7 +185,7 @@ c
 c             put effective stress and strain energy into stress
 c             vector for point. update history parameters.
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
        if( linear_flags(i) ) cycle
        history1(i,1) = one
@@ -202,7 +202,7 @@ c             compute plastic work density at gauss pts. and
 c             the current plastic effective strain.
 c         
  1000 continue
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          shear_mod(i) = e(i) * half / (one + nu(i))
          eps_elas(i,1) = (stress_n1(i,1) - nu(i)*(stress_n1(i,2)+
@@ -401,7 +401,7 @@ c
 c             compute stress by volumetric and deviatoric
 c             components.
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( linear_flags(i) ) cycle
         const1 = twothd * sigeff(i) / epseff(i)
@@ -419,7 +419,7 @@ c             compute exact strain energy density. we have a point on
 c             transition part of curve or power-law part of curve.
 c             energy up to k1*sigyld is same for both cases.
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
        if( linear_flags(i) ) cycle
         sigm      = third * ( sig(i,1) + sig(i,2) + sig(i,3) )
@@ -437,7 +437,7 @@ c
         uk1(i) = term1 + term2 + term3
       end do
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
        if( linear_flags(i) ) cycle
        if( sigeff(i)/sigyld(i) .lt. k2(i) ) then
@@ -601,7 +601,7 @@ c
      &           (/hist_size,int_points,span/) )
 c      
       if( do_a_block ) then    
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
         do relem = 1, span
            elnum = felem + relem - 1  ! absolute element number
            one_elem_states(1:nrow_states) = zero 
@@ -652,7 +652,7 @@ c
       sig_eff = zero
       eps_eff = zero
 c       
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do ipt = 1, int_points
         ymod    = history_dump(4,ipt,relem)
         sigyld  = history_dump(5,ipt,relem)
@@ -759,7 +759,7 @@ c              pull out model properties
 c
       nonlinear_points = .false.
       nonlin_point     = 0
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         epsyld(i) = sigyld(i) / e(i)
         k2(i)     = root2 * ( one-k1 ) / exp(i) + one
@@ -767,7 +767,7 @@ c
         sigeff(i) = history(i,2)
         epseff(i) = history(i,3)
       end do
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         nonlinear_flags(i) = .false.
         if( epseff(i) .gt. epslim(i) ) then
@@ -785,7 +785,7 @@ c
      &                   (strain_n1(i,j),j=1,6), (history(i,j),j=1,3)
       end if
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span  ! linear elastic points
        if( nonlinear_flags(i) ) cycle
        cep(i,1,4) = zero
@@ -834,7 +834,7 @@ c
 c
 c             some points are nonlinear
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( .not. nonlinear_flags(i) ) cycle
         theta    = atan( k2(i)**(1.-exp(i))/exp(i) )
@@ -907,7 +907,7 @@ c
 c
 c             compute the tangent modulus matrix
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
        if( .not. nonlinear_flags(i) ) cycle
          ev(i) = third * ( strain(i,1) + strain(i,2) + strain(i,3) )
@@ -920,7 +920,7 @@ c
          sign(i) = sigeff(i) / sigyld(i)
       end do
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
         if( .not. nonlinear_flags(i) ) cycle
         if( sign(i) .le. k2(i) ) then
@@ -944,7 +944,7 @@ c
 c
 c             3-D (row ordering x, y, z, xy, yz, xz)
 c
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
        if( .not. nonlinear_flags(i) ) cycle
        cep(i,1,1) = ( c3(i) + g(i)*e1(i)*e1(i) + c2(i) ) 

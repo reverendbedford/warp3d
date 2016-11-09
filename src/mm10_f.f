@@ -892,7 +892,7 @@ c
       double precision :: zero
       data zero / 0.0d00 /
 c
-@!DIR$ ASSUME_ALIGNED elem_states_output:64,history_blk:64
+!DIR$ ASSUME_ALIGNED elem_states_output:64,history_blk:64
 c
 c           build CP states values output.
 c
@@ -1031,8 +1031,8 @@ c              locals
 c
       integer :: num_states_here, s, e, sh, eh, cry_id, nc
 c
-@!DIR$ ASSUME_ALIGNED one_elem_states:64
-@!DIR$ ASSUME_ALIGNED hisblk:64
+!DIR$ ASSUME_ALIGNED one_elem_states:64
+!DIR$ ASSUME_ALIGNED hisblk:64
 c
 c              locations of data in the history vector for each
 c              integration point obtained for locations array. see
@@ -1154,8 +1154,8 @@ c
 #dbl      double precision :: nyevec(9),  gradvec(27)
 #sgl      real :: nyevec(9),  gradvec(27)
 c
-@!DIR$ ASSUME_ALIGNED one_elem_states:64
-@!DIR$ ASSUME_ALIGNED gradvec:64, nyevec:64, hisblk:64
+!DIR$ ASSUME_ALIGNED one_elem_states:64
+!DIR$ ASSUME_ALIGNED gradvec:64, nyevec:64, hisblk:64
 c
 c              locations of data in the history vector for each
 c              integration point obtained for locations array. see
@@ -1404,7 +1404,7 @@ c               locals
 c
       integer :: s, e, sh, eh, num_states_here, nc, cry_id
 c
-@!DIR$ ASSUME_ALIGNED one_elem_states:64, hisblk:64
+!DIR$ ASSUME_ALIGNED one_elem_states:64, hisblk:64
 c
 c              locations of data in the history vector for each
 c              integration point obtained for locations array. see
@@ -1478,7 +1478,7 @@ c               locals
 c
       integer :: s, e, sh, eh, num_states_here, nc, cry_id
 c
-@!DIR$ ASSUME_ALIGNED one_elem_states:64, hisblk:64
+!DIR$ ASSUME_ALIGNED one_elem_states:64, hisblk:64
 c
 c              locations of data in the history vector for each
 c              integration point obtained for locations array. see
@@ -1566,7 +1566,7 @@ c               locals
 c
       integer :: s, e, sh, eh, num_states_here, nc, cry_id
 c
-@!DIR$ ASSUME_ALIGNED one_elem_states:64, hisblk:64
+!DIR$ ASSUME_ALIGNED one_elem_states:64, hisblk:64
 c
 c              locations of data in the history vector for each
 c              integration point obtained for locations array. see
@@ -1674,8 +1674,8 @@ c
 #dbl      double precision :: nyevec(9),  gradvec(27)
 #sgl      real :: nyevec(9),  gradvec(27)
 c
-@!DIR$ ASSUME_ALIGNED one_elem_states:64
-@!DIR$ ASSUME_ALIGNED gradvec:64, nyevec:64, hisblk:64
+!DIR$ ASSUME_ALIGNED one_elem_states:64
+!DIR$ ASSUME_ALIGNED gradvec:64, nyevec:64, hisblk:64
 c
 c              locations of data in the history vector for each
 c              integration point obtained for locations array. see
@@ -1803,8 +1803,8 @@ c
 #dbl      double precision :: nyevec(9),  gradvec(27)
 #sgl      real :: nyevec(9),  gradvec(27)
 c
-@!DIR$ ASSUME_ALIGNED one_elem_states:64
-@!DIR$ ASSUME_ALIGNED gradvec:64, nyevec:64, hisblk:64
+!DIR$ ASSUME_ALIGNED one_elem_states:64
+!DIR$ ASSUME_ALIGNED gradvec:64, nyevec:64, hisblk:64
 
 c             see mm10_states_labels_type_6 for detailed summary &
 c             labels for states values loaded here into the output
@@ -1912,14 +1912,14 @@ c
       double precision, parameter :: zero = 0.0d00
       integer :: d, z, b, w, kk
 c
-@!DIR$ ASSUME_ALIGNED gradFe:64, nye:64
+!DIR$ ASSUME_ALIGNED gradFe:64, nye:64
 c
       nye = zero
 c
       do d = 1,3
           do z = 1,3
             do b = 1,3
-@!DIR$ IVDEP
+!DIR$ IVDEP
                 do w = 1,3
                   kk = (z-b)*(b-w)*(w-z)/2
                   nye(d,z) = nye(d,z) - dble(kk)*gradFe(d,b,w)
@@ -1959,7 +1959,7 @@ c
 #sgl      real  :: one, dint_pts
 c
       data one / 1.0d00 /
-@!DIR$ ASSUME_ALIGNED states_vec:64, hisblk:64
+!DIR$ ASSUME_ALIGNED states_vec:64, hisblk:64
 c
       len1 = e - s + 1
       len2 = eh - sh + 1
@@ -1970,7 +1970,7 @@ c
 c
       dint_pts = one / dble( int_points )
 c
-@!DIR$ IVDEP
+!DIR$ IVDEP
       do igp = 1, int_points
          states_vec(s:e) = states_vec(s:e) + hisblk(sh:eh,igp)
       end do

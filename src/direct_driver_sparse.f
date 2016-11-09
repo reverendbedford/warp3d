@@ -73,8 +73,8 @@ c
       real*8 start, end
       
       
-@!DIR$ ASSUME_ALIGNED dof_eqn_map:32
-@!DIR$ ASSUME_ALIGNED u_vec:64
+!DIR$ ASSUME_ALIGNED dof_eqn_map:32
+!DIR$ ASSUME_ALIGNED u_vec:64
 c
 c    
       call cpu_time( start ) 

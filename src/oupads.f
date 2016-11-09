@@ -47,7 +47,7 @@ c                       accessed in the processing of the element
 c                       block.
 c
       do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###            
+!DIR$ LOOP COUNT MAX=###            
        do i = 1, span
          snode = belinc(j,i)
          if ( .not. associated(nodal_values(snode)%node_values) ) then
@@ -65,7 +65,7 @@ c
       do k = 1, num_vals
          map = outmap(k)
          do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###            
+!DIR$ LOOP COUNT MAX=###            
           do i = 1, span
             snode = belinc(j,i)
             snode_values => nodal_values(snode)%node_values

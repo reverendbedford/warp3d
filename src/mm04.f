@@ -435,8 +435,8 @@ c             set flags for already killed elements (exhausted
 c             the cohesive traction). zero the unused stress
 c             locations (for cohesive materials)
 c
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
         trac_n1(i,4:6) = zero
         elem_killed(i) = intfprps(i,13) .gt. zero
@@ -458,8 +458,8 @@ c             on symmetry planes. user must set stiffness values at twice
 c             values used in a full (w/o symmetry). see WARP3D
 c             manual for the cohesive material model.
 c
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
         ds1 = reladis(i,1)
         ds2 = reladis(i,2)
@@ -515,8 +515,8 @@ c             trac_n1( ,1:3): cohesive tractions at step n+1
 c             trac_n1( ,7):   total cohesive energy at step n+1
 c             trac_n1( ,8):   unrecoverable cohesive energy at step n+1
 c
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
           trac_n1(i,1) = intfmat(i,1)*reladis(i,1)
           trac_n1(i,2) = intfmat(i,2)*reladis(i,2)
@@ -559,7 +559,7 @@ c     =========
       call mm04_traction_ppr( span, ppr_support, reladis, trac_n1,
      &             history, history1, elem_killed,
      &             local_debug, iout, mxvl )
-@!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=###
       do i = 1, span
         trac_n1(i,7) = trac_n(i,7) +
      &       half * ( (trac_n1(i,1) + trac_n(i,1))*delrlds(i,1) +
@@ -696,8 +696,8 @@ c             normalized state variables stored for convenience
 c             of including those values in output
 c
       if(  step .eq. 1 ) then
-@!DIR$ LOOP COUNT MAX=###      
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###      
+!DIR$ IVDEP      
          do i = 1, span
            history(i,1)     = one  !  N / props%N_I
            history(i,2)     = one  !  a / props%a_0
@@ -743,8 +743,8 @@ c             retain max norm & shear tractions ever reached
 c             and the opening displacement at max normal
 c             traction for output and possible element death operations.
 c                          
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
         trac_n1(i,7) = trac_n(i,7) +
      &       half * ( (trac_n1(i,1) + trac_n(i,1))*delrlds(i,1) +
@@ -858,8 +858,8 @@ c
          call die_abort
       end if 
 c
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
           bcp(i)%degrade_shear         = .true.
           bcp(i)%VVNT                  = .true.
@@ -989,8 +989,8 @@ c             use the GB number for the element to pull
 c             property values from externally supplied values
 c
       ok = .false.
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
         abs_elem = felem + i - 1
         gb_no = element_to_GB_map(abs_elem)
@@ -998,8 +998,8 @@ c
       end do
 c
       ok = .true.      
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
         abs_elem = felem + i - 1
         gb_no = element_to_GB_map(abs_elem)
@@ -2212,8 +2212,8 @@ c             load for all options.
 c
 c             row 1 of intfprps no longer used. just caused confusion
 c
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
            intfprps(i,2)  =  props(7,i)
            intfprps(i,3)  =  props(8,i)
@@ -2246,8 +2246,8 @@ c             type of coehsive material option.
 c             should not get her unless same but check.
 c
       bad = .false.
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
        if( iprops(27,i) .ne. cohes_type ) then
           write(iout,9200) first_elem_in_blk + i - 1
@@ -2265,8 +2265,8 @@ c
 c             set up for ppr formulation.
 c
       if( is_ppr ) then
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
          do i = 1, span
            intfprps(i,23) =  props(35,i)
            intfprps(i,24) =  props(36,i)
@@ -2293,8 +2293,8 @@ c              get global to interface element local rotation
 c              matrix and put in intfprops for mm04 to use
 c              if needed
 c
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
            intfprps(i,51) = global_to_element_rot(i,1,1)
            intfprps(i,52) = global_to_element_rot(i,2,1)
@@ -2417,7 +2417,7 @@ c         see also file cnst4.f
 c
       local_debug = .false.
 c
-@!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=###
       do i = 1, span
         if( elem_killed(i) ) cycle
         d_eff_at_peak   = intfprps(i,11)
@@ -2489,7 +2489,7 @@ c
 c
 c                update history
 c
-@!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=###
        do k = 1, span
          if( elem_killed(k) ) cycle
          history1(k,1) = effdis(k)
@@ -4235,7 +4235,7 @@ c                                    mixed mode loading
 c
 c               (1,1) = (2,2) sets isotropic shear-sliding stiff. * cep
 c
-@!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=###
       do i = 1, span
         cep(i,1,1) = e * intfprps(i,5)/intfprps(i,11)  *
      &                   intfprps(i,12)**2
@@ -4349,7 +4349,7 @@ c            the shear-sliding response is set to be isotropic
 c            (1,1) = (2,2). cep zeroed by caller. note that the linear
 c            [D] is diagonal.
 c
-@!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=###
       do i = 1, span
         alph  = ppr_support(i,6)
         beta  = ppr_support(i,7)
@@ -4425,8 +4425,8 @@ c
       call mm04_cavit_set_props( intfprps, mxvl, span, felem, gpn,
      &                           bcp, iout, debug_set_props )
 c  
-@!DIR$ LOOP COUNT MAX=###
-@!DIR$ IVDEP      
+!DIR$ LOOP COUNT MAX=###
+!DIR$ IVDEP      
       do i = 1, span
          f_0 = (bcp(i)%a_0 / bcp(i)%b_0)**2
          q   = log(one/f_0) - half * (three-f_0) * (one-f_0)
@@ -4440,7 +4440,7 @@ c
 c      
       if( .not. here_debug ) return
 c
-@!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=###
       do i = 1, span
          abs_elem = felem + i - 1
          f_0 = (bcp(i)%a_0 / bcp(i)%b_0)**2

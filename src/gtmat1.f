@@ -40,7 +40,7 @@ c
 c
       data zero, one / 0.0d00, 1.0d00 /
 c
-@!DIR$ ASSUME_ALIGNED qnhalf:64, qn1:64        
+!DIR$ ASSUME_ALIGNED qnhalf:64, qn1:64        
 c
       span  = local_work%span
       felem = local_work%felem
@@ -192,13 +192,13 @@ c
      &  zero, one
 c
         data zero, one / 0.0d00, 1.0d00 /
-@!DIR$ ASSUME_ALIGNED fn:64, dfn:64
+!DIR$ ASSUME_ALIGNED fn:64, dfn:64
 c
 c                       set [F @ 0] to identity. set determinant
 c                       to 1.0 (no deformation). routine will
 c                       be inlined.
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
         fn(i,1,1) = one
         fn(i,2,2) = one
@@ -242,15 +242,15 @@ c
 #sgl      real
      &   factor, third, j_bar
       data third / 0.3333333333333333333333d00 /
-@!DIR$ ASSUME_ALIGNED deformed_elem_vols:64, undeformed_elem_vols:64
-@!DIR$ ASSUME_ALIGNED f:64, det_f:64
+!DIR$ ASSUME_ALIGNED deformed_elem_vols:64, undeformed_elem_vols:64
+!DIR$ ASSUME_ALIGNED f:64, det_f:64
 c
 c                      bar [F] = [F] * (bar J/J)**0.333 where
 c                      J = det [F], bar J is volume of deformed
 c                      element / volume of element at n = 0
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
         j_bar = deformed_elem_vols(i) / undeformed_elem_vols(i)
         factor = (j_bar/ det_f(i) ) ** third
@@ -312,9 +312,9 @@ c
      &           ldum1, ldum2, ldum3, ldum4, ldum5, ldum6
       data zero, zero_check, one, half, local_debug
      &    / 0.0d0,    1.0d-20, 1.0d0,  0.5d0, .false. /
-@!DIR$ ASSUME_ALIGNED jac:64, dj:64, gama:64, nxi:64,neta:64
-@!DIR$ ASSUME_ALIGNED nzeta:64, ce:64, j1:64, j2:64, j3:64, lambda:64
-@!DIR$ ASSUME_ALIGNED ce_rotated:64
+!DIR$ ASSUME_ALIGNED jac:64, dj:64, gama:64, nxi:64,neta:64
+!DIR$ ASSUME_ALIGNED nzeta:64, ce:64, j1:64, j2:64, j3:64, lambda:64
+!DIR$ ASSUME_ALIGNED ce_rotated:64
 c
 c           set flag for 2-D, 3-D, cohesive element.
 c
@@ -347,8 +347,8 @@ c         location to augment the upper left 2x2 part of
 c         the Jacobian matrix to one.
 c
         do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
            do i = 1, span
              jac(i,1,1) = jac(i,1,1) + nxi(j)*ce_rotated(i,j)
              jac(i,1,2) = jac(i,1,2) + nxi(j)*ce_rotated(i,nnode+j)
@@ -369,8 +369,8 @@ c         location to augment the upper left 2x2 part of
 c         the Jacobian matrix to one.
 c
         do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
            do i = 1, span
              jac(i,1,1) = jac(i,1,1) + nxi(j)*ce(i,j)
              jac(i,1,2) = jac(i,1,2) + nxi(j)*ce(i,nnode+j)
@@ -385,8 +385,8 @@ c           for 3-D elements compute the Jacobian matrix
 c
       if( threed_elem ) then
         do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
            do i = 1, span
              jac(i,1,1)= jac(i,1,1)+nxi(j)*ce(i,j)
              jac(i,1,2)= jac(i,1,2)+nxi(j)*ce(i,nnode+j)
@@ -403,8 +403,8 @@ c
 c
 c           calculate the determinate of the jacobian matrix
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
           j1(i)= jac(i,2,2)*jac(i,3,3)-jac(i,2,3)*jac(i,3,2)
           j2(i)= jac(i,2,1)*jac(i,3,3)-jac(i,2,3)*jac(i,3,1)
@@ -423,8 +423,8 @@ c
 c
 c           check to insure a positive determinate.
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
        if( dj(i) .le. zero_check ) then
          write(*,9169) gpn,felem+i-1, dj(i)
@@ -433,8 +433,8 @@ c
 c
 c           calculate the inverse of the jacobian matrix
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
          gama(i,1,1)=  j1(i)/dj(i)
          gama(i,2,1)= -j2(i)/dj(i)
@@ -509,8 +509,8 @@ c
 #sgl      real
      &     thtemp(mxvl,mxndel,ndim), zero
       data zero / 0.0d00 /
-@!DIR$ ASSUME_ALIGNED theta:64, nxi:64, neta:64, nzeta:64, gama:64
-@!DIR$ ASSUME_ALIGNED ue:64, thtemp:64
+!DIR$ ASSUME_ALIGNED theta:64, nxi:64, neta:64, nzeta:64, gama:64
+!DIR$ ASSUME_ALIGNED ue:64, thtemp:64
 c
 c           initialize theta
 c
@@ -519,8 +519,8 @@ c
 c           calculate and assign the terms of theta
 c
       do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       
          do i = 1, span
             thtemp(i,j,1)= gama(i,1,1)*nxi(j)+gama(i,1,2)*neta(j)+
@@ -537,8 +537,8 @@ c
       tpos2= 2*nnode
 c
       do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
          do i = 1, span
 c
             theta(i,1)= theta(i,1)+thtemp(i,j,1)*ue(i,j)
@@ -591,13 +591,13 @@ c
      &   f1(mxvl), f2(mxvl), f3(mxvl), zero_check, one
 c
       data zero_check, one /1.0d-20, 1.0d00/
-@!DIR$ ASSUME_ALIGNED f:64, theta:64, df:64, f1:64, f2:64, f3:64
+!DIR$ ASSUME_ALIGNED f:64, theta:64, df:64, f1:64, f2:64, f3:64
 c
 c                       compute the deformation gradient matrix
 c                       and its determinate.
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
          f(i,1,1)= theta(i,1)+one
          f(i,1,2)= theta(i,4)
@@ -610,16 +610,16 @@ c
          f(i,3,3)= theta(i,9)+one
       end do
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
          f1(i)= f(i,2,2)*f(i,3,3)-f(i,2,3)*f(i,3,2)
          f2(i)= f(i,2,1)*f(i,3,3)-f(i,2,3)*f(i,3,1)
          f3(i)= f(i,2,1)*f(i,3,2)-f(i,2,2)*f(i,3,1)
       end do
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
          df(i)= f(i,1,1)*f1(i)-f(i,1,2)*f2(i)+f(i,1,3)*f3(i)
       end do
@@ -627,8 +627,8 @@ c
 c                       check to insure a positive determinate.
 c
       error = 0
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
          if( df(i) .le. zero_check ) then
             write(*,9170) gpn, felem+i-1, df(i)
@@ -666,7 +666,7 @@ $add param_def
 #dbl      double precision
 #sgl      real
      &     f(mxvl,ndim,*),r(mxvl,ndim,*),ui(mxvl,nstr)
-@!DIR$ ASSUME_ALIGNED r:64, f:64,ui:64
+!DIR$ ASSUME_ALIGNED r:64, f:64,ui:64
 c
 c                       compute the inverse of the right
 c                       stretch tensor.
@@ -675,8 +675,8 @@ c
 c
 c                       compute the rotation tensor.
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i= 1,span
          r(i,1,1)= f(i,1,1)*ui(i,1)+f(i,1,2)*ui(i,2)+f(i,1,3)*ui(i,4)
          r(i,1,2)= f(i,1,1)*ui(i,2)+f(i,1,2)*ui(i,3)+f(i,1,3)*ui(i,5)
@@ -726,7 +726,7 @@ c
 #sgl      real
      & two, rbar(mxvl,3,3)
       data two / 2.0d00 /
-@!DIR$ ASSUME_ALIGNED q:64, r:64, rbar:64
+!DIR$ ASSUME_ALIGNED q:64, r:64, rbar:64
 c
 c           compute q. branch on quantity & direction of rotation.
 c
@@ -742,8 +742,8 @@ c       vector forms for {d} and {D} use engineering shear strains.
 c       vector ordering is {x,y,z,xy,yz,xz}
 c
 
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
          do i = 1, span
             q(i,1,1)= r(i,1,1)**2
             q(i,1,2)= r(i,2,1)**2
@@ -797,8 +797,8 @@ c       vector ordering is {x,y,z,xy,yz,xz}. this [q] matrix
 c       is the transpose of the one above.
 c
 
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
          do i = 1, span
             q(i,1,1)= r(i,1,1)**2
             q(i,1,2)= r(i,1,2)**2
@@ -856,8 +856,8 @@ c       vector ordering is {x,y,z,xy,yz,xz}. this [q] matrix
 c       is the transpose of the one above.
 c
 
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
          do i = 1, span
           rbar(i,1,1) = r(i,1,1)
           rbar(i,1,2) = r(i,2,1)
@@ -871,8 +871,8 @@ c
          end do
 c
 
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
          do i = 1, span
            q(i,1,1)= rbar(i,1,1)**2
            q(i,1,2)= rbar(i,1,2)**2
@@ -956,8 +956,8 @@ c
      &   c2(mxvl),d2(mxvl), one, two
 c
       data one, two / 1.0d00, 2.0d00 /
-@!DIR$ ASSUME_ALIGNED f:64, ui:64, c:64, cc:64, iu:64, iiu:64, iiiu:64
-@!DIR$ ASSUME_ALIGNED a2:64, b2:64, c2:64, d2:64
+!DIR$ ASSUME_ALIGNED f:64, ui:64, c:64, cc:64, iu:64, iiu:64, iiiu:64
+!DIR$ ASSUME_ALIGNED a2:64, b2:64, c2:64, d2:64
 c
 c                       ui is in symmetric upper triangular form.
 c
@@ -969,8 +969,8 @@ c
 c
 c                       compute multipliers.
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
          a2(i)= one/(iiiu(i)*(iu(i)*iiu(i)-iiiu(i)))
          b2(i)= iu(i)*iiu(i)*iiu(i)-iiiu(i)*(iu(i)*iu(i)+iiu(i))
@@ -981,8 +981,8 @@ c
 c                       compute the inverse of the right
 c                       stretch tensor.
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
          ui(i,1)= a2(i) * ( b2(i) + c2(i)*c(i,1) + d2(i)*cc(i,1) )
          ui(i,2)= a2(i) * (         c2(i)*c(i,2) + d2(i)*cc(i,2) )
@@ -1027,14 +1027,14 @@ c
       logical, parameter :: new = .true.
 #dbl      double precision :: ct(mxvl,nstr), ev(mxvl,ndim)
 #sgl      real :: ct(mxvl,nstr), ev(mxvl,ndim)
-@!DIR$ ASSUME_ALIGNED f:64, c:64, cc:64, iu:64, iiu:64, iiiu:64
-@!DIR$ ASSUME_ALIGNED ct:64, ev:64
+!DIR$ ASSUME_ALIGNED f:64, c:64, cc:64, iu:64, iiu:64, iiiu:64
+!DIR$ ASSUME_ALIGNED ct:64, ev:64
 c
 c              c and cc are in symmetric upper triangular form.
 c              compute the metric tensor.
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
        c(i,1)= f(i,1,1)*f(i,1,1)+f(i,2,1)*f(i,2,1)+f(i,3,1)*f(i,3,1)
        c(i,2)= f(i,1,1)*f(i,1,2)+f(i,2,1)*f(i,2,2)+f(i,3,1)*f(i,3,2)
@@ -1046,8 +1046,8 @@ c
 c
 c              compute the square of the metric tensor
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
        cc(i,1)= c(i,1)*c(i,1)+c(i,2)*c(i,2)+c(i,4)*c(i,4)
        cc(i,2)= c(i,1)*c(i,2)+c(i,2)*c(i,3)+c(i,4)*c(i,5)
@@ -1070,8 +1070,8 @@ c
 c              copy the metric tensor to stress vector
 c              form then get principal values.
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
           do i = 1, span
              ct(i,1)= c(i,1)
              ct(i,2)= c(i,3)
@@ -1085,8 +1085,8 @@ c
 c
 c              set the principal values.
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
          ev(i,1)= sqrt(ev(i,1))
          ev(i,2)= sqrt(ev(i,2))
@@ -1095,8 +1095,8 @@ c
 c
 c              invariants of right stretch tensor.
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
        iu(i)  = ev(i,1)+ev(i,2)+ev(i,3)
        iiu(i) = ev(i,1)*ev(i,2)+ev(i,2)*ev(i,3)+ev(i,1)*ev(i,3)
@@ -1142,7 +1142,7 @@ c
       data quarter, sixpt75, oneroot3
      &     / 0.25d0, 6.75d0, 0.5773502691896258d0 /
 c      
-@!DIR$ ASSUME_ALIGNED c:64, lamda:64
+!DIR$ ASSUME_ALIGNED c:64, lamda:64
 c
 c              calculates the eigenvalues of a symmetric 3x3 matrix 
 c              using Cardano's analytical algorithm.
@@ -1246,17 +1246,17 @@ c
       data maxswp/15/,zero, one, two, jactol, four, ten, ten_thouth
      &   / 0.0d00, 1.0d00, 2.0d00, 1.0d-08,
      &     4.0d00, 10.0d00, 0.0001d00 /
-@!DIR$ ASSUME_ALIGNED k:64, lamda:64, m:64, kbari:64, kbarj:64
-@!DIR$ ASSUME_ALIGNED kbar:64, ki:64, kj:64, mi:64, mj:64, scale:64
-@!DIR$ ASSUME_ALIGNED alpha:64, gamma:64, x:64, xsign:64, rad:64
-@!DIR$ ASSUME_ALIGNED errork:64, swap:64, ratiok:64
+!DIR$ ASSUME_ALIGNED k:64, lamda:64, m:64, kbari:64, kbarj:64
+!DIR$ ASSUME_ALIGNED kbar:64, ki:64, kj:64, mi:64, mj:64, scale:64
+!DIR$ ASSUME_ALIGNED alpha:64, gamma:64, x:64, xsign:64, rad:64
+!DIR$ ASSUME_ALIGNED errork:64, swap:64, ratiok:64
 c
 c              initialize lamda, m, sweep parameters.
 c
       swpnum = 0
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do bel = 1, span
 c
          m(bel,1)= one
@@ -1321,8 +1321,8 @@ c           *                                     *
 c           ***************************************
 c
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
 c 
       do bel = 1, span
 c
@@ -1386,8 +1386,8 @@ c           *           row 3 and column 1.       *
 c           *                                     *
 c           ***************************************
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do bel = 1, span
 c
 c                       check if term is within threshold
@@ -1449,8 +1449,8 @@ c           *           row 3 and column 2.       *
 c           *                                     *
 c           ***************************************
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do bel = 1, span
 c
 c                       check if term is within threshold
@@ -1541,8 +1541,8 @@ c
 c
 c              update eigenvalue vector 
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do bel = 1, span
          lamda(bel,1) = k(bel,1) / m(bel,1)
          lamda(bel,2) = k(bel,2) / m(bel,2)
@@ -1551,8 +1551,8 @@ c
 c
 c             reorder the eigenvalues. small to big
 c
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
 c
       do bel = 1, span
 c

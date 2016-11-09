@@ -279,7 +279,7 @@ c
       character*1  dums
       dimension  k_ptrs(*), abs_trm(*)
       intrinsic size
-@!DIR$ ASSUME_ALIGNED k_ptrs:32, abs_trm:32      
+!DIR$ ASSUME_ALIGNED k_ptrs:32, abs_trm:32      
       
 c
 c        allocate local variables
@@ -564,7 +564,7 @@ c
 c
       implicit integer (a-z)
       dimension  ra(*)
-@!DIR$ ASSUME_ALIGNED ra:32    
+!DIR$ ASSUME_ALIGNED ra:32    
 c
       if (n .lt. 2) then
          return
@@ -906,8 +906,8 @@ c
      &           ptr, ntrms,trm, ind, dia_idx, ind_idx, ind_ptr,
      &           dumi, cnt       
       
-@!DIR$ ASSUME_ALIGNED k_diag:64
-@!DIR$ ASSUME_ALIGNED k_ptrs:32, abs_ptr:32      
+!DIR$ ASSUME_ALIGNED k_diag:64
+!DIR$ ASSUME_ALIGNED k_ptrs:32, abs_ptr:32      
 c
 c
 c        allocate temp storage space
@@ -1192,7 +1192,7 @@ c
      &         dep_trm, k_diag, p_vec
       character*1  dums
       dimension  k_diag(*), p_vec(*)
-@!DIR$ ASSUME_ALIGNED k_diag:64, p_vec:64     
+!DIR$ ASSUME_ALIGNED k_diag:64, p_vec:64     
       
 c
 c        intialize counters, use the terms in the dep_locations to
@@ -1431,7 +1431,7 @@ c
       character*1  dums
       logical new_size
       dimension  k_ptrs(*)
-@!DIR$ ASSUME_ALIGNED k_ptrs:32      
+!DIR$ ASSUME_ALIGNED k_ptrs:32      
 c
 c        allocate temp storage space
 c
@@ -1525,8 +1525,8 @@ c
       character*1  dums
       dimension  x(*), cstmap(*)
       data zero / 0.0d00 /
-@!DIR$ ASSUME_ALIGNED x:64
-@!DIR$ ASSUME_ALIGNED cstmap:32      
+!DIR$ ASSUME_ALIGNED x:64
+!DIR$ ASSUME_ALIGNED cstmap:32      
 
 c
       allocate( lagmlt(neqns), stat=err)

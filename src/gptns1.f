@@ -42,7 +42,7 @@ c
      &        temps_to_process, iscp, symmetric_assembly
       data one  / 1.0d00 /
 c      
-@!DIR$ ASSUME_ALIGNED glb_ek_blk:64, rad:64,factors:64      
+!DIR$ ASSUME_ALIGNED glb_ek_blk:64, rad:64,factors:64      
 c
 c                       set local versions of the data structure
 c                       scalars. set logical to include/not include the
@@ -461,7 +461,7 @@ c
 #sgl      real :: weight, symm_part_cep(6), f
       logical :: ldebug
       integer :: span, felem, now_blk, ielem, k, i
-@!DIR$ ASSUME_ALIGNED symm_part_cep:64
+!DIR$ ASSUME_ALIGNED symm_part_cep:64
 c    
       ldebug  = .false.
       span    = local_work%span
@@ -476,8 +476,8 @@ c
 c              expand to 3x3 symmetric [D] scaled by gpn
 c              weight factor
 c
-@!DIR$ LOOP COUNT MAX=### 
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=### 
+!DIR$ IVDEP
       do ielem = 1, span
        f = weight * local_work%det_jac_block(ielem,gpn)
        k = ( 6 * span * (gpn-1) ) + 6 * (ielem-1)
@@ -670,7 +670,7 @@ c
 #dbl      double precision :: weight, symm_part_cep(21), f
 #sgl      real :: weight, symm_part_cep(21), f
       integer :: span, now_blk, ielem, sloc, k, felem
-@!DIR$ ASSUME_ALIGNED symm_part_cep:64
+!DIR$ ASSUME_ALIGNED symm_part_cep:64
 c      
       span    = local_work%span
       weight  = local_work%weights(gpn)
@@ -684,8 +684,8 @@ c
 c              expand to 6 x 6 symmetric [D] and scale by
 c              integration weight factor
 c
-@!DIR$ LOOP COUNT MAX=### 
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=### 
+!DIR$ IVDEP
       do ielem = 1, span
         sloc = ( 21 * span * (gpn-1) ) + 21 * (ielem-1)
         f = weight * local_work%det_jac_block(ielem,gpn)
@@ -758,7 +758,7 @@ c
 #sgl      real
      & weight, symm_part_cep(21), factor
       logical local_debug, debug_now
-@!DIR$ ASSUME_ALIGNED symm_part_cep:64
+!DIR$ ASSUME_ALIGNED symm_part_cep:64
 c
 c           1. pull a few values from work space for block
 c
@@ -786,7 +786,7 @@ c                      global cep block is 21 x span x num integration
 c                      points
 c
         start_loc = ( 21 * span * (gpn-1) ) + 21 * (ielem-1)
-@!DIR$ IVDEP
+!DIR$ IVDEP
         do k = 1, 21
           symm_part_cep(k) = gbl_cep_blocks(now_blk)%vector(start_loc+k)
         end do
@@ -797,7 +797,7 @@ c
         factor = weight * local_work%det_jac_block(ielem,gpn)
         k = 1
         do i = 1, 6
-@!DIR$ IVDEP      
+!DIR$ IVDEP      
          do j = 1, i
            local_work%cep(ielem,i,j) = symm_part_cep(k) * factor
            local_work%cep(ielem,j,i) = symm_part_cep(k) * factor
@@ -876,7 +876,7 @@ c
 c                     the consistent [D] for each integration point is
 c                     stored in the 1st 36 positions of history
 c 
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          f = weight * local_work%det_jac_block(i,gpn)
          cep_vec(1:36) = local_work%elem_hist1(i,sh:eh,gpn)
@@ -888,7 +888,7 @@ c                     [D] linear
 c
       if( local_debug ) then
       tol = 0.01d00
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
       do i = 1, span
          cep_vec(1:36) = local_work%elem_hist1(i,sh:eh,gpn)
          do j = 1, 6
@@ -1000,14 +1000,14 @@ c
 c                       locals
 c
       integer :: i, j, k, row, col
-@!DIR$ ASSUME_ALIGNED b:64, bt:64, bd:64, d:64, ek_full:64
+!DIR$ ASSUME_ALIGNED b:64, bt:64, bd:64, d:64, ek_full:64
 c
 c              set trans( [B] )
 c
       do j = 1, totdof
       	do k = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
         do i = 1, span
           bt(i,k,j)= b(i,j,k)
        end do
@@ -1021,8 +1021,8 @@ c              i: 4->6 and j: 4->6 should be zeroed by
 c              cnst.. routine.
 c
       do j = 1, totdof
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP 
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP 
        do i = 1, span
            bd(i,j,1) = d(i,1,1) * b(i,j,1)
      &               + d(i,2,1) * b(i,j,2)
@@ -1081,8 +1081,8 @@ c
       do col = 1, totdof
        do row = 1, totdof
        	j = j + 1  
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
         do i = 1, span
          ek_full(i,j) = ek_full(i,j)
      &         +   bt(i,1,col) * bd(i,row,1) 
@@ -1131,13 +1131,13 @@ c
 c                       locals
 c
       integer :: i, j, k, row, col
-@!DIR$ ASSUME_ALIGNED b:64, bt:64, bd:64, d:64, ek_symm:64  
+!DIR$ ASSUME_ALIGNED b:64, bt:64, bd:64, d:64, ek_symm:64  
 c
 c              set trans( [B] )
 c
       do j = 1, totdof
       	do k = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=###  
           bt(1:span,k,j) = b(1:span,j,k)
        end do
       end do
@@ -1149,8 +1149,8 @@ c              i: 4->6 and j: 4->6 should be zeroed by
 c              cnst.. routine.
 c
       do j = 1, totdof
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
        do i = 1, span
            bd(i,j,1) = d(i,1,1) * b(i,j,1)
      &               + d(i,2,1) * b(i,j,2)
@@ -1204,8 +1204,8 @@ c
       do j = 1, utsz
         row = icp(j,1)
         col = icp(j,2)
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
         do i = 1, span
          ek_symm(i,j) = ek_symm(i,j)
      &         +   bt(i,1,col) * bd(i,row,1)
@@ -1246,7 +1246,7 @@ $add param_def
       logical :: qbar, is_umat, is_crys_pls
       data half, two / 0.5d00, 2.0d00 /
 c      
-@!DIR$ ASSUME_ALIGNED tc:64, qn1:64, cep:64, cs:64, dj:64
+!DIR$ ASSUME_ALIGNED tc:64, qn1:64, cep:64, cs:64, dj:64
 c
 c             [cep] (mxvl x 6 x 6) relates increments
 c             of unrotated cauchy stress to increments
@@ -1278,8 +1278,8 @@ c             use 6 as number of stress components to expose
 c             value to compiler
 c
       do j = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
          do i = 1, span
 c
             tc(i,j,1)= (qn1(i,j,1)*cep(i,1,1)+
@@ -1331,8 +1331,8 @@ c                       perform multiplication of
 c                       [cep*] =  [tc] * transpose([qn1])
 c
       do j = 1, 6
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
          do i = 1, span
 c
             cep(i,j,1)= tc(i,j,1)*qn1(i,1,1)+
@@ -1396,8 +1396,8 @@ c            [cep] is essential for convergence of nearly homogeneous
 c            deformation problems.
 c
       if( qbar ) then
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
         do i = 1, span
          wf    = dj(i) * w
          halfw = half * wf

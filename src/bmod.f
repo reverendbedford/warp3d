@@ -25,7 +25,7 @@ c
      &   dummy_1, dummy_2, dummy_3, dummy_4,
      &   dummy_5, dummy_6, dummy_7, dummy_8
       data two, third, one / 2.0d0, 0.3333333333333d0, 1.0d0 /
-@!DIR$ ASSUME_ALIGNED b:64, vol:64  
+!DIR$ ASSUME_ALIGNED b:64, vol:64  
       
 c
 c        
@@ -46,8 +46,8 @@ c
         alpha = (two + eps_stab)*third
         beta  = (one - eps_stab)*third
 c
-@!DIR$ LOOP COUNT MAX=### 
-@!DIR$ IVDEP 
+!DIR$ LOOP COUNT MAX=### 
+!DIR$ IVDEP 
         do i = 1, span  
 c
 c                  save value for use in later calculations

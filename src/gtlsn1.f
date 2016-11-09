@@ -40,8 +40,8 @@ c
 c
 c                      locals
 c
-@!DIR$ ASSUME_ALIGNED due:64, deps:64, gama:64, nxi:64, neta:64
-@!DIR$ ASSUME_ALIGNED nzeta:64, vol_block:64, b:64  
+!DIR$ ASSUME_ALIGNED due:64, deps:64, gama:64, nxi:64, neta:64
+!DIR$ ASSUME_ALIGNED nzeta:64, vol_block:64, b:64  
 c      
 c                       compute linear strain-displacement
 c                       [B] matrix for this material (gauss) point at
@@ -63,8 +63,8 @@ c
       bpos2 = 2*nnode 
 c     
       do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
          do i = 1,span
            deps(i,1) = deps(i,1) +  b(i,j,1) * due(i,j) +
      &                              b(i,bpos1+j,1) * due(i,bpos1+j) +
@@ -126,8 +126,8 @@ c
 #sgl      real, parameter :: zero = 0.0
       logical :: local_debug
       data local_debug / .false. /
-@!DIR$ ASSUME_ALIGNED due:64, dgstrn:64, dgstrs:64, rot:64
-@!DIR$ ASSUME_ALIGNED shape:64, b:64  
+!DIR$ ASSUME_ALIGNED due:64, dgstrn:64, dgstrs:64, rot:64
+!DIR$ ASSUME_ALIGNED shape:64, b:64  
 c      
 c         compute linear relative displacement jump
 c         [b] matrix for this gauss point at all elements in 
@@ -141,8 +141,8 @@ c
       bpos2 = 2*nnode
 c     
       do j = 1, nnode
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
          do i = 1, span
            dgstrn(i,1)= dgstrn(i,1)+b(i,j,1) * due(i,j) +
      &                              b(i,bpos1+j,1) * due(i,bpos1+j) +
@@ -160,8 +160,8 @@ c                       update the accumulated displacement jumps.
 c                       dgstrs is total "strain" at end of step.
 c                       dgstrn is total "strain" increment over step.
 c       
-@!DIR$ LOOP COUNT MAX=###  
-@!DIR$ IVDEP
+!DIR$ LOOP COUNT MAX=###  
+!DIR$ IVDEP
       do i = 1, span
          dgstrs(i,1) = dgstrs(i,1) + dgstrn(i,1)
          dgstrs(i,2) = dgstrs(i,2) + dgstrn(i,2)
