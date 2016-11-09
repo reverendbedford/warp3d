@@ -1,3 +1,4 @@
+#include "defines.h"
 c ****************************************************************
 c *                                                              *
 c *      equivalent nodal loads -- constant body force           *

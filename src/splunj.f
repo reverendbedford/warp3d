@@ -1,3 +1,4 @@
+#include "defines.h"
       subroutine splunj
       implicit integer (a-z)
 c

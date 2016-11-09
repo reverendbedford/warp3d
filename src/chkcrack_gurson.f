@@ -1,3 +1,4 @@
+#include "defines.h"
 c ********************************************************************
 c *                                                                  *
 c *  routines to support crack growth by gurson criterion            *

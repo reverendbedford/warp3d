@@ -1,3 +1,4 @@
+#include "defines.h"
 c *******************************************************************
 c *                                                                 *
 c *   support routine: compute tangent to crack front               *

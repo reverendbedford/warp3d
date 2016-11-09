@@ -1,3 +1,4 @@
+#include "defines.h"
 c *******************************************************************
 c *                                                                 *
 c *        material model # 7 -- warp3d hydrogen model              *

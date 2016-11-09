@@ -1,3 +1,4 @@
+#include "defines.h"
 c
 c            mm10_output  moved to mm10_a.f to allow expanded use
 c            of inlining.

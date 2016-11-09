@@ -1,3 +1,4 @@
+#include "defines.h"
 c *******************************************************************
 c *                                                                 *
 c *      element output service routine -- ou3dpr                   *

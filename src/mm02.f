@@ -1,3 +1,4 @@
+#include "defines.h"
 c *******************************************************************
 c *                                                                 *
 c *        material model # 2 --  deformation plasticity for power- *

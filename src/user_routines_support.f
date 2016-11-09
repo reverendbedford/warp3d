@@ -1,3 +1,4 @@
+#include "defines.h"
 c
 c           user_routines_support.f   Distribution version
 c

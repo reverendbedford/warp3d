@@ -1,3 +1,4 @@
+#include "defines.h"
 c ************************************************************************
 c *                                                                      *
 c *    routine  mm03p -- vectorized pre-processor for block of mises or  *

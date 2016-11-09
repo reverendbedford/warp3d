@@ -1,3 +1,4 @@
+#include "defines.h"
 c *******************************************************************
 c *                                                                 *
 c *        material model # 5 -- cyclic plasticity model            * 

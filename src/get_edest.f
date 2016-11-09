@@ -1,3 +1,4 @@
+#include "defines.h"
 c     ****************************************************************
 c     *                                                              *
 c     *           extract indexes into the global                    *

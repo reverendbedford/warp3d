@@ -1,3 +1,4 @@
+#include "defines.h"
 c
 c     Various annoying functions which the Intel compiler breaks with
 c     optimizations on.

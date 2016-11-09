@@ -1,3 +1,4 @@
+#include "defines.h"
 c ***************************************************************
 c *                                                             *
 c * domain_compute - drive execution of element routine to      *

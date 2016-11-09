@@ -1,3 +1,4 @@
+#include "defines.h"
 c *******************************************************************
 c *                                                                 *
 c *    subroutine di1dsf ---- calculates shape function values and  *

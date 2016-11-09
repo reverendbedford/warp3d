@@ -1,3 +1,4 @@
+#include "defines.h"
 c     ****************************************************************
 c     *                                                              *
 c     *                      subroutine equiv_strain                 *

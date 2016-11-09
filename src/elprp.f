@@ -1,3 +1,4 @@
+#include "defines.h"
 c
 c     Catalogue of Element Numbers (types) in WARP3D
 c     ----------------------------------------------

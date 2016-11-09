@@ -1,3 +1,4 @@
+#include "defines.h"
 c ****************************************************************
 c *                                                              *
 c *        domain integral for 3-d isoparametric elements        *

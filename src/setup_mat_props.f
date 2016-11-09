@@ -1,3 +1,4 @@
+#include "defines.h"
 c     ****************************************************************
 c     *                                                              *
 c     *                 subroutine set_up_seg_type                   *

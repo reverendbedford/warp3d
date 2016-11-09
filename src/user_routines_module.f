@@ -1,3 +1,4 @@
+#include "defines.h"
 c     ****************************************************************
 c     *                                                              *
 c     *  f-90 module user_nodal_load_data -- distribution version    *

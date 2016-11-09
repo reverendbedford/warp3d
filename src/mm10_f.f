@@ -1,3 +1,4 @@
+#include "defines.h"
 c
 c             routines to support various states output options
 

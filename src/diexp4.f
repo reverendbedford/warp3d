@@ -1,3 +1,4 @@
+#include "defines.h"
 c ***************************************************************
 c *                                                             *
 c * domain expand 4 - expand type 4 automatic domain            *

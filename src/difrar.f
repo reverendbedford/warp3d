@@ -1,3 +1,4 @@
+#include "defines.h"
 c *******************************************************************
 c *                                                                 *
 c *    subroutine domain_frnt_area --- calculates the area under    *

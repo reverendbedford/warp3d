@@ -1,3 +1,4 @@
+#include "defines.h"
 c ***************************************************************
 c *                                                             *
 c * set_up_domain  -- set up the domain for processing          *

@@ -1,3 +1,4 @@
+#include "defines.h"
 c ************************************************************************
 c *                                                                      *
 c *   WARP3D source file builder - Mac OS X                              *
