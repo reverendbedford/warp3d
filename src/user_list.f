@@ -192,7 +192,6 @@ c
       implicit integer(a-z)
       logical debug, display_coords
       double precision ::
-#dgl      real ::
      & coords(*)       
 c      
       integer line(9)

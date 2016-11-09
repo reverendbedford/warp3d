@@ -2223,3 +2223,5 @@ c
      &       eqn_coeffs, k_pointers,k_indices)
 
       end
+
+#endif
