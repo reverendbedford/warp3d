@@ -246,7 +246,7 @@ c
       select case ( nrow_ek ) ! careful. type could be integer constant
 c
       case( 300 )
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
         do j = 1, span
 !DIR$ IVDEP
         	do i = 1, 300
@@ -255,7 +255,7 @@ c
         end do
 c
       case( 465 )
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
         do j = 1, span
 !DIR$ IVDEP
         	do i = 1, 465
@@ -264,7 +264,7 @@ c
         end do
 c
       case( 666 )
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
         do j = 1, span
 !DIR$ IVDEP
         	do i = 1, 666
@@ -273,7 +273,7 @@ c
         end do
 c
       case( 1830 )
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
         do j = 1, span
 !DIR$ IVDEP
         	do i = 1, 1830
@@ -282,7 +282,7 @@ c
         end do
 c
       case default
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
         do j = 1, span
 !DIR$ IVDEP
         	do i = 1, nrow_ek
@@ -296,7 +296,7 @@ c
 c                  time 5.16 secs
 c      
 c      do i = 1, 1830
-c@!DIR$ LOOP COUNT MAX=###
+c@!DIR$ LOOP COUNT MAX=MAX_SPAN
 c      	do j = 1, span
 c      		ek(i,j) = local_ek(j,i)
 c      	end do

@@ -1668,7 +1668,7 @@ c
         return
        end if
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
        do i = 1, span
          dword = history_np1(i,4)
          state = iword(1)
@@ -1676,7 +1676,7 @@ c
          if( state .eq. 1 ) yield(i) = .true.
       end do
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span      
          if( yield(i) ) cycle
          dmat(i,1,4) = zero
@@ -1723,7 +1723,7 @@ c
          dmat(i,3,2)= c4
       end do         
 c        
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span      
        if( .not. yield(i) ) cycle
        fact = 1.0d00
@@ -3698,7 +3698,7 @@ c
 c
        equivalence(dword, iword)
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
        do i = 1, span
          dword = history_np1(i,4)
          state = iword(1)
@@ -3706,7 +3706,7 @@ c
          if( state .eq. 1 ) yield(i) = .true.
        end do
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span      
        if( yield(i) ) cycle
        dmat(i,1,4) = zero
@@ -3754,7 +3754,7 @@ c
        dmat(i,3,2) = c4
       end do          
 c     
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span      
        if( .not. yield(i) ) cycle
        fact     = 1.0d00

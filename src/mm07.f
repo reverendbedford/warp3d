@@ -761,7 +761,7 @@ c
 c
 c              dmat[] zeroed by warp3d
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
 c
        alpha = mm_props(i,1)

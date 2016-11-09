@@ -75,7 +75,7 @@ c
      &                    local_work%shape(1,gpn), type, nnode )
 c
           do j = 1, totdof
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
             do i = 1, span
                eleifv(i,j) = eleifv(i,j) +
@@ -114,7 +114,7 @@ c
      &                 local_work%urcs_blk_n1(1,1,gpn),
      &                 cs_blk_n1 )
           do j = 1, totdof
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
             do i = 1, span 
                eleifv(i,j) = eleifv(i,j) +
@@ -133,7 +133,7 @@ c                       small displacement formulation. the urcs
 c                       are stresses. no transformation needed.
 c                        
       do j = 1, totdof
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
         do i = 1, span 
            eleifv(i,j) = eleifv(i,j) +
@@ -151,7 +151,7 @@ c                       update gauss point contribution to volume
 c                       of element.
 c
  9000 continue
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
       do i = 1, span 
         element_volumes(i) = element_volumes(i)   +   w * dj(i) 

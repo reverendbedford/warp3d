@@ -52,7 +52,7 @@ c
 c      
       if( bbar ) then                   
         do j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
           do i = 1, span
            gxi(i,j)   = vol(i,j,1)
@@ -62,7 +62,7 @@ c
         end do
       else
         do j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
           do i = 1, span
             gxi(i,j)  =  gama(i,1,1)*nxi(j)+gama(i,1,2)*neta(j)+
@@ -88,7 +88,7 @@ c              have row 1 of gtg, cols 9-15 have row 2, etc of the
 c              upper-triangle.
 c
       do j = 1, cp(nnode)+nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
          do i = 1, span
             gtg(i,j)= (gxi(i,icp(j,1))*gxi(i,icp(j,2))*sig(i,1)+
@@ -113,7 +113,7 @@ c
          cp3 = cp(2*nnode+enode)+2*nnode
 c
          do j = 1, enode  
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
             do  i = 1, span
                ek_symm(i,cp1+j) = ek_symm(i,cp1+j) + gtg(i,cp1+j)
@@ -150,7 +150,7 @@ c
            r3 = 2*nnode + j
            k3 = (c3-1)*totdof + r3
 c                 
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
            do  i = 1, span! col enode, row j
              ek_full(i,k1) = ek_full(i,k1) + gtg(i,cp1+j)
@@ -160,7 +160,7 @@ c
 c            
            if( r1 .ne. c1 ) then  ! cleanup loop 1
              k = (r1-1)*totdof + c1
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
              do i = 1, span
                ek_full(i,k) = ek_full(i,k) + gtg(i,cp1+j)
@@ -169,7 +169,7 @@ c
 c           
            if( r2 .ne. c2 ) then  ! cleanup loop 2
              k = (r2-1)*totdof + c2
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
              do i = 1, span
                ek_full(i,k) = ek_full(i,k) + gtg(i,cp1+j)
@@ -178,7 +178,7 @@ c
 c
            if( r3 .ne. c3 ) then  ! cleanup loop 3
               k = (r3-1)*totdof + c3
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
               do i = 1, span
                 ek_full(i,k) = ek_full(i,k) + gtg(i,cp1+j)

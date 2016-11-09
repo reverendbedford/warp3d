@@ -3252,7 +3252,7 @@ c
 #dbl      inc_factor = 2
 #sgl      inc_factor = 1
       j = 1
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
        state(i) = iword(j)
        if( state(i) .eq. 1 ) then
@@ -3266,7 +3266,7 @@ c              process linear strain points
 c
       cep = zero
 c      
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do  i = 1, span
        if( state(i) .ne. -1 ) cycle
        c1(i)= (e(i)/((one+nu(i))*(one-two*nu(i))))
@@ -3302,7 +3302,7 @@ c              be the contact stress).
 c              a continnum tangent at the contact stress point on the
 c              yield surface is computed.
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
         if( state(i) .ne. 1 ) cycle
         ebarp(i)     = history1(i,1)
@@ -3320,7 +3320,7 @@ c
       end do
 c      
       if( iter .le. 1 ) then 
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
         do i = 1, span
           if( state(i) .ne. 1 ) cycle
             dep(i) = zero
@@ -3347,7 +3347,7 @@ c
      &    stress_trial(i,4), stress_trial(i,5), stress_trial(i,6)
       end if
 c 
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
         if( state(i) .ne. 1 ) cycle
         twog(i)   = two * shear_mod(i)
@@ -3363,7 +3363,7 @@ c            3) process terms of trial elastic stress state at n+1.
 c               get pressure, equivalent stress and yield surface
 c               normal.
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
         if( state(i) .ne. 1 ) cycle
         sm(i)  = ( stress_trial(i,1) + stress_trial(i,2) +
@@ -3401,7 +3401,7 @@ c
 c
 c                  4a)  a1 and a1 from Eq. (4)
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
         if( state(i) .ne. 1 ) cycle
         a1(i) = (deq(i) * q(i) - dep(i) * p(i)) /
@@ -3420,7 +3420,7 @@ c                  4c)  b1 and b2 from Eq. (15). need to evaluate
 c                       A(ebarp) for nucleation and its derivative
 c                       wrt to ebarp.
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
         if( state(i) .ne. 1 ) cycle
         if( nucleation(i) ) then 
@@ -3436,7 +3436,7 @@ c
         end if
       end do
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
         if( state(i) .ne. 1 ) cycle
         b1 = ( one  -  f(i) ) / ( one  +  dep(i) )
@@ -3577,7 +3577,7 @@ c                 7b) [D] (2) Eq. (17) and pg. CT-EF-7
 c                 7c) [D] (4) Eq. (17) and pg. CT-EF-9. exercise the
 c                     symmetry option by default
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
        if( state(i) .ne. 1 ) cycle
        con_1 = twog(i) * ( one - threeg(i) * deq(i) / qe(i) )
@@ -3625,7 +3625,7 @@ c                 7d) [D] (3) Eq. (17) and pg. CT-EF-8. multiply in
 c                     the weight factor and determinant of coord.
 c                     jacobian.
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
        if( state(i) .ne. 1 ) cycle 
        con_1 = twog(i) * ( twog(i) * deq(i) / qe(i)  -  mqn(i) )

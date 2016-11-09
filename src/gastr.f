@@ -30,7 +30,7 @@ c
 !DIR$ LOOP COUNT MAX=27
         do k = 1, ngp
          do  j = 1, nprm
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
             do  i = 1, span
                ml(i,j,k) = mg(j,k,i)
             end do
@@ -41,7 +41,7 @@ c
 c
 c                number of gauss points = 8, unroll.
       do  j = 1, nprm
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
         do  i = 1, span
             ml(i,j,1) = mg(j,1,i)
             ml(i,j,2) = mg(j,2,i)

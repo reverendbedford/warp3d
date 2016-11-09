@@ -21,7 +21,7 @@ c
 !DIR$ ASSUME_ALIGNED vol:64, volume:64
 c               refer to extensive comments in vol_terms.f
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
       do i = 1, span 
 c

@@ -63,7 +63,7 @@ c
       bpos2 = 2*nnode 
 c     
       do j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
          do i = 1,span
            deps(i,1) = deps(i,1) +  b(i,j,1) * due(i,j) +
@@ -141,7 +141,7 @@ c
       bpos2 = 2*nnode
 c     
       do j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
          do i = 1, span
            dgstrn(i,1)= dgstrn(i,1)+b(i,j,1) * due(i,j) +
@@ -160,7 +160,7 @@ c                       update the accumulated displacement jumps.
 c                       dgstrs is total "strain" at end of step.
 c                       dgstrn is total "strain" increment over step.
 c       
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
       do i = 1, span
          dgstrs(i,1) = dgstrs(i,1) + dgstrn(i,1)

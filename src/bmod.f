@@ -46,7 +46,7 @@ c
         alpha = (two + eps_stab)*third
         beta  = (one - eps_stab)*third
 c
-!DIR$ LOOP COUNT MAX=### 
+!DIR$ LOOP COUNT MAX=MAX_SPAN 
 !DIR$ IVDEP 
         do i = 1, span  
 c

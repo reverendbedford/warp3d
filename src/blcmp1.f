@@ -40,7 +40,7 @@ c                       btemp - j,2 = NY for node j at gpn
 c                       btemp - j,3 = NZ for node j at gpn        
 c                     
       do j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
          do i = 1, span
             btemp(i,j,1)= gama(i,1,1)*nxi(j)+gama(i,1,2)*neta(j)+
@@ -61,7 +61,7 @@ c                       compute the linear strain-
 c                       displacement matrices, using btemp.
 c       
 c!      do  j = 1, nnode
-c!@!DIR$ LOOP COUNT MAX=###  
+c!@!DIR$ LOOP COUNT MAX=MAX_SPAN  
 c!@!DIR$ IVDEP
 c!         do i = 1, span
 c
@@ -144,7 +144,7 @@ c
 !DIR$ IVDEP
        sh(7:12) = shape(7:12)
        do j = 1, 12
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
            do i = 1, span
               b(i,j,1) = sh(j)*rot(i,1,1)
@@ -168,7 +168,7 @@ c
         sh(1:3) = -shape(1:3)
         sh(4:6) = shape(4:6)
         do j = 1, 6
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
            do i = 1, span
               b(i,j,1) = sh(j)*rot(i,1,1)
@@ -192,7 +192,7 @@ c
         sh(1:4) = -shape(1:4)
         sh(5:8) = shape(5:8)
         do j = 1, 8
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
            do i = 1, span
               b(i,j,1) = sh(j)*rot(i,1,1)
@@ -224,7 +224,7 @@ c
        sh(i) = shape(i)
       end do
       do j=1,nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
            do i = 1, span
               b(i,j,1) = sh(j)*rot(i,1,1)
@@ -300,7 +300,7 @@ c                  axisymmetric elements only the upper left 2x2 of
 c                  the Jacobian matrix is used.
 c
         do j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
           do i = 1, span
               btemp(i,j,1) = gama(i,1,1)*nxi(j)+gama(i,1,2)*neta(j)
@@ -322,7 +322,7 @@ c                       element; the bottom two rows are zeros for no
 c                       yz or zx shear strain.
 c       
         do  j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
            do i = 1, span
 c

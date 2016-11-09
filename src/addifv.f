@@ -37,14 +37,14 @@ c
       if( debug ) write (out,*) '>>>>  inside addifv'
 c
       do j = 1, totdof    
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
          do i = 1, span
 c$OMP ATOMIC UPDATE
             ifv(bedst(j,i)) = ifv(bedst(j,i)) + eleifv(i,j)
          end do
       end do
       do j = 1, totdof    
-!DIR$ LOOP COUNT MAX=###   
+!DIR$ LOOP COUNT MAX=MAX_SPAN   
 !DIR$ IVDEP
          do i = 1, span
             sum_ifv = sum_ifv + abs(eleifv(i,j))
@@ -80,7 +80,7 @@ c
           call die_abort
       end if
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
          element = felem + i - 1
          if( dam_state(dam_ptr(element)) .eq. 0 ) then

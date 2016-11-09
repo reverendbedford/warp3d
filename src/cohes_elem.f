@@ -66,7 +66,7 @@ c               potential debugging easier.
 c
       x1 = ce(1,1); y1 = ce(1,nnode+1); z1 = ce(1,2*nnode+1)
       do j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
          do i = 1, span
            ce(i,j) = ce(i,j) - x1
@@ -80,7 +80,7 @@ c               1, 2,3. local z is normal to plane containing
 c               element nodes 1, 2, 3. Then rotate the shifted
 c               global coordinates into this 1-2-3 system.
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
       do i = 1, span
         x21 = ce(i,2) - ce(i,1)
@@ -159,7 +159,7 @@ c
        call jacob_cohes( etype, imxvl, ispan, innode, ce_rotated,
      &                   nxi, neta, nzeta, dj, jac, 2 )
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
        do i = 1, span
 c
@@ -269,7 +269,7 @@ c
       do i = 1, nnode
          j = i + nnode
         jj = i + 2*nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP        
           do k = 1, span
              rvar(k,i) = var(k,i)*rot(k,1,1) + var(k,j)*rot(k,1,2)
@@ -326,7 +326,7 @@ c
 !DIR$ ASSUME_ALIGNED coords:64, nzeta:64, neta:64, nxi:64, jac:64
 !DIR$ ASSUME_ALIGNED dj:64
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
       do i = 1, span
          jac(i,1:3,1:3) = zero
@@ -334,7 +334,7 @@ c
       end do
 c
       do j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
          do i = 1, span
              jac(i,1,1)= jac(i,1,1)+nxi(j)*coords(i,j)
@@ -352,7 +352,7 @@ c
 c
 c           determinate of the jacobian matrix
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
       do i = 1, span
           j1= jac(i,2,2)*jac(i,3,3)-jac(i,2,3)*jac(i,3,2)
@@ -488,7 +488,7 @@ c            | coor   | /
 c            |        |
 c
       do j = 1,shift
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
         do k = 1, span
             ce_refsurf(k,xb+j) = ce_upd(k,xt+j)
@@ -501,7 +501,7 @@ c
       end do
 c
       do j = 1, totdof
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
         ce_upd(1:span,j) = ce_refsurf(1:span,j)
       end do
@@ -567,7 +567,7 @@ c
       end do
 c
       do j = 1, totdof
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
         ce_upd(1:span,j) = ce_refsurf(1:span,j)
       end do

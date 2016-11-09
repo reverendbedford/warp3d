@@ -1301,7 +1301,7 @@ c           pull coordinates at t=0 from global input vector.
 c
       k = 1
       do j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
          do i = 1, span
             ce_0(i,k)   = c(bcdst(k,i))
@@ -1329,7 +1329,7 @@ c
 c
       if( update_coords ) then
        do  j = 1, totdof
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
           do i = 1, span
             ce_n(i,j)   = ce_0(i,j) + ue(i,j)
@@ -1349,7 +1349,7 @@ c
 c
       if( .not. update_coords ) then
           do  j = 1, totdof
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
             do i = 1, span
               ce_n(i,j)   = ce_0(i,j)
@@ -1402,7 +1402,7 @@ c
       if( fgm_node_values_defined ) then
         do j = 1,  fgm_node_values_cols
           do i = 1, nnode
-!DIR$ LOOP COUNT MAX=### 
+!DIR$ LOOP COUNT MAX=MAX_SPAN 
 !DIR$ IVDEP 
             do k = 1, span
               local_work%enode_mat_props(i,k,j) =
@@ -1455,7 +1455,7 @@ c
 c
 c           vectorized mises plasticty model.
 c
-!DIR$ LOOP COUNT MAX=### 
+!DIR$ LOOP COUNT MAX=MAX_SPAN 
 !DIR$ IVDEP 
         do i = 1, span
            matl_no = iprops(38,felem+i-1)
@@ -1474,7 +1474,7 @@ c
 c           general mises/gurson model.
 c
         if ( local_debug ) write(out,9950)
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
         do i = 1, span
            matl_no = iprops(38,felem+i-1)
@@ -1582,7 +1582,7 @@ c
       if( ngp .ne. 8 ) then
         do k = 1, ngp
          do  j = 1, nprm
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
             do  i = 1, span
                mlocal(i,j,k) = mglobal(j,k,i)
@@ -1595,7 +1595,7 @@ c
 c                number of integration points = 8, unroll.
 c
       do  j = 1, nprm
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
         do  i = 1, span
             mlocal(i,j,1) = mglobal(j,1,i)

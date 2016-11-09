@@ -476,7 +476,7 @@ c
 c              expand to 3x3 symmetric [D] scaled by gpn
 c              weight factor
 c
-!DIR$ LOOP COUNT MAX=### 
+!DIR$ LOOP COUNT MAX=MAX_SPAN 
 !DIR$ IVDEP
       do ielem = 1, span
        f = weight * local_work%det_jac_block(ielem,gpn)
@@ -684,7 +684,7 @@ c
 c              expand to 6 x 6 symmetric [D] and scale by
 c              integration weight factor
 c
-!DIR$ LOOP COUNT MAX=### 
+!DIR$ LOOP COUNT MAX=MAX_SPAN 
 !DIR$ IVDEP
       do ielem = 1, span
         sloc = ( 21 * span * (gpn-1) ) + 21 * (ielem-1)
@@ -876,7 +876,7 @@ c
 c                     the consistent [D] for each integration point is
 c                     stored in the 1st 36 positions of history
 c 
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
          f = weight * local_work%det_jac_block(i,gpn)
          cep_vec(1:36) = local_work%elem_hist1(i,sh:eh,gpn)
@@ -888,7 +888,7 @@ c                     [D] linear
 c
       if( local_debug ) then
       tol = 0.01d00
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
          cep_vec(1:36) = local_work%elem_hist1(i,sh:eh,gpn)
          do j = 1, 6
@@ -1006,7 +1006,7 @@ c              set trans( [B] )
 c
       do j = 1, totdof
       	do k = 1, 6
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
         do i = 1, span
           bt(i,k,j)= b(i,j,k)
@@ -1021,7 +1021,7 @@ c              i: 4->6 and j: 4->6 should be zeroed by
 c              cnst.. routine.
 c
       do j = 1, totdof
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP 
        do i = 1, span
            bd(i,j,1) = d(i,1,1) * b(i,j,1)
@@ -1081,7 +1081,7 @@ c
       do col = 1, totdof
        do row = 1, totdof
        	j = j + 1  
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
         do i = 1, span
          ek_full(i,j) = ek_full(i,j)
@@ -1137,7 +1137,7 @@ c              set trans( [B] )
 c
       do j = 1, totdof
       	do k = 1, 6
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
           bt(1:span,k,j) = b(1:span,j,k)
        end do
       end do
@@ -1149,7 +1149,7 @@ c              i: 4->6 and j: 4->6 should be zeroed by
 c              cnst.. routine.
 c
       do j = 1, totdof
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
        do i = 1, span
            bd(i,j,1) = d(i,1,1) * b(i,j,1)
@@ -1204,7 +1204,7 @@ c
       do j = 1, utsz
         row = icp(j,1)
         col = icp(j,2)
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
         do i = 1, span
          ek_symm(i,j) = ek_symm(i,j)
@@ -1278,7 +1278,7 @@ c             use 6 as number of stress components to expose
 c             value to compiler
 c
       do j = 1, 6
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
          do i = 1, span
 c
@@ -1331,7 +1331,7 @@ c                       perform multiplication of
 c                       [cep*] =  [tc] * transpose([qn1])
 c
       do j = 1, 6
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
          do i = 1, span
 c
@@ -1396,7 +1396,7 @@ c            [cep] is essential for convergence of nearly homogeneous
 c            deformation problems.
 c
       if( qbar ) then
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
         do i = 1, span
          wf    = dj(i) * w
@@ -1533,7 +1533,7 @@ c
 c      allocate( local_b(6,totdof), local_bt(totdof,6), 
 c     &          local_db(6,totdof), local_btdb(totdof,totdof) )
 c      
-c@!DIR$ LOOP COUNT MAX=###  
+c@!DIR$ LOOP COUNT MAX=MAX_SPAN  
 c      do i = 1, span
 c
 c        do k = 1, 6

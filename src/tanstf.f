@@ -339,7 +339,7 @@ c
       if( growth_by_kill ) then
         block_is_killable = iand( iprops(30,felem),2 ) .ne. 0
         if( block_is_killable ) then
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
          do relem = 1, span
            element = felem + relem - 1
            if( dam_ptr(element) .eq. 0 ) cycle
@@ -637,7 +637,7 @@ c
 c           this code below depends on ndof per node = 3
 c
       do j = 1, nnode
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
        do k = 1, span
          node = incid(incmap(felem+k-1) + j-1)
@@ -687,7 +687,7 @@ c
 c      if( ngp .ne. 8 ) then
         do k = 1, ngp
          do  j = 1, hist_size
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
             do  i = 1, span
                local_hist(i,j,k) = global_hist(j,k,i)
@@ -700,7 +700,7 @@ c
 c                number of gauss points = 8, unroll.
 c
 c     do  j = 1, hist_size
-c@!DIR$ LOOP COUNT MAX=###  
+c@!DIR$ LOOP COUNT MAX=MAX_SPAN  
 c@!DIR$ IVDEP
 c        do  i = 1, span
 c            local_hist(i,j,1) = global_hist(j,1,i)

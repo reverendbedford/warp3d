@@ -1276,7 +1276,7 @@ c
 c
       local_debug = .false.
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
        dword   = dstates(i)
        iestate = iword(1)
@@ -1297,7 +1297,7 @@ c
         end do
       end if
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
        if( yield(i) ) cycle
        cep(i,1,4) = zero
@@ -1342,7 +1342,7 @@ c
        cep(i,3,2) = c4(i)
       end do  
 c                
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
       do i = 1, span
        if( .not. yield(i) ) cycle
        g(i) = e(i)/(two*(one+nu(i)))

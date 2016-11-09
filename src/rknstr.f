@@ -330,7 +330,7 @@ c
       end if
 c
       if( local_work%is_cohes_elem ) then  ! all zero if no temps
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
          do i = 1, span
            temp_ref = local_work%temps_ref_node_blk(i,1)
            d_temp   = local_work%dtemps_node_blk(i,1)
@@ -570,7 +570,7 @@ c
      &              local_work%nxi(1,gpn), local_work%neta(1,gpn),
      &              local_work%nzeta(1,gpn),
      &              local_work%ce_0, nnode )
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
        do i = 1, span
          local_work%volume_block_0(i) = local_work%volume_block_0(i)
      &                + local_work%det_j(i,gpn)
@@ -582,7 +582,7 @@ c
      &              local_work%nxi(1,gpn), local_work%neta(1,gpn),
      &              local_work%nzeta(1,gpn),
      &              local_work%ce_n, nnode )
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
         do i = 1, span
            local_work%volume_block_n(i) = local_work%volume_block_n(i)
      &                + local_work%det_j(i,gpn)
@@ -594,7 +594,7 @@ c
      &              local_work%nxi(1,gpn), local_work%neta(1,gpn),
      &              local_work%nzeta(1,gpn),
      &              local_work%ce_n1, nnode )
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
         do i = 1, span
           local_work%volume_block_n1(i) = local_work%volume_block_n1(i)
      &              + local_work%det_j(i,gpn)
@@ -761,7 +761,7 @@ c
          sum2(1:span) = zero
          sum3(1:span) = zero
          do enode = 1, nnodel
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
             do i = 1, span
                sum1(i) = sum1(i) + dtemps_node_blk(i,enode)
                sum2(i) = sum2(i) + temps_node_blk(i,enode)
@@ -769,7 +769,7 @@ c
             end do
          end do
          do enode = 1, nnodel
-!DIR$ LOOP COUNT MAX=###         
+!DIR$ LOOP COUNT MAX=MAX_SPAN         
             do i = 1, span
                avg1 = sum1(i) / fnnodel
                avg2 = sum2(i) / fnnodel
@@ -784,13 +784,13 @@ c
       if( average_case .eq. 2) then
          sum1(1:span) = zero
          do enode = 1, nnodel
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
             do i = 1, span
                sum1(i) = sum1(i) + temps_node_blk(i,enode)
             end do
          end do
          do enode = 1, nnodel
-!DIR$ LOOP COUNT MAX=###         
+!DIR$ LOOP COUNT MAX=MAX_SPAN         
             do i = 1, span
                avg1 = sum1(i) / fnnodel
                temps_node_blk(i,enode) = avg1
@@ -845,16 +845,16 @@ c                    for each property, redefine the nodal values
 c                    to be the simple average of all the nodal values.
 c
       do prop = 1, num_props
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
          sum(1:span) = zero
          do enode = 1, nnode
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
             do elem = 1, span
                sum(elem) = sum(elem) + enode_mat_props(enode,elem,prop)
             end do
          end do
          do enode = 1, nnode
-!DIR$ LOOP COUNT MAX=###         
+!DIR$ LOOP COUNT MAX=MAX_SPAN         
             do elem = 1, span
                avg = sum(elem) / nnode
                enode_mat_props(enode,elem,prop) = avg
@@ -894,7 +894,7 @@ c
       integer iprops(mxelpr,mxvl)
 $add include_sig_up
 c
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
       do i = 1, span
          local_work%e_vec(i)         = props(7,i)
@@ -961,7 +961,7 @@ c
       integer iprops(mxelpr,mxvl)
 $add include_sig_up
 c
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
       do i = 1, span
          local_work%e_vec(i)       = props(7,i)
@@ -1017,7 +1017,7 @@ c                    local
 c
       logical adaptive
 c
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
       do i = 1, span
            local_work%e_vec(i)       = props(7,i)
@@ -1066,7 +1066,7 @@ c
 c
       bit_flags = iprops(24,1)
 c
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
       do i = 1, span
         if ( iand(iprops(30,i),1) .eq. 0 )
@@ -1134,7 +1134,7 @@ c                     59        gamma_u         gp_delta_u
 c                     60 sig_tol
 c                     61-64 <available>
 c
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
       do i = 1, span
 c
@@ -1221,7 +1221,7 @@ c
       local_debug = .false.
       matnum = local_work%matnum
 c
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
       do i = 1, span
 c
@@ -1305,7 +1305,7 @@ c
 c
       matnum = local_work%matnum
 c
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
       do i = 1, span
 c
@@ -1370,7 +1370,7 @@ c
 c
       matnum = local_work%matnum
 c
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
       do i = 1, span
         local_work%e_vec(i)       = props(7,i)
@@ -1981,7 +1981,7 @@ c
       do j = 1, nlengths
         nodea = node_pairs(j,1)
         nodeb = node_pairs(j,2)
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
         do i = 1, span
           xa = node_coords(i,nodea)
@@ -1998,7 +1998,7 @@ c
       scale_factor = half
       if( linear ) scale_factor = one
 c
-!DIR$ LOOP COUNT MAX=###
+!DIR$ LOOP COUNT MAX=MAX_SPAN
 !DIR$ IVDEP
       do i = 1, span
        lengths(i) = local_sums(i) * rnlengths * scale_factor

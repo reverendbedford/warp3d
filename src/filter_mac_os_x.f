@@ -41,7 +41,7 @@ c          if NOT building source for <platform>
 c
 c        @...  strip @ and emit remainder of line to the filtered 
 c              source file. @ often used ahead of !DIR$ ... compiler
-c              directives. present version replaces appearance of ###
+c              directives. present version replaces appearance of MAX_SPAN
 c              on such lines with the string in max_span
 c
 c        %...  not used at present. can be used in future. see routine
@@ -210,11 +210,11 @@ c
 c              @ sign starting line. a line with compiler directive
 c              setting max value of span for key do loops. can
 c              be used by compiler to assess approaches for 
-c              optimization. replace ### on line with max allowed block
-c              size. If no ###, just emit line w/o @ sign
+c              optimization. replace MAX_SPAN on line with max allowed block
+c              size. If no MAX_SPAN, just emit line w/o @ sign
 c
       case( '@' )
-        pos = index( line(1:), "###" ) 
+        pos = index( line(1:), "MAX_SPAN" ) 
         if( pos .gt. 0 ) line(pos:) = max_span
         write(outfil,9006) line(2:linel)
         nowlin = nowlin + 1

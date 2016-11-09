@@ -84,7 +84,7 @@ c
 c
       do j = 1, ngp
        do k = 1, num_vals
-!DIR$ LOOP COUNT MAX=###            
+!DIR$ LOOP COUNT MAX=MAX_SPAN            
          do i = 1, span 
             temstr(i,k,1)= temstr(i,k,1) + elestr(i,k,j)
          end do
@@ -185,7 +185,7 @@ c              shape functions.
 c          
          do j = 1, ngp
           do k = 1, num_vals
-!DIR$ LOOP COUNT MAX=###            
+!DIR$ LOOP COUNT MAX=MAX_SPAN            
             do i = 1, span 
              temstr(i,k,elnod) = temstr(i,k,elnod) + 
      &                           elestr(i,k,j)*lg(j)

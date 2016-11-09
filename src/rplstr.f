@@ -124,7 +124,7 @@ c      if( ngp .ne. 8 ) then
 !DIR$ LOOP COUNT MAX=27
         do k = 1, ngp
          do  j = 1, nprm
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
             do i = 1, span
                ml(i,j,k) = mg(j,k,i)
@@ -137,7 +137,7 @@ c
 c                number of gauss points = 8, unroll.
 c
 c      do j = 1, nprm
-c@!DIR$ LOOP COUNT MAX=###  
+c@!DIR$ LOOP COUNT MAX=MAX_SPAN  
 c@!DIR$ IVDEP
 c        do i = 1, span
 c            ml(i,j,1) = mg(j,1,i)
@@ -194,7 +194,7 @@ c      if( ngp .ne. 8 ) then
 !DIR$ LOOP COUNT MAX=27
         do k = 1, ngp
            do j = 1, nprm
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
               do i = 1, span
                  mg(j,k,i) = ml(i,j,k)
@@ -207,7 +207,7 @@ c
 c                       number of gauss points = 8
 c
 c      do j = 1, nprm
-c@!DIR$ LOOP COUNT MAX=### 
+c@!DIR$ LOOP COUNT MAX=MAX_SPAN 
 c@!DIR$ IVDEP
 c        do i = 1, span
 c          mg(j,1,i) = ml(i,j,1)
@@ -262,7 +262,7 @@ c      if( ngp .ne. 8 ) then
 !DIR$ LOOP COUNT MAX=27
         do k = 1, ngp
            do j = 1, hist_size
-!DIR$ LOOP COUNT MAX=### 
+!DIR$ LOOP COUNT MAX=MAX_SPAN 
 !DIR$ IVDEP 
               do i = 1, span
                  global_history(j,k,i) = local_history(i,j,k)
@@ -275,7 +275,7 @@ c
 c                       number of gauss points = 8
 c
 c      do j = 1, hist_size
-c@!DIR$ LOOP COUNT MAX=###  
+c@!DIR$ LOOP COUNT MAX=MAX_SPAN  
 c@!DIR$ IVDEP
 c        do i = 1, span
 c          global_history(j,1,i) = local_history(i,j,1)

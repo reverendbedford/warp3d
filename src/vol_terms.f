@@ -48,7 +48,7 @@ c             later routine vol_avg.
 c
 c             loop over all elements in the block
 c
-!DIR$ LOOP COUNT MAX=###  
+!DIR$ LOOP COUNT MAX=MAX_SPAN  
 !DIR$ IVDEP
       do i = 1, span 
 c
