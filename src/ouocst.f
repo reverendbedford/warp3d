@@ -32,7 +32,6 @@ c
       character *20, save :: flat_name
       logical  patran_file 
       external warp3d_get_device_number
-!win      external system
 c
 c                       branch on whether files are to be opened 
 c                       (opt = 1) or closed (opt=2).
@@ -121,9 +120,10 @@ c
          close(unit=flat_file_number,status='keep')
          if( .not. text_file ) return
          if( compressed ) then
-           command(1:) = ' '
-           command(1:) = 'gzip ' // flat_name
-!win           result = system( command )
+c           command(1:) = ' '
+c           command(1:) = 'gzip ' // flat_name
+c           result = system( command )
+c           CALL ZLIB
          end if
          return
       end if

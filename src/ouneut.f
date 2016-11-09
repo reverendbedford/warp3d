@@ -160,9 +160,10 @@ c        8. close unit
 c
       close( unit= out_file )
       if( compressed .and. text ) then 
-             command(1:) = ' '
-             command(1:) = 'gzip ' // file_name
-!win             result = system( command )
+c             command(1:) = ' '
+c             command(1:) = 'gzip ' // file_name
+c             result = system( command )
+c             CALL ZLIB
       end if
       write(out,1005)
 c      

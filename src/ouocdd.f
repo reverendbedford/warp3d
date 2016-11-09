@@ -28,7 +28,6 @@ c
       logical oubin, ouasc, use_mpi, patran_file, ok, flat_file, 
      &        stream_file, text_file, compressed 
       external warp3d_get_device_number
-!win      external system       
       
       data slist / 'wn?d','wn?v', 'wn?a', 'wn?r', 'wn?t' /
       data flat_list /  'wnd','wnv', 'wna', 'wnr', 'wnt' / 
@@ -56,9 +55,10 @@ c
          close(unit=flat_file_number,status='keep')
          if( .not. text_file ) return
           if( compressed ) then
-             command(1:) = ' '
-             command(1:) = 'gzip ' // flat_name
-!win             result = system( command )
+c             command(1:) = ' '
+c             command(1:) = 'gzip ' // flat_name
+c             result = system( command )
+c             CALL ZLIB
           end if
           return
       end if

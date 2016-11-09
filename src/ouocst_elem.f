@@ -36,7 +36,6 @@ c
       character (len=80) :: command
       integer :: result, now_len
       integer, external :: warp3d_get_device_number
-!win      integer, external  :: system
       logical ::  patran_file
 c
 c                       branch on whether files are to be opened or  
@@ -125,10 +124,11 @@ c
       close( unit=flat_file_number, status='keep' )
       if( stream_file ) return
       if( compressed ) then
-          command(1:) = ' '
-          now_len = len_trim( flat_name )
-          command(1:) = 'gzip ' // flat_name(1:now_len)
-!win          result = system( command )
+c          command(1:) = ' '
+c          now_len = len_trim( flat_name )
+c          command(1:) = 'gzip ' // flat_name(1:now_len)
+c          result = system( command )
+c          CALL ZLIB
       end if
 c          
       end select

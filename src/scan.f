@@ -2015,34 +2015,13 @@ c                  for dec workstations, z: xbuff(j) = xcard(j)
 c                  for Windows NT, z: xbuff(j) = xcard(j)
 c         
       do 10 i = 1, nn
-#dec         xbuff(j) = xcard(j)
-#lnx         xbuff(j) = xcard(j)
-#l64         xbuff(j) = xcard(j)
-#mac         xbuff(j) = xcard(j)
-#sga         xbuff(j) = xcard(j)
-#win         xbuff(j) = xcard(j)
+             xbuff(j) = xcard(j)
 c
-#r60         xbuff(k) = xcard(j)
-#sun         xbuff(k) = xcard(j)
-#hpi         xbuff(k) = xcard(j)
-#h11         xbuff(k) = xcard(j)
-#sgi         xbuff(k) = xcard(j)
          idigit(i) = -1
          if(jbuff(i).ge.intzer.and.jbuff(i).lt.intnin)
      1        idigit(i) = jbuff(i)-intzer
          if(jbuff(i).eq.inttab) jbuff(i) = intblk
-#dec         ibuff(i) = iclass(jbuff(i)+1)
-#lnx         ibuff(i) = iclass(jbuff(i)+1)
-#l64         ibuff(i) = iclass(jbuff(i)+1)
-#mac         ibuff(i) = iclass(jbuff(i)+1)
-#sga         ibuff(i) = iclass(jbuff(i)+1)
-#win         ibuff(i) = iclass(jbuff(i)+1)
-c
-#r60         ibuff(i) = iclass(ichar(xbuff(k))+1)
-#sun         ibuff(i) = iclass(ichar(xbuff(k))+1)
-#hpi         ibuff(i) = iclass(ichar(xbuff(k))+1)
-#h11         ibuff(i) = iclass(ichar(xbuff(k))+1)
-#sgi         ibuff(i) = iclass(ichar(xbuff(k))+1)
+             ibuff(i) = iclass(jbuff(i)+1)
          if(card(i).eq.echar)ibuff(i) = 10
          j = j+ncpw
          k = k+ncpw

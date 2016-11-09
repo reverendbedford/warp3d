@@ -76,8 +76,7 @@ c
       end if
 c      
       name_out(1:) = home_name(1:last_home_name) //
-!win     &                "/" //
-#win     &                "\" //
+     &                "/" //
      &               work_name(3:last_work_name)
       ok = .true.
       return

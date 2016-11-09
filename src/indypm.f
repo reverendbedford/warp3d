@@ -549,30 +549,22 @@ c        if (use_mpi) then
 c            call errmsg(333,dum,dums,dumr,dumd)
 c        end if
         if ( endcrd(dum) ) then
-#win           solver_flag = 7
-#l64           solver_flag = 7
-#mac           solver_flag = 7
+               solver_flag = 7
                solver_mkl_iterative = .false.
                go to 1150
         end if
         if (  matchs('direct',6) ) then
-#win           solver_flag = 7
-#l64           solver_flag = 7
-#mac           solver_flag = 7
+               solver_flag = 7
                solver_mkl_iterative = .false.
                go to 1150
         end if
         if (  matchs('windows',6) ) then
-#win           solver_flag = 7
-#l64           solver_flag = 7
-#mac           solver_flag = 7
+               solver_flag = 7
                solver_mkl_iterative = .false.
                go to 1150
         end if
         if ( local_direct_flag ) then
-#win           solver_flag = 7
-#l64           solver_flag = 7
-#mac           solver_flag = 7
+               solver_flag = 7
                solver_mkl_iterative = .false.
                go to 1150
         end if
@@ -589,9 +581,7 @@ c         end if
          go to 1150
       end if
       if ( matchs('windows',6) ) then
-#win           solver_flag = 7
-#l64           solver_flag = 7
-#mac           solver_flag = 7
+               solver_flag = 7
       end if
 c
 c                 Asymmetric pardiso (iterative or direct). Force 

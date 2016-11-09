@@ -169,10 +169,10 @@ c
             call errmsg2( 84, dum, dums, dumr, dumd )
             compressed = .false.
          end if
-#win        if( compressed ) then
-#win               call errmsg2( 86, dum, dums, dumr, dumd )
-#win               compressed = .false.
-#win        end if
+        if( compressed ) then
+               call errmsg2( 86, dum, dums, dumr, dumd )
+               compressed = .false.
+        end if
           cycle
       end if
 c

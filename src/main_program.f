@@ -64,10 +64,7 @@ c
 c
 c                       print warp3d header
 c
-#lnx      call fdate (sdate_)
-#l64      call fdate (sdate_)
-#mac      call fdate (sdate_)
-#win      call fdate (sdate_)
+      call fdate (sdate_)
 c
 
       write (*,9000) sdate_ , mxnod, mxel
@@ -984,15 +981,8 @@ c
      &     '   33333  DDDD    **',/,
      &     '    **                                             ',
      &     '                  **',/,
-#win     &     '    **     Windows (Intel)            -dev-    Release: ',
-#lnx     &     '    **     Linux (Intel)              -dev-    Release: ',
-#l64     &     '    **     Intel 64-bit on Linux      -dev-    Release: ',
-#mac     &     '    **     Mac OS X (Intel)           -dev-    Release: ',
+     &     '    **                                -dev-    Release: ',
      &     ' 17.7.4      **',/,
-#win     &     '    **     Code Build Number: 3204             ',
-#win     &     '                     **',/,
-!win     &     "    **     Built on: Wed Oct 12 12:55:00 EDT 2016 ",
-!win     &     '                   **',/,
      &     '    **     University of Illinois @ U-C.',
      &     '    Civil & Env Engineering  **',/,
      &     '    **     Today: ',a24,27x,'**',/,

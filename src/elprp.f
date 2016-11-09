@@ -230,32 +230,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -478,32 +468,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -721,32 +701,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -964,32 +934,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -1208,32 +1168,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -1453,32 +1403,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -1695,32 +1635,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -1937,32 +1867,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -2181,32 +2101,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -2429,32 +2339,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -2684,32 +2584,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
@@ -3307,32 +3197,22 @@ c
      &  props(22,elem) = one / matprp(12,matnum)
       props(23,elem)  = matprp(5,matnum)
       props(24,elem)  = 0
-!sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 1 )
-!sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 2 )
-!sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-!sun     &                         ior( iprops(24,elem), 4 )
-#sun      if ( lmtprp(13,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 1 )
-#sun      if ( lmtprp(22,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 2 )
-#sun      if ( lmtprp(24,matnum) ) iprops(24,elem) =
-#sun     &                         or( iprops(24,elem), 4 )
+      if ( lmtprp(13,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 1 )
+      if ( lmtprp(22,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 2 )
+      if ( lmtprp(24,matnum) ) iprops(24,elem) =
+     &                         ior( iprops(24,elem), 4 )
       iprops(25,elem) = matprp(9,matnum)
       props(26,elem)  = matprp(14,matnum)
       props(27,elem)  = matprp(15,matnum)
       props(28,elem)  = matprp(16,matnum)
       props(29,elem)  = matprp(17,matnum)
       iprops(30,elem) = 0
-!sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 1 )
-!sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-!sun     &                         ior( iprops(30,elem), 2 )
-#sun      if ( lmtprp(18,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 1 )
-#sun      if ( lmtprp(23,matnum) ) iprops(30,elem) =
-#sun     &                         or( iprops(30,elem), 2 )
+      if ( lmtprp(18,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 1 )
+      if ( lmtprp(23,matnum) ) iprops(30,elem) =
+     &                         ior( iprops(30,elem), 2 )
       props(31,elem)  = matprp(19,matnum)
       props(32,elem)  = matprp(20,matnum)
       props(33,elem)  = matprp(21,matnum)
