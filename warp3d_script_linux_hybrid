@@ -84,7 +84,7 @@ fi
 #           set executable file for MPI + OpenMP + hypre solver
 #           version of warp3d
 #
-warp3d_exe="$WARP3D_HOME/run_linux_em64t/warp3d.mpi_omp"
+warp3d_exe="$WARP3D_HOME/bin/warp3d.mpi_omp"
 #
 #           set LD_LIBRARY_PATH. Examine the ordering...
 #
