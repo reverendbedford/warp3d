@@ -249,24 +249,24 @@ list(APPEND main
       )
 
 # You can specify a list of files for each set_source_files_properties
-if(CMAKE_BUILD_TYPE MATCHES Release) # Don't make changes if we're in DEBUG
-      if(APPLE)
-            set_source_files_properties(
-                  dicmi.f
-                  mmnoopt.f 
-                  PROPERTIES COMPILE_FLAGS "-O1")
-      elseif(WIN32 OR CYGWIN) # We could distinguish cygwin
-            set_source_files_properties(
-                  dicmi.f
-                  mmnoopt.f 
-                  PROPERTIES COMPILE_FLAGS "-O1")
-      else() # Linux
-            set_source_files_properties(
-                  dicmi.f
-                  mmnoopt.f 
-                  PROPERTIES COMPILE_FLAGS "-O1")
-      endif()
-endif()
+#if(CMAKE_BUILD_TYPE MATCHES Release) # Don't make changes if we're in DEBUG
+#      if(APPLE)
+#            set_source_files_properties(
+#                  dicmi.f
+#                  mmnoopt.f 
+#                  PROPERTIES COMPILE_FLAGS "-O1")
+#      elseif(WIN32 OR CYGWIN) # We could distinguish cygwin
+#            set_source_files_properties(
+#                  dicmi.f
+#                  mmnoopt.f 
+#                  PROPERTIES COMPILE_FLAGS "-O1")
+#      else() # Linux
+#            set_source_files_properties(
+#                  dicmi.f
+#                  mmnoopt.f 
+#                  PROPERTIES COMPILE_FLAGS "-O1")
+#      endif()
+#endif()
 
 add_executable(${EXE_NAME} ${main})
 target_link_libraries(${EXE_NAME} ${MKL_LIBRARIES} ${MPI_Fortran_LIBRARIES} ${HYPRE_LIBRARIES})

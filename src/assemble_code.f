@@ -32,8 +32,9 @@ c
 c
 c                    locals
 c
-      integer :: srow, safety_factor, now_thread      
+      integer :: srow, safety_factor, now_thread     
       integer, external :: omp_get_thread_num
+      logical, parameter :: local_debug = .false.
       integer, allocatable :: edest(:,:,:), scol_flags(:,:), 
      &                        scol_lists(:,:)
       integer :: thread_previous_node(max_threads),
@@ -125,8 +126,13 @@ c                 triangle
 c
       ncoeff = sum( num_non_zero_terms )
       deallocate( scol_flags, edest, scol_lists )
+      if( local_debug ) write(*,9000) ncoeff
 c
       return
+c
+ 9000 format(2x,'... in count_profile_symmetric: ',
+     & \,10x,'ncoeff: ',i8)
+c
       end
 c     ****************************************************************
 c     *                                                              *
@@ -240,9 +246,11 @@ c
 c
 c                    local declarations
 c
-      integer :: next_k_index, previous_node, srow, scol, snode, 
+      integer :: i, next_k_index, previous_node, srow, scol, snode, 
      &           num_scols_used, j, totdof, ele_on_snode, erow, ecol,
      &           num_unique_cols, num_ele_on_snode
+      integer, parameter :: local_debug = .false.
+c
 !DIR$ ASSUME_ALIGNED eqn_node_map:32, edest:32, iprops:32
 !DIR$ ASSUME_ALIGNED dof_eqn_map:32, scol_list:32, k_ptrs:32
 !DIR$ ASSUME_ALIGNED k_indexes:32      
@@ -364,8 +372,21 @@ c
 c
       k_ptrs(neqns) = 0
       last_k_index  = next_k_index
+c      
+      if( local_debug ) then
+        write(*,9000) last_k_index, neqns
+        write(*,*) '   k_ptrs ...'
+        write(*,9010) (i, k_ptrs(i), i = 1, neqns)
+        write(*,*) '   k_indexes ...'
+        write(*,9010) (i,k_indexes(i),i=1,last_k_index)
+      end if
 c
       return
+c      
+ 9000 format(2x,'... in build_col_sparse_symm: ',
+     & \,10x,'last_k_index, neqns: ',2i8)  
+ 9010 format(6x,12i8) 
+c
       end
       
 c     ****************************************************************
@@ -965,7 +986,7 @@ c$OMP PARALLEL DO  PRIVATE(srow, now_thread, num_indexes_for_srow)
       end do
 c$OMP END PARALLEL DO
       if( print_cpu_time ) then
-      	  call cpu_time( stop_time )
+          call cpu_time( stop_time )
           write(*,* ) '.... assembly time: ', stop_time - start_time
       end if    
       deallocate( edest )
