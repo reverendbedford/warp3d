@@ -126,6 +126,9 @@ c
           mat_debug = locdebug
           if( locdebug ) write(iout,*) "Setting up properties"
           call mm10_a_do_crystal
+          if( local_work%material_cut_step ) then
+            return
+          end if
         end do ! over crystals
 c
 c              finalize averages over all crystals at point.
@@ -1062,6 +1065,13 @@ c
       double precision, allocatable :: Jmat(:,:)
       logical :: no_load
 
+      if( cut ) then ! somehow we got back into this routine
+                     ! after one crystal failed already
+         write(iout,*) "mm10 returned for crystal solve after 
+     & another crystal failed!"
+            call die_gracefully ! segmentation faults will follow if not stopped here
+      end if
+
       nrJmat = 6 + props%num_hard
       ncJmat = nrJmat ! was = 2 * nrJmat but error
       allocate( Jmat(nrJmat,ncJmat) )
@@ -1137,8 +1147,8 @@ c           Note: This subroutine needs a major fix if
 c           ever going to support anything other than degrees+
 c           Kocks convention
 c
-      call mm10_a_mult_type_2t( work1, np1%Rp, np1%R )
-      call mm10_a_mult_type_2( full_rot, props%g, work1 )
+      call mm10_a_mult_type_3t( work1, np1%Rp, np1%R )
+      call mm10_a_mult_type_1( full_rot, props%g, work1 )
 c
       psiK = mm10_atan2( full_rot(3,2), full_rot(3,1) )
       phiK = mm10_atan2( full_rot(2,3), full_rot(1,3) )
@@ -3285,7 +3295,7 @@ c
 c
 c              add new constitutive models into this block
 c
-      nslip = nslip
+      nslip = props%nslip
       select case( props%h_type )
         case( 1 ) ! Voche
           do i = 1, nslip
@@ -3416,11 +3426,18 @@ c
            t2 = np1%ms(4,i)*ep(4) + np1%ms(5,i)*ep(5) + 
      &          np1%ms(6,i)*ep(6)
            ec_slip = t1 + half*t2
-           n_eff = n_eff + two/three/ec_dot/ec_dot*rs*
-     &             dgammadtau(i)/np1%tinc*ec_slip ! from D. Parks
-        end do
+c
+c           n_eff = n_eff + two/three/ec_dot/ec_dot*rs*
+c     &             dgammadtau(i)/np1%tinc*ec_slip ! from D. Parks 
+c
+c           re-order to suppress floating overflow
+c             
+           t1 = rs * dgammadtau(i) / ec_dot
+           t2 = ec_slip / ec_dot / np1%tinc
+           n_eff = n_eff + (two/three)*t1*t2
+         end do
       else
-        n_eff = one
+        n_eff = 1.0d10 
       end if  !  AAA
 c
       np1%u(12) = n_eff
