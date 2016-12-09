@@ -49,7 +49,7 @@ if(${CMAKE_Fortran_COMPILER_ID} STREQUAL "Intel")
       set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fpconstant -fixed -72 -traceback")
 
       # Optimized build
-      set(CMAKE_Fortran_FLAGS_RELEASE "-O2 -no-inline-factor -ftz -ip")
+      set(CMAKE_Fortran_FLAGS_RELEASE "-O3 -no-inline-factor -ftz -ip")
       # Debug build
       set(CMAKE_Fortran_FLAGS_DEBUG "-O1 -g")
 else()

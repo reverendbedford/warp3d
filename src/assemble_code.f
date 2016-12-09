@@ -159,8 +159,6 @@ c
 c      
       integer :: snode, num_ele_on_snode, next_scol_list, ele_on_snode,
      &           totdof, erow, ecol, scol, j
-!DIR$ ASSUME_ALIGNED eqn_node_map:32, edest:32, iprops:32
-!DIR$ ASSUME_ALIGNED dof_eqn_map:32, scol_flags:32, scol_list:32      
 c             
       snode             = eqn_node_map(srow) ! structure node
       num_ele_on_snode  = inverse_incidences(snode)%element_count
@@ -251,9 +249,6 @@ c
      &           num_unique_cols, num_ele_on_snode
       integer, parameter :: local_debug = .false.
 c
-!DIR$ ASSUME_ALIGNED eqn_node_map:32, edest:32, iprops:32
-!DIR$ ASSUME_ALIGNED dof_eqn_map:32, scol_list:32, k_ptrs:32
-!DIR$ ASSUME_ALIGNED k_indexes:32      
 c
 c                 simulate assembly of the equilibrium equations directly
 c                 in sparse matrix format, i.e., only the non-zero
@@ -406,7 +401,6 @@ c
       integer :: n, vec(n)
 c
       integer :: l, ir,rra, i, j
-!DIR$ ASSUME_ALIGNED vec:32
 c            
       l = n/2 + 1
       ir = n
@@ -472,7 +466,6 @@ c
 c         local
 c
       integer :: eqn_counter, dof 
-!DIR$ ASSUME_ALIGNED cstmap:32, dof_eqn_map:32, eqn_node_map:32
 c
 c         assign the equation number for each structure dof.
 c         dof with absolute constraints do not appear in the equations.
@@ -573,9 +566,6 @@ c
       integer :: thread_previous_node(max_threads)
       data zero / 0.0d0 /
 c
-!DIR$ ASSUME_ALIGNED coeff_row:64  
-!DIR$ ASSUME_ALIGNED eqn_node_map:32, dof_eqn_map:32, k_ptrs:32
-!DIR$ ASSUME_ALIGNED k_indexes:32, iprops:32, dcp:32         
 c
 c                 assemble the equilibrium equations directly in
 c                 sparse matrix format, i.e., only the non-zero
@@ -706,10 +696,6 @@ c
 c
       logical :: repeated
       data zero / 0.0d0 /
-!DIR$ ASSUME_ALIGNED k_diag:64, k_coeffs:64, coeff_row:64, emat:64
-!DIR$ ASSUME_ALIGNED eqn_node_map:32, dof_eqn_map:32, k_ptrs:32
-!DIR$ ASSUME_ALIGNED k_indexes:32, iprops:32, dcp:32 
-!DIR$ ASSUME_ALIGNED row_start_index:32, edest:32, local_scol:32    
 c
 c                 get the structure node number corresponding to this 
 c                 equation.
@@ -952,7 +938,6 @@ c
       logical, parameter :: print_cpu_time = .false.
       real :: start_time, stop_time
 c
-!DIR$ ASSUME_ALIGNED k_coeffs:64         
 c 
 c       Algorithm is a bit easier than the original one
 c             1) Loop on each equation in parallel
@@ -1030,7 +1015,6 @@ c
      &           rel_col, erow, ecol, scol, k, ekrow, bs_start, 
      &           bs_finish, bs_range 
       double precision, dimension(:,:), pointer :: emat
-!DIR$ ASSUME_ALIGNED k_coeffs:64,emat:64         
 c
 c                 - get structure node number for this equation
 c                 - number of element connected to snode
@@ -1175,7 +1159,6 @@ c
       integer, dimension (:,:), contiguous, pointer :: edest
 c
       integer :: i, elem, totdof, blk, rel_elem, dof      
-!DIR$ ASSUME_ALIGNED table:32, elem_list:32, iprops:32, edest:32
 c
       do i = 1, list_length
        elem = elem_list(i)   ! absolute element number
