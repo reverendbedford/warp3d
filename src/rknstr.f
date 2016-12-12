@@ -731,6 +731,8 @@ c
      & sum1(span), sum2(span), sum3(span), avg1, avg2, avg3, zero,
      & fnnodel
        data zero / 0.0d0 /
+!DIR$ ASSUME_ALIGNED dtemps_node_blk:64, temps_node_blk:64
+!DIR$ ASSUME_ALIGNED temps_ref_node_blk:64, sum1:64, sum2:64, sum3:64  
   
 
 c

@@ -39,6 +39,8 @@ c
 c
 c                      locals
 c
+!DIR$ ASSUME_ALIGNED due:64, deps:64, gama:64, nxi:64, neta:64
+!DIR$ ASSUME_ALIGNED nzeta:64, vol_block:64, b:64  
 c      
 c                       compute linear strain-displacement
 c                       [B] matrix for this material (gauss) point at
