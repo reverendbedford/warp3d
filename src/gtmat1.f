@@ -302,8 +302,10 @@ c
      &           ldum1, ldum2, ldum3, ldum4, ldum5, ldum6
       data zero, zero_check, one, half, local_debug
      &    / 0.0d0,    1.0d-20, 1.0d0,  0.5d0, .false. /
-!DIR$ ASSUME_ALIGNED jac:64, dj:64, gama:64, nxi:64,neta:64
-!DIR$ ASSUME_ALIGNED nzeta:64, ce:64, j1:64, j2:64, j3:64, lambda:64
+c     There should be no reason to remove these, but there is a problem
+c     in the rknstr contained subroutines that causes issues
+!DIR$ ASSUME_ALIGNED jac:64, dj:64, gama:64
+!DIR$ ASSUME_ALIGNED ce:64, j1:64, j2:64, j3:64, lambda:64
 !DIR$ ASSUME_ALIGNED ce_rotated:64
 c
 c           set flag for 2-D, 3-D, cohesive element.

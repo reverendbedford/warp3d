@@ -17,8 +17,11 @@ c
       common/dvsoln/ u(mxdof), v(mxdof), a(mxdof), du(mxdof),
      & idu(mxdof), load(mxdof),
      & res(mxdof), ifv(mxdof), c(mxncor)
+!DIR$ ATTRIBUTES ALIGN : 64 :: /dvsoln/
+c
 c
       common/lsoln/ temperatures
+
 c=======================================================================
 c
       common/dsgenr/ dt,nbeta,stplen,aparm,bparm,cparm,eparm,fparm,
@@ -132,7 +135,6 @@ c
       integer :: in, out, histep, lowstp, ltmstp, restrt,
      & num_warn, num_error, num_fatal,
      & solver_flag, old_solver_flag, solver_memory
-     
 c
 c======================================================================
 c

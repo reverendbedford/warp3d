@@ -9,12 +9,12 @@ c
 c           Secondary type for CP crystal properties
 c
       type :: crystal_properties
-            double precision, dimension(6,6) :: init_elast_stiff
-            double precision, dimension(3) :: init_angles
-            double precision, dimension(3,3) :: rotation_g
             double precision, dimension(6,max_slip_sys) :: ms
             double precision, dimension(3,max_slip_sys) :: qs
             double precision, dimension(3,max_slip_sys) :: ns
+            double precision, dimension(6,6) :: init_elast_stiff
+            double precision, dimension(3,3) :: rotation_g
+            double precision, dimension(3) :: init_angles
             double precision :: rateN, tauHat_y, Go_y, burgers,
      &            p_v, q_v, p_y, q_y,
      &            boltzman, theta_o, eps_dot_o_y,

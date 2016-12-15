@@ -71,7 +71,9 @@ c                   incremental (nodal) forces and nodal temperatures.
 c
       double precision
      &  mf, mf_nm1, mf_tot, mf_nm1_tot, mf_ratio,
-     &  step_factor, total_factor, dummy
+     &  step_factor, total_factor
+      double precision, allocatable :: dummy(:)
+!dir$ attributes align:64 :: dummy
       logical :: mf_ratio_change, user_mf_ratio_change
       character(len=80) :: user_file_name 
       double precision, parameter :: zero = 0.0d00
@@ -79,6 +81,7 @@ c
 c
 c        1) initialization:
 c
+      allocate(dummy(1))
       dtemp_nodes(1:nonode) = zero
       dtemp_elems(1:noelem) = zero
       temperatures          = .false.
@@ -212,6 +215,8 @@ c
        end if
       end do
       deallocate( elem_eq_loads )
+
+      deallocate(dummy)
 
       if ( debug ) write(*,*) '<<<< leaving eqivld.f'
 c

@@ -182,7 +182,6 @@ c
 c
       type(elem_forces), save, allocatable,
      &                         dimension(:) :: elem_eq_loads
-!dir$ attributes align:64 :: elem_eq_loads
       double precision,
      &      save, allocatable, dimension(:) :: eq_node_forces
       integer, save, allocatable, dimension(:) :: eq_node_force_indexes

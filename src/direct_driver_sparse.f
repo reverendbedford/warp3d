@@ -72,9 +72,6 @@ c
      &     / 0.0d00, 0, 0, .true. /
       data save_solver / .false. /
 c      
-!DIR$ ASSUME_ALIGNED dof_eqn_map:32
-!DIR$ ASSUME_ALIGNED u_vec:64
-c
 c    
       call cpu_time( start ) 
       

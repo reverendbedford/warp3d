@@ -29,7 +29,7 @@ c
       double precision ::
      &  btemp(mxvl,mxndel,ndim), zero  ! on stack
       data zero / 0.0d0 /
-!DIR$ ASSUME_ALIGNED b:64, gama:64, nxi:64, neta:64, nzeta:64  
+!DIR$ ASSUME_ALIGNED b:64, gama:64 
 !DIR$ ASSUME_ALIGNED btemp:64  
 c
 c                       compute building blocks of b. 
@@ -275,7 +275,7 @@ c
      &  btemp(mxvl,mxndel,ndim), zero ! on stack
       logical ::  local_debug, axisym
       data zero, local_debug / 0.0d0, .false. /
-!DIR$ ASSUME_ALIGNED b:64, gama:64, nxi:64, neta:64, nzeta:64  
+!DIR$ ASSUME_ALIGNED b:64, gama:64
 !DIR$ ASSUME_ALIGNED btemp:64  
 c
 c                  compute building blocks of b for axisymmetric

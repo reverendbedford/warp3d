@@ -35,12 +35,14 @@ c
       integer :: etype, span, felem, utsz, nnode, totdof, mat_type,
      &           iter, int_order, local_iout, nrow_ek 
       double precision ::
-     & eps_bbar, weight, rad(mxvl), dummy, factors(mxvl), one
+     & eps_bbar, weight, dummy, factors(mxvl), one
+      double precision :: rad(mxvl)
+
       logical include_qbar, geonl, bbar, first, qbar_flag,
      &        temps_to_process, iscp, symmetric_assembly
       data one  / 1.0d00 /
 c      
-!DIR$ ASSUME_ALIGNED glb_ek_blk:64, rad:64,factors:64      
+!DIR$ ASSUME_ALIGNED glb_ek_blk:64, factors:64      
 c
 c                       set local versions of the data structure
 c                       scalars. set logical to include/not include the

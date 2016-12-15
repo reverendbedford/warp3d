@@ -160,7 +160,7 @@ c
       integer :: snode, num_ele_on_snode, next_scol_list, ele_on_snode,
      &           totdof, erow, ecol, scol, j
 !DIR$ ASSUME_ALIGNED eqn_node_map:32, edest:32, iprops:32
-!DIR$ ASSUME_ALIGNED dof_eqn_map:32, scol_flags:32, scol_list:32      
+!DIR$ ASSUME_ALIGNED dof_eqn_map:32, scol_list:32      
 c             
       snode             = eqn_node_map(srow) ! structure node
       num_ele_on_snode  = inverse_incidences(snode)%element_count
@@ -251,7 +251,7 @@ c
      &           num_unique_cols, num_ele_on_snode
       integer, parameter :: local_debug = .false.
 c
-!DIR$ ASSUME_ALIGNED eqn_node_map:32, edest:32, iprops:32
+!DIR$ ASSUME_ALIGNED eqn_node_map:32, iprops:32
 !DIR$ ASSUME_ALIGNED dof_eqn_map:32, scol_list:32, k_ptrs:32
 !DIR$ ASSUME_ALIGNED k_indexes:32      
 c
@@ -1030,7 +1030,6 @@ c
      &           rel_col, erow, ecol, scol, k, ekrow, bs_start, 
      &           bs_finish, bs_range 
       double precision, dimension(:,:), pointer :: emat
-!DIR$ ASSUME_ALIGNED k_coeffs:64,emat:64         
 c
 c                 - get structure node number for this equation
 c                 - number of element connected to snode
@@ -1175,7 +1174,6 @@ c
       integer, dimension (:,:), contiguous, pointer :: edest
 c
       integer :: i, elem, totdof, blk, rel_elem, dof      
-!DIR$ ASSUME_ALIGNED table:32, elem_list:32, iprops:32, edest:32
 c
       do i = 1, list_length
        elem = elem_list(i)   ! absolute element number
