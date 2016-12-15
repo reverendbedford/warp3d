@@ -258,6 +258,7 @@ c                   5 -- Tn traction normal to GB
 c                   6 -- traction shear stiffness
 c                   7 -- tractions normal stiffness
 c                   8 -- critical state value. 0.0 or 1.0. not yet used.
+c                   8 -- v1_dot/v2_dot for now
 c                   9 -- maximum normal traction (Tn) experienced over 
 c                        loading history (not normalized)
 c                  10 -- opening displacement value (delta_c)
@@ -753,7 +754,7 @@ c
      &                     trac_n1(i,3)*reladis(i,3) )
         trac_n1(i,9)   = zero 
 c
-        history1(i,8) = zero ! reserved for a damage parameter
+c kbc        history1(i,8) = zero ! reserved for a damage parameter        
 c        
         tn_n1          = trac_n1(i,3)
         dn_n1          = reladis(i,3)
@@ -1207,7 +1208,7 @@ c
      & q_factor, Lnr, S, pm, delta_T, T_new, v1_dot, V_new, a_new,
      & N_new, b_new, N_dot, stiff_normal, stiff_shear,
      & max_ab_ratio, stiff_linear, mark, trial_T_new, LNR_toler,
-     & tshear_1, tshear_2, f_sd, ab_ratio, ab_sd_ratio
+     & tshear_1, tshear_2, f_sd, ab_ratio, ab_sd_ratio, v_toler
 c
       equivalence ( iword, dword )     
 c
@@ -1223,10 +1224,10 @@ c
 c
       data zero, one, three, third, two, half, four,
      &  six, onept5, toler, pi, max_ab_ratio, mark, LNR_toler, 
-     &  ab_sd_ratio
+     &  ab_sd_ratio, v_toler
      & / 0.0d0, 1.0d0, 3.0d0, 0.3333333333333333d0, 2.0d0, 0.5d0,
      &   4.0d0, 6.0d0, 1.5d00, 1.0d-10, 3.14159265d0, 0.9999d00,
-     &   1.0d40, 1.0d-06, 0.5d0 /
+     &   1.0d40, 1.0d-06, 0.5d0, 1.0d-20 /
 c
 c      
       debug_newton = .false.
@@ -1435,9 +1436,16 @@ c
       if( compute_solid_local ) history1(i,5) = Tn_solid 
       history1(i,6) = stiff_shear
       history1(i,7) = stiff_normal
+      if( abs(v1_dot) .gt. v_toler) then
+        history1(i,8) = v2_dot/v1_dot
+c        history1(i,8) = v1_dot*1.0d10
+      else
+        history1(i,8) = zero   
+      endif  
       iword(1) = new_state; iword(2) = 0
       history1(i,13) = dword
-      history1(i,11) = props%a_0 / props%b_0 ! for output 
+      history1(i,11) = props%n_pow! for output 
+c kbc   history1(i,11) = props%a_0 / props%b_0 ! for output 
       tshear_1 = trac_n1(i,1)
       tshear_2 = trac_n1(i,2)
       history1(i,14) = sqrt( tshear_1**2 + tshear_2**2 )
@@ -1543,14 +1551,15 @@ c    *             last modified:  11/20/2014 rhd                   *
 c    *                              3/10/2015 kbc (VVNT, qmod)      *
 c    *                              7/21/2-15 rhd (error check for  *
 c    *                                a < a_0 )                     *
-c    *                              4/20/2016 kbc (nucleation)      *
+c    *                              4/20/2016 kbc (nucleation)      *  
+c    *                             12/15/2016 kbc (nuc with T_solid)* 
 c    *                                                              *
 c    ****************************************************************
 c
       subroutine mm04_cavit_std_update
       implicit none
-      double precision, parameter ::
-     & local_tol_a_0 = 0.90d0
+      double precision :: a_new_temp, T_new_nuc 
+      double precision, parameter :: local_tol_a_0 = 0.90d0
 c
 c             step 1: compute f, then q(f), then c1, c0
 c                     these routines will be inlined
@@ -1568,7 +1577,15 @@ c                     direction stiffness.
 c      
       delta_c_dot = delrlds(i,3) / dtime 
       T_new = ( delta_c_dot - c_0 ) / c_1  
-      stiff_normal = one / (dtime*c_1 )   
+      stiff_normal = one / (dtime*c_1 )  
+c    
+c   Use the tractions from the adjacent elements for nucleation
+c   instead of the cavitation model updated traction.  This prevents
+c   nucleation starting too early and too strongly (T_new can
+c   be numerically unstable, especially during early loading)
+c  
+      call mm04_compute_solid_local( i ) 
+      T_new_nuc = Tn_solid 
 c             
 c
 c             step 3: update remaining internal state variables and
@@ -1587,8 +1604,8 @@ c
       nucleation_active = .false.
       if( include_nucleation) then
         S   = zero
-        if( T_new .gt. zero ) then
-            S = c_strain * ( T_new / props%Sigma_0 )**props%beta_nuc
+        if( T_new_nuc .gt. zero ) then
+            S = c_strain * ( T_new_nuc / props%Sigma_0 )**props%beta_nuc
         end if  
         nucleation_active = ((S .gt. props%Sthr .and. 
      &                    N_n .lt. props%N_max ) .and. 
@@ -1596,7 +1613,7 @@ c
       endif   
       if( nucleation_active) then     
         N_dot = props%F_N * d_strain*
-     &                     (T_new/props%Sigma_0)**props%beta_nuc
+     &                     (T_new_nuc/props%Sigma_0)**props%beta_nuc
         N_new = N_n  +  N_dot * dtime
         if( N_new > props%N_max) N_new = props%N_max
         b_new = one/sqrt(pi*N_new)
@@ -1649,8 +1666,14 @@ c                     on a_new. the stress/state variable updating
 c                     with finite load/time increments would otherwise
 c                     allow a_new to exceed b_new.
 c
-      if( a_new / b_new .gt. max_ab_ratio ) then
-        a_new = max_ab_ratio * b_new 
+      if( (a_new / b_new) .gt. max_ab_ratio ) then
+        a_new_temp = max_ab_ratio * b_new  
+        if (a_new_temp < props%a_0) then    
+            ! limit b rather than a      
+            b_new = a_new/max_ab_ratio
+        else
+            a_new = a_new_temp   
+        endif      
       end if  
 c
       new_state    = 1
@@ -1879,7 +1902,7 @@ c    ****************************************************************
 c    *                                                              *
 c    *          subroutines: mm04_cavit_c0, c1                      *
 c    *                                                              *
-c    *             last modified:  3/20/2015 kbc                    *
+c    *             last modified:  12/15/2015 kbc                   *
 c    *                                                              *
 c    ****************************************************************
 c
@@ -1898,7 +1921,7 @@ c                     Geissen equations for vdot are used, then
 c                     v2_dot must be computed here before computing c_0
 c
       if( VVNT ) then
-          c_0 = v2_dot * pi * b_n**2 
+          c_0 = v2_dot / ( pi * b_n**2 )
           return
       endif     
 c
@@ -1919,7 +1942,7 @@ c
         end if
       end if
 c      
-      c_0 = v2_dot * pi * b_n**2  
+      c_0 = v2_dot / ( pi * b_n**2  )
 c
       return
       end subroutine mm04_cavit_c0  
@@ -2874,7 +2897,7 @@ c
       info_vector(1) = 15
       info_vector(2) = 6
       info_vector(3) = 0
-      info_vector(4) = 10
+      info_vector(4) = 11
 c
       return
       end
@@ -3012,7 +3035,8 @@ c
       integer :: ipt   
       double precision :: 
      & N_ratio, a_ratio, b_ratio, V_ratio, lambda_4, a_b_ratio,
-     & a_bar, b_bar, a_L_ratio, T_n, T_nmax, T_shear, T_shr_max
+     & a_bar, b_bar, a_L_ratio, T_n, T_nmax, T_shear, T_shr_max, 
+     $ vdot_ratio
 c
       N_ratio   = zero
       a_ratio   = zero
@@ -3024,6 +3048,7 @@ c
       T_nmax    = zero
       T_shear   = zero
       T_shr_max = zero
+      vdot_ratio   = zero
 c       
       do ipt = 1, int_points
         a_bar     = history_dump(2,ipt,relem)
@@ -3050,7 +3075,8 @@ c
       one_elem_states(7)  = T_n / dble(int_points)            
       one_elem_states(8)  = T_nmax / dble(int_points)            
       one_elem_states(9)  = T_shear/ dble(int_points)            
-      one_elem_states(10) = T_shr_max / dble(int_points)            
+      one_elem_states(10) = T_shr_max / dble(int_points) 
+      one_elem_states(11) = vdot_ratio / dble(int_points)                 
 c
       return     
 c
@@ -3084,7 +3110,7 @@ c
       integer :: i
       logical, save :: do_print = .false.
 c
-      num_states = 10  
+      num_states = 11  
       num_comment_lines  = 0   
       state_labels(1)  = "N / N_I"
       state_labels(2)  = "a / a_0"
@@ -3096,6 +3122,7 @@ c
       state_labels(8)  = "Tn (max)"
       state_labels(9)  = "Tshear"
       state_labels(10) = "Ts (max)"
+      state_labels(11) = "v2_dot/v1_dot"
 c      
       state_descriptors(1)  = "Normalized cavity density"
       state_descriptors(2)  = "Normalized cavity radius"
@@ -3107,9 +3134,10 @@ c
       state_descriptors(8)  = "Max normal traction over history"
       state_descriptors(9)  = "Shear traction"
       state_descriptors(10) = "Max shear traction over history"
+      state_descriptors(11) = "Ratio of creep/diffusion vdot"
 c
       if( do_print ) then
-        do i = 1, 10 
+        do i = 1, 11 
           write(out,9010) i, state_labels(i), state_descriptors(i)
         end do
         do_print = .false.   
