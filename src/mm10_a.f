@@ -1069,7 +1069,7 @@ c
       end if
 
       nrJmat = 6 + props%num_hard
-      ncJmat = nrJmat ! was = 2 * nrJmat but error
+      ncJmat = 2 * nrJmat ! extra space needed for Broyden solver
       allocate( Jmat(nrJmat,ncJmat) )
 
       call mm10_solve_strup( props, np1, n, vec1, vec2, arr1, arr2,
@@ -3354,7 +3354,7 @@ c          store the plastic strain increment for nonlocal averages
       t2 = ep(4)**2 + ep(5)**2 + ep(6)**2
       np1%p_strain_inc = dsqrt( two/three*(t1+ half*t2) )
 c      np1%p_work_inc = dot_product(np1%stress, ep)
-      np1%work_inc = np1%stress(1)*ep(1) + np1%stress(2)*ep(2) +
+      np1%p_work_inc = np1%stress(1)*ep(1) + np1%stress(2)*ep(2) +
      &               np1%stress(3)*ep(3) + np1%stress(4)*ep(4) +
      &               np1%stress(5)*ep(5) + np1%stress(6)*ep(6)
 c           store the lattice strains
