@@ -499,7 +499,7 @@ c
       double precision
      &     thtemp(mxvl,mxndel,ndim), zero
       data zero / 0.0d00 /
-!DIR$ ASSUME_ALIGNED theta:64, nxi:64, neta:64, nzeta:64, gama:64
+!DIR$ ASSUME_ALIGNED theta:64
 !DIR$ ASSUME_ALIGNED ue:64, thtemp:64
 c
 c           initialize theta
@@ -711,7 +711,6 @@ c
       double precision
      & two, rbar(mxvl,3,3)
       data two / 2.0d00 /
-!DIR$ ASSUME_ALIGNED q:64, r:64, rbar:64
 c
 c           compute q. branch on quantity & direction of rotation.
 c

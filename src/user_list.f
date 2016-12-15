@@ -1026,7 +1026,9 @@ c
         ierr = 3; return
       end if
       nlist = stored_length
-      list(1:nlist) = user_lists(list_col)%list(1:nlist)
+      if (allocated(user_lists(list_col)%list)) then
+        list(1:nlist) = user_lists(list_col)%list(1:nlist)
+      end if
       ierr = 1
       if( debug ) then
         write(*,*) '.. list_col, stored_length ', list_col, nlist

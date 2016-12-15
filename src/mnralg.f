@@ -872,7 +872,7 @@ c
  9200 format(7x,
      & '>> line search completed. step length: ',f6.3,a2,4x,i5,i3)
  9205 format(7x,
-     & '     line search iteration, alpha, r-value: ',i2,f6.3,f7.3)
+     & '     line search iteration, alpha, r-value: ',i2,e10.3,e10.3)
  9210 format(7x,
      & '>> updating strains/stress/forces step, iteration: ',i5,i3)
  9220 format(7x,     

@@ -80,9 +80,13 @@ c
 c
       if( symmetric_assembly ) then
       	allocate( local_work%ek_symm(span,nrow_ek) )
+c           Prevent a check failure
+            allocate( local_work%ek_full(1,1) )
       	local_work%ek_symm = zero
       else
       	allocate( local_work%ek_full(span,nrow_ek) )
+c           Prevent a check failure
+            allocate( local_work%ek_symm(1,1) )
       	local_work%ek_full = zero
       end if
 c
@@ -163,10 +167,12 @@ c
         call rktstf_do_transpose( local_work%ek_symm, glb_ek_blk, 
      &                            span, nrow_ek ) 
         deallocate( local_work%ek_symm )
+        deallocate( local_work%ek_full )
       else
         call rktstf_do_transpose(  local_work%ek_full, glb_ek_blk,
      &                            span, nrow_ek ) 
         deallocate( local_work%ek_full )
+        deallocate( local_work%ek_symm )
       end if
 c
 c               modify element stiffness matrix by thickness

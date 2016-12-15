@@ -973,7 +973,6 @@ c
       integer :: n      
       double precision :: vec(n), zero
       data zero / 0.0d00 /
-!DIR$ ASSUME_ALIGNED vec:64
 c
 !DIR$ IVDEP
       vec = zero

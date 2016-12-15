@@ -10,9 +10,9 @@ c
 c      
       type :: solution_parameters
 c      
-       real (h_prec)  :: simulation_time
-       real (h_prec)  :: time_step 
-       real (h_prec)  :: newmark_beta
+       double precision  :: simulation_time
+       double precision  :: time_step 
+       double precision  :: newmark_beta
 c       
        integer :: maximum_iterations ! global Newton
        integer :: minimum_iterations ! global Newton
@@ -24,13 +24,13 @@ c
        logical :: line_search   ! .true. is on
 c       
        logical :: convergence_test_1 ! .true. = on
-       real (h_prec) :: convergence_test_1_tolerance
+       double precision :: convergence_test_1_tolerance
        logical :: convergence_test_2 ! .true. = on
-       real (h_prec) :: convergence_test_2_tolerance
+       double precision :: convergence_test_2_tolerance
        logical :: convergence_test_3 ! .true. = on
-       real (h_prec) :: convergence_test_3_tolerance
+       double precision :: convergence_test_3_tolerance
        logical :: convergence_test_4 ! .true. = on
-       real (h_prec) :: convergence_test_4_tolerance
+       double precision :: convergence_test_4_tolerance
 c       
        logical :: extrap_off_next_step ! .true. = on
 c       
@@ -39,18 +39,18 @@ c
        logical :: material_messages ! .true. = on
        logical :: trace_solution ! .true. = on
 c
-       real (h_prec) :: bbar_stabiliation_factor
+       double precision :: bbar_stabiliation_factor
        logical :: consistent_q_matrix ! .true. = on
 c
-       real (h_prec) :: reset_load_reduction_factor 
+       double precision :: reset_load_reduction_factor 
       end type
 
       
       type :: step_definition
-        real (h_prec) :: constraints_multiplier
+        double precision :: constraints_multiplier
         integer :: number_load_patt
         integer :: load_patt_nums(10) 
-        real (h_prec) :: load_patt_multipliers(10)
+        double precision :: load_patt_multipliers(10)
         character(len=8) :: load_patt_ids(10)
       end type
 

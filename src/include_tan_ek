@@ -8,38 +8,39 @@ c
 c
       type :: nonlinear_ek_work
 c
-       real (h_prec), allocatable :: ce(:,:)                  ! mxvl,mxecor
-       real (h_prec), allocatable :: trnmte(:,:,:)            ! mxvl,mxedof,mxndof
+       double precision, allocatable :: ce(:,:)                  ! mxvl,mxecor
+       double precision, allocatable :: trnmte(:,:,:)            ! mxvl,mxedof,mxndof
 
-       real (h_prec), allocatable :: det_jac_block(:,:)      ! mxvl,mxgp
-       real (h_prec), allocatable :: shape(:,:)               ! mxndel,mxgp
-       real (h_prec), allocatable :: nxi(:,:)                 ! mxndel,mxgp
-       real (h_prec), allocatable :: neta(:,:)                ! mxndel,mxgp
-       real (h_prec), allocatable :: nzeta(:,:)               ! mxndel,mxgp
-       real (h_prec), allocatable :: gama_block(:,:,:,:)      ! mxvl,3,3,mxgp
+       double precision, allocatable :: det_jac_block(:,:)      ! mxvl,mxgp
+       double precision, allocatable :: shape(:,:)               ! mxndel,mxgp
+       double precision, allocatable :: nxi(:,:)                 ! mxndel,mxgp
+       double precision, allocatable :: neta(:,:)                ! mxndel,mxgp
+       double precision, allocatable :: nzeta(:,:)               ! mxndel,mxgp
+       double precision, allocatable :: gama_block(:,:,:,:)      ! mxvl,3,3,mxgp
 
 
-       real (h_prec), allocatable :: vol_block(:,:,:)         ! mxvl,8,3
-       real (h_prec), allocatable :: volume_block(:)          ! mxvl
-       real (h_prec), allocatable :: jac_block(:,:,:)         ! mxvl,3,3
-       real (h_prec), allocatable :: b_block(:,:,:)           ! mxvl,mxedof,nstr
-       real (h_prec), allocatable :: bt_block(:,:,:)          ! mxvl,nstr,mxedof
-       real (h_prec), allocatable :: bd_block(:,:,:)          ! mxvl,mxedof,nstr
-       real (h_prec), allocatable :: ue(:,:)                  ! mxvl,mxedof
-       real (h_prec), allocatable :: due(:,:)                 ! mxvl,mxedof
-       real (h_prec), allocatable :: urcs_blk_n1(:,:,:)       ! mxvl,nstrs,mxgp
-       real (h_prec), allocatable :: rot_blk_n1(:,:,:)        ! mxvl,9,mxgp
-       real (h_prec), allocatable :: elem_hist1(:,:,:), elem_hist(:,:,:)
-       real (h_prec), allocatable :: cohes_rot_block(:,:,:)   ! mxvl,3,3
+       double precision, allocatable :: vol_block(:,:,:)         ! mxvl,8,3
+       double precision, allocatable :: volume_block(:)          ! mxvl
+       double precision, allocatable :: jac_block(:,:,:)         ! mxvl,3,3
+       double precision, allocatable :: b_block(:,:,:)           ! mxvl,mxedof,nstr
+       double precision, allocatable :: bt_block(:,:,:)          ! mxvl,nstr,mxedof
+       double precision, allocatable :: bd_block(:,:,:)          ! mxvl,mxedof,nstr
+       double precision, allocatable :: ue(:,:)                  ! mxvl,mxedof
+       double precision, allocatable :: due(:,:)                 ! mxvl,mxedof
+       double precision, allocatable :: urcs_blk_n1(:,:,:)       ! mxvl,nstrs,mxgp
+       double precision, allocatable :: rot_blk_n1(:,:,:)        ! mxvl,9,mxgp
+       double precision, allocatable :: elem_hist1(:,:,:)
+       double precision, allocatable :: elem_hist(:,:,:)
+       double precision, allocatable :: cohes_rot_block(:,:,:)   ! mxvl,3,3
 c
-       real (h_prec), allocatable :: cep(:,:,:)               ! mxvl,nstr,nstr
-       real (h_prec), allocatable :: qn1(:,:,:)               ! mxvl,nstr,nstr
-       real (h_prec), allocatable :: cs_blk_n1(:,:)           ! mxvl,nstr
+       double precision, allocatable :: cep(:,:,:)               ! mxvl,nstr,nstr
+       double precision, allocatable :: qn1(:,:,:)               ! mxvl,nstr,nstr
+       double precision, allocatable :: cs_blk_n1(:,:)           ! mxvl,nstr
 c
-       real (h_prec), allocatable :: ek_symm(:,:)             !span,nrow_ek       
-       real (h_prec), allocatable :: ek_full(:,:)             !span,totdof**2       
+       double precision, allocatable :: ek_symm(:,:)             !span,nrow_ek       
+       double precision, allocatable :: ek_full(:,:)             !span,totdof**2       
 c
-       real (h_prec), allocatable :: weights(:)  ! mxgp on weights
+       double precision, allocatable :: weights(:)  ! mxgp on weights
 c
 !dir$ attributes align:64 :: ce
 !dir$ attributes align:64 :: trnmte
@@ -69,8 +70,8 @@ c
 !dir$ attributes align:64 :: ek_full
 !dir$ attributes align:64 :: weights
 c
-       real (h_prec) :: beta_fact, eps_bbar, dt, time_n
-       real (h_prec), dimension(3) :: sv, lv, tv
+       double precision :: beta_fact, eps_bbar, dt, time_n
+       double precision, dimension(3) :: sv, lv, tv
 
        integer, allocatable :: cp(:), icp(:,:) !  mxedof; mxutsz,2
 

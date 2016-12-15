@@ -124,7 +124,6 @@ c
       logical :: local_debug
       data local_debug / .false. /
 !DIR$ ASSUME_ALIGNED due:64, dgstrn:64, dgstrs:64, rot:64
-!DIR$ ASSUME_ALIGNED shape:64, b:64  
 c      
 c         compute linear relative displacement jump
 c         [b] matrix for this gauss point at all elements in 

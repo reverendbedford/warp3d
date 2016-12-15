@@ -121,7 +121,6 @@ c
       integer :: i, j, bpos1, bpos2     
       double precision :: zero
       data zero  / 0.0d00 /
-!DIR$ ASSUME_ALIGNED b:64, sh:64, rot:64, shape:64
 c
 c            compute sh = L*N (N -> shape fn. array)
 c       

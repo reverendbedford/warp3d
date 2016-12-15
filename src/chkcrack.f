@@ -1136,8 +1136,10 @@ c
         elem = felem + i
         elem_ptr = dam_ptr( elem )
         if( elem_ptr .ne. 0 ) then
-           if( dam_state( dam_ptr( elem_ptr ) ) .gt. 0 ) 
-     &         status_vec(i) = .true.
+           if (dam_ptr(elem_ptr) .gt. 0) then
+            if( dam_state( dam_ptr( elem_ptr ) ) .gt. 0 ) 
+     &            status_vec(i) = .true.
+           endif
         end if
       end do
 c

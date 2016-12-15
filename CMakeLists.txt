@@ -55,7 +55,7 @@ if(${CMAKE_Fortran_COMPILER_ID} STREQUAL "Intel")
 else()
       message(WARNING "WARP3D not tested on compilers other than Intel!")
       # Optimized build
-      set(CMAKE_Fortran_FLAGS_RELEASE "-O2")
+      set(CMAKE_Fortran_FLAGS_RELEASE "-O3")
       # Debug build
       set(CMAKE_Fortran_FLAGS_DEBUG "-O0 -g")
 endif()

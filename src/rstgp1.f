@@ -43,7 +43,6 @@ c
      &           local_debug, adaptive_flag
 c
       data local_debug, zero / .false., 0.0d00 / 
-!DIR$ ASSUME_ALIGNED ddt:64, uddt:64, qnhalf:64, qn1:64      
 c
       internal_energy   = local_work%block_energy
       plastic_work      = local_work%block_plastic_work
@@ -74,6 +73,7 @@ c        full content and access uninitialized values.
 c
       allocate( ddt(mxvl,nstr), uddt(mxvl,nstr),
      &          qnhalf(mxvl,nstr,nstr), qn1(mxvl,nstr,nstr) )
+!DIR$ ASSUME_ALIGNED ddt:64, uddt:64, qnhalf:64, qn1:64      
       ddt    = zero
       uddt   = zero
       qnhalf = zero
@@ -849,8 +849,7 @@ c
       data zero / 0.0d00 /
 c
       integer i, k, m
-!DIR$ ASSUME_ALIGNED local_cep:64, stress_n:64, stress_np1:64
-!DIR$ ASSUME_ALIGNED uddt:64
+!DIR$ ASSUME_ALIGNED stress_n:64, stress_np1:64
 c
 c              for each element in block, update stresses by
 c              [D-elastic] * uddt. uddt contains thermal increment +
@@ -1163,7 +1162,6 @@ c
       data zero / 0.0d00 /
 c
       integer i, k, m
-!DIR$ ASSUME_ALIGNED local_cep:64, ddtse:64, stress_np1:64
 c
 c              for each element in block, update stresses by
 c              [D-elastic] * uddt. uddt contains thermal increment +
@@ -1914,8 +1912,6 @@ c
       data zero / 0.0d00 /
 c
       integer i, k, m
-!DIR$ ASSUME_ALIGNED local_cep:64, stress_n:64, stress_np1:64
-!DIR$ ASSUME_ALIGNED uddt:64
 c
 c              for each element in block, update stresses by
 c              [D-elastic] * uddt. uddt contains thermal increment +
@@ -1961,7 +1957,6 @@ c
      &  stress_n1(nstrs,*), urcs_blk_n1(mxvl,*)
 c
       integer :: k, i
-!DIR$ ASSUME_ALIGNED stress_n1:64, urcs_blk_n1:64
 c
       do k = 1, nstrs  !  not necessarily = 6
 !DIR$ LOOP COUNT MAX=MAX_SPAN  
@@ -1991,7 +1986,6 @@ c
       double precision :: 
      &  stress_n(nstrs,*), urcs_blk_n(mxvl,*)
       integer :: k, i     
-!DIR$ ASSUME_ALIGNED stress_n:64, urcs_blk_n:64
 c
       do k = 1, nstrs    !  not necessarily = 6
 !DIR$ LOOP COUNT MAX=MAX_SPAN  
@@ -3230,7 +3224,6 @@ c
       data zero / 0.0d00 /
 c
       integer i, k, m
-!DIR$ ASSUME_ALIGNED local_cep:64, stress_n:64, stress_np1:64, uddt:64 
       
 c
 c              for each element in block, update stresses by
@@ -5186,7 +5179,7 @@ c
      &  gbl_ceps_blk(nrow_ceps_blk,span,*), local_cep(mxvl,6,6)
 c
       integer i, k, ii, jj
-!DIR$ ASSUME_ALIGNED gbl_ceps_blk:64, local_cep:64         
+!DIR$ ASSUME_ALIGNED gbl_ceps_blk:64         
 c
       if( nrow_ceps_blk .eq. 21 ) then ! symmetric [D] 6x6
 !DIR$ LOOP COUNT MAX=MAX_SPAN 

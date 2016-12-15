@@ -41,6 +41,13 @@ c
      &     dumd, zero, react_sums(3)
       data zero / 0.0d00 /
 c
+c                       check for empty list
+      if (lenlst .eq. 0) then
+        write(*,'(10x,A)') "list empty..."
+        return
+      endif
+c
+c
 c                       initialize parameters controlling output.
 c
       lnum        = 56
