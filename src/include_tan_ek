@@ -41,12 +41,38 @@ c
 c
        real (h_prec), allocatable :: weights(:)  ! mxgp on weights
 c
+!dir$ attributes align:64 :: ce
+!dir$ attributes align:64 :: trnmte
+!dir$ attributes align:64 :: det_jac_block
+!dir$ attributes align:64 :: shape
+!dir$ attributes align:64 :: nxi
+!dir$ attributes align:64 :: neta
+!dir$ attributes align:64 :: nzeta
+!dir$ attributes align:64 :: gama_block
+!dir$ attributes align:64 :: vol_block
+!dir$ attributes align:64 :: volume_block
+!dir$ attributes align:64 :: jac_block
+!dir$ attributes align:64 :: b_block
+!dir$ attributes align:64 :: bt_block
+!dir$ attributes align:64 :: bd_block
+!dir$ attributes align:64 :: ue
+!dir$ attributes align:64 :: due
+!dir$ attributes align:64 :: urcs_blk_n1
+!dir$ attributes align:64 :: rot_blk_n1
+!dir$ attributes align:64 :: elem_hist1
+!dir$ attributes align:64 :: elem_hist
+!dir$ attributes align:64 :: cohes_rot_block
+!dir$ attributes align:64 :: cep
+!dir$ attributes align:64 :: qn1
+!dir$ attributes align:64 :: cs_blk_n1
+!dir$ attributes align:64 :: ek_symm
+!dir$ attributes align:64 :: ek_full
+!dir$ attributes align:64 :: weights
+c
        real (h_prec) :: beta_fact, eps_bbar, dt, time_n
        real (h_prec), dimension(3) :: sv, lv, tv
 
        integer, allocatable :: cp(:), icp(:,:) !  mxedof; mxutsz,2
-
-       logical, allocatable :: trn_e_flags(:), trne(:,:)  ! mxvl; mxvl,mxndel
 
 c
        integer :: felem, blk, elem_type, int_order, mat_type,
@@ -55,6 +81,8 @@ c
      &            cohes_type, surface, hist_size_for_blk,
      &            umat_stress_type, cep_sym_size, num_threads,
      &            iout, macro_sz, cp_sz, inter_mat
+c
+       logical, allocatable :: trn_e_flags(:), trne(:,:)  ! mxvl; mxvl,mxndel
 c
        logical :: geo_non_flg, bbar_flg, trn_e_block,
      &            first, qbar_flag, temperatures, temperatures_ref,

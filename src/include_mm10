@@ -4,10 +4,10 @@ c
       type :: mm10_working_data
         type(crystal_props) :: props
         type(crystal_state) :: np1, np0
+        double complex, dimension(max_uhard) :: ivec1, ivec2
         double precision, dimension(max_uhard) :: vec1,vec2
         double precision, dimension(max_uhard,max_uhard) :: arr1,arr2
-        double complex, dimension(max_uhard) :: ivec1, ivec2
-        integer gaspt, solvfnc
         double precision, dimension(max_uhard) :: x2
+        integer gaspt, solvfnc
         logical :: locdebug
       end type

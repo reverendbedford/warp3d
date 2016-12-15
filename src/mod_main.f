@@ -174,12 +174,15 @@ c
 c
       logical elem_equiv_loads_now
       type :: elem_forces
-        integer :: ncols
         double precision, pointer, dimension(:,:) :: forces
+!dir$ attributes align:64 :: forces
+        integer :: ncols
       end type
+
 c
       type(elem_forces), save, allocatable,
      &                         dimension(:) :: elem_eq_loads
+!dir$ attributes align:64 :: elem_eq_loads
       double precision,
      &      save, allocatable, dimension(:) :: eq_node_forces
       integer, save, allocatable, dimension(:) :: eq_node_force_indexes
