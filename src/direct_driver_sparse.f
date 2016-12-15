@@ -406,7 +406,7 @@ c
       if( cpu_stats .and. show_details ) write(out,9419) wcputime(1)
       if( allocated( save_k_indexes ) ) deallocate( save_k_indexes )
       if( allocated( save_k_ptrs ) )    deallocate( save_k_ptrs )
-      allocate( save_k_indexes(ncoeff_from_assembled_profile) )
+      allocate( save_k_indexes(ncoeff_from_assembled_profile))
       allocate( save_k_ptrs(neqns) )
       allocate( scol_list(mxndel*mxndof*mxconn*10) )
       if( local_debug ) write(out,*) 
