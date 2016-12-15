@@ -19,6 +19,8 @@ if(USE_MPI)
       
       add_definitions(-DUSE_MPI)
       set(EXE_NAME "warp3d.mpi_omp")
+
+      set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -mt_mpi")
 else()
       set(EXE_NAME "warp3d.omp")
 endif()
@@ -51,7 +53,7 @@ if(${CMAKE_Fortran_COMPILER_ID} STREQUAL "Intel")
       # Optimized build
       set(CMAKE_Fortran_FLAGS_RELEASE "-O3 -no-inline-factor -ftz -ip -align array64byte")
       # Debug build
-      set(CMAKE_Fortran_FLAGS_DEBUG "-O0 -g -check all,noarg_temp_created -traceback -align array64byte")
+      set(CMAKE_Fortran_FLAGS_DEBUG "-O0 -g -check all,noarg_temp_created -align array64byte")
 else()
       message(WARNING "WARP3D not tested on compilers other than Intel!")
       # Optimized build
