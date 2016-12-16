@@ -154,13 +154,13 @@ c                       initialize the output location of stresses,
 c                       strains, etc. and stress type to be output
 c                       to default values.
 c                       
-      outloc= 4HDEFA
+      outloc= TOKEN_DEFA
       strcon= 4HCURR
-      intord= 4HDEFA
-      outfmt= 4HDEFA
+      intord= TOKEN_DEFA
+      outfmt= TOKEN_DEFA
       geonl = 4HFLSE
-      bbar  = 4hTRUE
-      surf  = 4HDEFA
+      bbar  = TOKEN_TRUE
+      surf  = TOKEN_DEFA
       defmat= .true.
 c
       if(endcrd(dum)) call readsc
@@ -239,31 +239,31 @@ c
 c
  530  continue          
       if(matchs('3x3x3',5)) then
-         intord= 4HO333
+         intord= TOKEN_O333
       else if(matchs('2x2x2',5)) then
-         intord= 4HO222
+         intord= TOKEN_O222
       else if(matchs('2x2ndl',5)) then
-         intord= 4HO22N
+         intord= TOKEN_O22N
       else if(matchs('2x2gs',5)) then
-         intord= 4HO22G
+         intord= TOKEN_O22G
       else if(matchs('14pt_rule',4)) then
-         intord= 4HO14P
+         intord= TOKEN_O14P
       else if(matchs('9pt_rule',3)) then
-         intord= 4HO09P
+         intord= TOKEN_O09P
       else if(matchs('1pt_rule',3)) then
-         intord= 4HO01P
+         intord= TOKEN_O01P
       else if(matchs('4pt_rule',3)) then
-         intord= 4HO04P
+         intord= TOKEN_O04P
       else if(matchs('3pt_rule',3)) then
-         intord= 4HO03P
+         intord= TOKEN_O03P
       else if(matchs('3mpt_rule',4)) then
-         intord= 4HO3MP
+         intord= TOKEN_O3MP
       else if(matchs('5pt_rule',3)) then
-         intord= 4HO05P
+         intord= TOKEN_O05P
       else if(matchs('6pt_rule',3)) then
-         intord= 4HO06P
+         intord= TOKEN_O06P
       else if(matchs('7pt_rule',3)) then
-         intord= 4HO07P
+         intord= TOKEN_O07P
       else
          call errmsg(28,dum,'ordr',dumr,dumd)
       end if
@@ -291,14 +291,14 @@ c
 c                       output location is node points
 c                       
  550  continue
-      outloc= 4HNODE
+      outloc= TOKEN_NODE
       go to 520
 c
 c                       output location is element center. only
 c                       one set of values per element
 c                       
  555  continue
-      outloc= 4HCENT
+      outloc= TOKEN_CENT
       go to 520
 c
 c
@@ -344,7 +344,7 @@ c
 c                       output format is short.          
 c
  570  continue
-      outfmt= 4HSHRT
+      outfmt= TOKEN_SHRT
       go to 520
 c
 c                       output format is long.
@@ -434,7 +434,7 @@ c **********************************************************************
 c
 c
  586  continue
-      geonl= 4HTRUE
+      geonl= TOKEN_TRUE
       go to 520 
 c
 c
@@ -447,7 +447,7 @@ c **********************************************************************
 c
 c
  587  continue
-      bbar = 4HTRUE
+      bbar = TOKEN_TRUE
       go to 520
  588  continue
       bbar = 4HFLSE
@@ -463,11 +463,11 @@ c **********************************************************************
 c
  595  continue
       if(matchs('top',3)) then
-         surf = 4HO111
+         surf = TOKEN_O111
       else if(matchs('middle',3)) then
-         surf = 4HO222
+         surf = TOKEN_O222
       else if(matchs('bottom',3)) then
-         surf = 4HO333
+         surf = TOKEN_O333
       else
          call errmsg(318,dum,'surface',dumr,dumd)
       end if

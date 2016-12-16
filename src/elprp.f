@@ -82,13 +82,13 @@ c                       ordering permitted is the 14 pt rule.
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO222 ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O222 ) then
          iprops(5,elem) = 8
          iprops(6,elem) = 8
-      else if( intord.eq.4HO14P ) then
+      else if( intord.eq.TOKEN_O14P ) then
          iprops(5,elem) = 9
          iprops(6,elem) = 14
-      else if( intord.eq.4HO09P ) then
+      else if( intord.eq.TOKEN_O09P ) then
          iprops(5,elem) = 2
          iprops(6,elem) = 9
       else
@@ -104,9 +104,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -115,7 +115,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -125,7 +125,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -312,10 +312,10 @@ c                       the default value is 2x2x2.
 c
       intord= elstor(3,elem)
 c
-      if(intord.eq.4HDEFA.OR.INTORD.EQ.4HO222) then
+      if(intord.eq.TOKEN_DEFA.OR.INTORD.EQ.TOKEN_O222) then
          iprops(5,elem)= 1
          iprops(6,elem)= 8
-      else if(intord.eq.4HO06P) then
+      else if(intord.eq.TOKEN_O06P) then
          iprops(5,elem)= 2
          iprops(6,elem)= 6
       else
@@ -331,9 +331,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -343,7 +343,7 @@ c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
 c
-      if(outfmt.eq.4HDEFA.OR.OUTFMT.EQ.4HSHRT) then
+      if(outfmt.eq.TOKEN_DEFA.OR.OUTFMT.EQ.TOKEN_SHRT) then
          lprops(16,elem)= .false.
       else
          lprops(16,elem)= .true.
@@ -354,7 +354,7 @@ c                       the default value is on.
 c
       geonl= elstor(7,elem)
 c
-      if(geonl.eq.4HDEFA.OR.GEONL.EQ.4HTRUE) then
+      if(geonl.eq.TOKEN_DEFA.OR.GEONL.EQ.TOKEN_TRUE) then
          lprops(18,elem)= .true.
       else
          lprops(18,elem)= .false.
@@ -365,7 +365,7 @@ c                       the default value is on.
 c
       bbar = elstor(8,elem)
 c
-      if(bbar.eq.4HTRUE) THEN
+      if(bbar.eq.TOKEN_TRUE) THEN
          LPROPS(19,ELEM)= .TRUE.
       ELSE
          LPROPS(19,ELEM)= .FALSE.
@@ -549,13 +549,13 @@ c                       the default value is 2x2x2.
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO222 ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O222 ) then
          iprops(5,elem) = 8
          iprops(6,elem) = 8
-      else if( intord.eq.4HO14P ) then
+      else if( intord.eq.TOKEN_O14P ) then
          iprops(5,elem) = 9
          iprops(6,elem) = 14
-      else if( intord.eq.4HO09P ) then
+      else if( intord.eq.TOKEN_O09P ) then
          iprops(5,elem) = 2
          iprops(6,elem) = 9
       else
@@ -571,9 +571,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -582,7 +582,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -592,7 +592,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -782,13 +782,13 @@ c                       the default value is 2x2x2.
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO222 ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O222 ) then
          iprops(5,elem) = 8
          iprops(6,elem) = 8
-      else if( intord.eq.4HO14P ) then
+      else if( intord.eq.TOKEN_O14P ) then
          iprops(5,elem) = 9
          iprops(6,elem) = 14
-      else if( intord.eq.4HO09P ) then
+      else if( intord.eq.TOKEN_O09P ) then
          iprops(5,elem) = 2
          iprops(6,elem) = 9
       else
@@ -804,9 +804,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -815,7 +815,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -825,7 +825,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -1014,13 +1014,13 @@ c                       the default value is 2x2x2.
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO222 ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O222 ) then
          iprops(5,elem) = 8
          iprops(6,elem) = 8
-      else if( intord.eq.4HO14P ) then
+      else if( intord.eq.TOKEN_O14P ) then
          iprops(5,elem) = 9
          iprops(6,elem) = 14
-      else if( intord.eq.4HO09P ) then
+      else if( intord.eq.TOKEN_O09P ) then
          iprops(5,elem) = 2
          iprops(6,elem) = 9
       else
@@ -1036,9 +1036,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -1047,7 +1047,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -1057,7 +1057,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -1249,13 +1249,13 @@ c                       orders have 1, 4, or 5 points
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO04P ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O04P ) then
          iprops(5,elem) = 4
          iprops(6,elem) = 4
-      else if( intord.eq.4HO01P ) then
+      else if( intord.eq.TOKEN_O01P ) then
          iprops(5,elem) = 1
          iprops(6,elem) = 1
-      else if( intord.eq.4HO05P ) then
+      else if( intord.eq.TOKEN_O05P ) then
          iprops(5,elem) = 5
          iprops(6,elem) = 5
       else
@@ -1271,9 +1271,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -1282,7 +1282,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -1292,7 +1292,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -1480,13 +1480,13 @@ c                       the default value is 2x2x2.
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO222 ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O222 ) then
          iprops(5,elem) = 8
          iprops(6,elem) = 8
-      else if( intord.eq.4HO14P ) then
+      else if( intord.eq.TOKEN_O14P ) then
          iprops(5,elem) = 9
          iprops(6,elem) = 14
-      else if( intord.eq.4HO09P ) then
+      else if( intord.eq.TOKEN_O09P ) then
          iprops(5,elem) = 2
          iprops(6,elem) = 9
       else
@@ -1502,9 +1502,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -1513,7 +1513,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -1523,7 +1523,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -1712,13 +1712,13 @@ c                       the default value is 2x2x2.
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO222 ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O222 ) then
          iprops(5,elem) = 8
          iprops(6,elem) = 8
-      else if( intord.eq.4HO14P ) then
+      else if( intord.eq.TOKEN_O14P ) then
          iprops(5,elem) = 9
          iprops(6,elem) = 14
-      else if( intord.eq.4HO09P ) then
+      else if( intord.eq.TOKEN_O09P ) then
          iprops(5,elem) = 2
          iprops(6,elem) = 9
       else
@@ -1734,9 +1734,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -1745,7 +1745,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -1755,7 +1755,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -1943,13 +1943,13 @@ c                       the default value is 2x2x2.
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO222 ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O222 ) then
          iprops(5,elem) = 8
          iprops(6,elem) = 8
-      else if( intord.eq.4HO14P ) then
+      else if( intord.eq.TOKEN_O14P ) then
          iprops(5,elem) = 9
          iprops(6,elem) = 14
-      else if( intord.eq.4HO09P ) then
+      else if( intord.eq.TOKEN_O09P ) then
          iprops(5,elem) = 2
          iprops(6,elem) = 9
       else
@@ -1965,9 +1965,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -1976,7 +1976,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -1986,7 +1986,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -2181,13 +2181,13 @@ c                       gauss integration.
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO09P ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O09P ) then
          iprops(5,elem) = 3
          iprops(6,elem) = 9
-      else if( intord.eq.4HO01P ) then
+      else if( intord.eq.TOKEN_O01P ) then
          iprops(5,elem) = 1
          iprops(6,elem) = 1
-      else if( intord.eq.4HO04P ) then
+      else if( intord.eq.TOKEN_O04P ) then
          iprops(5,elem) = 2
          iprops(6,elem) = 4
       else
@@ -2203,9 +2203,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -2214,7 +2214,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -2224,7 +2224,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -2416,19 +2416,19 @@ c                       possible integration order = 1,3,4,6,7
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO03P ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O03P ) then
          iprops(5,elem) = 3
          iprops(6,elem) = 3
-      else if( intord.eq.4HO01P ) then
+      else if( intord.eq.TOKEN_O01P ) then
          iprops(5,elem) = 1
          iprops(6,elem) = 1
-      else if( intord.eq.4HO04P ) then
+      else if( intord.eq.TOKEN_O04P ) then
          iprops(5,elem) = 4
          iprops(6,elem) = 4
-      else if( intord.eq.4HO06P ) then
+      else if( intord.eq.TOKEN_O06P ) then
          iprops(5,elem) = 6
          iprops(6,elem) = 6
-       else if( intord.eq.4HO07P ) then
+       else if( intord.eq.TOKEN_O07P ) then
          iprops(5,elem) = 7
          iprops(6,elem) = 7
       else
@@ -2448,9 +2448,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -2459,7 +2459,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -2469,7 +2469,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -2665,13 +2665,13 @@ c
       intord = elstor(3,elem)
 c
 c
-      if( intord.eq.4HDEFA .or. intord.eq.4HO22G ) then
+      if( intord.eq.TOKEN_DEFA .or. intord.eq.TOKEN_O22G ) then
          iprops(5,elem) = 5
          iprops(6,elem) = 4
-      else if( intord.eq.4HO22N ) then
+      else if( intord.eq.TOKEN_O22N ) then
          iprops(5,elem) = 4
          iprops(6,elem) = 4
-      else if( intord.eq.4HO01P ) then
+      else if( intord.eq.TOKEN_O01P ) then
          iprops(5,elem) = 6
          iprops(6,elem) = 1
       else
@@ -2687,9 +2687,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -2698,7 +2698,7 @@ c                       output format. the default value is short.
 c                       -- cohesive element can output only in short fmt.
 c
       outfmt = elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .false.
@@ -2708,7 +2708,7 @@ c                       geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -2723,11 +2723,11 @@ c                       reference surface
 c                       for geometrical update for the cohesive element
 c
       surf = elstor(10, elem)
-      if( surf.eq.4HDEFA .or. surf.eq.4HO222 ) then
+      if( surf.eq.TOKEN_DEFA .or. surf.eq.TOKEN_O222 ) then
          iprops(26,elem) = 2
-      else if( surf.eq.4HO111 ) then
+      else if( surf.eq.TOKEN_O111 ) then
          iprops(26,elem) = 1
-      else if( surf.eq.4HO333 ) then
+      else if( surf.eq.TOKEN_O333 ) then
          iprops(26,elem) = 3
       else
          iprops(26,elem) = 2
@@ -2917,21 +2917,21 @@ c
       cavit_type       = iprops(27,elem) .eq. 7
 c
 c      if( exponential_type ) then
-c        if ( surf.eq.4HO111 .and. matprp(42,matnum) .ne. zero ) then
+c        if ( surf.eq.TOKEN_O111 .and. matprp(42,matnum) .ne. zero ) then
 c	 call errmsg2(33,elem,'top',matprp(42,matnum),dumd)
 c         props(23,elem) = zero
 c        end if
-c        if ( surf.eq.4HO333 .and. matprp(42,matnum) .ne. zero ) then
+c        if ( surf.eq.TOKEN_O333 .and. matprp(42,matnum) .ne. zero ) then
 c	 call errmsg2(33,elem,'bottom',matprp(42,matnum),dumd)
 c         props(23,elem) = zero
 c        end if
 c      end if
 c
 c      if( ppr_type ) then
-c        if ( surf.eq.4HO111 .and. matprp(42,matnum) .eq. zero ) then
+c        if ( surf.eq.TOKEN_O111 .and. matprp(42,matnum) .eq. zero ) then
 c	 call errmsg2(78,elem,'top',matprp(42,matnum),dumd)
 c        end if
-c        if ( surf.eq.4HO333 .and. matprp(42,matnum) .eq. zero ) then
+c        if ( surf.eq.TOKEN_O333 .and. matprp(42,matnum) .eq. zero ) then
 c	 call errmsg2(78,elem,'bottom',matprp(42,matnum),dumd)
 c        end if
 c      end if
@@ -3036,13 +3036,13 @@ c                       orders have 1, 4, or 5 points
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA.or.intord.eq.4HO01P ) then
+      if( intord.eq.TOKEN_DEFA.or.intord.eq.TOKEN_O01P ) then
          iprops(5,elem) = 1
          iprops(6,elem) = 1
-      else if( intord.eq.4HO04P ) then
+      else if( intord.eq.TOKEN_O04P ) then
          iprops(5,elem) = 4
          iprops(6,elem) = 4
-      else if( intord.eq.4HO05P ) then
+      else if( intord.eq.TOKEN_O05P ) then
          iprops(5,elem) = 5
          iprops(6,elem) = 5
       else
@@ -3058,9 +3058,9 @@ c                       are element or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -3069,7 +3069,7 @@ c                       store data concerning the output format for
 c                       output. the default value is short.
 c
       outfmt= elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .true.
@@ -3079,7 +3079,7 @@ c                       store data concerning the geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -3268,13 +3268,13 @@ c
       intord = elstor(3,elem)
 c
 c
-      if( intord.eq.4HDEFA .or. intord.eq.4HO3MP ) then
+      if( intord.eq.TOKEN_DEFA .or. intord.eq.TOKEN_O3MP ) then
          iprops(5,elem) = 3
          iprops(6,elem) = 3
-      else if( intord.eq.4HO03P ) then
+      else if( intord.eq.TOKEN_O03P ) then
          iprops(5,elem) = 2
          iprops(6,elem) = 3
-      else if( intord.eq.4HO01P ) then
+      else if( intord.eq.TOKEN_O01P ) then
          iprops(5,elem) = 1
          iprops(6,elem) = 1
       else
@@ -3290,9 +3290,9 @@ c                       are nodes or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -3301,7 +3301,7 @@ c                       output format. the default value is short.
 c                       -- cohesive element can output only in short fmt.
 c
       outfmt = elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .false.
@@ -3311,7 +3311,7 @@ c                       geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -3328,11 +3328,11 @@ c                       reference surface
 c                       for geometrical update for the cohesive element
 c
       surf = elstor(10, elem)
-      if( surf.eq.4HDEFA .or. surf.eq.4HO222 ) then
+      if( surf.eq.TOKEN_DEFA .or. surf.eq.TOKEN_O222 ) then
          iprops(26,elem) = 2
-      else if( surf.eq.4HO111 ) then
+      else if( surf.eq.TOKEN_O111 ) then
          iprops(26,elem) = 1
-      else if( surf.eq.4HO333 ) then
+      else if( surf.eq.TOKEN_O333 ) then
          iprops(26,elem) = 3
       else
          iprops(26,elem) = 2
@@ -3368,21 +3368,21 @@ c
       cavit_type       = iprops(27,elem) .eq. 7
 c
       if( exponential_type ) then
-        if ( surf.eq.4HO111 .and. matprp(42,matnum) .ne. zero ) then
+        if ( surf.eq.TOKEN_O111 .and. matprp(42,matnum) .ne. zero ) then
 	 call errmsg2(33,elem,'top',matprp(42,matnum),dumd)
          props(23,elem) = zero
         end if
-        if ( surf.eq.4HO333 .and. matprp(42,matnum) .ne. zero ) then
+        if ( surf.eq.TOKEN_O333 .and. matprp(42,matnum) .ne. zero ) then
 	 call errmsg2(33,elem,'bottom',matprp(42,matnum),dumd)
          props(23,elem) = zero
         end if
       end if
 c
       if( ppr_type ) then
-        if ( surf.eq.4HO111 .and. matprp(42,matnum) .eq. zero ) then
+        if ( surf.eq.TOKEN_O111 .and. matprp(42,matnum) .eq. zero ) then
 	 call errmsg2(78,elem,'top',matprp(42,matnum),dumd)
         end if
-        if ( surf.eq.4HO333 .and. matprp(42,matnum) .eq. zero ) then
+        if ( surf.eq.TOKEN_O333 .and. matprp(42,matnum) .eq. zero ) then
 	 call errmsg2(78,elem,'bottom',matprp(42,matnum),dumd)
         end if
       end if
@@ -3492,22 +3492,22 @@ c                       a 1 point rule.
 c
       intord = elstor(3,elem)
 c
-      if( intord.eq.4HDEFA .or. intord.eq.4HO07P ) then
+      if( intord.eq.TOKEN_DEFA .or. intord.eq.TOKEN_O07P ) then
          iprops(5,elem) = 7
          iprops(6,elem) = 7
-      else if( intord.eq.4HO06P ) then
+      else if( intord.eq.TOKEN_O06P ) then
          iprops(5,elem) = 6
          iprops(6,elem) = 6
-      else if( intord.eq.4HO04P ) then
+      else if( intord.eq.TOKEN_O04P ) then
          iprops(5,elem) = 4
          iprops(6,elem) = 4
-      else if( intord.eq.4HO3MP ) then
+      else if( intord.eq.TOKEN_O3MP ) then
          iprops(5,elem) = 3
          iprops(6,elem) = 3
-      else if( intord.eq.4HO03P ) then
+      else if( intord.eq.TOKEN_O03P ) then
          iprops(5,elem) = 2
          iprops(6,elem) = 3
-      else if( intord.eq.4HO01P ) then
+      else if( intord.eq.TOKEN_O01P ) then
          iprops(5,elem) = 1
          iprops(6,elem) = 1
       else
@@ -3523,9 +3523,9 @@ c                       are nodes or element center.
 c
       outloc = elstor(4,elem)
       iloc   = 1
-      if ( outloc .eq. 4hNODE ) then
+      if ( outloc .eq. TOKEN_NODE ) then
          iloc = 2
-      else if ( outloc .eq. 4hCENT ) then
+      else if ( outloc .eq. TOKEN_CENT ) then
          iloc = 3
       end if
       iprops(12,elem) = iloc
@@ -3534,7 +3534,7 @@ c                       output format. the default value is short.
 c                       -- cohesive element can output only in short fmt.
 c
       outfmt = elstor(6,elem)
-      if( outfmt .eq. 4HDEFA .or. outfmt .eq. 4HSHRT ) then
+      if( outfmt .eq. TOKEN_DEFA .or. outfmt .eq. TOKEN_SHRT ) then
          lprops(16,elem) = .false.
       else
          lprops(16,elem) = .false.
@@ -3544,7 +3544,7 @@ c                       geometric nonlinearity flag.
 c                       the default value is on.
 c
       geonl= elstor(7,elem)
-      if( geonl .eq. 4HDEFA .or. geonl .eq. 4HTRUE ) then
+      if( geonl .eq. TOKEN_DEFA .or. geonl .eq. TOKEN_TRUE ) then
          lprops(18,elem) = .true.
       else
          lprops(18,elem) = .false.
@@ -3560,11 +3560,11 @@ c                       reference surface
 c                       for geometrical update for the cohesive element
 c
       surf = elstor(10, elem)
-      if( surf.eq.4HDEFA .or. surf.eq.4HO222 ) then
+      if( surf.eq.TOKEN_DEFA .or. surf.eq.TOKEN_O222 ) then
          iprops(26,elem) = 2
-      else if( surf.eq.4HO111 ) then
+      else if( surf.eq.TOKEN_O111 ) then
          iprops(26,elem) = 1
-      else if( surf.eq.4HO333 ) then
+      else if( surf.eq.TOKEN_O333 ) then
          iprops(26,elem) = 3
       else
          iprops(26,elem) = 2
@@ -3600,21 +3600,21 @@ c
       cavit_type       = iprops(27,elem) .eq. 7
 c
       if( exponential_type ) then
-        if ( surf.eq.4HO111 .and. matprp(42,matnum) .ne. zero ) then
+        if ( surf.eq.TOKEN_O111 .and. matprp(42,matnum) .ne. zero ) then
 	 call errmsg2(33,elem,'top',matprp(42,matnum),dumd)
          props(23,elem) = zero
         end if
-        if ( surf.eq.4HO333 .and. matprp(42,matnum) .ne. zero ) then
+        if ( surf.eq.TOKEN_O333 .and. matprp(42,matnum) .ne. zero ) then
 	 call errmsg2(33,elem,'bottom',matprp(42,matnum),dumd)
          props(23,elem) = zero
         end if
       end if
 c
       if( ppr_type ) then
-        if ( surf.eq.4HO111 .and. matprp(42,matnum) .eq. zero ) then
+        if ( surf.eq.TOKEN_O111 .and. matprp(42,matnum) .eq. zero ) then
 	 call errmsg2(78,elem,'top',matprp(42,matnum),dumd)
         end if
-        if ( surf.eq.4HO333 .and. matprp(42,matnum) .eq. zero ) then
+        if ( surf.eq.TOKEN_O333 .and. matprp(42,matnum) .eq. zero ) then
 	 call errmsg2(78,elem,'bottom',matprp(42,matnum),dumd)
         end if
       end if

@@ -80,7 +80,7 @@ c                       the new order. default's cannot override
 c                       previous data.
 c                       
  21   if( elstor(1,elem) .ne. 0 ) then
-         if( intord .eq. 4HDEFA ) go to 22
+         if( intord .eq. TOKEN_DEFA ) go to 22
       end if
       elstor(3,elem) = intord
 c
@@ -91,7 +91,7 @@ c                       the new location. default's cannot override
 c                       previous data.
 c                       
  22   if( elstor(1,elem) .ne. 0 ) then
-         if( outloc .eq. 4HDEFA ) go to 23
+         if( outloc .eq. TOKEN_DEFA ) go to 23
       end if
       elstor(4,elem) = outloc
 c
@@ -102,7 +102,7 @@ c                       the new stress type. default's cannot override
 c                       previous data.
 c                       
  23   if( elstor(1,elem) .ne. 0 ) then
-         if( strcon .eq. 4HDEFA ) go to 24
+         if( strcon .eq. TOKEN_DEFA ) go to 24
       end if
       elstor(5,elem) = strcon
 c
@@ -113,7 +113,7 @@ c                       ignore the new output format. default's cannot
 c                       override previous data.
 c                       
  24   if( elstor(1,elem) .ne. 0 ) then
-         if( outfmt .eq. 4HDEFA ) go to 25
+         if( outfmt .eq. TOKEN_DEFA ) go to 25
       end if
       elstor(6,elem) = outfmt
 c
@@ -123,7 +123,7 @@ c                       the new flag is the default, then ignore the new flag.
 c                       default's cannot override previous data.
 c
  25   if( elstor(1,elem) .ne. 0 ) then
-         if( geonl .eq. 4HDEFA ) go to 26
+         if( geonl .eq. TOKEN_DEFA ) go to 26
       end if
       elstor(7,elem) = geonl
 c
@@ -144,7 +144,7 @@ c                       the new flag is the default, then ignore the new flag.
 c                       default's cannot override previous data.
 c
  27   if( elstor(1,elem) .ne. 0 ) then
-         if( bbar .eq. 4HDEFA ) go to 28 
+         if( bbar .eq. TOKEN_DEFA ) go to 28 
       end if
       elstor(8,elem) = bbar
 c
@@ -154,7 +154,7 @@ c                       and the new flag is the default, then ignore the new
 c                       flag. default's cannot override previous data.
 c
  28   if( elstor(1,elem) .ne. 0 ) then
-         if( surf .eq. 4HDEFA ) go to 30
+         if( surf .eq. TOKEN_DEFA ) go to 30
       end if
       elstor(10,elem) = surf
 c
