@@ -2722,7 +2722,7 @@ c
 c                 automatic vectors-arrays
 c
       double precision, dimension(6+props%num_hard) :: R, x, dx, 
-     &                xnew, g, work_vec1
+     &                xnew, work_vec1
       integer, dimension(6+props%num_hard) :: ipiv
       double precision, dimension(props%num_hard) :: x2
       double precision :: trans_J(ncJ,nrJ), minus_J(nrJ,ncJ)
@@ -2883,6 +2883,7 @@ c
 c        
         dx1(1:6) = R1(1:6)
         minus_J11 = -J11
+        ipiv = 0
         call DGESV( 6, 1, minus_J11, 6, ipiv, dx1, 6, info )
         if( locdebug ) write(iout,*)" Iter=",
      &                 iter, " dx1=", dx1(2)
@@ -2983,7 +2984,7 @@ c
       subroutine mm10_solve_update
       implicit none 
 c
-      integer :: iout, isize
+      integer :: iout, isize, iii, jjj
       double precision :: dotR
       logical :: tan_mat_implemented 
 c
@@ -3030,6 +3031,7 @@ c
 c        
         dx      = R
         minus_J = -J  ! eliminate repeated temporaries
+        ipiv = 0
         call DGESV( isize, 1, minus_J, isize, ipiv, dx, isize, info )
 c
         if( locdebug) write(iout,*) " Iter=", iter, " dx1=", dx(2), 
@@ -3041,8 +3043,16 @@ c
        dotR      = dot_product( R, R )  ! R is not 6x1
        ls1       = half * dotR
        trans_J   = transpose( J )  !   J is not 6x6
-       work_vec1 = matmul( trans_J, R ) ! eliminates repeated temps
+       ! The following line is a problem: trans_J is non-symmetric, 
+       ! seems to be (2*sz,sz).  R is (sz,).  That means work_vec1
+       ! should be 2*sz, but it's only sz.
+       !
+       ! ncJ is 2*sz
+       !
+       work_vec1 = matmul( trans_J(1:isize,:), R ) ! eliminates repeated temps
        ls2       = c * dot_product( dx, work_vec1 )
+       ! The following line works
+       !ls2 = c * dot_product(dx, matmul(transpose(J), R))
 c
        ls = 0
        do
