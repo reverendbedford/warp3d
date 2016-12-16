@@ -1325,6 +1325,8 @@ c              symmetric to full storage
 c
       lwork = n * n
       allocate( ipiv(n), work(lwork) )
+      ipiv = 0
+      work = 0.0
       call DSYTRF('U', n, A, n, ipiv, work, lwork, info)
       call DSYTRI('U', n, A, n, ipiv, work, info )
 c
@@ -1554,6 +1556,7 @@ c              1-3 are the coordinates
           end do
 c              solve with LAPACK
           lwork = 8
+          work = 0.0
           call DGELS('N',  ngp, 4, 1, intermat, mxgp, RHS, ngp, work,
      &                lwork, info)
           if( info .ne. 0 ) then
@@ -1960,6 +1963,7 @@ c
 c
       double precision :: dgc
       double precision, parameter :: init_hard = 0.1d0
+      double precision :: tm_v, tm_y
 c
 c              continuum effective rate
 c
@@ -1981,14 +1985,29 @@ c                               matrix setup only
          np1%tau_v = props%tau_hat_v
          np1%tau_y = props%tau_hat_y
       else
-         np1%tau_v = props%tau_hat_v*(one-(props%boltzman*np1%temp
+c           MCM:  but what if the thermal multipliers are negative
+c                 Mark...  Seriously this was a dumb error.
+c                 
+c           What should happen in this case is that they go to zero
+c           (i.e. there are no barriers because we have infinite thermal
+c           energy).  This will likely cause non-convergence but that's
+c           not my problem here.
+         tm_v = (one-(props%boltzman*np1%temp
      &       /(np1%mu_harden*(props%burgers**three)*props%G_0_v)*
-     &       dlog(props%eps_dot_0_v/dgc))**(one/props%q_v))
-     &       **(one/props%p_v)
-         np1%tau_y = props%tau_hat_y*(one-(props%boltzman*np1%temp
+     &       dlog(props%eps_dot_0_v/dgc))**(one/props%q_v)) 
+         if (tm_v .gt. 0.0) then
+            np1%tau_v = props%tau_hat_v * tm_v**(one/props%q_v)
+         else
+            np1%tau_v = 0.0
+         endif
+         tm_y = (one-(props%boltzman*np1%temp
      &       /(np1%mu_harden*(props%burgers**three)*props%G_0_y)*
      &       dlog(props%eps_dot_0_y/dgc))**(one/props%q_y))
-     &       **(one/props%p_y)
+         if (tm_y .gt. 0.0) then
+            np1%tau_y = props%tau_hat_y * tm_y**(one/props%q_v)
+         else
+            np1%tau_y = 0.0
+         endif
       end if
 c
 c              use existing labels as a convenience, 

@@ -65,7 +65,7 @@ else()
       # Optimized build
       set(CMAKE_Fortran_FLAGS_RELEASE "-O3")
       # Debug build
-      set(CMAKE_Fortran_FLAGS_DEBUG "-O0 -g")
+      set(CMAKE_Fortran_FLAGS_DEBUG "-O0 -g -ffpe-trap=invalid")
 endif()
 
 

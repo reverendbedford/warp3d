@@ -10,9 +10,9 @@ crystal 1
       theta_0 23.53,
       b 3.5E-7 boltz 1.3806E-20,
       tau_a 0.0,
-      tau_hat_y 20.0 g_0_y 0.007808 q_y 2.0 p_y 0.5,
+      tau_hat_y 25.0 g_0_y 0.7808 q_y 2.0 p_y 0.5,
       eps_dot_0_y 1.0E13,
-      tau_hat_v 4.0 g_0_v 0.00488 q_v 2.0 p_v 0.5,
+      tau_hat_v 50.0 g_0_v 0.488 q_v 2.0 p_v 0.5,
       eps_dot_0_v 1.0E7,
       hardening mts k_0 0.0 voche_m 1.0
 c
@@ -695,7 +695,7 @@ c
  nonlinear analysis parameters
    solution technique asymmetric direct
    time step 1.0e06 
-   maximum iterations 8
+   maximum iterations 12
    minimum iterations 1
    line search on
    divergence check on
