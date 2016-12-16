@@ -57,6 +57,10 @@ if(${CMAKE_Fortran_COMPILER_ID} STREQUAL "Intel")
       set(CMAKE_Fortran_FLAGS_DEBUG "-O0 -g -check all,noarg_temp_created -align array64byte")
 else()
       add_definitions(-DCOMPILER_OTHER)
+      set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -m64")
+      # Please note the manual override to the Intel threading library
+      # otherwise you don't get Pardiso threads
+      set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--no-as-needed -liomp5")
       message(WARNING "WARP3D not tested on compilers other than Intel!")
       # Optimized build
       set(CMAKE_Fortran_FLAGS_RELEASE "-O3")

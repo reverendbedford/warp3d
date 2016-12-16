@@ -98,8 +98,13 @@ c
 c
 c                       open the file.
 c
+#ifdef COMPILER_INTEL
       open( fileno, file=dbname, status='new', access='sequential',
      &     form='unformatted', recordtype='segmented' )
+#else
+      open( fileno, file=dbname, status='new', access='sequential',
+     &     form='unformatted' )
+#endif
 c
 c                       MPI:
 c                         we need to gather all the stresses, strains,

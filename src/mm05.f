@@ -652,7 +652,7 @@ c
      & alpha_n(6), alpha_np1(6), alpha_1step(6),  stress_1step(6), 
      & alpha_2step(6), stress_2step(6), alpha_nstep(6), stress_nstep(6),
      & dev_stress_n(6), dev_stress_np1(6),diff(6), devdeps(6), sig_t(6),
-     & norm_equiv_sm1(6), alpha_sm1(6)
+     & norm_equiv_sm1, alpha_sm1(6)
 c
        data  two, one, three,  root2third
      &   /  2.0, 1.0, 3.0, 0.81649658  /

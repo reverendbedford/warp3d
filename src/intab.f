@@ -21,7 +21,7 @@ c
 c
 c                       parameter declarations
 c            
-      logical sbflg1, sbflg2
+      logical sbflg1, sbflg2, complete
 c
 c                       local declarations
 c

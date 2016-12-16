@@ -19,12 +19,14 @@ c
 c
       subroutine prcsel
       use main_data, only : elstor
-      implicit integer (a-z)     
+      implicit integer (a-z) 
 #include "common.main"
+      logical :: local_debug
 c
 c                       for each element in the structure, store
 c                       element properties in permanent storage.
-c                                   
+c                           
+      local_debug = .false.
       call omp_set_dynamic( .false. )
       if( local_debug ) start_time = omp_get_wtime()
 c

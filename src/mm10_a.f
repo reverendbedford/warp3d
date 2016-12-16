@@ -2470,8 +2470,8 @@ c
       type(crystal_props) :: props
       type(crystal_state) :: np1, n
 c
-      integer :: gp       
-      logical :: fail, iter_0_extrapolate_off, no_load, nrJmat, ncJmat
+      integer :: gp, nrJmat, ncJmat 
+      logical :: fail, iter_0_extrapolate_off, no_load
       double precision, dimension(max_uhard) :: vec1, vec2
       double precision, dimension(max_uhard,max_uhard) :: arr1, arr2
       double complex, dimension(max_uhard) :: ivec1, ivec2

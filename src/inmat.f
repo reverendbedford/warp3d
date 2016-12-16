@@ -1718,6 +1718,9 @@ c
       double precision :: dumd
       character :: dums, lab*24, filen*24
       logical :: reading
+      logical, external :: matchs, matchs_exact, label, numd
+      logical, external :: endcrd, numi, numr, string, match
+      logical, external :: isstring
 
 c           See above for a detailed summary of each material option, in
 c           general, handle input for 6,7,9,13,22,25,100-113
@@ -1879,6 +1882,9 @@ c
       double precision :: dumd
       character :: dums, lab*24, filen*24, name*80, mname*24
       logical :: reading, found
+      logical, external :: matchs, matchs_exact, label, numd
+      logical, external :: endcrd, numi, numr, string, match
+      logical, external :: isstring, scanms
 
 c           See above for a detailed summary of each material option, in
 c           general, handle input for 6,7,13,22,25,100,102,112,115-129

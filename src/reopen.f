@@ -89,8 +89,13 @@ c
          go to 9999
       end if
 c
+#ifdef COMPILER_INTEL
       open( fileno, file=dbname, status='old', access='sequential',
      &     form='unformatted', recordtype='segmented' )
+#else
+      open( fileno, file=dbname, status='old', access='sequential',
+     &     form='unformatted')
+#endif
 c
 c                       rewind the data base to insure positioning
 c                       before the first record.

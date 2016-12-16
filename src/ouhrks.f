@@ -110,6 +110,7 @@ c
 
       implicit integer (a-z)
 #include "common.main"
+      logical :: do_stress
       logical do_stresses, center_output, wide, eform, newel,
      &        prec, noheader, out_packet_now, geo_non_flg
       character*8 strlbl(30), hedtyp*30

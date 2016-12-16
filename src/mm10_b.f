@@ -103,7 +103,7 @@ c              store for possible prediction during next time/load step
 c
       len = props%num_hard
       R2(1:len) = tt(1:len) - h(1:len)
-      np1%tt_rate(1:len) = ( h(1:len) - n%tau_tilde(1:len) ) / np1.tinc
+      np1%tt_rate(1:len) = ( h(1:len) - n%tau_tilde(1:len) ) / np1%tinc
 c      
       return
       end 
@@ -2093,7 +2093,7 @@ c
       type(crystal_props) :: props
       type(crystal_state) :: np1, n
       double precision, dimension(6) :: stress
-      double precision :: tt
+      double precision, dimension(1) :: tt
       double precision, dimension(6) :: ed
 c
       double precision :: slipinc
@@ -2137,7 +2137,7 @@ c
 c     Form a couple more common components
 c
       mnp0 = np1%mu_harden / props%mu_0
-      sc = tt/mnp0 - props%tau_a/mnp0 - np1%tau_y
+      sc = tt(1)/mnp0 - props%tau_a/mnp0 - np1%tau_y
 c
 c     Glue everything together
 c
@@ -3160,9 +3160,9 @@ c linear extrapolation past the too-high stress (rs) value
         elseif(dabs(rs).gt.zero) then
         slipexp = dexp (-(Qslip/k/theta)*(one - fract**p_e)**q_e)
      &          * dsign(one,rs)
-        dslipinc = dt * (gamma_0 * slipexp * -(Qslip/k/theta)*q_e*
+        dslipinc = dt * (gamma_0 * slipexp * (-(Qslip/k/theta))*q_e*
      &      (one - fract**p_e)**(q_e-one)
-     &      * -p_e*fract**(p_e-one) * dfract) !(14)
+     &      * (-p_e*fract**(p_e-one)) * dfract) !(14)
         else
             dslipinc = zero
         endif
@@ -3278,8 +3278,8 @@ c Evaluate the equation
      &             (one - fract**p_e)**q_e) !(14)
           dslipinc = dt * (dgamma_0 * slipexp * dsign(one,rs)
      &          + gamma_0 * dsign(one,rs) * slipexp *
-     &          -(Qslip/k/theta)*q_e*(one - fract**p_e)**(q_e-one)
-     &        * -p_e*fract**(p_e-one) * dfract)
+     &          (-(Qslip/k/theta))*q_e*(one - fract**p_e)**(q_e-one)
+     &        * (-p_e*fract**(p_e-one)) * dfract)
           else
               dslipinc = zero
           endif
@@ -4189,9 +4189,9 @@ c linear extrapolation past the too-high stress (rs) value
           endif
         slipexp = dexp (-(Qslip/k/theta)*(one - fract**p2)**q_e)
      &          * dsign(one,rs)
-        dslipinc = dt * (gamma_0 * slipexp * -(Qslip/k/theta)*q_e*
+        dslipinc = dt * (gamma_0 * slipexp * (-(Qslip/k/theta))*q_e*
      &      (one - fract**p2)**(q_e-one)
-     &      * -p2*fract**(p2-one) * dfract) !(14)
+     &      * (-p2*fract**(p2-one)) * dfract) !(14)
         endif
         
         dgammadtau(alpha) = dslipinc
@@ -4314,8 +4314,8 @@ c Evaluate the equation
      &             (one - fract**p2)**q_e) !(14)
           dslipinc = dt * (dgamma_0 * slipexp * dsign(one,rs)
      &          + gamma_0 * dsign(one,rs) * slipexp *
-     &          -(Qslip/k/theta)*q_e*(one - fract**p2)**(q_e-one)
-     &        * -p2*fract**(p2-one) * dfract)
+     &          (-(Qslip/k/theta))*q_e*(one - fract**p2)**(q_e-one)
+     &        * (-p2*fract**(p2-one)) * dfract)
           endif
         
           dgammadtt(alpha,beta) = dslipinc

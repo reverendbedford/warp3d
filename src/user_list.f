@@ -15,6 +15,7 @@ c
 #include "common.main"
       logical debug, string, scanms, matchs, do_display,
      &        found, match_exact, matchs_exact, true, display_coords
+      logical, external :: endcrd
       character lname*24, name*80
 c
 c                 on entry, last scanner test was true (word 

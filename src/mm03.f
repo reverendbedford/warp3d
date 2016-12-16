@@ -1547,7 +1547,7 @@ c
       double precision, 
      & allocatable :: history_dump(:,:,:), one_elem_states(:)
       integer :: relem, elnum, hist_size, blockno
-      logical :: do_a_block
+      logical :: do_a_block, do_block, local_debug
       double precision :: zero
       data zero / 0.0d00 /
 c      

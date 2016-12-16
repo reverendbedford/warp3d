@@ -63,7 +63,7 @@ c            kinc is the WARP3D step number. kinc = 1 is
 c            1st simulation step
 c
 c
-      integer lop, lrestart, kstep, kinc
+      integer lop, lrestart, kstep, kinc, termout
       dimension time(2)
 c
       logical debug_local

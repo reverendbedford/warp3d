@@ -39,7 +39,8 @@ c
      &           compressed, ok, found
 
       logical, external :: matchs, endcrd, true, label, string, numi
-      logical :: stress, prec, out_packet_now, neutral
+      logical :: stress, prec, out_packet_now, neutral, flat_file
+      logical :: stream_file, text_file
       integer :: indev, outdev, idummy, jdummy
 c
       call iodevn( indev, outdev, idummy, jdummy )

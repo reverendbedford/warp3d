@@ -21,7 +21,7 @@ c
       implicit integer (a-z)
 #include "common.main"
       logical wide, eform, prec, do_stress, noheader, out_packet_now
-     &        solid_elem
+     &        solid_elem, out_packet_now
       integer element_list(num_list_entries)
 c
 c             local declarations
