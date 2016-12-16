@@ -28,9 +28,10 @@ c
 c                       locals
 c 
       integer :: intlst(mxlsz), lenlst, param, errnum, dummy,
-     &           iplist, icn, node, idof, dof, debug, nsteps, i
+     &           iplist, icn, node, idof, dof, nsteps, i
       integer, save :: count_stored
       logical :: release_flags(3), found_list, bad_list, bad
+      logical :: debug
       logical, external :: match, matchs, endcrd, true, numd, integr,
      &         realn, match_exact
       logical, save :: delete_release_cons

@@ -34,13 +34,17 @@ c
 c
       implicit integer (a-z)
 #include "common.main"
+c     Scan functions
+      logical, external :: matchs, matchs_exact, label, numd
+      logical, external :: endcrd, numi, numr, string, match
+
       real dumr
       character dums
       double precision
      &  dnum, dumd, zero
-      logical sbflg1, sbflg2, linlst, lstflg, matchs, integr, endcrd,
-     &        true, numd, numr, string, numi, label, msg_flag,
-     &        local_direct_flag, matchs_exact
+      logical sbflg1, sbflg2, linlst, lstflg, integr,
+     &        true, msg_flag, solver_mkl_direct,
+     &        local_direct_flag, local_direct, umat_serial
       character (len=50) :: error_string
 c
 c                       locally allocated

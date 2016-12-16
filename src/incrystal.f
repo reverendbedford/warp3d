@@ -16,6 +16,10 @@ c
             use crystal_data
             implicit integer (a-z)
             logical :: sbflg1, sbflg2
+c           External functions from scan.f
+            logical, external :: matchs, matchs_exact, label, numd
+            logical, external :: endcrd, numi
+
 c
 c           Local variables
             integer :: cnum

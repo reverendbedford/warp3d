@@ -748,7 +748,7 @@ c
       use elem_block_data, only : gbl_cep_blocks => cep_blocks
       implicit integer (a-z)
 #include "param_def"
-#include "include_tan_ek"  ! has local_work definition
+#include "include_tan_ek" 
 c
 c                     local variables
 c
@@ -1235,7 +1235,7 @@ c
       double precision ::
      &     cep(mxvl,nstr,*), qn1(mxvl,nstr,*), tc(mxvl,nstr,nstr),
      &     cs(mxvl,*), half, two, dj(*), w, wf, halfw
-      logical :: qbar, is_umat, is_crys_pls
+      logical :: qbar, is_umat, is_crys_pls, do_transform
       data half, two / 0.5d00, 2.0d00 /
 c      
 !DIR$ ASSUME_ALIGNED tc:64, qn1:64, cep:64, cs:64, dj:64

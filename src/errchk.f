@@ -200,7 +200,7 @@ c
       double precision
      &   dumd
       logical numnod,numel,fatal,coor,elprop,elinc,constr,
-     &        block,is_matl_cohesive, is_umat
+     &        block,is_matl_cohesive, is_umat, is_matl_cp
       common/erflgs/ numnod,numel,fatal,coor,elprop,elinc,constr,block 
       common/errprm/ erprmd(10),erprmr(10),erprmi(10),erprms
       double precision

@@ -18,11 +18,13 @@ c
       subroutine inelbk(sbflg1,sbflg2)
       implicit integer (a-z)
 #include "common.main"
+      logical, external :: matchs, matchs_exact, label, numd
+      logical, external :: endcrd, numi, numr, string, match
       real dumr
       double precision dumd
       character dums, item*80
       logical sbflg1,sbflg2
-      logical integr, first_proc, endcrd, auto_blking, ok,
+      logical integr, first_proc, auto_blking, ok,
      &        display, auto_domains
       integer, allocatable :: checkblk(:)
       data first_proc /.true./
@@ -458,21 +460,21 @@ c
       if( blk_matnum .ne. matnum ) match = .false.
       if( .not. match ) return
 c
-      if( blk_geonon .ne. geonon ) match = .false.
+      if( blk_geonon .neqv. geonon ) match = .false.
       if( .not. match ) return
 c
       if( blk_intord .ne. intord ) match = .false.
       if( blk_intnum .ne. intnum ) match = .false.
       if( .not. match ) return
 c
-      if( blk_bbar .ne. bbar ) match = .false.
+      if( blk_bbar .neqv. bbar ) match = .false.
       if( .not. match ) return
 c
 c                       Mark modification -- also need to check if 
 c                       you are spoofing this material type for a
 c                       damage calculation or not.
 c
-      if ( blk_dmg .ne. dmg) match = .false.
+      if ( blk_dmg .neqv. dmg) match = .false.
       if( .not. match ) return
       return
       end subroutine inelbk_chk_match

@@ -16,7 +16,7 @@ c
 c
       subroutine initst(sbflg1,sbflg2)
 c
-      use ifport
+c      use ifport
       use elem_load_data, only : elem_loads
       use segmental_curves
       use main_data, only : output_packets, packet_file_name,
@@ -60,7 +60,7 @@ c
 #include "common.main"
       logical promsw,echosw,comsw,atrdsw,eolsw,eofsw,menusw,ptsw,signsw
       logical numel,numnod,sbflg1,sbflg2,fatal,coor,elprop,elinc,constr
-      logical block
+      logical block, solver_mkl_interactive
       common/erflgs/ numnod,numel,fatal,coor,elprop,elinc,constr,block
       real rzero
       double precision
@@ -129,7 +129,7 @@ c
       call setout(out)
       nblank= 80
       reclen= 80
-      endchr= 1h$
+      endchr= TOKEN_DOLL
       promsw= .false.
       echosw= .true.
       comsw= .false.
@@ -380,7 +380,7 @@ c
       solver_out_of_core = .false.
       solver_scr_dir(1:) = './warp3d_ooc_solver'
       solver_memory      = 500
-      solver_mkl_interative = .false.
+      solver_mkl_interactive = .false.
 c
 c     Never used - MM
 c      solver_threads = slv_threads

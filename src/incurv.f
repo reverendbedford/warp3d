@@ -21,7 +21,7 @@ c
 c                local declarations
 c
       logical matchs, numi, numd, sbflg1, sbflg2, new_line, local_debug,
-     &        endcrd, local_gp_model_flag
+     &        endcrd, local_gp_model_flag, found_points
       double precision
      &   stress_pt, strain_pt, dumd, ym, zero
       real dumr

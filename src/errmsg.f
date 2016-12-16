@@ -28,7 +28,7 @@ c
       double precision
      &   erprmd, dparam, hundred
       real erprmr, rparam
-      logical, save :: mess_61, write_msg_255
+      logical, save :: mess_61, write_msg_255, write_msg_321
       character *50 erprms
       data hundred /100.0/
       data mess_61, write_msg_255, write_msg_321
@@ -1458,7 +1458,7 @@ c
  1440 continue
       num_error = num_error + 1
 c
-      if(param.eq.4hpcm ) then
+      if(param.eq.TOKEN_PCM ) then
          shrtst= 'dyn stfn'
       else
          shrtst= '  mass  '

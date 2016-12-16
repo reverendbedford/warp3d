@@ -2,6 +2,9 @@
 
 #define MAX_SPAN 128
 
+/* This one is special.. */
+#define TOKEN_DOLL 1H$
+
 /* Replace Hollerith constants, thank god */
 #define TOKEN_CENT 100
 #define TOKEN_TRUE 101
@@ -22,4 +25,8 @@
 #define TOKEN_O22G 116
 #define TOKEN_O04P 117
 #define TOKEN_O05P 118
-
+#define TOKEN_PCM  119
+#define TOKEN_CURR 120
+#define TOKEN_FLSE 121
+#define TOKEN_GAUS 122
+#define TOKEN_LONG 123

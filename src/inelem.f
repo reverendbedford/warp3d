@@ -155,10 +155,10 @@ c                       strains, etc. and stress type to be output
 c                       to default values.
 c                       
       outloc= TOKEN_DEFA
-      strcon= 4HCURR
+      strcon= TOKEN_CURR
       intord= TOKEN_DEFA
       outfmt= TOKEN_DEFA
-      geonl = 4HFLSE
+      geonl = TOKEN_FLSE
       bbar  = TOKEN_TRUE
       surf  = TOKEN_DEFA
       defmat= .true.
@@ -285,7 +285,7 @@ c
 c                       output location is gauss points
 c
  540  continue
-      outloc= 4HGAUS
+      outloc= TOKEN_GAUS
       go to 520
 c
 c                       output location is node points
@@ -318,7 +318,7 @@ c                       output stress type is cauchy stresses.
 c                       this is the default for geonl.
 c
  560  continue
-      strcon= 4HCURR
+      strcon= TOKEN_CURR
       go to 520
 c
 c                       output stress type is 2nd_pk stresses.
@@ -350,7 +350,7 @@ c
 c                       output format is long.
 c                       
  575  continue
-      outfmt= 4HLONG
+      outfmt= TOKEN_LONG
       go to 520
 c
 c
@@ -422,7 +422,7 @@ c **********************************************************************
 c
 c
  585  continue
-      geonl= 4HFLSE
+      geonl= TOKEN_FLSE
       go to 520
 c
 c
@@ -450,7 +450,7 @@ c
       bbar = TOKEN_TRUE
       go to 520
  588  continue
-      bbar = 4HFLSE
+      bbar = TOKEN_FLSE
       go to 520
 c
 c
