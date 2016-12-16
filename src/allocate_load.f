@@ -24,6 +24,7 @@ c
 #include "common.main"
 c
       real zero     !  note:  single precision
+      logical debug
       data zero, debug /0.0, .false./
 c
       if ( debug ) write (*,*) ' >>> inside allocate_temp_load'

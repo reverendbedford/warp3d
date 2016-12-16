@@ -47,6 +47,7 @@ if (MKL_FOUND)
 endif()
 
 if(${CMAKE_Fortran_COMPILER_ID} STREQUAL "Intel")
+      add_definitions(-DCOMPILER_INTEL)
       # General flags
       set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fpconstant -fixed -72 -traceback")
 
@@ -55,6 +56,7 @@ if(${CMAKE_Fortran_COMPILER_ID} STREQUAL "Intel")
       # Debug build
       set(CMAKE_Fortran_FLAGS_DEBUG "-O0 -g -check all,noarg_temp_created -align array64byte")
 else()
+      add_definitions(-DCOMPILER_OTHER)
       message(WARNING "WARP3D not tested on compilers other than Intel!")
       # Optimized build
       set(CMAKE_Fortran_FLAGS_RELEASE "-O3")

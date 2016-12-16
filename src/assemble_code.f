@@ -131,7 +131,7 @@ c
       return
 c
  9000 format(2x,'... in count_profile_symmetric: ',
-     & \,10x,'ncoeff: ',i8)
+     & 10x,'ncoeff: ',i8)
 c
       end
 c     ****************************************************************
@@ -247,7 +247,7 @@ c
       integer :: i, next_k_index, previous_node, srow, scol, snode, 
      &           num_scols_used, j, totdof, ele_on_snode, erow, ecol,
      &           num_unique_cols, num_ele_on_snode
-      integer, parameter :: local_debug = .false.
+      logical, parameter :: local_debug = .false.
 c
 c
 c                 simulate assembly of the equilibrium equations directly
@@ -379,7 +379,7 @@ c
       return
 c      
  9000 format(2x,'... in build_col_sparse_symm: ',
-     & \,10x,'last_k_index, neqns: ',2i8)  
+     & 10x,'last_k_index, neqns: ',2i8)  
  9010 format(6x,12i8) 
 c
       end

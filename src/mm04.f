@@ -2936,8 +2936,9 @@ c                       locals
 c
       double precision, 
      & allocatable :: history_dump(:,:,:), one_elem_states(:)
-      integer :: relem, elnum, hist_size, blockno, cohesive_elem
-      logical :: do_a_block, cohesive_type
+      integer :: relem, elnum, hist_size, blockno 
+      integer :: cohesive_type
+      logical :: do_a_block, do_block, local_debug, cohesive_elem
       double precision :: zero
       data zero / 0.0d00 /
 c      

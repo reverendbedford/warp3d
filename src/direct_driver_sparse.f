@@ -56,8 +56,9 @@ c
 c                    local variables
 c
       integer :: code_vec(mxedof,mxvl), edest(mxedof,mxconn)
-      logical :: new_size, cpu_stats, save_solver
-     &           hypre_solver, mkl_asymmetric, mkl_symmetric 
+      logical :: new_size, cpu_stats
+      logical :: hypre_solver, mkl_asymmetric, mkl_symmetric 
+      logical, parameter :: save_solver = .false.
       logical, parameter :: local_debug = .false.,
      &                      local_debug2 = .false.
       double precision :: zero
@@ -70,7 +71,6 @@ c
 c
       data zero, old_neqns, old_ncoeff, cpu_stats
      &     / 0.0d00, 0, 0, .true. /
-      data save_solver / .false. /
 c      
 c    
       call cpu_time( start ) 
@@ -1317,6 +1317,7 @@ c
       subroutine store_csr_formatted(filename, n, nnz, row_ptrs,
      &                        col_indexes, values,rhs, diagonal)
 c     Input
+      character(len=*) filename
       integer :: n, nnz, row_ptrs, col_indexes
       double precision ::  diagonal, rhs, values
       dimension diagonal(*), rhs(*), values(*), row_ptrs(*),

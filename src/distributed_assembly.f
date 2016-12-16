@@ -2184,10 +2184,11 @@ c     *     written by: mcm 11/11                                       *
 c     *                                                                 *
 c     *******************************************************************
 c
-      integer function curr_neqns
+      function curr_neqns() result(cn)
             implicit none
+            integer :: cn
 
-            curr_neqns = -1
+            cn = -1
 
             return
 

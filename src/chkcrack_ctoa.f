@@ -205,6 +205,7 @@ c
      &     local_angles_list(max_local_list)
       dimension local_master_list(max_local_list)
       character * 3  special_char
+      character * 1  star
       data d32460, zero, two, star / 32460.0, 0.0, 2.0, '*'/
       logical use_init
 c

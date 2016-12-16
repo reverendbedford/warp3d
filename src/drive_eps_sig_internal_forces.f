@@ -300,7 +300,7 @@ c
       if( iter .eq. 0 .and. local_debug ) then
        write(out,*) '... drive sig-eps ifv for iter 0'
        do kkk = 1, min(100,nodof)
-         write(out,fmt="(i8,f15.8)") ( kkk, ifv(kkk) )
+         write(out,"(i8,f15.8)") kkk, ifv(kkk) 
        end do
       end if
 c
@@ -827,7 +827,7 @@ c
          write(out,9000) 11
          call die_abort
       end if
-	  local_work%trne = zero
+	local_work%trne = .false.
 c
       if( local_mt .eq. 10 .or. local_mt .eq. 11 ) then
         allocate( local_work%debug_flag(mxvl),

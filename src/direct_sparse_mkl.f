@@ -207,7 +207,7 @@ c
       real, external :: wcputime
       character(len=150) solver_directory 
       logical ::  pardiso_mat_defined, use_iterative
-      integer ::  mkl_ooc_flag
+      logical ::  mkl_ooc_flag
       save num_calls, pardiso_mat_defined
 c
 c                local for pardiso
@@ -273,10 +273,10 @@ c
 c              2a.-  create and write the out-of-core configuration
 c                    file if necessary.
 c
-      mkl_ooc_flag = 0
+      mkl_ooc_flag = .false.
       if( .not. use_iterative ) then
          if( solver_out_of_core ) then
-            mkl_ooc_flag = 1
+            mkl_ooc_flag = .true.
             call warp3d_dss_ooc( out, solver_memory, solver_scr_dir )
          end if 
       end if 
@@ -314,7 +314,12 @@ c                     Try iparm(13) = 1 in case of inappropriate accuracy
       iparm(24) = 1 ! use 2 level factorization
       iparm(25) = 0 ! parallel forward-backward solve
       iparm(27) = 1 !  check input matrix for errors (=1)
-      iparm(60) = mkl_ooc_flag 
+      if (mkl_ooc_flag) then
+        iparm(60) = 1
+      else
+        iparm(60) = 0
+      endif
+c      iparm(60) = mkl_ooc_flag 
       error = 0 ! initialize error flag
       msglvl = 0 ! print statistical information
       mtype = -2 ! symmetric, indefinite
@@ -396,9 +401,9 @@ c
      &               ier, ooc_flag, cpu_stats, iparm )
       implicit none
 c
-      logical::  cpu_stats
+      logical::  cpu_stats, ooc_flag
       real, external :: wcputime
-      integer :: iparm(*), mess_no, iout, ier, ooc_flag
+      integer :: iparm(*), mess_no, iout, ier
 c
       real :: start_factor_cpu_time
 c
@@ -407,7 +412,7 @@ c
         case( 1 )
          if( cpu_stats ) then 
             write(iout,9480) wcputime(1)
-            if ( ooc_flag .ne. 0 ) write(iout,9580)
+            if ( ooc_flag ) write(iout,9580)
          end if
 c
         case( 2 )
@@ -442,8 +447,8 @@ c
 
         case( 4 )
          if( cpu_stats ) then
-           if( ooc_flag .eq. 0 ) write(iout,9184)
-           if( ooc_flag .gt. 0 ) write(iout,9284)
+           if( .not. ooc_flag ) write(iout,9184)
+           if( ooc_flag ) write(iout,9284)
            if( iparm(4) .gt. 0 ) write(iout,9286)
            start_factor_cpu_time = wcputime(1)
          end if
@@ -646,8 +651,7 @@ c
          call die_gracefully
       end if
 c
-      open(unit=ifileno,dispose='keep',file='pardiso_ooc.cfg',
-     &         status='unknown')
+      open(unit=ifileno, file='pardiso_ooc.cfg')
       ii = len_trim( solver_scr_dir )
       write(ifileno,9000) solver_scr_dir(1:ii)
       write(ifileno,*) 'MKL_PARDISO_OOC_MAX_CORE_SIZE = ',

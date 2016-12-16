@@ -1976,7 +1976,7 @@ c
                               close(iodev)
                           end if
                           filen = smatprp(112,matnum)
-                          open(iodev,FILE=filen,READONLY)
+                          open(iodev,FILE=filen)
                           open_file = .true.
                         end if
                         ncry = imatprp(101,matnum)
@@ -2214,19 +2214,19 @@ c               Couldn't do this earlier, so check here
 c              
 c             INSERT AVERAGING
 c   
-              e_avg = e_avg + SNGL(c_array(cnum)%e)
-              nu_avg = nu_avg + SNGL(c_array(cnum)%nu)
+              e_avg = e_avg + DBLE(c_array(cnum)%e)
+              nu_avg = nu_avg + DBLE(c_array(cnum)%nu)
             end do
-            e_avg = e_avg / SNGL(ncrystals)
-            nu_avg = nu_avg / SNGL(ncrystals)
+            e_avg = e_avg / DBLE(ncrystals)
+            nu_avg = nu_avg / DBLE(ncrystals)
             props(7,j) = e_avg
             props(8,j) = nu_avg
             matprp(1,i) = matprp(1,i) + e_avg
             matprp(2,i) = matprp(2,i) + nu_avg
           end if
         end do
-        matprp(1,i) = matprp(1,i) / SNGL(ecount)
-        matprp(2,i) = matprp(2,i) / SNGL(ecount)
+        matprp(1,i) = matprp(1,i) / DBLE(ecount)
+        matprp(2,i) = matprp(2,i) / DBLE(ecount)
       end if
       end do
 c
@@ -2264,6 +2264,7 @@ c     *                                                              *
 c     ****************************************************************
 c
       subroutine init_random_seed()
+#ifdef COMPILER_INTEL
       use ifport, only: getpid
       implicit none
       integer, allocatable :: seed(:)
@@ -2310,4 +2311,10 @@ c
          end if
       end if
       call random_seed(put=seed)
+#else
+      implicit none
+
+      ! Need to figure something out
+
+#endif
       end subroutine init_random_seed
