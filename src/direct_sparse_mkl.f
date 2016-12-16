@@ -651,7 +651,12 @@ c
          call die_gracefully
       end if
 c
+#ifdef COMPILER_INTEL
+      open(unit=ifileno,dispose='keep',file='pardiso_ooc.cfg',
+     &         status='unknown')
+#else
       open(unit=ifileno, file='pardiso_ooc.cfg')
+#endif
       ii = len_trim( solver_scr_dir )
       write(ifileno,9000) solver_scr_dir(1:ii)
       write(ifileno,*) 'MKL_PARDISO_OOC_MAX_CORE_SIZE = ',
